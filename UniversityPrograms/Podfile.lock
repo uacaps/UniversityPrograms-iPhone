@@ -1,0 +1,24 @@
+PODS:
+  - Colours (5.3.0)
+  - DateTools (1.2.0)
+  - iOSWebserviceTemplate (1.0.0)
+  - MYBlurIntroductionView (1.0.3)
+  - SDWebImage (3.6):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.6)
+
+DEPENDENCIES:
+  - Colours
+  - DateTools
+  - iOSWebserviceTemplate
+  - MYBlurIntroductionView
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  Colours: 60b2e4dbdf2a0f077a98a07dae1ed18ac3333e21
+  DateTools: 1765514cd526b2c2ab491b7747df67e0a82e97c1
+  iOSWebserviceTemplate: 24de66e8bebe915c81b116eacff4c9d333bc67b9
+  MYBlurIntroductionView: 6caf60805eaa555538aba9e2615820fd6f07cd23
+  SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
+
+COCOAPODS: 0.33.1

@@ -1,0 +1,5 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Colours" "${PODS_ROOT}/Headers/DateTools" "${PODS_ROOT}/Headers/MYBlurIntroductionView" "${PODS_ROOT}/Headers/SDWebImage" "${PODS_ROOT}/Headers/iOSWebserviceTemplate"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/Colours" -isystem "${PODS_ROOT}/Headers/DateTools" -isystem "${PODS_ROOT}/Headers/MYBlurIntroductionView" -isystem "${PODS_ROOT}/Headers/SDWebImage" -isystem "${PODS_ROOT}/Headers/iOSWebserviceTemplate"
+OTHER_LDFLAGS = -ObjC -framework ImageIO -framework QuartzCore
+PODS_ROOT = ${SRCROOT}/Pods

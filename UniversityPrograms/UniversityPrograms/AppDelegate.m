@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "upcomingEventViewController.h"
+#import "commentViewController.h"
+#import "aboutUPViewController.h"
 
 @implementation AppDelegate
 
@@ -16,6 +19,25 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    //create the tab bar and set it to be the main view controller
+    self.baseTabBar = [[UITabBarController alloc]init];
+    [self.window setRootViewController:self.baseTabBar];
+   
+    
+    //create the view controllers
+    upcomingEventViewController *upcoming = [[upcomingEventViewController alloc] init];
+    aboutUPViewController *aboutUP = [[aboutUPViewController alloc] init];
+    commentViewController *comments = [[commentViewController alloc]init];
+    [self.baseTabBar setViewControllers:@[upcoming, aboutUP, comments]];
+    
+    
+    
+   
+    
+    upcoming.title=@"Upcoming Events";
+    aboutUP.title=@"About UP";
+    comments.title=@"Comments";
     return YES;
 }
 

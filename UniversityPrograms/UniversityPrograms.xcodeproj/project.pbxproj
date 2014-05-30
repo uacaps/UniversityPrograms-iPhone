@@ -27,6 +27,8 @@
 		1BACD3651937E39700DF7081 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BACD34D1937E39700DF7081 /* UIKit.framework */; };
 		1BACD36D1937E39700DF7081 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BACD36B1937E39700DF7081 /* InfoPlist.strings */; };
 		1BACD36F1937E39700DF7081 /* UniversityProgramsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BACD36E1937E39700DF7081 /* UniversityProgramsTests.m */; };
+		1BEC1BF9193914BE009DADEF /* UPDataRetrieval.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */; };
+		1BEC1BFF1939183C009DADEF /* NSObject+ObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC1BFE1939183C009DADEF /* NSObject+ObjectMap.m */; };
 		2CF2483000C64B358D0576BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E53E6222648D7B30F9FE7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,10 @@
 		1BACD36A1937E39700DF7081 /* UniversityProgramsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UniversityProgramsTests-Info.plist"; sourceTree = "<group>"; };
 		1BACD36C1937E39700DF7081 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BACD36E1937E39700DF7081 /* UniversityProgramsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniversityProgramsTests.m; sourceTree = "<group>"; };
+		1BEC1BF7193914BE009DADEF /* UPDataRetrieval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPDataRetrieval.h; sourceTree = "<group>"; };
+		1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPDataRetrieval.m; sourceTree = "<group>"; };
+		1BEC1BFD1939183C009DADEF /* NSObject+ObjectMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ObjectMap.h"; sourceTree = "<group>"; };
+		1BEC1BFE1939183C009DADEF /* NSObject+ObjectMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ObjectMap.m"; sourceTree = "<group>"; };
 		3FDA9E41BEF34AC4BD93F41E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C94E53E6222648D7B30F9FE7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -258,6 +264,10 @@
 		1BEC1BF61938FE24009DADEF /* Web Calls */ = {
 			isa = PBXGroup;
 			children = (
+				1BEC1BFD1939183C009DADEF /* NSObject+ObjectMap.h */,
+				1BEC1BFE1939183C009DADEF /* NSObject+ObjectMap.m */,
+				1BEC1BF7193914BE009DADEF /* UPDataRetrieval.h */,
+				1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */,
 			);
 			name = "Web Calls";
 			sourceTree = "<group>";
@@ -400,8 +410,10 @@
 				1B0A69161938D552005C821D /* commentViewController.m in Sources */,
 				1BACD35A1937E39700DF7081 /* AppDelegate.m in Sources */,
 				1BACD3561937E39700DF7081 /* main.m in Sources */,
+				1BEC1BF9193914BE009DADEF /* UPDataRetrieval.m in Sources */,
 				1B0A69211938DA8B005C821D /* upcomingEventsTableViewCell.m in Sources */,
 				1B0A69111938D520005C821D /* upcomingEventViewController.m in Sources */,
+				1BEC1BFF1939183C009DADEF /* NSObject+ObjectMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

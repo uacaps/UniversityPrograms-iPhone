@@ -29,6 +29,7 @@
     upcomingEventViewController *upcoming = [[upcomingEventViewController alloc] initWithNibName:NSStringFromClass([upcomingEventViewController class]) bundle:nil];
     aboutUPViewController *aboutUP = [[aboutUPViewController alloc] initWithNibName:NSStringFromClass([aboutUPViewController class]) bundle:nil];
     commentViewController *comments = [[commentViewController alloc]initWithNibName:NSStringFromClass([commentViewController class]) bundle:nil];
+    
     UINavigationController *upcomingNav = [[UINavigationController alloc] initWithRootViewController:upcoming];
     UINavigationController *aboutUPNav = [[UINavigationController alloc] initWithRootViewController:aboutUP];
     UINavigationController *commentsNav = [[UINavigationController alloc] initWithRootViewController:comments];

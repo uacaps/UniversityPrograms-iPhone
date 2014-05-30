@@ -33,7 +33,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   self.upComingEventsTable.backgroundColor = [UIColor charcoalColor];
+    self.upComingEventsTable.backgroundColor = [UIColor charcoalColor];
+    self.upComingEventsTable.separatorColor = [UIColor charcoalColor];
+    
     // Do any additional setup after loading the view from its nib.
 }
 

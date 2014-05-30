@@ -8,9 +8,10 @@
 
 #import "upcomingEventViewController.h"
 #import "upcomingEventsTableViewCell.h"
+#import "Colours.h"
 @interface upcomingEventViewController ()
 
-@property NSMutableArray *upcomingArray;
+@property NSArray *upcomingArray;
 
 @end
 
@@ -20,6 +21,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.upcomingArray = [[NSArray alloc] init];
+        self.upcomingArray = @[@"just checking", @"still checking",@"still checking",@"still checking"];
+        
         // Custom initialization
         
     }
@@ -29,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   self.upComingEventsTable.backgroundColor = [UIColor charcoalColor];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -49,17 +54,18 @@
 {
     
     // Return the number of rows in the section.
-    return 1;
+    return self.upcomingArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    tableView=self.upComingEventsTable;
     upcomingEventsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"upcomingCell"];
     
     if(!cell){
         cell = [[upcomingEventsTableViewCell alloc] init];
     }
-    
+    cell.eventTitle.text=[self.upcomingArray objectAtIndex:indexPath.row];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

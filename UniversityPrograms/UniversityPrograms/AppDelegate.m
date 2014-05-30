@@ -26,10 +26,15 @@
    
     
     //create the view controllers
-    upcomingEventViewController *upcoming = [[upcomingEventViewController alloc] init];
-    aboutUPViewController *aboutUP = [[aboutUPViewController alloc] init];
-    commentViewController *comments = [[commentViewController alloc]init];
-    [self.baseTabBar setViewControllers:@[upcoming, aboutUP, comments]];
+    upcomingEventViewController *upcoming = [[upcomingEventViewController alloc] initWithNibName:NSStringFromClass([upcomingEventViewController class]) bundle:nil];
+    aboutUPViewController *aboutUP = [[aboutUPViewController alloc] initWithNibName:NSStringFromClass([aboutUPViewController class]) bundle:nil];
+    commentViewController *comments = [[commentViewController alloc]initWithNibName:NSStringFromClass([commentViewController class]) bundle:nil];
+    UINavigationController *upcomingNav = [[UINavigationController alloc] initWithRootViewController:upcoming];
+    UINavigationController *aboutUPNav = [[UINavigationController alloc] initWithRootViewController:aboutUP];
+    UINavigationController *commentsNav = [[UINavigationController alloc] initWithRootViewController:comments];
+    
+    
+    [self.baseTabBar setViewControllers:@[upcomingNav, aboutUPNav, commentsNav]];
     
     
     

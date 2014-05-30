@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface upcomingEventsTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *eventTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *eventImage;
+
 
 @end

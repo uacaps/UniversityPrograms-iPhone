@@ -7,8 +7,19 @@
 //
 
 #import "upcomingEventsTableViewCell.h"
-
+#import "UIImageView+WebCache.h"
+#import "Colours.h"
 @implementation upcomingEventsTableViewCell
+
+-(instancetype)init{
+    self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([upcomingEventsTableViewCell class]) owner:nil options:nil][0];
+    self.backgroundColor= [UIColor creamColor];
+    NSURL *url = [NSURL URLWithString:@"http://wow.ua.edu/images/WOWlogo2014.png"];
+    [self.eventImage setImageWithURL:url];
+    
+    return self;
+}
+
 
 - (void)awakeFromNib
 {

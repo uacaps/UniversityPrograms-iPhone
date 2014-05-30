@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface aboutUPViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "upcomingEventViewController.h"
-#import "commentViewController.h"
+#import "UpcomingEventViewController.h"
+#import "MyUPViewController.h"
 #import "aboutUPViewController.h"
 
 @implementation AppDelegate
@@ -28,22 +28,15 @@
     //create the view controllers
     upcomingEventViewController *upcoming = [[upcomingEventViewController alloc] initWithNibName:NSStringFromClass([upcomingEventViewController class]) bundle:nil];
     aboutUPViewController *aboutUP = [[aboutUPViewController alloc] initWithNibName:NSStringFromClass([aboutUPViewController class]) bundle:nil];
-    commentViewController *comments = [[commentViewController alloc]initWithNibName:NSStringFromClass([commentViewController class]) bundle:nil];
+    MyUPViewController *myUP = [[MyUPViewController alloc]initWithNibName:NSStringFromClass([MyUPViewController class]) bundle:nil];
     
     UINavigationController *upcomingNav = [[UINavigationController alloc] initWithRootViewController:upcoming];
     UINavigationController *aboutUPNav = [[UINavigationController alloc] initWithRootViewController:aboutUP];
-    UINavigationController *commentsNav = [[UINavigationController alloc] initWithRootViewController:comments];
+    UINavigationController *myUPNav = [[UINavigationController alloc] initWithRootViewController:myUP];
     
     
-    [self.baseTabBar setViewControllers:@[upcomingNav, aboutUPNav, commentsNav]];
+    [self.baseTabBar setViewControllers:@[upcomingNav, aboutUPNav, myUPNav]];
     
-    
-    
-   
-    
-    upcoming.title=@"Upcoming Events";
-    aboutUP.title=@"About UP";
-    comments.title=@"Comments";
     return YES;
 }
 

@@ -27,6 +27,14 @@
 		1BACD3651937E39700DF7081 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BACD34D1937E39700DF7081 /* UIKit.framework */; };
 		1BACD36D1937E39700DF7081 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BACD36B1937E39700DF7081 /* InfoPlist.strings */; };
 		1BACD36F1937E39700DF7081 /* UniversityProgramsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BACD36E1937E39700DF7081 /* UniversityProgramsTests.m */; };
+		1BAD1A38193CC2B9006D24AD /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD1A37193CC2B9006D24AD /* Event.m */; };
+		1BAD1A3B193CC2C9006D24AD /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD1A3A193CC2C9006D24AD /* Comment.m */; };
+		1BAD1A43193CCCBA006D24AD /* MyUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD1A41193CCCBA006D24AD /* MyUPViewController.m */; };
+		1BAD1A44193CCCBA006D24AD /* MyUPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD1A42193CCCBA006D24AD /* MyUPViewController.xib */; };
+		1BAD1A49193CCDEA006D24AD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD1A47193CCDEA006D24AD /* UserInfoViewController.m */; };
+		1BAD1A4A193CCDEA006D24AD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD1A48193CCDEA006D24AD /* UserInfoViewController.xib */; };
+		1BAD1A4F193CD385006D24AD /* SpecificEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD1A4D193CD385006D24AD /* SpecificEventViewController.m */; };
+		1BAD1A50193CD385006D24AD /* SpecificEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD1A4E193CD385006D24AD /* SpecificEventViewController.xib */; };
 		1BEC1BF9193914BE009DADEF /* UPDataRetrieval.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */; };
 		1BEC1BFF1939183C009DADEF /* NSObject+ObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC1BFE1939183C009DADEF /* NSObject+ObjectMap.m */; };
 		2CF2483000C64B358D0576BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E53E6222648D7B30F9FE7 /* libPods.a */; };
@@ -71,6 +79,19 @@
 		1BACD36A1937E39700DF7081 /* UniversityProgramsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UniversityProgramsTests-Info.plist"; sourceTree = "<group>"; };
 		1BACD36C1937E39700DF7081 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BACD36E1937E39700DF7081 /* UniversityProgramsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniversityProgramsTests.m; sourceTree = "<group>"; };
+		1BAD1A36193CC2B9006D24AD /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		1BAD1A37193CC2B9006D24AD /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		1BAD1A39193CC2C9006D24AD /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		1BAD1A3A193CC2C9006D24AD /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		1BAD1A40193CCCBA006D24AD /* MyUPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUPViewController.h; sourceTree = "<group>"; };
+		1BAD1A41193CCCBA006D24AD /* MyUPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUPViewController.m; sourceTree = "<group>"; };
+		1BAD1A42193CCCBA006D24AD /* MyUPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyUPViewController.xib; sourceTree = "<group>"; };
+		1BAD1A46193CCDEA006D24AD /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		1BAD1A47193CCDEA006D24AD /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		1BAD1A48193CCDEA006D24AD /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
+		1BAD1A4C193CD385006D24AD /* SpecificEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificEventViewController.h; sourceTree = "<group>"; };
+		1BAD1A4D193CD385006D24AD /* SpecificEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificEventViewController.m; sourceTree = "<group>"; };
+		1BAD1A4E193CD385006D24AD /* SpecificEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecificEventViewController.xib; sourceTree = "<group>"; };
 		1BEC1BF7193914BE009DADEF /* UPDataRetrieval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPDataRetrieval.h; sourceTree = "<group>"; };
 		1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPDataRetrieval.m; sourceTree = "<group>"; };
 		1BEC1BFD1939183C009DADEF /* NSObject+ObjectMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ObjectMap.h"; sourceTree = "<group>"; };
@@ -107,9 +128,8 @@
 		1B0A69031938D434005C821D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1BAD1A3C193CCB9E006D24AD /* MyUP */,
 				1B0A69181938D575005C821D /* about */,
-				1B0A690D1938D4BD005C821D /* events */,
-				1B0A690C1938D4AE005C821D /* comments/suggestion box */,
 				1B0A690B1938D4A5005C821D /* upcoming events */,
 			);
 			name = Controllers;
@@ -151,6 +171,7 @@
 		1B0A690B1938D4A5005C821D /* upcoming events */ = {
 			isa = PBXGroup;
 			children = (
+				1BAD1A4B193CD2AA006D24AD /* event */,
 				1B0A690E1938D520005C821D /* upcomingEventViewController.h */,
 				1B0A690F1938D520005C821D /* upcomingEventViewController.m */,
 				1B0A69101938D520005C821D /* upcomingEventViewController.xib */,
@@ -166,13 +187,6 @@
 				1B0A69151938D552005C821D /* commentViewController.xib */,
 			);
 			name = "comments/suggestion box";
-			sourceTree = "<group>";
-		};
-		1B0A690D1938D4BD005C821D /* events */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = events;
 			sourceTree = "<group>";
 		};
 		1B0A69181938D575005C821D /* about */ = {
@@ -220,6 +234,7 @@
 		1BACD34F1937E39700DF7081 /* UniversityPrograms */ = {
 			isa = PBXGroup;
 			children = (
+				1BAD1A35193CC2A2006D24AD /* Models */,
 				1BEC1BF61938FE24009DADEF /* Web Calls */,
 				1B0A69081938D474005C821D /* Views */,
 				1B0A69051938D448005C821D /* misc */,
@@ -259,6 +274,49 @@
 				1BACD36B1937E39700DF7081 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1BAD1A35193CC2A2006D24AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD1A36193CC2B9006D24AD /* Event.h */,
+				1BAD1A37193CC2B9006D24AD /* Event.m */,
+				1BAD1A39193CC2C9006D24AD /* Comment.h */,
+				1BAD1A3A193CC2C9006D24AD /* Comment.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1BAD1A3C193CCB9E006D24AD /* MyUP */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD1A40193CCCBA006D24AD /* MyUPViewController.h */,
+				1BAD1A41193CCCBA006D24AD /* MyUPViewController.m */,
+				1BAD1A42193CCCBA006D24AD /* MyUPViewController.xib */,
+				1BAD1A45193CCDD1006D24AD /* UserInfo */,
+				1B0A690C1938D4AE005C821D /* comments/suggestion box */,
+			);
+			name = MyUP;
+			sourceTree = "<group>";
+		};
+		1BAD1A45193CCDD1006D24AD /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD1A46193CCDEA006D24AD /* UserInfoViewController.h */,
+				1BAD1A47193CCDEA006D24AD /* UserInfoViewController.m */,
+				1BAD1A48193CCDEA006D24AD /* UserInfoViewController.xib */,
+			);
+			name = UserInfo;
+			sourceTree = "<group>";
+		};
+		1BAD1A4B193CD2AA006D24AD /* event */ = {
+			isa = PBXGroup;
+			children = (
+				1BAD1A4C193CD385006D24AD /* SpecificEventViewController.h */,
+				1BAD1A4D193CD385006D24AD /* SpecificEventViewController.m */,
+				1BAD1A4E193CD385006D24AD /* SpecificEventViewController.xib */,
+			);
+			name = event;
 			sourceTree = "<group>";
 		};
 		1BEC1BF61938FE24009DADEF /* Web Calls */ = {
@@ -354,7 +412,10 @@
 				1BACD3541937E39700DF7081 /* InfoPlist.strings in Resources */,
 				1BACD35C1937E39700DF7081 /* Images.xcassets in Resources */,
 				1B0A69221938DA8B005C821D /* upcomingEventsTableViewCell.xib in Resources */,
+				1BAD1A4A193CCDEA006D24AD /* UserInfoViewController.xib in Resources */,
+				1BAD1A44193CCCBA006D24AD /* MyUPViewController.xib in Resources */,
 				1B0A691D1938D58C005C821D /* aboutUPViewController.xib in Resources */,
+				1BAD1A50193CD385006D24AD /* SpecificEventViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,9 +467,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BAD1A4F193CD385006D24AD /* SpecificEventViewController.m in Sources */,
 				1B0A691C1938D58C005C821D /* aboutUPViewController.m in Sources */,
+				1BAD1A43193CCCBA006D24AD /* MyUPViewController.m in Sources */,
+				1BAD1A38193CC2B9006D24AD /* Event.m in Sources */,
 				1B0A69161938D552005C821D /* commentViewController.m in Sources */,
 				1BACD35A1937E39700DF7081 /* AppDelegate.m in Sources */,
+				1BAD1A49193CCDEA006D24AD /* UserInfoViewController.m in Sources */,
+				1BAD1A3B193CC2C9006D24AD /* Comment.m in Sources */,
 				1BACD3561937E39700DF7081 /* main.m in Sources */,
 				1BEC1BF9193914BE009DADEF /* UPDataRetrieval.m in Sources */,
 				1B0A69211938DA8B005C821D /* upcomingEventsTableViewCell.m in Sources */,

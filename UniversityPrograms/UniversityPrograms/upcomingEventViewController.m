@@ -9,6 +9,10 @@
 #import "upcomingEventViewController.h"
 #import "upcomingEventsTableViewCell.h"
 #import "Colours.h"
+#import "UPDataRetrieval.h"
+#import "NSObject+ObjectMap.h"
+#import "Event.h"
+#import "SpecificEventViewController.h"
 @interface upcomingEventViewController ()
 
 @property NSArray *upcomingArray;
@@ -21,10 +25,11 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.title=@"Upcoming Events";
         self.upcomingArray = [[NSArray alloc] init];
         self.upcomingArray = @[@"just checking", @"still checking",@"still checking",@"still checking"];
+        //[self loadEvents];
         
-        // Custom initialization
         
     }
     return self;
@@ -38,6 +43,18 @@
     
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)loadEvents{
+    [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"setCWID"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        _upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.upComingEventsTable reloadData];
+            
+        });
+    }];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -71,7 +88,9 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] init];
+    [self.navigationController pushViewController:tappedEvent animated:YES];
+    [self.upComingEventsTable reloadData];
 }
 
 

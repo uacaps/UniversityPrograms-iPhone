@@ -403,7 +403,7 @@ static const char * getPropertyType(objc_property_t property) {
     while ((attribute = strsep(&state, ",")) != NULL) {
         if (attribute[0] == 'T' && attribute[1] != '@') {
             // it's a C primitive type:
-            /*
+        
              if you want a list of what will be returned for these primitives, search online for
              "objective-c" "Property Attribute Description Examples"
              apple docs list plenty of examples of what you get for int "i", long "l", unsigned "I", struct, etc.

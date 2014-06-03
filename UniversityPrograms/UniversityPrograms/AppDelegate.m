@@ -10,6 +10,7 @@
 #import "UpcomingEventViewController.h"
 #import "MyUPViewController.h"
 #import "aboutUPViewController.h"
+#import "Colours.h"
 
 @implementation AppDelegate
 
@@ -31,10 +32,16 @@
     MyUPViewController *myUP = [[MyUPViewController alloc]initWithNibName:NSStringFromClass([MyUPViewController class]) bundle:nil];
     
     UINavigationController *upcomingNav = [[UINavigationController alloc] initWithRootViewController:upcoming];
+    upcomingNav.navigationBar.barStyle=UIBarStyleBlackTranslucent;
+    
     UINavigationController *aboutUPNav = [[UINavigationController alloc] initWithRootViewController:aboutUP];
+    aboutUPNav.navigationBar.barStyle=UIBarStyleBlackOpaque;
+    
     UINavigationController *myUPNav = [[UINavigationController alloc] initWithRootViewController:myUP];
+    myUPNav.navigationBar.barStyle=UIBarStyleBlackTranslucent;
     
-    
+    [[UITabBar appearance] setBarStyle:UIBarStyleBlackOpaque];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
     [self.baseTabBar setViewControllers:@[upcomingNav, aboutUPNav, myUPNav]];
     
     return YES;

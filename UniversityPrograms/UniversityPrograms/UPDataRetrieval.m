@@ -23,7 +23,7 @@ NSOperationQueue *opQueue;
 
 
 +(void)getEvents:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event";
+    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event/events";
     NSString *urlQueryString = [NSString stringWithFormat:@"?cwid=%@", cwid];
     NSString *finalQueryString = [NSString stringWithFormat:@"%@%@", urlString, urlQueryString];
     
@@ -35,7 +35,7 @@ NSOperationQueue *opQueue;
 }
 
 +(void)getSpecificEvent:(NSString *)cwid eventID:(NSString *)eventID completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event";
+    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event/getEvent";
     NSString *urlQueryString = [NSString stringWithFormat:@"?eventId=%@&cwid=%@", eventID, cwid];
     NSString *finalQueryString = [NSString stringWithFormat:@"%@%@", urlString, urlQueryString];
     
@@ -48,7 +48,7 @@ NSOperationQueue *opQueue;
 
 
 +(void)rsvpEvent:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event";
+    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event/rsvp";
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
@@ -58,7 +58,7 @@ NSOperationQueue *opQueue;
 
 
 +(void)submitComment:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Comment";
+    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Comment/addcomment";
     
     NSURL *url = [NSURL URLWithString:urlString];
     
@@ -69,7 +69,7 @@ NSOperationQueue *opQueue;
 
 
 +(void)retrieveComments:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Comment";
+    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Comment/priorFeeback";
     NSString *urlQueryString = [NSString stringWithFormat:@"?cwid=%@", cwid];
     NSString *finalQueryString = [NSString stringWithFormat:@"%@%@", urlString, urlQueryString];
     

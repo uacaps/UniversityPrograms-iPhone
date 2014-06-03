@@ -8,8 +8,19 @@
 
 #import "SpecificEventViewController.h"
 #import "Event.h"
+#import "Colours.h"
+#import "UIImageView+WebCache.h"
 
 @interface SpecificEventViewController ()
+@property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *TitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *StartTime;
+@property (weak, nonatomic) IBOutlet UIImageView *headerImage;
+
+@property (weak, nonatomic) IBOutlet UITextView *DescriptionBox;
+@property (weak, nonatomic) IBOutlet UIButton *rsvpButton;
+
+
 @property Event *specifiedEvent;
 @end
 
@@ -21,6 +32,7 @@
         self.title=@"Event";
         self.specifiedEvent=event;
     }
+
     return self;
 }
 
@@ -32,12 +44,20 @@
         self.title=@"Event";
         
     }
+    
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSURL *url = [NSURL URLWithString:@"http://sa.ua.edu/utilities/pages/gallery/galleries/University%20Programs/Movie%20Series/Spiderman/_thumbs/PA1F25C7.jpg"];
+    [self.headerImage setImageWithURL:url];
+    self.mainScrollView.backgroundColor = [UIColor crimsonColor];
+    self.mainScrollView.showsVerticalScrollIndicator=YES;
+    self.mainScrollView.scrollEnabled=YES;
+    self.mainScrollView.contentSize=CGSizeMake(320,364);
+    
     // Do any additional setup after loading the view from its nib.
 }
 

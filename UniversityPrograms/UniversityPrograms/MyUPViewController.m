@@ -9,6 +9,8 @@
 #import "MyUPViewController.h"
 #import "commentViewController.h"
 #import "UserInfoViewController.h"
+#import "PriorFeedbackViewController.h"
+
 
 @interface MyUPViewController ()
 
@@ -35,10 +37,18 @@
     UserInfoViewController *userInfo = [[UserInfoViewController alloc] init];
     [self.navigationController pushViewController:userInfo animated:YES];
 }
+- (IBAction)didSelectPriorFeedback:(id)sender {
+    PriorFeedbackViewController *feedbackInfo = [[PriorFeedbackViewController alloc] init];
+    [self.navigationController pushViewController:feedbackInfo animated:YES];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+
+    self.view.backgroundColor=[UIColor blackColor];
+    
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -16,7 +16,7 @@
 @interface upcomingEventViewController ()
 
 @property NSArray *upcomingArray;
-
+@property UIRefreshControl *refreshControl;
 @end
 
 @implementation upcomingEventViewController
@@ -27,7 +27,7 @@
     if (self) {
         self.title=@"Upcoming Events";
         self.upcomingArray = [[NSArray alloc] init];
-        self.upcomingArray = @[@"just checking", @"still checking",@"still checking",@"still checking"];
+        self.upcomingArray = @[@"just checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking"];
         //[self loadEvents];
         
         
@@ -40,11 +40,14 @@
     [super viewDidLoad];
     self.upComingEventsTable.backgroundColor = [UIColor charcoalColor];
     self.upComingEventsTable.separatorColor = [UIColor charcoalColor];
-    
+    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.upComingEventsTable.frame.size.width, 60)];
+    [self.refreshControl addTarget:self action:@selector(loadEvents) forControlEvents:UIControlEventValueChanged];
+    [self.upComingEventsTable addSubview:self.refreshControl];
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)loadEvents{
+    /*
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"setCWID"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         _upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -52,6 +55,10 @@
             
         });
     }];
+     */
+    [self.upComingEventsTable reloadData];
+    [self.refreshControl endRefreshing];
+    
 }
 
 

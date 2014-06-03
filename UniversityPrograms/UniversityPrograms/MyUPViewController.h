@@ -11,5 +11,7 @@
 @interface MyUPViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIButton *userInfoButton;
+@property (weak, nonatomic) IBOutlet UIButton *priorFeedback;
+
 
 @end

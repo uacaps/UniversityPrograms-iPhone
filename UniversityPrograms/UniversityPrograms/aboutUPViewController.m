@@ -10,6 +10,9 @@
 
 @interface aboutUPViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+
+
 @end
 
 @implementation aboutUPViewController
@@ -19,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title=@"About UP";
+        
         // Custom initialization
     }
     return self;
@@ -28,6 +32,11 @@
 {
     [super viewDidLoad];
     
+    self.mainScrollView.showsVerticalScrollIndicator=YES;
+    self.mainScrollView.scrollEnabled=YES;
+    self.mainScrollView.contentSize=CGSizeMake(320,960);
+    self.view.backgroundColor = [UIColor blackColor];
+    //[self.view addSubview:self.scrollView];
     // Do any additional setup after loading the view from its nib.
 }
 

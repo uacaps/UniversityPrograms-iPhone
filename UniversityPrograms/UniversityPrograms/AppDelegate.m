@@ -22,8 +22,10 @@
     [self.window makeKeyAndVisible];
     
     //create the tab bar and set it to be the main view controller
-    self.baseTabBar = [[UITabBarController alloc]init];
-    [self.window setRootViewController:self.baseTabBar];
+    self.baseTabBarController = [[UITabBarController alloc]init];
+    self.baseTabBarController.tabBar.translucent = NO;
+    //[self.baseTabBar]
+    [self.window setRootViewController:self.baseTabBarController];
    
     
     //create the view controllers
@@ -32,17 +34,25 @@
     MyUPViewController *myUP = [[MyUPViewController alloc]initWithNibName:NSStringFromClass([MyUPViewController class]) bundle:nil];
     
     UINavigationController *upcomingNav = [[UINavigationController alloc] initWithRootViewController:upcoming];
-    upcomingNav.navigationBar.barStyle=UIBarStyleBlackTranslucent;
+    upcomingNav.navigationBar.translucent=NO;
+    upcomingNav.navigationBar.barTintColor=[UIColor blackColor];
+    upcomingNav.navigationBar.barStyle=UIBarStyleBlackOpaque;
     
     UINavigationController *aboutUPNav = [[UINavigationController alloc] initWithRootViewController:aboutUP];
+    aboutUPNav.navigationBar.barTintColor=[UIColor blackColor];
+    aboutUPNav.navigationBar.translucent=NO;
     aboutUPNav.navigationBar.barStyle=UIBarStyleBlackOpaque;
     
     UINavigationController *myUPNav = [[UINavigationController alloc] initWithRootViewController:myUP];
-    myUPNav.navigationBar.barStyle=UIBarStyleBlackTranslucent;
+    myUPNav.navigationBar.translucent=NO;
+    myUPNav.navigationBar.barTintColor=[UIColor blackColor];
+    myUPNav.navigationBar.barStyle=UIBarStyleBlackOpaque;
+    
+    
     
     [[UITabBar appearance] setBarStyle:UIBarStyleBlackOpaque];
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
-    [self.baseTabBar setViewControllers:@[upcomingNav, aboutUPNav, myUPNav]];
+    [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, myUPNav]];
     
     return YES;
 }

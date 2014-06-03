@@ -10,12 +10,14 @@
 #import "Event.h"
 #import "Colours.h"
 #import "UIImageView+WebCache.h"
+#import "UserInfoViewController.h"
 
 @interface SpecificEventViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *TitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *StartTime;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
+@property (weak, nonatomic) IBOutlet UILabel *rsvpLabel;
 
 @property (weak, nonatomic) IBOutlet UITextView *DescriptionBox;
 @property (weak, nonatomic) IBOutlet UIButton *rsvpButton;
@@ -31,6 +33,7 @@
     if(self){
         self.title=@"Event";
         self.specifiedEvent=event;
+        
     }
 
     return self;
@@ -57,7 +60,7 @@
     self.mainScrollView.showsVerticalScrollIndicator=YES;
     self.mainScrollView.scrollEnabled=YES;
     self.mainScrollView.contentSize=CGSizeMake(320,364);
-    
+    self.rsvpLabel.alpha=0.0f;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -65,6 +68,28 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)addAlertView{
+    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"User Info Not Configured" message:@"Please enter your student information, or at least your CWID, before RSVPing. Thank you." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [saveAlert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    UserInfoViewController *tempInfoController =[[UserInfoViewController alloc]init];
+    [self.navigationController pushViewController:tempInfoController animated:YES];
+    
+}
+
+- (IBAction)didTapRSVP:(id)sender {
+    if([[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]==nil||[[[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]isEqualToString:@""]){
+        [self addAlertView];
+    }
+    else{
+        self.rsvpButton.alpha=0.0f;
+        self.rsvpLabel.alpha=1.0f;
+    }
+    
 }
 
 @end

@@ -13,7 +13,7 @@
 
 -(instancetype)init{
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PriorFeedbackTableViewCell class]) owner:nil options:nil][0];
-    self.backgroundColor= [UIColor creamColor];
+    self.backgroundColor= [UIColor whiteColor];
     NSURL *url = [NSURL URLWithString:@"http://wow.ua.edu/images/WOWlogo2014.png"];
     
     

@@ -24,6 +24,7 @@
     if (self) {
         self.title=@"My UP";
     }
+    self.tabBarItem.image= [UIImage imageNamed:@"settings-33.png"];
     return self;
 }
 

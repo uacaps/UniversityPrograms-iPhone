@@ -34,10 +34,10 @@
 {
     [super viewDidLoad];
     
-    self.firstName.text=[[NSUserDefaults standardUserDefaults] valueForKey:@"userFirstName"];
-    self.lastName.text=[[NSUserDefaults standardUserDefaults] valueForKey:@"userLastName"];
-    self.cwid.text=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
-    self.email.text=[[NSUserDefaults standardUserDefaults] valueForKey:@"email"];
+    self.firstName.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"];
+    self.lastName.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"];
+    self.cwid.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
+    self.email.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
     // Do any additional setup after loading the view from its nib.
     
     

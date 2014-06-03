@@ -16,7 +16,7 @@
     self.backgroundColor= [UIColor creamColor];
     NSURL *url = [NSURL URLWithString:@"http://wow.ua.edu/images/WOWlogo2014.png"];
     [self.eventImage setImageWithURL:url];
-    
+    self.eventImage.backgroundColor=[UIColor creamColor];
     
     return self;
 }

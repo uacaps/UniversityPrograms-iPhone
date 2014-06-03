@@ -7,7 +7,11 @@
 //
 #import <QuartzCore/QuartzCore.h>
 #import "commentViewController.h"
+#import "UPDataRetrieval.h"
 #import "Colours.h"
+#import "Comment.h"
+#import "NSObject+ObjectMap.h"
+
 @interface commentViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *subjectBox;
 @property (weak, nonatomic) IBOutlet UITextField *emailBox;
@@ -40,19 +44,19 @@
     //self.commentBox.layer.borderWidth=2.0f;
     //self.commentBox.layer.borderColor=[[UIColor grayColor]CGColor];
     self.emailBox.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"email"];
-    /*
-    UIScrollView *scrollview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width)];
-    scrollview.backgroundColor=[UIColor burntOrangeColor];
-    scrollview.scrollEnabled=YES;
-    scrollview.pagingEnabled=YES;
-    scrollview.showsVerticalScrollIndicator=YES;
-    scrollview.contentSize=CGSizeMake(self.view.bounds.size.width*2, self.view.bounds.size.height*2);
-    [self.view addSubview:scrollview];
-     */
+    
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)didTapSubmit:(id)sender {
     [self addAlertView];
+    Comment *comment= [[Comment alloc] init];
+    comment.CWID=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
+    comment.Title=self.subjectBox.text;
+    comment.email=self.emailBox.text;
+    comment.CommentText=self.commentBox.text;
+    [UPDataRetrieval submitComment:comment.CWID comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        [self addAlertView];
+    }];
     
 }
 
@@ -61,6 +65,12 @@
     
     [textField resignFirstResponder];
     return YES;
+}
+- (IBAction)didStartEditingFirst:(id)sender {
+    self.navigationItem.rightBarButtonItem=Nil;
+}
+- (IBAction)didStartEditingLast:(id)sender {
+    self.navigationItem.rightBarButtonItem=Nil;
 }
 
 
@@ -89,5 +99,15 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)doneButtonOps{
+    //self.commentBox.text=@"";
+    [self.commentBox resignFirstResponder];
+    self.navigationItem.rightBarButtonItem=Nil;
+}
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonOps)];
+    
+}
+
 
 @end

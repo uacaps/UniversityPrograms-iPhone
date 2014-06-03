@@ -19,6 +19,9 @@
 		1BA9FE64193E2114008F8981 /* PriorFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE62193E2114008F8981 /* PriorFeedbackViewController.xib */; };
 		1BA9FE68193E244B008F8981 /* PriorFeedbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA9FE66193E244B008F8981 /* PriorFeedbackTableViewCell.m */; };
 		1BA9FE69193E244B008F8981 /* PriorFeedbackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE67193E244B008F8981 /* PriorFeedbackTableViewCell.xib */; };
+		1BA9FE6F193E643F008F8981 /* about-32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE6E193E643F008F8981 /* about-32@2x.png */; };
+		1BA9FE71193E64E4008F8981 /* calendar-32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE70193E64E4008F8981 /* calendar-32@2x.png */; };
+		1BA9FE73193E65D3008F8981 /* settings-33@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE72193E65D3008F8981 /* settings-33@2x.png */; };
 		1BACD34A1937E39700DF7081 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BACD3491937E39700DF7081 /* Foundation.framework */; };
 		1BACD34C1937E39700DF7081 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BACD34B1937E39700DF7081 /* CoreGraphics.framework */; };
 		1BACD34E1937E39700DF7081 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BACD34D1937E39700DF7081 /* UIKit.framework */; };
@@ -73,6 +76,9 @@
 		1BA9FE65193E244B008F8981 /* PriorFeedbackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorFeedbackTableViewCell.h; sourceTree = "<group>"; };
 		1BA9FE66193E244B008F8981 /* PriorFeedbackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorFeedbackTableViewCell.m; sourceTree = "<group>"; };
 		1BA9FE67193E244B008F8981 /* PriorFeedbackTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriorFeedbackTableViewCell.xib; sourceTree = "<group>"; };
+		1BA9FE6E193E643F008F8981 /* about-32@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-32@2x.png"; sourceTree = "<group>"; };
+		1BA9FE70193E64E4008F8981 /* calendar-32@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-32@2x.png"; sourceTree = "<group>"; };
+		1BA9FE72193E65D3008F8981 /* settings-33@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-33@2x.png"; sourceTree = "<group>"; };
 		1BACD3461937E39700DF7081 /* UniversityPrograms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversityPrograms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BACD3491937E39700DF7081 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1BACD34B1937E39700DF7081 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,9 +144,9 @@
 		1B0A69031938D434005C821D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1BAD1A3C193CCB9E006D24AD /* MyUP */,
-				1B0A69181938D575005C821D /* about */,
 				1B0A690B1938D4A5005C821D /* upcoming events */,
+				1B0A69181938D575005C821D /* about */,
+				1BAD1A3C193CCB9E006D24AD /* MyUP */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -257,13 +263,13 @@
 		1BACD34F1937E39700DF7081 /* UniversityPrograms */ = {
 			isa = PBXGroup;
 			children = (
+				1BACD3581937E39700DF7081 /* AppDelegate.h */,
+				1BACD3591937E39700DF7081 /* AppDelegate.m */,
 				1BAD1A35193CC2A2006D24AD /* Models */,
 				1BEC1BF61938FE24009DADEF /* Web Calls */,
 				1B0A69081938D474005C821D /* Views */,
 				1B0A69051938D448005C821D /* misc */,
 				1B0A69031938D434005C821D /* Controllers */,
-				1BACD3581937E39700DF7081 /* AppDelegate.h */,
-				1BACD3591937E39700DF7081 /* AppDelegate.m */,
 				1BACD35B1937E39700DF7081 /* Images.xcassets */,
 				1BACD3501937E39700DF7081 /* Supporting Files */,
 			);
@@ -273,6 +279,9 @@
 		1BACD3501937E39700DF7081 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1BA9FE72193E65D3008F8981 /* settings-33@2x.png */,
+				1BA9FE70193E64E4008F8981 /* calendar-32@2x.png */,
+				1BA9FE6E193E643F008F8981 /* about-32@2x.png */,
 				1BACD3511937E39700DF7081 /* UniversityPrograms-Info.plist */,
 				1BACD3521937E39700DF7081 /* InfoPlist.strings */,
 				1BACD3551937E39700DF7081 /* main.m */,
@@ -438,10 +447,13 @@
 				1BA9FE64193E2114008F8981 /* PriorFeedbackViewController.xib in Resources */,
 				1B0A69221938DA8B005C821D /* upcomingEventsTableViewCell.xib in Resources */,
 				1BA9FE69193E244B008F8981 /* PriorFeedbackTableViewCell.xib in Resources */,
+				1BA9FE6F193E643F008F8981 /* about-32@2x.png in Resources */,
 				1BAD1A4A193CCDEA006D24AD /* UserInfoViewController.xib in Resources */,
 				1BAD1A44193CCCBA006D24AD /* MyUPViewController.xib in Resources */,
 				1BA9FE5E193E1D28008F8981 /* aboutUPViewController.xib in Resources */,
 				1BAD1A50193CD385006D24AD /* SpecificEventViewController.xib in Resources */,
+				1BA9FE73193E65D3008F8981 /* settings-33@2x.png in Resources */,
+				1BA9FE71193E64E4008F8981 /* calendar-32@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface commentViewController : UIViewController
+@interface commentViewController : UIViewController<UITextViewDelegate>
 
 
 

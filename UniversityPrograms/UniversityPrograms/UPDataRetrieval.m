@@ -7,9 +7,7 @@
 //
 
 #import "UPDataRetrieval.h"
-
-#import "UPDataRetrieval.h"
-
+#import "NSObject+ObjectMap.h"
 @implementation UPDataRetrieval
 NSOperationQueue *opQueue;
 
@@ -47,22 +45,31 @@ NSOperationQueue *opQueue;
 }
 
 
-+(void)rsvpEvent:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
++(void)rsvpEvent:(NSString *)cwid event:(Event *)event completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
     NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event/rsvp";
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
+    NSData *eventData= [event JSONData];
+    [request setHTTPBody:eventData];
     [NSURLConnection sendAsynchronousRequest:request queue:[UPDataRetrieval _operationQueue] completionHandler:block];
 }
 
 
-+(void)submitComment:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
++(void)submitComment:(NSString *)cwid comment:(Comment *)comment completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
     NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Comment/addcomment";
     
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSData *commentData = [comment JSONData];
+    [request setHTTPBody:commentData];
+    
     
     [NSURLConnection sendAsynchronousRequest:request queue:[UPDataRetrieval _operationQueue] completionHandler:block];
 }

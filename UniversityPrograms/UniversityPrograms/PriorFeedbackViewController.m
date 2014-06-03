@@ -22,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title=@"Prior Feedback";
+        self.commentArray=[[NSArray alloc]initWithObjects:@"",@"",@"", nil];
         // Custom initialization
     }
     return self;

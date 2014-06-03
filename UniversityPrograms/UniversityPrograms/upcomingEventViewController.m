@@ -28,6 +28,7 @@
         self.title=@"Upcoming Events";
         self.upcomingArray = [[NSArray alloc] init];
         self.upcomingArray = @[@"just checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking"];
+        self.tabBarItem.image= [UIImage imageNamed:@"calendar-32.png"];
         //[self loadEvents];
         
         
@@ -92,6 +93,8 @@
         cell = [[upcomingEventsTableViewCell alloc] init];
     }
     cell.eventTitle.text=[self.upcomingArray objectAtIndex:indexPath.row];
+    cell.accessoryType=UITableViewCellAccessoryCheckmark;
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

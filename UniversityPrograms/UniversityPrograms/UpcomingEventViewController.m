@@ -89,7 +89,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     tableView=self.upComingEventsTable;
-    Event *e ;
+    Event *e;
     e = [self.upcomingArray objectAtIndex:indexPath.row];
     
     UpcomingEventsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"upcomingCell"];
@@ -102,7 +102,7 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] initWithEvent:_upcomingArray[indexPath.row]];
+    SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] initWithEvent:self.upcomingArray[indexPath.row]];
     [self.navigationController pushViewController:tappedEvent animated:YES];
     [self.upComingEventsTable reloadData];
 }

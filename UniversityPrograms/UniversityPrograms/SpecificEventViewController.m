@@ -121,7 +121,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         int daysFromNow = self.specifiedEvent.startDate.daysUntil;
         if (daysFromNow > 0) {
             self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", daysFromNow];
-            return;
+            
         }
         else {
             int hoursFromNow = self.specifiedEvent.startDate.hoursUntil;
@@ -143,17 +143,19 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     else{
         self.eventStartTime.text=[NSString stringWithFormat:@"The %@ has already happened", self.specifiedEvent.eventName];
     }
+    
     if(self.specifiedEvent.location.street2==nil){
         self.addressLine1Label.text=self.specifiedEvent.location.street1;
-        NSString *addressString = [[NSString alloc] initWithFormat:@"%@,%@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
+        NSString *addressString = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
         self.addressLine2Label.text=addressString;
     }
     else{
         self.addressLine1Label.text=self.specifiedEvent.location.street1;
-        NSString *addressString = [[NSString alloc] initWithFormat:@"%@,%@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
+        NSString *addressString = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
         self.addressLine2Label.text=self.specifiedEvent.location.street2;
         self.addressLine3Label.text=addressString;
     }
+    
 }
 
 #pragma mark - Webservice

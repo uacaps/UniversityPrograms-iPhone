@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LocationDTO : NSObject
+
 @property NSString *name;
 @property NSString *street1;
 @property NSString *street2;
@@ -16,4 +17,5 @@
 @property NSString *state;
 @property NSString *zip;
 @property NSString *roomNumber;
+
 @end

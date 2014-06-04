@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "LocationDTO.h"
 @interface Event : NSObject
 @property NSString *eventId;
 @property NSString *eventName;
@@ -16,6 +16,8 @@
 @property NSDate *endDate;
 @property BOOL isRegistered;
 @property NSString *imageUrl;
+@property NSNumber *numberAttending;
+@property LocationDTO *location;
 
 
 @end

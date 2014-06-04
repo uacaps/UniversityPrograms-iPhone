@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventStartTime;
 @property (weak, nonatomic) IBOutlet UILabel *eventTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLine1Label;
+@property (weak, nonatomic) IBOutlet UILabel *addressLine3Label;
+@property (weak, nonatomic) IBOutlet UILabel *addressLine2Label;
 
 @property Event *specifiedEvent;
 @end
@@ -140,14 +143,24 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     else{
         self.eventStartTime.text=[NSString stringWithFormat:@"The %@ has already happened", self.specifiedEvent.eventName];
     }
-    
+    if(self.specifiedEvent.location.street2==nil){
+        self.addressLine1Label.text=self.specifiedEvent.location.street1;
+        NSString *addressString = [[NSString alloc] initWithFormat:@"%@,%@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
+        self.addressLine2Label.text=addressString;
+    }
+    else{
+        self.addressLine1Label.text=self.specifiedEvent.location.street1;
+        NSString *addressString = [[NSString alloc] initWithFormat:@"%@,%@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
+        self.addressLine2Label.text=self.specifiedEvent.location.street2;
+        self.addressLine3Label.text=addressString;
+    }
 }
 
 #pragma mark - Webservice
 
 -(void)getEvent:(Event *)event{
     [UPDataRetrieval getSpecificEvent:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] eventID:self.specifiedEvent.eventId completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         self.specifiedEvent=[[Event alloc] initWithJSONData:data];
         
         dispatch_async(dispatch_get_main_queue(), ^{

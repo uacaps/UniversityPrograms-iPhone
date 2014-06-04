@@ -22,7 +22,7 @@
 }
 -(void)buildWithComment:(Comment *)c{
     self.titleLabel.text=c.Title;
-    self.descriptionBox.text=c.description;
+    self.descriptionBox.text=c.CommentText;
     self.backgroundColor= [UIColor whiteColor];
 }
 - (void)awakeFromNib

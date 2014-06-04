@@ -8,6 +8,7 @@
 
 #import "UPDataRetrieval.h"
 #import "NSObject+ObjectMap.h"
+#import "UPWebserviceConstants.h"
 @implementation UPDataRetrieval
 NSOperationQueue *opQueue;
 
@@ -21,7 +22,7 @@ NSOperationQueue *opQueue;
 
 
 +(void)getEvents:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event/events";
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Event/events"];
     NSString *urlQueryString = [NSString stringWithFormat:@"?cwid=%@", cwid];
     NSString *finalQueryString = [NSString stringWithFormat:@"%@%@", urlString, urlQueryString];
     

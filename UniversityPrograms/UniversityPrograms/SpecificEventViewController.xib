@@ -9,7 +9,6 @@
                 <outlet property="DescriptionBox" destination="Ve7-Kl-5OX" id="wFG-N8-rYP"/>
                 <outlet property="StartTime" destination="oTV-hX-VMR" id="D2e-hv-rFq"/>
                 <outlet property="TitleLabel" destination="iDq-hK-aBJ" id="eNL-ia-aUf"/>
-                <outlet property="headerImage" destination="hYZ-og-1Te" id="UwN-YN-j2d"/>
                 <outlet property="mainScrollView" destination="0oP-wX-iAD" id="V6J-le-JX7"/>
                 <outlet property="rsvpButton" destination="EkW-EU-iin" id="9d9-ON-Dyn"/>
                 <outlet property="rsvpLabel" destination="GiJ-It-o7p" id="Uad-6M-RMa"/>
@@ -27,7 +26,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="0oP-wX-iAD">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="364"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="359"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your RSVP has been submitted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GiJ-It-o7p">
@@ -36,10 +35,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hYZ-og-1Te">
-                    <rect key="frame" x="0.0" y="-15" width="320" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iDq-hK-aBJ">
                     <rect key="frame" x="20" y="20" width="280" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

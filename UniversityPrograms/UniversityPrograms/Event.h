@@ -15,6 +15,7 @@
 @property NSDate *StartDate;
 @property NSDate *EndDate;
 @property BOOL isRegistered;
+@property NSString *imageUrl;
 
 
 @end

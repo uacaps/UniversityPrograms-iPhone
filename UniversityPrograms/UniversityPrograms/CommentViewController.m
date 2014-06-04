@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 CAPS. All rights reserved.
 //
 #import <QuartzCore/QuartzCore.h>
-#import "commentViewController.h"
+#import "CommentViewController.h"
 #import "UPDataRetrieval.h"
 #import "Colours.h"
 #import "Comment.h"
 #import "NSObject+ObjectMap.h"
 
-@interface commentViewController ()
+@interface CommentViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *subjectBox;
 @property (weak, nonatomic) IBOutlet UITextField *emailBox;
 @property (weak, nonatomic) IBOutlet UITextView *commentBox;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation commentViewController
+@implementation CommentViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,14 +48,19 @@
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)didTapSubmit:(id)sender {
-    [self addAlertView];
+    
     Comment *comment= [[Comment alloc] init];
     comment.CWID=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
     comment.Title=self.subjectBox.text;
     comment.email=self.emailBox.text;
     comment.CommentText=self.commentBox.text;
     [UPDataRetrieval submitComment:comment.CWID comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        [self addAlertView];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self addAlertView];
+            
+        });
+
+        
     }];
     
 }

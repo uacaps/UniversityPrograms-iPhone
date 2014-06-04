@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Comment.h"
 @interface PriorFeedbackTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UITextView *descriptionBox;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+-(void)buildWithComment:(Comment *)c;
 @end

@@ -30,6 +30,10 @@
                     </textView>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionBox" destination="SSE-zC-FP2" id="5aN-Ky-2aE"/>
+                <outlet property="titleLabel" destination="sAb-Bc-2Ar" id="bqd-i0-pc4"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

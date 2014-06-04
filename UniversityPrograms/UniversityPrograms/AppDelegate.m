@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "UpcomingEventViewController.h"
 #import "MyUPViewController.h"
-#import "aboutUPViewController.h"
+#import "AboutUPViewController.h"
 #import "Colours.h"
 
 @implementation AppDelegate
@@ -29,8 +29,8 @@
    
     
     //create the view controllers
-    upcomingEventViewController *upcoming = [[upcomingEventViewController alloc] initWithNibName:NSStringFromClass([upcomingEventViewController class]) bundle:nil];
-    aboutUPViewController *aboutUP = [[aboutUPViewController alloc] initWithNibName:NSStringFromClass([aboutUPViewController class]) bundle:nil];
+    UpcomingEventViewController *upcoming = [[UpcomingEventViewController alloc] initWithNibName:NSStringFromClass([UpcomingEventViewController class]) bundle:nil];
+    AboutUPViewController *aboutUP = [[AboutUPViewController alloc] initWithNibName:NSStringFromClass([AboutUPViewController class]) bundle:nil];
     MyUPViewController *myUP = [[MyUPViewController alloc]initWithNibName:NSStringFromClass([MyUPViewController class]) bundle:nil];
     
     UINavigationController *upcomingNav = [[UINavigationController alloc] initWithRootViewController:upcoming];

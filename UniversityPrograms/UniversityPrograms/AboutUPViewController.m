@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 CAPS. All rights reserved.
 //
 
-#import "aboutUPViewController.h"
+#import "AboutUPViewController.h"
 
-@interface aboutUPViewController ()
+@interface AboutUPViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
 
 @end
 
-@implementation aboutUPViewController
+@implementation AboutUPViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface upcomingEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface UpcomingEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *upComingEventsTable;
 
 @end

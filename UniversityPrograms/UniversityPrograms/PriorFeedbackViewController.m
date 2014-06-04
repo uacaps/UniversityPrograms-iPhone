@@ -8,7 +8,9 @@
 
 #import "PriorFeedbackViewController.h"
 #import "PriorFeedbackTableViewCell.h"
-
+#import "UPDataRetrieval.h"
+#import "Comment.h"
+#import "NSObject+ObjectMap.h"
 @interface PriorFeedbackViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property NSArray *commentArray;
@@ -22,7 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title=@"Prior Feedback";
-        self.commentArray=[[NSArray alloc]initWithObjects:@"",@"",@"", nil];
+        //self.commentArray=[[NSArray alloc]initWithObjects:@"",@"",@"", nil];
         // Custom initialization
     }
     return self;
@@ -34,6 +36,7 @@
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.tableview.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadFeedback) forControlEvents:UIControlEventValueChanged];
     [self.tableview addSubview:self.refreshControl];
+    [self loadFeedback];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -43,11 +46,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 -(void)loadFeedback{
+    [UPDataRetrieval retrieveComments:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        self.commentArray=[NSObject arrayOfType:[Comment class] FromJSONData:data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableview reloadData];
+            [self.refreshControl endRefreshing];
+        });
+    }];
     
     
-    [self.tableview reloadData];
-    [self.refreshControl endRefreshing];
+
+    
+    
+    
 }
 
 
@@ -70,9 +84,13 @@
     tableView=self.tableview;
     PriorFeedbackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PriorCell"];
     
+    Comment *c=[self.commentArray objectAtIndex:indexPath.row];
+    
+    
     if(!cell){
         cell = [[PriorFeedbackTableViewCell alloc] init];
     }
+    [cell buildWithComment:c];
     //cell.eventTitle.text=[self.commentArray objectAtIndex:indexPath.row];
     
     return cell;

@@ -7,7 +7,7 @@
 //
 
 #import "MyUPViewController.h"
-#import "commentViewController.h"
+#import "CommentViewController.h"
 #import "UserInfoViewController.h"
 #import "PriorFeedbackViewController.h"
 
@@ -29,7 +29,7 @@
 }
 
 -(IBAction)didSelectComment:(id)sender{
-    commentViewController *comments = [[commentViewController alloc] init];
+    CommentViewController *comments = [[CommentViewController alloc] init];
     [self.navigationController pushViewController:comments
                                          animated:YES];
 }

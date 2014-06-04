@@ -16,7 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *TitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *StartTime;
-@property (weak, nonatomic) IBOutlet UIImageView *headerImage;
+
 @property (weak, nonatomic) IBOutlet UILabel *rsvpLabel;
 
 @property (weak, nonatomic) IBOutlet UITextView *DescriptionBox;
@@ -54,8 +54,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:@"http://sa.ua.edu/utilities/pages/gallery/galleries/University%20Programs/Movie%20Series/Spiderman/_thumbs/PA1F25C7.jpg"];
-    [self.headerImage setImageWithURL:url];
+    
     self.mainScrollView.backgroundColor = [UIColor crimsonColor];
     self.mainScrollView.showsVerticalScrollIndicator=YES;
     self.mainScrollView.scrollEnabled=YES;
@@ -82,6 +81,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 }
 
 - (IBAction)didTapRSVP:(id)sender {
+    
     if([[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]==nil||[[[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]isEqualToString:@""]){
         [self addAlertView];
     }

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B0A69111938D520005C821D /* upcomingEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A690F1938D520005C821D /* upcomingEventViewController.m */; };
-		1B0A69121938D520005C821D /* upcomingEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69101938D520005C821D /* upcomingEventViewController.xib */; };
-		1B0A69161938D552005C821D /* commentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A69141938D552005C821D /* commentViewController.m */; };
-		1B0A69171938D552005C821D /* commentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69151938D552005C821D /* commentViewController.xib */; };
-		1B0A691C1938D58C005C821D /* aboutUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691A1938D58C005C821D /* aboutUPViewController.m */; };
-		1B0A69211938DA8B005C821D /* upcomingEventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691F1938DA8B005C821D /* upcomingEventsTableViewCell.m */; };
-		1B0A69221938DA8B005C821D /* upcomingEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69201938DA8B005C821D /* upcomingEventsTableViewCell.xib */; };
-		1BA9FE5E193E1D28008F8981 /* aboutUPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE5D193E1D28008F8981 /* aboutUPViewController.xib */; };
+		1B0A69111938D520005C821D /* UpcomingEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A690F1938D520005C821D /* UpcomingEventViewController.m */; };
+		1B0A69121938D520005C821D /* UpcomingEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69101938D520005C821D /* UpcomingEventViewController.xib */; };
+		1B0A69161938D552005C821D /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A69141938D552005C821D /* CommentViewController.m */; };
+		1B0A69171938D552005C821D /* CommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69151938D552005C821D /* CommentViewController.xib */; };
+		1B0A691C1938D58C005C821D /* AboutUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691A1938D58C005C821D /* AboutUPViewController.m */; };
+		1B0A69211938DA8B005C821D /* UpcomingEventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691F1938DA8B005C821D /* UpcomingEventsTableViewCell.m */; };
+		1B0A69221938DA8B005C821D /* UpcomingEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */; };
+		1BA9FE5E193E1D28008F8981 /* AboutUPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE5D193E1D28008F8981 /* AboutUPViewController.xib */; };
 		1BA9FE63193E2114008F8981 /* PriorFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA9FE61193E2114008F8981 /* PriorFeedbackViewController.m */; };
 		1BA9FE64193E2114008F8981 /* PriorFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE62193E2114008F8981 /* PriorFeedbackViewController.xib */; };
 		1BA9FE68193E244B008F8981 /* PriorFeedbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA9FE66193E244B008F8981 /* PriorFeedbackTableViewCell.m */; };
@@ -58,18 +58,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B0A690E1938D520005C821D /* upcomingEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = upcomingEventViewController.h; sourceTree = "<group>"; };
-		1B0A690F1938D520005C821D /* upcomingEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = upcomingEventViewController.m; sourceTree = "<group>"; };
-		1B0A69101938D520005C821D /* upcomingEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = upcomingEventViewController.xib; sourceTree = "<group>"; };
-		1B0A69131938D552005C821D /* commentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentViewController.h; sourceTree = "<group>"; };
-		1B0A69141938D552005C821D /* commentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentViewController.m; sourceTree = "<group>"; };
-		1B0A69151938D552005C821D /* commentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commentViewController.xib; sourceTree = "<group>"; };
-		1B0A69191938D58C005C821D /* aboutUPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutUPViewController.h; sourceTree = "<group>"; };
-		1B0A691A1938D58C005C821D /* aboutUPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutUPViewController.m; sourceTree = "<group>"; };
-		1B0A691E1938DA8B005C821D /* upcomingEventsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = upcomingEventsTableViewCell.h; sourceTree = "<group>"; };
-		1B0A691F1938DA8B005C821D /* upcomingEventsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = upcomingEventsTableViewCell.m; sourceTree = "<group>"; };
-		1B0A69201938DA8B005C821D /* upcomingEventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = upcomingEventsTableViewCell.xib; sourceTree = "<group>"; };
-		1BA9FE5D193E1D28008F8981 /* aboutUPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutUPViewController.xib; sourceTree = "<group>"; };
+		1B0A690E1938D520005C821D /* UpcomingEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingEventViewController.h; sourceTree = "<group>"; };
+		1B0A690F1938D520005C821D /* UpcomingEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingEventViewController.m; sourceTree = "<group>"; };
+		1B0A69101938D520005C821D /* UpcomingEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpcomingEventViewController.xib; sourceTree = "<group>"; };
+		1B0A69131938D552005C821D /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		1B0A69141938D552005C821D /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		1B0A69151938D552005C821D /* CommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentViewController.xib; sourceTree = "<group>"; };
+		1B0A69191938D58C005C821D /* AboutUPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUPViewController.h; sourceTree = "<group>"; };
+		1B0A691A1938D58C005C821D /* AboutUPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUPViewController.m; sourceTree = "<group>"; };
+		1B0A691E1938DA8B005C821D /* UpcomingEventsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingEventsTableViewCell.h; sourceTree = "<group>"; };
+		1B0A691F1938DA8B005C821D /* UpcomingEventsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingEventsTableViewCell.m; sourceTree = "<group>"; };
+		1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpcomingEventsTableViewCell.xib; sourceTree = "<group>"; };
+		1B38F299193F6FD2005158D1 /* UPWebserviceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPWebserviceConstants.h; sourceTree = "<group>"; };
+		1BA9FE5D193E1D28008F8981 /* AboutUPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUPViewController.xib; sourceTree = "<group>"; };
 		1BA9FE60193E2114008F8981 /* PriorFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorFeedbackViewController.h; sourceTree = "<group>"; };
 		1BA9FE61193E2114008F8981 /* PriorFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorFeedbackViewController.m; sourceTree = "<group>"; };
 		1BA9FE62193E2114008F8981 /* PriorFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriorFeedbackViewController.xib; sourceTree = "<group>"; };
@@ -177,9 +178,9 @@
 		1B0A690A1938D487005C821D /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1B0A691E1938DA8B005C821D /* upcomingEventsTableViewCell.h */,
-				1B0A691F1938DA8B005C821D /* upcomingEventsTableViewCell.m */,
-				1B0A69201938DA8B005C821D /* upcomingEventsTableViewCell.xib */,
+				1B0A691E1938DA8B005C821D /* UpcomingEventsTableViewCell.h */,
+				1B0A691F1938DA8B005C821D /* UpcomingEventsTableViewCell.m */,
+				1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */,
 				1BA9FE65193E244B008F8981 /* PriorFeedbackTableViewCell.h */,
 				1BA9FE66193E244B008F8981 /* PriorFeedbackTableViewCell.m */,
 				1BA9FE67193E244B008F8981 /* PriorFeedbackTableViewCell.xib */,
@@ -191,9 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				1BAD1A4B193CD2AA006D24AD /* event */,
-				1B0A690E1938D520005C821D /* upcomingEventViewController.h */,
-				1B0A690F1938D520005C821D /* upcomingEventViewController.m */,
-				1B0A69101938D520005C821D /* upcomingEventViewController.xib */,
+				1B0A690E1938D520005C821D /* UpcomingEventViewController.h */,
+				1B0A690F1938D520005C821D /* UpcomingEventViewController.m */,
+				1B0A69101938D520005C821D /* UpcomingEventViewController.xib */,
 			);
 			name = "upcoming events";
 			sourceTree = "<group>";
@@ -201,9 +202,9 @@
 		1B0A690C1938D4AE005C821D /* comments/suggestion box */ = {
 			isa = PBXGroup;
 			children = (
-				1B0A69131938D552005C821D /* commentViewController.h */,
-				1B0A69141938D552005C821D /* commentViewController.m */,
-				1B0A69151938D552005C821D /* commentViewController.xib */,
+				1B0A69131938D552005C821D /* CommentViewController.h */,
+				1B0A69141938D552005C821D /* CommentViewController.m */,
+				1B0A69151938D552005C821D /* CommentViewController.xib */,
 			);
 			name = "comments/suggestion box";
 			sourceTree = "<group>";
@@ -211,9 +212,9 @@
 		1B0A69181938D575005C821D /* about */ = {
 			isa = PBXGroup;
 			children = (
-				1B0A69191938D58C005C821D /* aboutUPViewController.h */,
-				1B0A691A1938D58C005C821D /* aboutUPViewController.m */,
-				1BA9FE5D193E1D28008F8981 /* aboutUPViewController.xib */,
+				1B0A69191938D58C005C821D /* AboutUPViewController.h */,
+				1B0A691A1938D58C005C821D /* AboutUPViewController.m */,
+				1BA9FE5D193E1D28008F8981 /* AboutUPViewController.xib */,
 			);
 			name = about;
 			sourceTree = "<group>";
@@ -359,6 +360,7 @@
 				1BEC1BFE1939183C009DADEF /* NSObject+ObjectMap.m */,
 				1BEC1BF7193914BE009DADEF /* UPDataRetrieval.h */,
 				1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */,
+				1B38F299193F6FD2005158D1 /* UPWebserviceConstants.h */,
 			);
 			name = "Web Calls";
 			sourceTree = "<group>";
@@ -440,17 +442,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B0A69171938D552005C821D /* commentViewController.xib in Resources */,
-				1B0A69121938D520005C821D /* upcomingEventViewController.xib in Resources */,
+				1B0A69171938D552005C821D /* CommentViewController.xib in Resources */,
+				1B0A69121938D520005C821D /* UpcomingEventViewController.xib in Resources */,
 				1BACD3541937E39700DF7081 /* InfoPlist.strings in Resources */,
 				1BACD35C1937E39700DF7081 /* Images.xcassets in Resources */,
 				1BA9FE64193E2114008F8981 /* PriorFeedbackViewController.xib in Resources */,
-				1B0A69221938DA8B005C821D /* upcomingEventsTableViewCell.xib in Resources */,
+				1B0A69221938DA8B005C821D /* UpcomingEventsTableViewCell.xib in Resources */,
 				1BA9FE69193E244B008F8981 /* PriorFeedbackTableViewCell.xib in Resources */,
 				1BA9FE6F193E643F008F8981 /* about-32@2x.png in Resources */,
 				1BAD1A4A193CCDEA006D24AD /* UserInfoViewController.xib in Resources */,
 				1BAD1A44193CCCBA006D24AD /* MyUPViewController.xib in Resources */,
-				1BA9FE5E193E1D28008F8981 /* aboutUPViewController.xib in Resources */,
+				1BA9FE5E193E1D28008F8981 /* AboutUPViewController.xib in Resources */,
 				1BAD1A50193CD385006D24AD /* SpecificEventViewController.xib in Resources */,
 				1BA9FE73193E65D3008F8981 /* settings-33@2x.png in Resources */,
 				1BA9FE71193E64E4008F8981 /* calendar-32@2x.png in Resources */,
@@ -506,19 +508,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BAD1A4F193CD385006D24AD /* SpecificEventViewController.m in Sources */,
-				1B0A691C1938D58C005C821D /* aboutUPViewController.m in Sources */,
+				1B0A691C1938D58C005C821D /* AboutUPViewController.m in Sources */,
 				1BA9FE68193E244B008F8981 /* PriorFeedbackTableViewCell.m in Sources */,
 				1BAD1A43193CCCBA006D24AD /* MyUPViewController.m in Sources */,
 				1BAD1A38193CC2B9006D24AD /* Event.m in Sources */,
-				1B0A69161938D552005C821D /* commentViewController.m in Sources */,
+				1B0A69161938D552005C821D /* CommentViewController.m in Sources */,
 				1BACD35A1937E39700DF7081 /* AppDelegate.m in Sources */,
 				1BAD1A49193CCDEA006D24AD /* UserInfoViewController.m in Sources */,
 				1BAD1A3B193CC2C9006D24AD /* Comment.m in Sources */,
 				1BACD3561937E39700DF7081 /* main.m in Sources */,
 				1BEC1BF9193914BE009DADEF /* UPDataRetrieval.m in Sources */,
 				1BA9FE63193E2114008F8981 /* PriorFeedbackViewController.m in Sources */,
-				1B0A69211938DA8B005C821D /* upcomingEventsTableViewCell.m in Sources */,
-				1B0A69111938D520005C821D /* upcomingEventViewController.m in Sources */,
+				1B0A69211938DA8B005C821D /* UpcomingEventsTableViewCell.m in Sources */,
+				1B0A69111938D520005C821D /* UpcomingEventViewController.m in Sources */,
 				1BEC1BFF1939183C009DADEF /* NSObject+ObjectMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

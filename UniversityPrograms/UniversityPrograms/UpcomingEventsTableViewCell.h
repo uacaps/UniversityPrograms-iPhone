@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface upcomingEventsTableViewCell : UITableViewCell
+#import "Event.h"
+@interface UpcomingEventsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *eventTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *eventImage;
-
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+-(void)buildWithEvent:(Event *)event;
 
 @end

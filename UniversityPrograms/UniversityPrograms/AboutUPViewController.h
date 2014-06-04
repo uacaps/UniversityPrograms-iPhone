@@ -1,5 +1,5 @@
 //
-//  commentViewController.h
+//  aboutUPViewController.h
 //  UniversityPrograms
 //
 //  Created by Miles Crabbe on 5/30/14.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface commentViewController : UIViewController<UITextViewDelegate>
-
-
+@interface AboutUPViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
 
 @end

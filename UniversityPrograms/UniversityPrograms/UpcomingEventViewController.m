@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 CAPS. All rights reserved.
 //
 
-#import "upcomingEventViewController.h"
-#import "upcomingEventsTableViewCell.h"
+#import "UpcomingEventViewController.h"
+#import "UpcomingEventsTableViewCell.h"
 #import "Colours.h"
 #import "UPDataRetrieval.h"
 #import "NSObject+ObjectMap.h"
 #import "Event.h"
 #import "SpecificEventViewController.h"
-@interface upcomingEventViewController ()
+@interface UpcomingEventViewController ()
 
 @property NSArray *upcomingArray;
 @property UIRefreshControl *refreshControl;
 @end
 
-@implementation upcomingEventViewController
+@implementation UpcomingEventViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,7 @@
     if (self) {
         self.title=@"Upcoming Events";
         self.upcomingArray = [[NSArray alloc] init];
-        self.upcomingArray = @[@"just checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking"];
+        //self.upcomingArray = @[@"just checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking"];
         self.tabBarItem.image= [UIImage imageNamed:@"calendar-32.png"];
         //[self loadEvents];
         
@@ -44,21 +44,22 @@
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.upComingEventsTable.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadEvents) forControlEvents:UIControlEventValueChanged];
     [self.upComingEventsTable addSubview:self.refreshControl];
+    [self loadEvents];
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)loadEvents{
-    /*
-    [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"setCWID"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+    
+    [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         _upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
+        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.upComingEventsTable reloadData];
-            
+            [self.refreshControl endRefreshing];
         });
     }];
-     */
-    [self.upComingEventsTable reloadData];
-    [self.refreshControl endRefreshing];
+    
+    
     
 }
 
@@ -87,14 +88,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     tableView=self.upComingEventsTable;
-    upcomingEventsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"upcomingCell"];
+    Event *e ;
+    e = [self.upcomingArray objectAtIndex:indexPath.row];
+    
+    UpcomingEventsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"upcomingCell"];
     
     if(!cell){
-        cell = [[upcomingEventsTableViewCell alloc] init];
+        cell = [[UpcomingEventsTableViewCell alloc] init];
     }
-    cell.eventTitle.text=[self.upcomingArray objectAtIndex:indexPath.row];
-    cell.accessoryType=UITableViewCellAccessoryCheckmark;
     
+    [cell buildWithEvent:e];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

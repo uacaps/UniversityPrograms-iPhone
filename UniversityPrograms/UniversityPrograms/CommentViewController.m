@@ -50,11 +50,11 @@
 - (IBAction)didTapSubmit:(id)sender {
     
     Comment *comment= [[Comment alloc] init];
-    comment.CWID=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
+    comment.cwid=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
     comment.Title=self.subjectBox.text;
     comment.email=self.emailBox.text;
     comment.CommentText=self.commentBox.text;
-    [UPDataRetrieval submitComment:comment.CWID comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+    [UPDataRetrieval submitComment:comment.cwid comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self addAlertView];
             
@@ -110,7 +110,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     self.navigationItem.rightBarButtonItem=Nil;
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonOps)];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone                                 target:self action:@selector(doneButtonOps)];
     
 }
 

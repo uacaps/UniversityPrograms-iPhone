@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "Colours.h"
 #import "DateTools.h"
+@import QuartzCore;
 
 @implementation UpcomingEventsTableViewCell
 
@@ -33,20 +34,47 @@
     // Configure the view for the selected state
 }
 -(void)buildWithEvent:(Event *)event{
-    self.backgroundColor= [UIColor creamColor];
     NSString *string = [[NSString alloc]initWithFormat:@"%@", event.imageUrl];
-    NSLog(@"%@",string);
+    //NSLog(@"%@",string);
     NSURL *url = [NSURL URLWithString:string];
     
-    
     [self.eventImage setImageWithURL:url];
-    self.eventImage.backgroundColor=[UIColor creamColor];
-    self.eventTitle.text=event.Name;
+    //_eventImage.layer.cornerRadius = self.eventImage.frame.size.width/2;
+    
+    self.eventTitle.text=event.eventName;
     if(event.isRegistered){
-        self.accessoryType=UITableViewCellAccessoryCheckmark;
+        //self.accessoryType=UITableViewCellAccessoryCheckmark;
     }
     
-    NSString *dateString = [[NSString alloc] initWithFormat:@"From:%@ Until %@",[event.StartDate formattedDateWithFormat:@"mm-dd-hh"],[event.EndDate formattedDateWithFormat:@"mm-dd-hh"]];
-    self.dateLabel.text=dateString;
+    //Set date before began
+    if ([event.startDate isLaterThan:[NSDate date]]) {
+        int daysFromNow = event.startDate.daysUntil;
+        if (daysFromNow > 0) {
+            self.dateLabel.text= [NSString stringWithFormat:@"in %dd", daysFromNow];
+            return;
+        }
+        else {
+            int hoursFromNow = event.startDate.hoursUntil;
+            if (hoursFromNow > 0) {
+                self.dateLabel.text= [NSString stringWithFormat:@"in %dd", hoursFromNow];
+            }
+            else {
+                int minutesFromNow = event.startDate.minutesUntil;
+                if (minutesFromNow > 0) {
+                    self.dateLabel.text= [NSString stringWithFormat:@"in %dd", minutesFromNow];
+                }
+            }
+        }
+    }
+    //Check for in "happening now" and already done
+    else if([event.startDate isEarlierThan:[NSDate date]]&&[event.endDate isLaterThan:[NSDate date]]){
+        self.dateLabel.text=[NSString stringWithFormat:@"Happening Now"];
+    }
+    else{
+        self.dateLabel.text=[NSString stringWithFormat:@"The event is over."];
+    }
+    
+    //NSString *dateString = [[NSString alloc] initWithFormat:@"From: %@ Until: %@",[event.startDate formattedDateWithFormat:@"hh:mm MM-dd"],[event.endDate formattedDateWithFormat:@"hh:mm MM-dd"]];
+    
 }
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UPViewController.h"
 
-@interface UpcomingEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface UpcomingEventViewController : UPViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *upComingEventsTable;
 
 @end

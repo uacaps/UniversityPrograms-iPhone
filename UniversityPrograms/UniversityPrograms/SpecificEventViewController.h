@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
-@interface SpecificEventViewController : UIViewController
+@interface SpecificEventViewController : UIViewController <UIScrollViewDelegate>
 
+-(instancetype)initWithEvent:(Event *)event;
 @end

@@ -24,7 +24,8 @@
     if (self) {
         self.title=@"My UP";
     }
-    self.tabBarItem.image= [UIImage imageNamed:@"settings-33.png"];
+    self.tabBarItem.image= [UIImage imageNamed:@"Cog.png"];
+    self.tabBarItem.selectedImage = [UIImage imageNamed:@"Cog_filled.png"];
     return self;
 }
 

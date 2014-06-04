@@ -13,6 +13,8 @@
 #import "NSObject+ObjectMap.h"
 #import "Event.h"
 #import "SpecificEventViewController.h"
+
+
 @interface UpcomingEventViewController ()
 
 @property NSArray *upcomingArray;
@@ -28,7 +30,8 @@
         self.title=@"Upcoming Events";
         self.upcomingArray = [[NSArray alloc] init];
         //self.upcomingArray = @[@"just checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking"];
-        self.tabBarItem.image= [UIImage imageNamed:@"calendar-32.png"];
+        self.tabBarItem.image = [UIImage imageNamed:@"Calendar.png"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"Calendar_filled.png"];
         //[self loadEvents];
         
         
@@ -39,8 +42,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.upComingEventsTable.backgroundColor = [UIColor charcoalColor];
-    self.upComingEventsTable.separatorColor = [UIColor charcoalColor];
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.upComingEventsTable.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadEvents) forControlEvents:UIControlEventValueChanged];
     [self.upComingEventsTable addSubview:self.refreshControl];
@@ -52,7 +53,7 @@
     
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         _upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
-        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.upComingEventsTable reloadData];
             [self.refreshControl endRefreshing];
@@ -101,7 +102,7 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] init];
+    SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] initWithEvent:_upcomingArray[indexPath.row]];
     [self.navigationController pushViewController:tappedEvent animated:YES];
     [self.upComingEventsTable reloadData];
 }

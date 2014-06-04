@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface Event : NSObject
-
-@property NSString *Name;
-@property NSString *Description;
-@property NSDate *StartDate;
-@property NSDate *EndDate;
+@property NSString *eventId;
+@property NSString *eventName;
+@property NSString *eventDescription;
+@property NSDate *startDate;
+@property NSDate *endDate;
 @property BOOL isRegistered;
 @property NSString *imageUrl;
 

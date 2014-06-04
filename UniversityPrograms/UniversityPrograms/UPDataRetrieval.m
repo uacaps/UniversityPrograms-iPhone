@@ -9,6 +9,8 @@
 #import "UPDataRetrieval.h"
 #import "NSObject+ObjectMap.h"
 #import "UPWebserviceConstants.h"
+#import "RegistrantDTO.h"
+
 @implementation UPDataRetrieval
 NSOperationQueue *opQueue;
 
@@ -53,9 +55,10 @@ NSOperationQueue *opQueue;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    NSData *eventData= [event JSONData];
-    [request setHTTPBody:eventData];
+    RegistrantDTO *registrant=[[RegistrantDTO alloc]init];
+    [registrant build:event.eventId];
+    NSData *registrantData= [registrant JSONData];
+    [request setHTTPBody:registrantData];
     [NSURLConnection sendAsynchronousRequest:request queue:[UPDataRetrieval _operationQueue] completionHandler:block];
 }
 

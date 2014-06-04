@@ -10,10 +10,10 @@
 
 @interface Comment : NSObject
 
-@property NSString *CommentText;
-@property NSString *Title;
+@property NSString *commentText;
+@property NSString *title;
 @property NSString *email;
-@property NSString *CWID;
+@property NSString *cwid;
 
 
 @end

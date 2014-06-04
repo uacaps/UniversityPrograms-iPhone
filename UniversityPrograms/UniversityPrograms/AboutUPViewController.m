@@ -22,7 +22,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title=@"About UP";
-        self.tabBarItem.image= [UIImage imageNamed:@"about-32.png"];
+        self.tabBarItem.image= [UIImage imageNamed:@"Info.png"];
+        self.tabBarItem.selectedImage= [UIImage imageNamed:@"Info_filled.png"];
         // Custom initialization
     }
     return self;

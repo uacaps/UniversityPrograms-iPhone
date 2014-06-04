@@ -13,16 +13,14 @@
 
 -(instancetype)init{
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PriorFeedbackTableViewCell class]) owner:nil options:nil][0];
-    
-    //NSURL *url = [NSURL URLWithString:@"http://wow.ua.edu/images/WOWlogo2014.png"];
-    
-    
-    
+   
     return self;
 }
 -(void)buildWithComment:(Comment *)c{
-    self.titleLabel.text=c.Title;
-    self.descriptionBox.text=c.CommentText;
+    self.titleLabel.text=c.title;
+    self.titleLabel.backgroundColor = [UIColor whiteColor];
+    self.descriptionBox.text=c.commentText;
+    self.descriptionBox.backgroundColor = [UIColor whiteColor];
     self.backgroundColor= [UIColor whiteColor];
 }
 - (void)awakeFromNib

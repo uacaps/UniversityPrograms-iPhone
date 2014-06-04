@@ -10,7 +10,9 @@
 #import "UpcomingEventViewController.h"
 #import "MyUPViewController.h"
 #import "AboutUPViewController.h"
+#import "UPNavigationViewController.h"
 #import "Colours.h"
+#import "UIColor+UPColors.h"
 
 @implementation AppDelegate
 
@@ -24,6 +26,7 @@
     //create the tab bar and set it to be the main view controller
     self.baseTabBarController = [[UITabBarController alloc]init];
     self.baseTabBarController.tabBar.translucent = NO;
+    
     //[self.baseTabBar]
     [self.window setRootViewController:self.baseTabBarController];
    
@@ -33,25 +36,14 @@
     AboutUPViewController *aboutUP = [[AboutUPViewController alloc] initWithNibName:NSStringFromClass([AboutUPViewController class]) bundle:nil];
     MyUPViewController *myUP = [[MyUPViewController alloc]initWithNibName:NSStringFromClass([MyUPViewController class]) bundle:nil];
     
-    UINavigationController *upcomingNav = [[UINavigationController alloc] initWithRootViewController:upcoming];
-    upcomingNav.navigationBar.translucent=NO;
-    upcomingNav.navigationBar.barTintColor=[UIColor blackColor];
-    upcomingNav.navigationBar.barStyle=UIBarStyleBlackOpaque;
+    UPNavigationViewController *upcomingNav = [[UPNavigationViewController alloc] initWithRootViewController:upcoming];
     
-    UINavigationController *aboutUPNav = [[UINavigationController alloc] initWithRootViewController:aboutUP];
-    aboutUPNav.navigationBar.barTintColor=[UIColor blackColor];
-    aboutUPNav.navigationBar.translucent=NO;
-    aboutUPNav.navigationBar.barStyle=UIBarStyleBlackOpaque;
+    UPNavigationViewController *aboutUPNav = [[UPNavigationViewController alloc] initWithRootViewController:aboutUP];
     
-    UINavigationController *myUPNav = [[UINavigationController alloc] initWithRootViewController:myUP];
-    myUPNav.navigationBar.translucent=NO;
-    myUPNav.navigationBar.barTintColor=[UIColor blackColor];
-    myUPNav.navigationBar.barStyle=UIBarStyleBlackOpaque;
+    UPNavigationViewController *myUPNav = [[UPNavigationViewController alloc] initWithRootViewController:myUP];
     
-    
-    
-    [[UITabBar appearance] setBarStyle:UIBarStyleBlackOpaque];
-    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    //Set tab bar appearance
+    _baseTabBarController.tabBar.tintColor = [UIColor successColor];
     [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, myUPNav]];
     
     return YES;

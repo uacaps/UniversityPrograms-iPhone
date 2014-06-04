@@ -7,21 +7,22 @@
 //
 
 #import "SpecificEventViewController.h"
-#import "Event.h"
 #import "Colours.h"
 #import "UIImageView+WebCache.h"
 #import "UserInfoViewController.h"
+#import "UIImageView+WebCache.h"
+#import "DateTools.h"
+#import "UPDataRetrieval.h"
+#import "NSObject+ObjectMap.h"
 
 @interface SpecificEventViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
-@property (weak, nonatomic) IBOutlet UILabel *TitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *StartTime;
 
-@property (weak, nonatomic) IBOutlet UILabel *rsvpLabel;
-
-@property (weak, nonatomic) IBOutlet UITextView *DescriptionBox;
-@property (weak, nonatomic) IBOutlet UIButton *rsvpButton;
-
+@property (strong, nonatomic) IBOutlet UIView *eventBigView;
+@property (weak, nonatomic) IBOutlet UIImageView *eventImageView;
+@property (weak, nonatomic) IBOutlet UILabel *eventStartTime;
+@property (weak, nonatomic) IBOutlet UILabel *eventTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventDescriptionLabel;
 
 @property Event *specifiedEvent;
 @end
@@ -32,8 +33,9 @@
     self = [super initWithNibName:NSStringFromClass([SpecificEventViewController class]) bundle:nil];
     if(self){
         self.title=@"Event";
-        self.specifiedEvent=event;
+        _specifiedEvent = event;
         
+    
     }
 
     return self;
@@ -54,13 +56,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if(!self.specifiedEvent.isRegistered){
+        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
+    }
     
-    self.mainScrollView.backgroundColor = [UIColor crimsonColor];
-    self.mainScrollView.showsVerticalScrollIndicator=YES;
-    self.mainScrollView.scrollEnabled=YES;
-    self.mainScrollView.contentSize=CGSizeMake(320,364);
-    self.rsvpLabel.alpha=0.0f;
+    [_mainScrollView addSubview:_eventBigView];
+    self.mainScrollView.contentSize = _eventBigView.frame.size;
+    
     // Do any additional setup after loading the view from its nib.
+    [self getEvent:_specifiedEvent];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,16 +87,88 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }
 
-- (IBAction)didTapRSVP:(id)sender {
+- (void)didTapRSVP {
     
     if([[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]==nil||[[[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]isEqualToString:@""]){
         [self addAlertView];
     }
+    [UPDataRetrieval rsvpEvent:[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] event:self.specifiedEvent completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //[self confirmAlertView];
+            self.navigationItem.rightBarButtonItem=nil;
+        });
+        
+    }];
+    
+    
+}
+-(void)confirmAlertView{
+    UIAlertView *confirmAlert = [[UIAlertView alloc]initWithTitle:@"You have RSVPed" message:@"Your RSVP for this event has been recorded. Thank you." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [confirmAlert show];
+}
+
+#pragma mark - UI
+
+-(void)setUI{
+    //Set image url
+    [_eventImageView setImageWithURL:[NSURL URLWithString:_specifiedEvent.imageUrl]];
+    _eventTitleLabel.text = _specifiedEvent.eventName;
+    _eventDescriptionLabel.text=_specifiedEvent.eventDescription;
+    if ([self.specifiedEvent.startDate isLaterThan:[NSDate date]]) {
+        int daysFromNow = self.specifiedEvent.startDate.daysUntil;
+        if (daysFromNow > 0) {
+            self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", daysFromNow];
+            return;
+        }
+        else {
+            int hoursFromNow = self.specifiedEvent.startDate.hoursUntil;
+            if (hoursFromNow > 0) {
+                self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", hoursFromNow];
+            }
+            else {
+                int minutesFromNow = self.specifiedEvent.startDate.minutesUntil;
+                if (minutesFromNow > 0) {
+                    self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", minutesFromNow];
+                }
+            }
+        }
+    }
+    //Check for in "happening now" and already done
+    else if([self.specifiedEvent.startDate isEarlierThan:[NSDate date]]&&[self.specifiedEvent.endDate isLaterThan:[NSDate date]]){
+        self.eventStartTime.text=[NSString stringWithFormat:@"The %@ is happening now",self.specifiedEvent.eventName];
+    }
     else{
-        self.rsvpButton.alpha=0.0f;
-        self.rsvpLabel.alpha=1.0f;
+        self.eventStartTime.text=[NSString stringWithFormat:@"The %@ has already happened", self.specifiedEvent.eventName];
     }
     
+}
+
+#pragma mark - Webservice
+
+-(void)getEvent:(Event *)event{
+    [UPDataRetrieval getSpecificEvent:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] eventID:self.specifiedEvent.eventId completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        self.specifiedEvent=[[Event alloc] initWithJSONData:data];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setUI];
+        });
+        
+    }];
+}
+
+#pragma mark - ScrollView Delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.y < 0) {
+        float offset = scrollView.contentOffset.y;
+        
+        offset = (offset < 0) ? offset*-0.01 : offset*0.01;
+        
+        CGAffineTransform scaleTransform = CGAffineTransformMakeScale(1 + offset, 1 + offset);
+        [_eventImageView setTransform:scaleTransform];
+    }
 }
 
 @end

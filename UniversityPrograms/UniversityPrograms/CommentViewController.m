@@ -11,6 +11,7 @@
 #import "Colours.h"
 #import "Comment.h"
 #import "NSObject+ObjectMap.h"
+#import "UIColor+UPColors.h"
 
 @interface CommentViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *subjectBox;
@@ -19,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (strong, nonatomic) IBOutlet UIView *bigView;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameBox;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameBox;
 
 @end
 
@@ -30,7 +34,7 @@
     if (self) {
         self.title=@"Leave a Comment";
     }
-    self.view.backgroundColor = [UIColor brickRedColor];
+    
     
     return self;
 }
@@ -38,12 +42,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.mainScrollView.showsVerticalScrollIndicator=YES;
-    self.mainScrollView.scrollEnabled=YES;
-    self.mainScrollView.contentSize=CGSizeMake(320,444);
-    //self.commentBox.layer.borderWidth=2.0f;
-    //self.commentBox.layer.borderColor=[[UIColor grayColor]CGColor];
+    self.submitButton.layer.cornerRadius=10.0;
+    self.cancelButton.layer.cornerRadius=10.0;
+    [self.submitButton setBackgroundColor:[UIColor successColor]];
+    [self.cancelButton setBackgroundColor:[UIColor brickRedColor]];
+    [self.bigView setBackgroundColor:[UIColor UPSecondaryColor]];
+    [self.mainScrollView addSubview:self.bigView];
+    self.mainScrollView.contentSize=self.bigView.frame.size;
+    [self.mainScrollView setBackgroundColor:[UIColor UPSecondaryColor]];
     self.emailBox.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"email"];
+    self.firstNameBox.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"userFirstName"];
+    self.lastNameBox.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"userLastName"];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -51,7 +60,7 @@
     
     Comment *comment= [[Comment alloc] init];
     comment.cwid=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
-    comment.Title=self.subjectBox.text;
+    comment.commentTitle=self.subjectBox.text;
     comment.email=self.emailBox.text;
     comment.CommentText=self.commentBox.text;
     [UPDataRetrieval submitComment:comment.cwid comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
@@ -105,7 +114,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     // Dispose of any resources that can be recreated.
 }
 -(void)doneButtonOps{
-    //self.commentBox.text=@"";
     [self.commentBox resignFirstResponder];
     self.navigationItem.rightBarButtonItem=Nil;
 }

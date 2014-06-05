@@ -12,4 +12,7 @@
 +(UIColor *)UPDarkGreyColor;
 +(UIColor *)UPSecondaryColor;
 +(UIColor *)UPPrimaryColor;
++(UIColor *)UPPlumColor;
++(UIColor *)UPTealColor;
++(UIColor *)UPPeachColor;
 @end

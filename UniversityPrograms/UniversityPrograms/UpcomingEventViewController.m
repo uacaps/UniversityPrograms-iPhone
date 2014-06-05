@@ -13,6 +13,7 @@
 #import "NSObject+ObjectMap.h"
 #import "Event.h"
 #import "SpecificEventViewController.h"
+#import "UIColor+UPColors.h"
 
 
 @interface UpcomingEventViewController ()
@@ -42,6 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.upComingEventsTable.backgroundColor = [UIColor UPDarkGreyColor];
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.upComingEventsTable.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadEvents) forControlEvents:UIControlEventValueChanged];
     [self.upComingEventsTable addSubview:self.refreshControl];
@@ -54,6 +56,10 @@
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         _upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
         //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        NSArray *sortedArray = [self.upcomingArray sortedArrayUsingComparator:^NSComparisonResult(Event *event1, Event *event2) {
+            return [event1.startDate compare: event2.startDate];
+        }];
+        self.upcomingArray=sortedArray;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.upComingEventsTable reloadData];
             [self.refreshControl endRefreshing];

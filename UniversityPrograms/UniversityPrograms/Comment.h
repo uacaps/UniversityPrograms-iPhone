@@ -11,7 +11,7 @@
 @interface Comment : NSObject
 
 @property NSString *commentText;
-@property NSString *title;
+@property NSString *commentTitle;
 @property NSString *email;
 @property NSString *cwid;
 

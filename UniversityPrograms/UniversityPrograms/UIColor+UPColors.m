@@ -21,4 +21,16 @@
 +(UIColor *)UPPrimaryColor{
     return [UIColor colorWithRed:142.0/255.0f green:133.0/255.0f blue:82.0/255.0f alpha:1];
 }
+
++(UIColor *)UPPlumColor{
+    return [UIColor colorWithRed:150.0/255.0f green:16.0/255.0f blue:77.0/255.0f alpha:1];
+}
+
++(UIColor *)UPTealColor{
+    return [UIColor colorWithRed:141.0/255.0f green:205.0/255.0f blue:189.0/255.0f alpha:1];
+}
++(UIColor *)UPPeachColor{
+    return [UIColor colorWithRed:244.0/255.0f green:118.0/255.0f blue:103.0/255.0f alpha:1];
+}
+
 @end

@@ -7,10 +7,11 @@
 //
 
 #import "AboutUPViewController.h"
-
+#import "UIColor+UPColors.h"
 @interface AboutUPViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (strong, nonatomic) IBOutlet UIView *bigView;
 
 
 @end
@@ -33,10 +34,10 @@
 {
     [super viewDidLoad];
     
-    self.mainScrollView.showsVerticalScrollIndicator=YES;
-    self.mainScrollView.scrollEnabled=YES;
-    self.mainScrollView.contentSize=CGSizeMake(320,960);
-    self.view.backgroundColor = [UIColor blackColor];
+    self.mainScrollView.contentSize=self.bigView.frame.size;
+    [self.view addSubview:self.bigView];
+    self.view.backgroundColor = [UIColor UPDarkGreyColor];
+    self.bigView.backgroundColor=[UIColor UPTealColor];
     //[self.view addSubview:self.scrollView];
     // Do any additional setup after loading the view from its nib.
 }

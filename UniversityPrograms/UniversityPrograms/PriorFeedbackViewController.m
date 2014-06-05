@@ -11,6 +11,8 @@
 #import "UPDataRetrieval.h"
 #import "Comment.h"
 #import "NSObject+ObjectMap.h"
+#import "UIColor+UPColors.h"
+
 @interface PriorFeedbackViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property NSArray *commentArray;
@@ -23,7 +25,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title=@"Prior Feedback";
+        self.title=@"Prior Comments";
         //self.commentArray=[[NSArray alloc]initWithObjects:@"",@"",@"", nil];
         // Custom initialization
     }
@@ -33,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableview setSeparatorColor:[UIColor UPDarkGreyColor]];
+    
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.tableview.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadFeedback) forControlEvents:UIControlEventValueChanged];
     [self.tableview addSubview:self.refreshControl];

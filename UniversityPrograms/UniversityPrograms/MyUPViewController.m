@@ -10,8 +10,9 @@
 #import "CommentViewController.h"
 #import "UserInfoViewController.h"
 #import "PriorFeedbackViewController.h"
-
-
+#import "Colours.h"
+#import "UIColor+UPColors.h"
+@import QuartzCore;
 @interface MyUPViewController ()
 
 @end
@@ -29,6 +30,27 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.priorFeedback.layer.cornerRadius=10.0;
+    self.userInfoButton.layer.cornerRadius=10.0;
+    self.commentButton.layer.cornerRadius=10.0;
+    self.priorFeedback.backgroundColor=[UIColor UPTealColor];
+    self.userInfoButton.backgroundColor=[UIColor UPPeachColor];
+
+    self.view.backgroundColor=[UIColor UPPlumColor];
+    
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 -(IBAction)didSelectComment:(id)sender{
     CommentViewController *comments = [[CommentViewController alloc] init];
     [self.navigationController pushViewController:comments
@@ -42,22 +64,6 @@
 - (IBAction)didSelectPriorFeedback:(id)sender {
     PriorFeedbackViewController *feedbackInfo = [[PriorFeedbackViewController alloc] init];
     [self.navigationController pushViewController:feedbackInfo animated:YES];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-
-    self.view.backgroundColor=[UIColor blackColor];
-    
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -59,9 +59,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if(!self.specifiedEvent.isRegistered){
-        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
-    }
+    
     
     [_mainScrollView addSubview:_eventBigView];
     self.mainScrollView.contentSize = _eventBigView.frame.size;
@@ -80,13 +78,21 @@
 }
 -(void)addAlertView{
     UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"User Info Not Configured" message:@"Please enter your student information, or at least your CWID, before RSVPing. Thank you." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [saveAlert setTag:1];
     [saveAlert show];
+    
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView
 clickedButtonAtIndex:(NSInteger)buttonIndex{
-    UserInfoViewController *tempInfoController =[[UserInfoViewController alloc]init];
-    [self.navigationController pushViewController:tempInfoController animated:YES];
+    if(alertView.tag==1){
+        UserInfoViewController *tempInfoController =[[UserInfoViewController alloc]init];
+        [self.navigationController pushViewController:tempInfoController animated:YES];
+    }
+    else{
+        
+    }
     
 }
 
@@ -95,28 +101,53 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     if([[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]==nil||[[[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]isEqualToString:@""]){
         [self addAlertView];
     }
-    [UPDataRetrieval rsvpEvent:[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] event:self.specifiedEvent completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //[self confirmAlertView];
-            self.navigationItem.rightBarButtonItem=nil;
-        });
+    else{
+        [UPDataRetrieval rsvpEvent:[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] event:self.specifiedEvent completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self confirmAlertView];
+                self.navigationItem.rightBarButtonItem=nil;
+            });
         
-    }];
-    
+        }];
+    }
     
 }
 -(void)confirmAlertView{
     UIAlertView *confirmAlert = [[UIAlertView alloc]initWithTitle:@"You have RSVPed" message:@"Your RSVP for this event has been recorded. Thank you." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [confirmAlert setTag:2];
     [confirmAlert show];
+    
 }
 
 #pragma mark - UI
 
 -(void)setUI{
+    if(!self.specifiedEvent.isRegistered){
+        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
+    }
     //Set image url
     [_eventImageView setImageWithURL:[NSURL URLWithString:_specifiedEvent.imageUrl]];
     _eventTitleLabel.text = _specifiedEvent.eventName;
     _eventDescriptionLabel.text=_specifiedEvent.eventDescription;
+    
+    if(self.specifiedEvent.location==nil){
+        self.addressLine1Label.text=@"";
+        self.addressLine2Label.text=@"";
+        self.addressLine3Label.text=@"";
+    }
+    
+    else if(self.specifiedEvent.location.street2==nil){
+        self.addressLine1Label.text=self.specifiedEvent.location.street1;
+        NSString *addressString = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
+        self.addressLine2Label.text=addressString;
+    }
+    else{
+        self.addressLine1Label.text=self.specifiedEvent.location.street1;
+        NSString *addressString = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
+        self.addressLine2Label.text=self.specifiedEvent.location.street2;
+        self.addressLine3Label.text=addressString;
+    }
+    
     if ([self.specifiedEvent.startDate isLaterThan:[NSDate date]]) {
         int daysFromNow = self.specifiedEvent.startDate.daysUntil;
         if (daysFromNow > 0) {
@@ -127,11 +158,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             int hoursFromNow = self.specifiedEvent.startDate.hoursUntil;
             if (hoursFromNow > 0) {
                 self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", hoursFromNow];
+                
             }
             else {
                 int minutesFromNow = self.specifiedEvent.startDate.minutesUntil;
                 if (minutesFromNow > 0) {
                     self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", minutesFromNow];
+                    
                 }
             }
         }
@@ -144,17 +177,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         self.eventStartTime.text=[NSString stringWithFormat:@"The %@ has already happened", self.specifiedEvent.eventName];
     }
     
-    if(self.specifiedEvent.location.street2==nil){
-        self.addressLine1Label.text=self.specifiedEvent.location.street1;
-        NSString *addressString = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
-        self.addressLine2Label.text=addressString;
-    }
-    else{
-        self.addressLine1Label.text=self.specifiedEvent.location.street1;
-        NSString *addressString = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
-        self.addressLine2Label.text=self.specifiedEvent.location.street2;
-        self.addressLine3Label.text=addressString;
-    }
     
 }
 

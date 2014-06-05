@@ -36,7 +36,7 @@ NSOperationQueue *opQueue;
 }
 
 +(void)getSpecificEvent:(NSString *)cwid eventID:(NSString *)eventID completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event/getEvent";
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Event/getEvent"];
     NSString *urlQueryString = [NSString stringWithFormat:@"?eventId=%@&cwid=%@", eventID, cwid];
     NSString *finalQueryString = [NSString stringWithFormat:@"%@%@", urlString, urlQueryString];
     
@@ -49,7 +49,7 @@ NSOperationQueue *opQueue;
 
 
 +(void)rsvpEvent:(NSString *)cwid event:(Event *)event completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Event/rsvp";
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Event/rsvp"];
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
@@ -64,7 +64,8 @@ NSOperationQueue *opQueue;
 
 
 +(void)submitComment:(NSString *)cwid comment:(Comment *)comment completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Comment/addcomment";
+
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Comment/addcomment"];
     
     NSURL *url = [NSURL URLWithString:urlString];
     
@@ -80,7 +81,8 @@ NSOperationQueue *opQueue;
 
 
 +(void)retrieveComments:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    NSString *urlString = @"https://mobileweb.caps.ua.edu/UP/api/Comment/priorFeeback";
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Comment/priorFeeback"];
     NSString *urlQueryString = [NSString stringWithFormat:@"?cwid=%@", cwid];
     NSString *finalQueryString = [NSString stringWithFormat:@"%@%@", urlString, urlQueryString];
     

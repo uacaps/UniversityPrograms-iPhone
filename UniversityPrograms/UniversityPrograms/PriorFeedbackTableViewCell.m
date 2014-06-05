@@ -17,11 +17,12 @@
     return self;
 }
 -(void)buildWithComment:(Comment *)c{
-    self.titleLabel.text=c.title;
+    self.titleLabel.text=c.commentTitle;
     self.titleLabel.backgroundColor = [UIColor whiteColor];
     self.descriptionBox.text=c.commentText;
     self.descriptionBox.backgroundColor = [UIColor whiteColor];
     self.backgroundColor= [UIColor whiteColor];
+    [self.descriptionBox setTextColor:[UIColor darkGrayColor]];
 }
 - (void)awakeFromNib
 {

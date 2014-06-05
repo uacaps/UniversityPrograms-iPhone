@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserInfoViewController : UIViewController<UIAlertViewDelegate>
+@interface UserInfoViewController : UIViewController<UIAlertViewDelegate, UITextFieldDelegate>
 
 @end

@@ -73,6 +73,7 @@
         [[NSUserDefaults standardUserDefaults]synchronize];
      
         [self addAlertView];
+        
     }
     //[self.navigationController popViewControllerAnimated:YES];
      

@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *eventImage;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 -(void)buildWithEvent:(Event *)event;
+-(instancetype)init;
 
 @end

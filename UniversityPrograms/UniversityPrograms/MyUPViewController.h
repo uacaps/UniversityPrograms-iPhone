@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UPViewController.h"
 
-@interface MyUPViewController : UPViewController
+@interface MyUPViewController : UPViewController <UITabBarDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIButton *userInfoButton;
 @property (weak, nonatomic) IBOutlet UIButton *priorFeedback;

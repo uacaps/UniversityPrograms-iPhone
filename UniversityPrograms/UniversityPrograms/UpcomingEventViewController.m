@@ -28,9 +28,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title=@"Upcoming Events";
+        self.title=@"Events";
         self.upcomingArray = [[NSArray alloc] init];
-        //self.upcomingArray = @[@"just checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking", @"still checking",@"still checking",@"still checking"];
+        
         self.tabBarItem.image = [UIImage imageNamed:@"Calendar.png"];
         self.tabBarItem.selectedImage = [UIImage imageNamed:@"Calendar_filled.png"];
         //[self loadEvents];
@@ -43,7 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.upComingEventsTable.backgroundColor = [UIColor UPDarkGreyColor];
+    
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.upComingEventsTable.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadEvents) forControlEvents:UIControlEventValueChanged];
     [self.upComingEventsTable addSubview:self.refreshControl];

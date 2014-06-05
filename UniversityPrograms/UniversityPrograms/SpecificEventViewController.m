@@ -17,6 +17,8 @@
 
 @interface SpecificEventViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *attendingLabel;
 
 @property (strong, nonatomic) IBOutlet UIView *eventBigView;
 @property (weak, nonatomic) IBOutlet UIImageView *eventImageView;
@@ -44,7 +46,9 @@
     return self;
 }
 
-
+-(void)viewDidAppear:(BOOL)animated{
+    [self getEvent:self.specifiedEvent];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -59,7 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.loadingIndicator startAnimating];
     
     [_mainScrollView addSubview:_eventBigView];
     self.mainScrollView.contentSize = _eventBigView.frame.size;
@@ -105,6 +109,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         [UPDataRetrieval rsvpEvent:[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] event:self.specifiedEvent completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self confirmAlertView];
+                [self.loadingIndicator startAnimating];
+                [self getEvent:self.specifiedEvent];
                 self.navigationItem.rightBarButtonItem=nil;
             });
         
@@ -127,9 +133,26 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     }
     //Set image url
     [_eventImageView setImageWithURL:[NSURL URLWithString:_specifiedEvent.imageUrl]];
-    _eventTitleLabel.text = _specifiedEvent.eventName;
-    _eventDescriptionLabel.text=_specifiedEvent.eventDescription;
-    
+    self.eventTitleLabel.text = _specifiedEvent.eventName;
+    self.eventDescriptionLabel.text=_specifiedEvent.eventDescription;
+    if(self.specifiedEvent.isRegistered){
+        self.attendingLabel.text=@"You are attending";
+        
+    }
+    else{
+        NSNumber *sponseredByTheNumberOne = [[NSNumber alloc] initWithInt:1];
+        NSNumber *sponseredByTheNumberZero = [[NSNumber alloc] initWithInt:0];
+        if(self.specifiedEvent.numberAttending==sponseredByTheNumberOne){
+            self.attendingLabel.text=[NSString stringWithFormat:@"%@ person is attending", [self.specifiedEvent.numberAttending stringValue]];
+        }
+        else if(self.specifiedEvent.numberAttending==sponseredByTheNumberZero){
+            self.attendingLabel.text=@"";
+        }
+        
+        else{
+            self.attendingLabel.text=[NSString stringWithFormat:@"%@ people are attending", [self.specifiedEvent.numberAttending stringValue]];
+        }
+    }
     if(self.specifiedEvent.location==nil){
         self.addressLine1Label.text=@"";
         self.addressLine2Label.text=@"";
@@ -176,7 +199,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     else{
         self.eventStartTime.text=[NSString stringWithFormat:@"The %@ has already happened", self.specifiedEvent.eventName];
     }
-    
+    [self.loadingIndicator stopAnimating];
     
 }
 
@@ -184,7 +207,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 -(void)getEvent:(Event *)event{
     [UPDataRetrieval getSpecificEvent:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] eventID:self.specifiedEvent.eventId completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         self.specifiedEvent=[[Event alloc] initWithJSONData:data];
         
         dispatch_async(dispatch_get_main_queue(), ^{

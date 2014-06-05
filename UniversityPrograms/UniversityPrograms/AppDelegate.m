@@ -13,7 +13,7 @@
 #import "UPNavigationViewController.h"
 #import "Colours.h"
 #import "UIColor+UPColors.h"
-
+#import "ContactUPViewController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -36,15 +36,19 @@
     AboutUPViewController *aboutUP = [[AboutUPViewController alloc] initWithNibName:NSStringFromClass([AboutUPViewController class]) bundle:nil];
     MyUPViewController *myUP = [[MyUPViewController alloc]initWithNibName:NSStringFromClass([MyUPViewController class]) bundle:nil];
     
+    ContactUPViewController *contactUP = [[ContactUPViewController alloc] init];
+    
     UPNavigationViewController *upcomingNav = [[UPNavigationViewController alloc] initWithRootViewController:upcoming];
     
     UPNavigationViewController *aboutUPNav = [[UPNavigationViewController alloc] initWithRootViewController:aboutUP];
     
     UPNavigationViewController *myUPNav = [[UPNavigationViewController alloc] initWithRootViewController:myUP];
     
+    UPNavigationViewController *contactUPNav = [[UPNavigationViewController alloc] initWithRootViewController:contactUP];
+    
     //Set tab bar appearance
     _baseTabBarController.tabBar.tintColor = [UIColor successColor];
-    [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, myUPNav]];
+    [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, contactUPNav, myUPNav]];
     
     return YES;
 }

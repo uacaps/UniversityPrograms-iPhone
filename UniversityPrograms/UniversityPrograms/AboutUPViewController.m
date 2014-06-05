@@ -36,8 +36,8 @@
     
     self.mainScrollView.contentSize=self.bigView.frame.size;
     [self.view addSubview:self.bigView];
-    self.view.backgroundColor = [UIColor UPDarkGreyColor];
-    self.bigView.backgroundColor=[UIColor UPTealColor];
+    
+    
     //[self.view addSubview:self.scrollView];
     // Do any additional setup after loading the view from its nib.
 }

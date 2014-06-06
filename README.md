@@ -3,8 +3,7 @@ UniversityPrograms-iPhone
 
 The iPhone app for University Programs
 
-Developer branch build.
 
-No Guarantees of Stability
+This is the master copy, it is a guaranteed stable build but not all features have been implemented.
 
-This branch is updated constantly so always check for updates and don't be suprised is something is fine one day and broke the next.
+If you want a build with more features but is not guaranteed to be stable, the developer branch version is the one you are looking for.

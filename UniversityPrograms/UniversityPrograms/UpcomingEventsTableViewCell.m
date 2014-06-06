@@ -68,10 +68,10 @@
     }
     //Check for in "happening now" and already done
     else if([event.startDate isEarlierThan:[NSDate date]]&&[event.endDate isLaterThan:[NSDate date]]){
-        self.dateLabel.text=[NSString stringWithFormat:@"Happening Now"];
+        self.dateLabel.text=[NSString stringWithFormat:@"Now"];
     }
     else{
-        self.dateLabel.text=[NSString stringWithFormat:@"The event is over."];
+        self.dateLabel.text=[NSString stringWithFormat:@"Over."];
     }
     
     //NSString *dateString = [[NSString alloc] initWithFormat:@"From: %@ Until: %@",[event.startDate formattedDateWithFormat:@"hh:mm MM-dd"],[event.endDate formattedDateWithFormat:@"hh:mm MM-dd"]];

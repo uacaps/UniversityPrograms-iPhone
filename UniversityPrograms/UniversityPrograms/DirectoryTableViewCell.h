@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Employee.h"
 @interface DirectoryTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *employeeImage;
 @property (weak, nonatomic) IBOutlet UILabel *employeeName;
@@ -15,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *employeePhone;
 @property (weak, nonatomic) IBOutlet UILabel *employeeEmail;
 
-
+-(void)buildWtihEmployee:(Employee *)emp;
 @end

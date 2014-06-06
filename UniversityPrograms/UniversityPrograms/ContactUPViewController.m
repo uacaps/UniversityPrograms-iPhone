@@ -9,7 +9,7 @@
 #import "ContactUPViewController.h"
 #import "DirectoryTableViewCell.h"
 #import "CommentViewController.h"
-
+#import "Employee.h"
 @interface ContactUPViewController ()
 
 @property NSArray *directoryArray;
@@ -31,7 +31,8 @@
         self.title=@"Contact UP";
         self.tabBarItem.image=[UIImage imageNamed:@"Contact.png"];
         self.tabBarItem.selectedImage=[UIImage imageNamed:@"Contact_filled.png"];
-        self.directoryArray = [[NSArray alloc] init];
+        
+        self.directoryArray=[Employee buildArrayOfEmployees];
         // Custom initialization
     }
     return self;
@@ -99,6 +100,8 @@
         if(!cell){
             cell = [[DirectoryTableViewCell alloc] init];
         }
+        Employee *e = [self.directoryArray objectAtIndex:indexPath.row-3];
+        [cell buildWtihEmployee:e];
         return cell;
     }
     
@@ -110,6 +113,10 @@
         retVal=120.0f;
         
     }
+    else if(indexPath.row>2){
+        retVal=108.0f;
+        
+    }
     else{
         retVal=44.0f;
         
@@ -118,10 +125,12 @@
     return retVal;
     
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    CommentViewController *tappedEvent = [[CommentViewController alloc] init];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row==0){CommentViewController *tappedEvent = [[CommentViewController alloc] init];
     [self.navigationController pushViewController:tappedEvent animated:YES];
-    [self.contactUPTableView reloadData];
+        [self.contactUPTableView reloadData];}
+    else {[self.contactUPTableView reloadData];}
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "NSObject+ObjectMap.h"
 #import "UPWebserviceConstants.h"
 #import "RegistrantDTO.h"
+#import "UnRSVPDTO.h"
 
 @implementation UPDataRetrieval
 NSOperationQueue *opQueue;
@@ -24,8 +25,11 @@ NSOperationQueue *opQueue;
 
 
 +(void)getEvents:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
+    
     NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Event/events"];
+    
     NSString *urlQueryString = [NSString stringWithFormat:@"?cwid=%@", cwid];
+    
     NSString *finalQueryString = [NSString stringWithFormat:@"%@%@", urlString, urlQueryString];
     
     NSURL *url = [NSURL URLWithString:finalQueryString];
@@ -61,7 +65,22 @@ NSOperationQueue *opQueue;
     [request setHTTPBody:registrantData];
     [NSURLConnection sendAsynchronousRequest:request queue:[UPDataRetrieval _operationQueue] completionHandler:block];
 }
-
++(void)unrsvp:(NSString *)cwid event:(Event *)event completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Event/unrsvp"];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    
+    UnRSVPDTO *unrsvp=[[UnRSVPDTO alloc]init];
+    unrsvp.cwid=[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
+    unrsvp.eventId=event.eventId;
+    NSData *unrsvpData= [unrsvp JSONData];
+    [request setHTTPBody:unrsvpData];
+    [NSURLConnection sendAsynchronousRequest:request queue:[UPDataRetrieval _operationQueue] completionHandler:block];
+}
 
 +(void)submitComment:(NSString *)cwid comment:(Comment *)comment completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
 

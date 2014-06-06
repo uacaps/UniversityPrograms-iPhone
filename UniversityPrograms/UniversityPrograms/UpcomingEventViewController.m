@@ -54,20 +54,15 @@
 -(void)loadEvents{
     
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        _upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
-        //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-        NSArray *sortedArray = [self.upcomingArray sortedArrayUsingComparator:^NSComparisonResult(Event *event1, Event *event2) {
-            return [event1.startDate compare: event2.startDate];
-        }];
-        self.upcomingArray=sortedArray;
+        self.upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
+        
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.upComingEventsTable reloadData];
             [self.refreshControl endRefreshing];
         });
     }];
-    
-    
-    
+  
 }
 
 

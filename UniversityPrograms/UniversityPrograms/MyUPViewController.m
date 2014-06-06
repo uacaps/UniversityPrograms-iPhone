@@ -80,12 +80,9 @@
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         self.sortedEventArray=[[NSMutableArray alloc] init];
         self.unsortedEventArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
-        //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-        NSArray *sortedArray = [self.unsortedEventArray sortedArrayUsingComparator:^NSComparisonResult(Event *event1, Event *event2) {
-            return [event1.startDate compare: event2.startDate];
-        }];
-        for (int index =0; index<sortedArray.count; ++index) {
-            Event *e=[sortedArray objectAtIndex:index];
+        
+        for (int index =0; index<self.unsortedEventArray.count; ++index) {
+            Event *e=[self.unsortedEventArray objectAtIndex:index];
             if(e.isRegistered==true){
                 [self.sortedEventArray addObject:e];
             }

@@ -7,6 +7,8 @@
 //
 
 #import "DirectoryTableViewCell.h"
+#import "UIImageView+WebCache.h"
+@import QuartzCore;
 
 @implementation DirectoryTableViewCell
 -(instancetype)init{
@@ -14,6 +16,15 @@
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([DirectoryTableViewCell class]) owner:nil options:nil][0];
     
     return self;
+}
+-(void)buildWtihEmployee:(Employee *)emp{
+    self.employeeEmail.text=emp.email;
+    //self.employeeImage.layer.cornerRadius=2;
+    [self.employeeImage setImageWithURL:[[NSURL alloc] initWithString:emp.imageURL]];
+    self.employeeName.text=emp.name;
+    self.employeePhone.text=emp.phone;
+    self.employeeTitle.text=emp.title;
+    self.employeeImage.layer.cornerRadius=8;
 }
 - (void)awakeFromNib
 {

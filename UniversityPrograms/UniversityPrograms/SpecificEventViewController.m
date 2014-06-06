@@ -88,12 +88,19 @@
     
 }
 
+-(void)addUnRSVPAlertView{
+    UIAlertView *unAlert = [[UIAlertView alloc] initWithTitle:@"un-RSVPed" message:@"You have un-RSVPed from this event, we hope to see you at other future events." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [unAlert setTag:10];
+    [unAlert show];
+}
+
 - (void)alertView:(UIAlertView *)alertView
 clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(alertView.tag==1){
         UserInfoViewController *tempInfoController =[[UserInfoViewController alloc]init];
         [self.navigationController pushViewController:tempInfoController animated:YES];
     }
+
     else{
         
     }
@@ -181,10 +188,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     }
     //Check for in "happening now" and already done
     else if([self.specifiedEvent.startDate isEarlierThan:[NSDate date]]&&[self.specifiedEvent.endDate isLaterThan:[NSDate date]]){
-        self.eventStartTime.text=[NSString stringWithFormat:@"The %@ is happening now",self.specifiedEvent.eventName];
+        self.eventStartTime.text=[NSString stringWithFormat:@"Happening Now"];
     }
     else{
-        self.eventStartTime.text=[NSString stringWithFormat:@"The %@ has already happened", self.specifiedEvent.eventName];
+        self.eventStartTime.text=[NSString stringWithFormat:@"Already Happened"];
     }
     [self.loadingIndicator stopAnimating];
     
@@ -214,7 +221,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
                 [self confirmAlertView];
                 [self.loadingIndicator startAnimating];
                 [self getEvent:self.specifiedEvent];
-                self.navigationItem.rightBarButtonItem=nil;
+                
             });
             
         }];
@@ -222,7 +229,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }
 -(void)didTapUnRSVP{
-    
+    [UPDataRetrieval unrsvp:[[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"] event:self.specifiedEvent completetionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self addUnRSVPAlertView];
+            [self getEvent:self.specifiedEvent];
+            
+        });
+    }];
 }
 
 #pragma mark - ScrollView Delegate

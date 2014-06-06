@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "UPViewController.h"
-@interface ContactUPViewController : UPViewController
+@interface ContactUPViewController : UPViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

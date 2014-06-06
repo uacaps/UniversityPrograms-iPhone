@@ -71,9 +71,9 @@
     [self loadData];
 }
 -(void)loadData{
-    [self loadFeedback];
-    [self loadEvents];
     
+    [self loadEvents];
+    [self loadFeedback];
     [self.refreshControl endRefreshing];
 }
 -(void)loadEvents{

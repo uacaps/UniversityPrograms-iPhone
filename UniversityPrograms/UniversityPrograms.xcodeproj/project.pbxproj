@@ -14,6 +14,8 @@
 		1B0A691C1938D58C005C821D /* AboutUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691A1938D58C005C821D /* AboutUPViewController.m */; };
 		1B0A69211938DA8B005C821D /* UpcomingEventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691F1938DA8B005C821D /* UpcomingEventsTableViewCell.m */; };
 		1B0A69221938DA8B005C821D /* UpcomingEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */; };
+		1B48B56819421640008F5186 /* DirectoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48B56619421640008F5186 /* DirectoryTableViewCell.m */; };
+		1B48B56919421640008F5186 /* DirectoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B48B56719421640008F5186 /* DirectoryTableViewCell.xib */; };
 		1B7880DA1940EBED00333ED5 /* MyUPInitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7880D81940EBED00333ED5 /* MyUPInitTableViewCell.m */; };
 		1B7880DB1940EBED00333ED5 /* MyUPInitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7880D91940EBED00333ED5 /* MyUPInitTableViewCell.xib */; };
 		1B7880E01940EC8B00333ED5 /* ContactUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7880DE1940EC8B00333ED5 /* ContactUPViewController.m */; };
@@ -95,6 +97,9 @@
 		1B0A691F1938DA8B005C821D /* UpcomingEventsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingEventsTableViewCell.m; sourceTree = "<group>"; };
 		1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpcomingEventsTableViewCell.xib; sourceTree = "<group>"; };
 		1B38F299193F6FD2005158D1 /* UPWebserviceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPWebserviceConstants.h; sourceTree = "<group>"; };
+		1B48B56519421640008F5186 /* DirectoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryTableViewCell.h; sourceTree = "<group>"; };
+		1B48B56619421640008F5186 /* DirectoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryTableViewCell.m; sourceTree = "<group>"; };
+		1B48B56719421640008F5186 /* DirectoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectoryTableViewCell.xib; sourceTree = "<group>"; };
 		1B7880D71940EBED00333ED5 /* MyUPInitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUPInitTableViewCell.h; sourceTree = "<group>"; };
 		1B7880D81940EBED00333ED5 /* MyUPInitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUPInitTableViewCell.m; sourceTree = "<group>"; };
 		1B7880D91940EBED00333ED5 /* MyUPInitTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyUPInitTableViewCell.xib; sourceTree = "<group>"; };
@@ -201,11 +206,11 @@
 		1B0A69031938D434005C821D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1B7880DC1940EC5E00333ED5 /* Contact UP */,
 				1BB198C4193F9AB60017A1D6 /* UPNavigationViewController.h */,
 				1BB198C5193F9AB60017A1D6 /* UPNavigationViewController.m */,
 				1BB198CA193FA54A0017A1D6 /* UPViewController.h */,
 				1BB198CB193FA54A0017A1D6 /* UPViewController.m */,
+				1B7880DC1940EC5E00333ED5 /* Contact UP */,
 				1B0A690B1938D4A5005C821D /* upcoming events */,
 				1B0A69181938D575005C821D /* about */,
 				1BAD1A3C193CCB9E006D24AD /* MyUP */,
@@ -251,6 +256,9 @@
 				1B7880D71940EBED00333ED5 /* MyUPInitTableViewCell.h */,
 				1B7880D81940EBED00333ED5 /* MyUPInitTableViewCell.m */,
 				1B7880D91940EBED00333ED5 /* MyUPInitTableViewCell.xib */,
+				1B48B56519421640008F5186 /* DirectoryTableViewCell.h */,
+				1B48B56619421640008F5186 /* DirectoryTableViewCell.m */,
+				1B48B56719421640008F5186 /* DirectoryTableViewCell.xib */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -258,10 +266,10 @@
 		1B0A690B1938D4A5005C821D /* upcoming events */ = {
 			isa = PBXGroup;
 			children = (
-				1BAD1A4B193CD2AA006D24AD /* event */,
 				1B0A690E1938D520005C821D /* UpcomingEventViewController.h */,
 				1B0A690F1938D520005C821D /* UpcomingEventViewController.m */,
 				1B0A69101938D520005C821D /* UpcomingEventViewController.xib */,
+				1BAD1A4B193CD2AA006D24AD /* event */,
 			);
 			name = "upcoming events";
 			sourceTree = "<group>";
@@ -582,6 +590,7 @@
 				1BB198C0193F99F70017A1D6 /* Cog_filled.png in Resources */,
 				1B7880E91940EE9000333ED5 /* Contact@2x.png in Resources */,
 				1BAD1A50193CD385006D24AD /* SpecificEventViewController.xib in Resources */,
+				1B48B56919421640008F5186 /* DirectoryTableViewCell.xib in Resources */,
 				1B7880E11940EC8B00333ED5 /* ContactUPViewController.xib in Resources */,
 				1BB198DB193FAA580017A1D6 /* Info.png in Resources */,
 				1B7880F1194105CE00333ED5 /* Pencil_filled.png in Resources */,
@@ -640,6 +649,7 @@
 				1BAD1A4F193CD385006D24AD /* SpecificEventViewController.m in Sources */,
 				1BB198C9193FA4530017A1D6 /* UIColor+UPColors.m in Sources */,
 				1B7880E01940EC8B00333ED5 /* ContactUPViewController.m in Sources */,
+				1B48B56819421640008F5186 /* DirectoryTableViewCell.m in Sources */,
 				1B0A691C1938D58C005C821D /* AboutUPViewController.m in Sources */,
 				1BA9FE68193E244B008F8981 /* PriorFeedbackTableViewCell.m in Sources */,
 				1BB198E3193FC4900017A1D6 /* LocationDTO.m in Sources */,

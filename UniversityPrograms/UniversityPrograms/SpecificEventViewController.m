@@ -100,24 +100,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }
 
-- (void)didTapRSVP {
-    
-    if([[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]==nil||[[[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]isEqualToString:@""]){
-        [self addAlertView];
-    }
-    else{
-        [UPDataRetrieval rsvpEvent:[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] event:self.specifiedEvent completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self confirmAlertView];
-                [self.loadingIndicator startAnimating];
-                [self getEvent:self.specifiedEvent];
-                self.navigationItem.rightBarButtonItem=nil;
-            });
-        
-        }];
-    }
-    
-}
 -(void)confirmAlertView{
     UIAlertView *confirmAlert = [[UIAlertView alloc]initWithTitle:@"You have RSVPed" message:@"Your RSVP for this event has been recorded. Thank you." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [confirmAlert setTag:2];
@@ -128,8 +110,12 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 #pragma mark - UI
 
 -(void)setUI{
+    //set bar button type
     if(!self.specifiedEvent.isRegistered){
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
+    }
+    else{
+        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"un-RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapUnRSVP)];
     }
     //Set image url
     [_eventImageView setImageWithURL:[NSURL URLWithString:_specifiedEvent.imageUrl]];
@@ -140,12 +126,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         
     }
     else{
-        NSNumber *sponseredByTheNumberOne = [[NSNumber alloc] initWithInt:1];
-        NSNumber *sponseredByTheNumberZero = [[NSNumber alloc] initWithInt:0];
-        if(self.specifiedEvent.numberAttending==sponseredByTheNumberOne){
+        
+        
+        
+        if(self.specifiedEvent.numberAttending==[NSNumber numberWithInt:1]){
             self.attendingLabel.text=[NSString stringWithFormat:@"%@ person is attending", [self.specifiedEvent.numberAttending stringValue]];
         }
-        else if(self.specifiedEvent.numberAttending==sponseredByTheNumberZero){
+        else if(self.specifiedEvent.numberAttending==[NSNumber numberWithInt:0]){
             self.attendingLabel.text=@"";
         }
         
@@ -215,6 +202,27 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         });
         
     }];
+}
+- (void)didTapRSVP {
+    
+    if([[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]==nil||[[[NSUserDefaults standardUserDefaults]stringForKey:@"cwid"]isEqualToString:@""]){
+        [self addAlertView];
+    }
+    else{
+        [UPDataRetrieval rsvpEvent:[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] event:self.specifiedEvent completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self confirmAlertView];
+                [self.loadingIndicator startAnimating];
+                [self getEvent:self.specifiedEvent];
+                self.navigationItem.rightBarButtonItem=nil;
+            });
+            
+        }];
+    }
+    
+}
+-(void)didTapUnRSVP{
+    
 }
 
 #pragma mark - ScrollView Delegate

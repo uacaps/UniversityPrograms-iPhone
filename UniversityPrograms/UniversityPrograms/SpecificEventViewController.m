@@ -122,7 +122,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
     }
     else{
-        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"un-RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapUnRSVP)];
+        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapUnRSVP)];
+        self.navigationItem.rightBarButtonItem.tintColor=[UIColor successColor];
     }
     //Set image url
     [_eventImageView setImageWithURL:[NSURL URLWithString:_specifiedEvent.imageUrl]];

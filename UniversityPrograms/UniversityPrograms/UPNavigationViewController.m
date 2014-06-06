@@ -31,7 +31,7 @@
     // Do any additional setup after loading the view.
     self.navigationBar.translucent = NO;
     self.navigationBar.tintColor = [UIColor lightGrayColor];
-    //self.navigationBar.barTintColor = [UIColor UPDarkGreyColor];
+    //self.navigationBar.barTintColor = [UIColor UPDarkGreyColo\];
     //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor successColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
     

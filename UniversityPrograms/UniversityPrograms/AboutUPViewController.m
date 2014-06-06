@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *aboutTableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *whatWeDo;
 @property (strong, nonatomic) IBOutlet UITableViewCell *whoWeAre;
+@property (strong, nonatomic) IBOutlet UITableViewCell *getInvolvedHeader;
 
 @end
 
@@ -58,7 +59,7 @@
 {
     
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 
@@ -69,8 +70,12 @@
         UITableViewCell *cell = self.whatWeDo;
         return cell;
     }
-    else{
+    else if(indexPath.row==1){
         UITableViewCell *cell = self.whoWeAre;
+        return cell;
+    }
+    else{
+        UITableViewCell *cell = self.getInvolvedHeader;
         return cell;
     }
     
@@ -78,4 +83,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.aboutTableView reloadData];
 }
+- (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat retVal =0.0f;
+    if(indexPath.row<2){
+        retVal=220.0f;
+        
+    }
+    else if(indexPath.row==2){
+        retVal=44.0f;
+        
+    }
+    else{
+        retVal=44.0f;
+        
+    }
+    
+    return retVal;
+    
+}
+
 @end

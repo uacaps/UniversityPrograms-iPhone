@@ -10,9 +10,9 @@
 #import "UIColor+UPColors.h"
 @interface AboutUPViewController ()
 
-@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
-@property (strong, nonatomic) IBOutlet UIView *bigView;
-
+@property (weak, nonatomic) IBOutlet UITableView *aboutTableView;
+@property (strong, nonatomic) IBOutlet UITableViewCell *whatWeDo;
+@property (strong, nonatomic) IBOutlet UITableViewCell *whoWeAre;
 
 @end
 
@@ -34,8 +34,7 @@
 {
     [super viewDidLoad];
     
-    self.mainScrollView.contentSize=self.bigView.frame.size;
-    [self.view addSubview:self.bigView];
+    
     
     
     //[self.view addSubview:self.scrollView];
@@ -48,4 +47,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    // Return the number of rows in the section.
+    return 2;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row==0){
+        
+    
+        UITableViewCell *cell = self.whatWeDo;
+        return cell;
+    }
+    else{
+        UITableViewCell *cell = self.whoWeAre;
+        return cell;
+    }
+    
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.aboutTableView reloadData];
+}
 @end

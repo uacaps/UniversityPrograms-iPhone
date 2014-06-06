@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UPViewController.h"
 
-@interface AboutUPViewController : UPViewController
-@property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
+@interface AboutUPViewController : UPViewController <UITableViewDataSource, UITableViewDelegate>
+
 
 @end

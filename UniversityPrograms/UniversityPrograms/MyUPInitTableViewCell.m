@@ -16,11 +16,14 @@
     return self;
 }
 -(void)build{
+    if([[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] isEqualToString:@""]||[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] ==nil){}
+    else{
     self.firstNameLabel.text=[NSString stringWithFormat:@"First Name: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"]];
     
     self.lastNameLabel.text=[NSString stringWithFormat:@"Last Name: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"]];
     self.cwidLabel.text=[NSString stringWithFormat:@"CWID: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"]];
-    self.emailLabel.text=[NSString stringWithFormat:@"EMAIL: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"email"]];
+    self.emailLabel.text=[NSString stringWithFormat:@"Email: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"email"]];
+    }
     self.myUPImage.image=[UIImage imageNamed:@"UP.jpg"];
     self.emailLabel.backgroundColor=[UIColor whiteColor];
     self.lastNameLabel.backgroundColor=[UIColor whiteColor];

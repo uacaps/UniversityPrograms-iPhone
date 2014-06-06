@@ -218,6 +218,7 @@
 			children = (
 				1BB198C7193FA4530017A1D6 /* UIColor+UPColors.h */,
 				1BB198C8193FA4530017A1D6 /* UIColor+UPColors.m */,
+				1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -225,8 +226,8 @@
 		1B0A69081938D474005C821D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1B0A690A1938D487005C821D /* Table Cells */,
 				1B0A69091938D47E005C821D /* Basic Views */,
+				1B0A690A1938D487005C821D /* Table Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -470,7 +471,6 @@
 				1BEC1BFD1939183C009DADEF /* NSObject+ObjectMap.h */,
 				1BEC1BFE1939183C009DADEF /* NSObject+ObjectMap.m */,
 				1BEC1BF7193914BE009DADEF /* UPDataRetrieval.h */,
-				1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */,
 				1B38F299193F6FD2005158D1 /* UPWebserviceConstants.h */,
 			);
 			name = "Web Calls";

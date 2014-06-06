@@ -8,13 +8,15 @@
 
 #import "AboutUPViewController.h"
 #import "UIColor+UPColors.h"
+#import "GetInvolvedCellData.h"
+#import "GetInvolvedTableViewCell.h"
 @interface AboutUPViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *aboutTableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *whatWeDo;
 @property (strong, nonatomic) IBOutlet UITableViewCell *whoWeAre;
 @property (strong, nonatomic) IBOutlet UITableViewCell *getInvolvedHeader;
-
+@property NSArray *getInvolvedArray;
 @end
 
 @implementation AboutUPViewController
@@ -26,6 +28,7 @@
         self.title=@"About UP";
         self.tabBarItem.image= [UIImage imageNamed:@"Info.png"];
         self.tabBarItem.selectedImage= [UIImage imageNamed:@"Info_filled.png"];
+        self.getInvolvedArray=[GetInvolvedCellData buildArrayOfDefaultData];
         // Custom initialization
     }
     return self;
@@ -59,7 +62,7 @@
 {
     
     // Return the number of rows in the section.
-    return 3;
+    return self.getInvolvedArray.count+3;
 }
 
 
@@ -74,8 +77,16 @@
         UITableViewCell *cell = self.whoWeAre;
         return cell;
     }
-    else{
+    else if(indexPath.row==2){
         UITableViewCell *cell = self.getInvolvedHeader;
+        return cell;
+    }
+    else{
+        GetInvolvedCellData *data=[self.getInvolvedArray objectAtIndex:indexPath.row-3];
+        
+        GetInvolvedTableViewCell *cell = [[GetInvolvedTableViewCell alloc]init];
+        cell.titleLabel.text = data.title;
+        cell.bodyTextLabel.text = data.text;
         return cell;
     }
     
@@ -95,7 +106,7 @@
         
     }
     else{
-        retVal=44.0f;
+        retVal=320.0f;
         
     }
     

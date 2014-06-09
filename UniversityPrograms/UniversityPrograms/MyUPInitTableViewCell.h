@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Event.h"
 @interface MyUPInitTableViewCell : UITableViewCell
 -(instancetype)init;
-@property (weak, nonatomic) IBOutlet UIImageView *myUPImage;
-@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cwidLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberAttending;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *actualNumberAttending;
 
--(void)build;
+
+-(void)buildWithEvent:(Event *)e;
 @end

@@ -12,6 +12,8 @@
 -(instancetype)init{
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([GetInvolvedTableViewCell class]) owner:nil options:nil][0];
+    self.titleLabel.backgroundColor=[UIColor whiteColor];
+    self.bodyTextLabel.backgroundColor = [UIColor whiteColor];
     
     return self;
 }

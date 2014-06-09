@@ -27,10 +27,17 @@
 @property NSArray *unsortedEventArray;
 @property NSMutableArray *sortedEventArray;
 @property (strong, nonatomic) IBOutlet UITableViewCell *yourEvents;
-
-
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selectorControl;
 @property (strong, nonatomic) IBOutlet UITableViewCell *commentTitleCell;
 @property UIRefreshControl *refreshControl;
+@property BOOL controlFlag;
+@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cwidLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *myUPImage;
+
+
 @end
 
 @implementation MyUPViewController
@@ -46,7 +53,9 @@
     self.priorCommentArray=[[NSArray alloc] init];
     self.unsortedEventArray=[[NSArray alloc] init];
     self.sortedEventArray=[[NSMutableArray alloc] init];
-    
+    self.controlFlag=YES;
+    [self loadData];
+
     return self;
 }
 
@@ -54,21 +63,25 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pencil_filled.png"] style:UIBarButtonItemStylePlain target:self action:@selector(didSelectComment)];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Edit User" style:UIBarButtonItemStylePlain target:self action:@selector(didSelectUser)];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectComment)];
     
-    //self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Add Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectComment)];
     
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.myUPTableView.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
     [self.myUPTableView addSubview:self.refreshControl];
-    
+    [self.selectorControl addTarget:self
+                         action:@selector(reload)
+               forControlEvents:UIControlEventValueChanged];
     
     
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidAppear:(BOOL)animated{
+    [self build];
     [self loadData];
+    [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
 }
 -(void)loadData{
     
@@ -80,7 +93,7 @@
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         self.sortedEventArray=[[NSMutableArray alloc] init];
         self.unsortedEventArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
-        
+        NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         for (int index =0; index<self.unsortedEventArray.count; ++index) {
             Event *e=[self.unsortedEventArray objectAtIndex:index];
             if(e.isRegistered==true){
@@ -95,7 +108,22 @@
     }];
     
 }
-
+-(void)build{
+    if([[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] isEqualToString:@""]||[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] ==nil){}
+    else{
+        self.firstNameLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"];
+        
+        self.lastNameLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"];
+        self.cwidLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
+        self.emailLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
+    }
+    self.myUPImage.image=[UIImage imageNamed:@"UP.jpg"];
+    self.emailLabel.backgroundColor=[UIColor whiteColor];
+    self.lastNameLabel.backgroundColor=[UIColor whiteColor];
+    self.firstNameLabel.backgroundColor=[UIColor whiteColor];
+    self.cwidLabel.backgroundColor=[UIColor whiteColor];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -128,6 +156,12 @@
 }
 
 
+- (void)reload{
+    self.controlFlag= !self.controlFlag;
+    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+    [self.myUPTableView reloadData];
+    
+}
 
 
 
@@ -142,105 +176,64 @@
 {
     
     // Return the number of rows in the section.
-    return self.priorCommentArray.count+self.sortedEventArray.count+3;
+    if(self.controlFlag){
+        return self.sortedEventArray.count;
+    }
+    else{
+        return self.priorCommentArray.count;
+    }
+    
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    if(indexPath.row==0){
-       MyUPInitTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyUPInitCell"];
-        if(!cell){
-            cell = [[MyUPInitTableViewCell alloc] init];
-        }
-        [cell  build];
-        cell.backgroundColor=[UIColor whiteColor];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        return cell;
-    }
-    else if(indexPath.row==1){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"yourEvents"];
-        if(!cell){
-            cell=self.yourEvents;
-        }
-        cell.backgroundColor=[UIColor whiteColor];
-        return cell;
+    if(self.controlFlag){
         
-    }
-    else if(indexPath.row<self.sortedEventArray.count+2){
-        UpcomingEventsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"upcomingCell"];
-        if(!cell){
-            cell=[[UpcomingEventsTableViewCell alloc] init];
-        }
-        Event *e = [self.sortedEventArray objectAtIndex:indexPath.row-2];
-        [cell buildWithEvent:e];
-        
-        
-        return cell;
-        
-    }
-    
-    
-    else if(indexPath.row==self.sortedEventArray.count+2){
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentTitle"];
-        
-        if(!cell){
-            cell = self.commentTitleCell;
-        }
-        cell.backgroundColor=[UIColor whiteColor];
-        return cell;
+            MyUPInitTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyUPInitCell"];
+            if(!cell){
+                cell=[[MyUPInitTableViewCell alloc] init];
+            }
+            Event *e = [self.sortedEventArray objectAtIndex:indexPath.row];
+            [cell buildWithEvent:e];
+            
+            
+            return cell;
         
     }
     else{
         
+         
         PriorFeedbackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PriorCell"];
-        
-        Comment *c=[self.priorCommentArray objectAtIndex:indexPath.row-self.sortedEventArray.count-3];
+            
+            Comment *c=[self.priorCommentArray objectAtIndex:indexPath.row];
         if(!cell){
             cell = [[PriorFeedbackTableViewCell alloc] init];
         }
         [cell buildWithComment:c];
         cell.backgroundColor=[UIColor whiteColor];
-        
+            
         return cell;
-    }
+        
     
+    }
     
 }
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat retVal =0.0f;
-    if(indexPath.row==0){
-        retVal=125.0f;
-        
-    }
-    else if(indexPath.row==1){
-        retVal=44.0f;
-        
-    }
-    else if(indexPath.row<self.sortedEventArray.count+2){
-       
-        retVal=180.0f;
-    }
-    else if (indexPath.row==self.sortedEventArray.count+2){
-        retVal=44.0f;
-        
-    }
-    else{
-        retVal=125.0f;
-        
-    }
+     if(self.controlFlag){
+         retVal=125.0f;
+     }
+     else{
+         retVal= [PriorFeedbackTableViewCell heightForComment:self.priorCommentArray[indexPath.row]]; //Comments
+     }
+   
     return retVal;
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row==0){
-        [self didSelectUser];
-    }
-    else if (indexPath.row>1 && indexPath.row<self.sortedEventArray.count+2){
-        SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] initWithEvent:self.sortedEventArray[indexPath.row-2]];
+    if (indexPath.row>0 && indexPath.row<self.sortedEventArray.count+1&&self.controlFlag){
+        SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] initWithEvent:self.sortedEventArray[indexPath.row-1]];
         [self.navigationController pushViewController:tappedEvent animated:YES];
         [self.myUPTableView reloadData];
     }

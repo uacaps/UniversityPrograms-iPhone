@@ -47,6 +47,7 @@
     }
     
     //Set date before began
+
     if ([event.startDate isLaterThan:[NSDate date]]) {
         int daysFromNow = event.startDate.daysUntil;
         if (daysFromNow > 0) {
@@ -56,12 +57,12 @@
         else {
             int hoursFromNow = event.startDate.hoursUntil;
             if (hoursFromNow > 0) {
-                self.dateLabel.text= [NSString stringWithFormat:@"in %dd", hoursFromNow];
+                self.dateLabel.text= [NSString stringWithFormat:@"in %dh", hoursFromNow];
             }
             else {
                 int minutesFromNow = event.startDate.minutesUntil;
                 if (minutesFromNow > 0) {
-                    self.dateLabel.text= [NSString stringWithFormat:@"in %dd", minutesFromNow];
+                    self.dateLabel.text= [NSString stringWithFormat:@"in %dm", minutesFromNow];
                 }
             }
         }

@@ -13,16 +13,14 @@
 #import "NSObject+ObjectMap.h"
 #import "UIColor+UPColors.h"
 
+@import QuartzCore;
+
 @interface CommentViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *subjectBox;
-@property (weak, nonatomic) IBOutlet UITextField *emailBox;
 @property (weak, nonatomic) IBOutlet UITextView *commentBox;
-@property (weak, nonatomic) IBOutlet UIButton *submitButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (strong, nonatomic) IBOutlet UIView *bigView;
-@property (weak, nonatomic) IBOutlet UITextField *firstNameBox;
-@property (weak, nonatomic) IBOutlet UITextField *lastNameBox;
+
 
 @end
 
@@ -42,51 +40,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.submitButton.layer.cornerRadius=10.0;
-    self.cancelButton.layer.cornerRadius=10.0;
-    [self.submitButton setBackgroundColor:[UIColor successColor]];
-    [self.cancelButton setBackgroundColor:[UIColor brickRedColor]];
     [self.bigView setBackgroundColor:[UIColor UPSecondaryColor]];
     [self.mainScrollView addSubview:self.bigView];
     self.mainScrollView.contentSize=self.bigView.frame.size;
     [self.mainScrollView setBackgroundColor:[UIColor UPSecondaryColor]];
-    self.emailBox.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"email"];
-    self.firstNameBox.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"userFirstName"];
-    self.lastNameBox.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"userLastName"];
+    self.commentBox.layer.cornerRadius=8;
+    self.commentBox.layer.borderWidth=0;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
     
     
     // Do any additional setup after loading the view from its nib.
 }
-- (IBAction)didTapSubmit:(id)sender {
-    
-    Comment *comment= [[Comment alloc] init];
-    comment.cwid=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
-    comment.commentTitle=self.subjectBox.text;
-    comment.email=self.emailBox.text;
-    comment.CommentText=self.commentBox.text;
-    [UPDataRetrieval submitComment:comment.cwid comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self addAlertView];
-            
-        });
 
-        
-    }];
-    
-}
 
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
     [textField resignFirstResponder];
     return YES;
 }
+- (IBAction)didEndEditingSubject:(id)sender {
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapDone)];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone                                 target:self action:@selector(doneButtonOps)];
+}
+
 - (IBAction)didStartEditingFirst:(id)sender {
-    self.navigationItem.rightBarButtonItem=Nil;
+    //self.navigationItem.rightBarButtonItem=Nil;
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone                                 target:self action:@selector(doneButtonOps)];
 }
-- (IBAction)didStartEditingLast:(id)sender {
-    self.navigationItem.rightBarButtonItem=Nil;
-}
+
 
 
 -(void)addAlertView{
@@ -103,11 +85,22 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }
 
-
-- (IBAction)didTapCancel:(id)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
+-(void)didTapSubmit{
+    Comment *comment= [[Comment alloc] init];
+    comment.cwid=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
+    comment.commentTitle=self.subjectBox.text;
+    comment.email=[[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
+    comment.CommentText=self.commentBox.text;
+    [UPDataRetrieval submitComment:comment.cwid comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self addAlertView];
+            
+        });
+        
+        
+    }];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -115,11 +108,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     // Dispose of any resources that can be recreated.
 }
 -(void)doneButtonOps{
+    [self.subjectBox resignFirstResponder];
     [self.commentBox resignFirstResponder];
-    self.navigationItem.rightBarButtonItem=Nil;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone                                 target:self action:@selector(doneButtonOps)];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonOps)];
     
 }
 

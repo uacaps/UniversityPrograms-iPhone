@@ -10,14 +10,14 @@
 #import "DirectoryTableViewCell.h"
 #import "CommentViewController.h"
 #import "Employee.h"
+#import "AddressTableViewCell.h"
 @interface ContactUPViewController ()
 
 @property NSArray *directoryArray;
 @property (weak, nonatomic) IBOutlet UITableView *contactUPTableView;
 
-@property (strong, nonatomic) IBOutlet UITableViewCell *addressCell;
-@property (strong, nonatomic) IBOutlet UITableViewCell *directoryHeaderCell;
-@property (strong, nonatomic) IBOutlet UITableViewCell *sendFeedbackCell;
+
+
 
 
 @end
@@ -41,6 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didTouchFeedback)];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -60,77 +61,54 @@
 {
     
     // Return the number of rows in the section.
-    return self.directoryArray.count+3;
+    return self.directoryArray.count + 1;
 }
 
+- (void)didTouchFeedback{
+    CommentViewController *newComment = [[CommentViewController alloc] init];
+    [self.navigationController pushViewController:newComment animated:YES];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if(indexPath.row==0){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sendFeedbackCell"];
-        
-        if(!cell){
-            cell = self.sendFeedbackCell;
-        }
-        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        return cell;
-        
-        
-    }
-    else if(indexPath.row==1){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addressCell"];
-        
-        if(!cell){
-            cell = self.addressCell;
-        }
-        return cell;
-        
-    }
-    else if(indexPath.row==2){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"directoryHeaderCell"];
     
+    if (indexPath.row == 0) {
+        AddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddressTableViewCell"];
+        
         if(!cell){
-            cell = self.directoryHeaderCell;
+            cell = [[AddressTableViewCell alloc] init];
         }
         return cell;
     }
-    else{
+    else {
         DirectoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"directoryCell"];
         
         if(!cell){
             cell = [[DirectoryTableViewCell alloc] init];
         }
-        Employee *e = [self.directoryArray objectAtIndex:indexPath.row-3];
+        Employee *e = [self.directoryArray objectAtIndex:indexPath.row-1];
         [cell buildWtihEmployee:e];
         return cell;
     }
     
+    
 }
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat retVal =0.0f;
-    if(indexPath.row==1){
-        retVal=120.0f;
-        
+    CGFloat retVal;
+    if (indexPath.row == 0) {
+        retVal= AddressTableViewCellHeight;
     }
-    else if(indexPath.row>2){
-        retVal=122.0f;
-        
+    else {
+        retVal= DirectoryTableViewCellHeight;
     }
-    else{
-        retVal=44.0f;
-        
-    }
-    
+
     return retVal;
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row==0){CommentViewController *tappedEvent = [[CommentViewController alloc] init];
-    [self.navigationController pushViewController:tappedEvent animated:YES];
-        [self.contactUPTableView reloadData];}
-    else {[self.contactUPTableView reloadData];}
+    [self.contactUPTableView reloadData];
 }
 
 @end

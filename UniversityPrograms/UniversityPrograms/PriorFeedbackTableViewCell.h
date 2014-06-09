@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 -(instancetype)init;
--(void)buildWithComment:(Comment *)c;
+-(void)buildWithComment:(Comment *)comment;
++(CGFloat)heightForComment:(Comment *)comment;
 @end

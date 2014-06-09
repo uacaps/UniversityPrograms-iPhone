@@ -14,6 +14,9 @@
 @property NSString *phone;
 @property NSString *email;
 @property NSString *imageURL;
+@property NSString *classification;
+@property NSString *major;
+
 -(instancetype)initWithName:(NSString *)name title:(NSString *)title phoneOrYear:(NSString *)phone emailOrMajor:(NSString *)email;
 +(NSArray *)buildArrayOfEmployees;
 @end

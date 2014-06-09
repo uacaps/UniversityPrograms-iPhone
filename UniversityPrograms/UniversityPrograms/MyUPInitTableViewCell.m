@@ -7,7 +7,8 @@
 //
 
 #import "MyUPInitTableViewCell.h"
-
+#import "UIImageView+WebCache.h"
+#import "DateTools.h"
 @implementation MyUPInitTableViewCell
 -(instancetype)init{
     //init is such a way that the xib file actually works
@@ -15,20 +16,21 @@
     
     return self;
 }
--(void)build{
-    if([[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] isEqualToString:@""]||[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] ==nil){}
-    else{
-    self.firstNameLabel.text=[NSString stringWithFormat:@"First Name: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"]];
+-(void)buildWithEvent:(Event *)e{
+    NSString *startDate = [e.startDate formattedDateWithFormat:@"MM/dd hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]];
+    NSString *endDate = [e.endDate formattedDateWithFormat:@"MM/dd hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]];
+    self.eventNameLabel.text=[NSString stringWithFormat:@"%@", e.eventName];
+    self.numberAttending.text=[NSString stringWithFormat:@"Start: %@",startDate];
+    self.dateLabel.text=[NSString stringWithFormat:@"End: %@",endDate];
+    self.actualNumberAttending.text = [NSString stringWithFormat:@"%d attending", [e.numberAttending integerValue]];
     
-    self.lastNameLabel.text=[NSString stringWithFormat:@"Last Name: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"]];
-    self.cwidLabel.text=[NSString stringWithFormat:@"CWID: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"]];
-    self.emailLabel.text=[NSString stringWithFormat:@"Email: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"email"]];
-    }
-    self.myUPImage.image=[UIImage imageNamed:@"UP.jpg"];
-    self.emailLabel.backgroundColor=[UIColor whiteColor];
-    self.lastNameLabel.backgroundColor=[UIColor whiteColor];
-    self.firstNameLabel.backgroundColor=[UIColor whiteColor];
-    self.cwidLabel.backgroundColor=[UIColor whiteColor];
+    
+    
+    [self.image setImageWithURL:[NSURL URLWithString:e.imageUrl]];
+    self.numberAttending.backgroundColor=[UIColor whiteColor];
+    self.dateLabel.backgroundColor=[UIColor whiteColor];
+    self.eventNameLabel.backgroundColor=[UIColor whiteColor];
+    
     
 }
 - (void)awakeFromNib

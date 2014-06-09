@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Employee.h"
+
+static const NSInteger DirectoryTableViewCellHeight = 150;
+
 @interface DirectoryTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *employeeImage;
 @property (weak, nonatomic) IBOutlet UILabel *employeeName;

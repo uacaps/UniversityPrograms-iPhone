@@ -33,7 +33,7 @@
     self.navigationBar.tintColor = [UIColor lightGrayColor];
     //self.navigationBar.barTintColor = [UIColor UPDarkGreyColo\];
     //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor successColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor grassColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
     
     //Make light content status bar
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];

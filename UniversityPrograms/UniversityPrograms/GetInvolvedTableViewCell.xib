@@ -28,6 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bodyTextLabel" destination="FJR-Yk-Brp" id="dQW-lZ-mCE"/>

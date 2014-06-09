@@ -54,6 +54,12 @@
 		1BAD1A4A193CCDEA006D24AD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD1A48193CCDEA006D24AD /* UserInfoViewController.xib */; };
 		1BAD1A4F193CD385006D24AD /* SpecificEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD1A4D193CD385006D24AD /* SpecificEventViewController.m */; };
 		1BAD1A50193CD385006D24AD /* SpecificEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD1A4E193CD385006D24AD /* SpecificEventViewController.xib */; };
+		1BAE3B4A19463A690006AEFD /* Telephone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE3B4819463A690006AEFD /* Telephone.png */; };
+		1BAE3B4B19463A690006AEFD /* Telephone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE3B4919463A690006AEFD /* Telephone@2x.png */; };
+		1BAE3B4E19463AAA0006AEFD /* Email.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE3B4C19463AAA0006AEFD /* Email.png */; };
+		1BAE3B4F19463AAA0006AEFD /* Email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE3B4D19463AAA0006AEFD /* Email@2x.png */; };
+		1BAE3B53194651DE0006AEFD /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE3B51194651DE0006AEFD /* AddressTableViewCell.m */; };
+		1BAE3B54194651DE0006AEFD /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE3B52194651DE0006AEFD /* AddressTableViewCell.xib */; };
 		1BB198C0193F99F70017A1D6 /* Cog_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB198BC193F99F70017A1D6 /* Cog_filled.png */; };
 		1BB198C1193F99F70017A1D6 /* Cog_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB198BD193F99F70017A1D6 /* Cog_filled@2x.png */; };
 		1BB198C2193F99F70017A1D6 /* Cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB198BE193F99F70017A1D6 /* Cog.png */; };
@@ -157,6 +163,13 @@
 		1BAD1A4C193CD385006D24AD /* SpecificEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificEventViewController.h; sourceTree = "<group>"; };
 		1BAD1A4D193CD385006D24AD /* SpecificEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificEventViewController.m; sourceTree = "<group>"; };
 		1BAD1A4E193CD385006D24AD /* SpecificEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecificEventViewController.xib; sourceTree = "<group>"; };
+		1BAE3B4819463A690006AEFD /* Telephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Telephone.png; sourceTree = "<group>"; };
+		1BAE3B4919463A690006AEFD /* Telephone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Telephone@2x.png"; sourceTree = "<group>"; };
+		1BAE3B4C19463AAA0006AEFD /* Email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Email.png; sourceTree = "<group>"; };
+		1BAE3B4D19463AAA0006AEFD /* Email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Email@2x.png"; sourceTree = "<group>"; };
+		1BAE3B50194651DE0006AEFD /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
+		1BAE3B51194651DE0006AEFD /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
+		1BAE3B52194651DE0006AEFD /* AddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		1BB198BC193F99F70017A1D6 /* Cog_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cog_filled.png; sourceTree = "<group>"; };
 		1BB198BD193F99F70017A1D6 /* Cog_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cog_filled@2x.png"; sourceTree = "<group>"; };
 		1BB198BE193F99F70017A1D6 /* Cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cog.png; sourceTree = "<group>"; };
@@ -275,6 +288,9 @@
 				1BD4C8121942658F00BE6566 /* GetInvolvedTableViewCell.h */,
 				1BD4C8131942658F00BE6566 /* GetInvolvedTableViewCell.m */,
 				1BD4C8141942658F00BE6566 /* GetInvolvedTableViewCell.xib */,
+				1BAE3B50194651DE0006AEFD /* AddressTableViewCell.h */,
+				1BAE3B51194651DE0006AEFD /* AddressTableViewCell.m */,
+				1BAE3B52194651DE0006AEFD /* AddressTableViewCell.xib */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -316,6 +332,7 @@
 				1B7880DD1940EC8B00333ED5 /* ContactUPViewController.h */,
 				1B7880DE1940EC8B00333ED5 /* ContactUPViewController.m */,
 				1B7880DF1940EC8B00333ED5 /* ContactUPViewController.xib */,
+				1B0A690C1938D4AE005C821D /* comments/suggestion box */,
 			);
 			name = "Contact UP";
 			sourceTree = "<group>";
@@ -437,7 +454,6 @@
 				1BAD1A41193CCCBA006D24AD /* MyUPViewController.m */,
 				1BAD1A42193CCCBA006D24AD /* MyUPViewController.xib */,
 				1BAD1A45193CCDD1006D24AD /* UserInfo */,
-				1B0A690C1938D4AE005C821D /* comments/suggestion box */,
 			);
 			name = MyUP;
 			sourceTree = "<group>";
@@ -465,6 +481,10 @@
 		1BB198BA193F99EC0017A1D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1BAE3B4C19463AAA0006AEFD /* Email.png */,
+				1BAE3B4D19463AAA0006AEFD /* Email@2x.png */,
+				1BAE3B4819463A690006AEFD /* Telephone.png */,
+				1BAE3B4919463A690006AEFD /* Telephone@2x.png */,
 				1B7880EA1940F8B500333ED5 /* UP.jpg */,
 				1B7880EC194105B200333ED5 /* Navbar Images */,
 				1BB198BB193F99F00017A1D6 /* Tab Bar Icons */,
@@ -596,16 +616,21 @@
 				1BB198D3193FA9F00017A1D6 /* Calendar.png in Resources */,
 				1B7880F2194105CE00333ED5 /* Pencil_filled@2x.png in Resources */,
 				1B7880E81940EE9000333ED5 /* Contact.png in Resources */,
+				1BAE3B4E19463AAA0006AEFD /* Email.png in Resources */,
 				1BB198C2193F99F70017A1D6 /* Cog.png in Resources */,
 				1B7880E71940EE9000333ED5 /* Contact_filled@2x.png in Resources */,
 				1B0A69221938DA8B005C821D /* UpcomingEventsTableViewCell.xib in Resources */,
 				1B7880DB1940EBED00333ED5 /* MyUPInitTableViewCell.xib in Resources */,
+				1BAE3B4A19463A690006AEFD /* Telephone.png in Resources */,
 				1BB198C1193F99F70017A1D6 /* Cog_filled@2x.png in Resources */,
 				1BA9FE69193E244B008F8981 /* PriorFeedbackTableViewCell.xib in Resources */,
 				1BAD1A4A193CCDEA006D24AD /* UserInfoViewController.xib in Resources */,
 				1B7880E61940EE9000333ED5 /* Contact_filled.png in Resources */,
 				1BAD1A44193CCCBA006D24AD /* MyUPViewController.xib in Resources */,
 				1B7880EB1940F8B500333ED5 /* UP.jpg in Resources */,
+				1BAE3B4B19463A690006AEFD /* Telephone@2x.png in Resources */,
+				1BAE3B4F19463AAA0006AEFD /* Email@2x.png in Resources */,
+				1BAE3B54194651DE0006AEFD /* AddressTableViewCell.xib in Resources */,
 				1BB198C3193F99F70017A1D6 /* Cog@2x.png in Resources */,
 				1BB198D1193FA9F00017A1D6 /* Calendar_filled.png in Resources */,
 				1BA9FE5E193E1D28008F8981 /* AboutUPViewController.xib in Resources */,
@@ -691,6 +716,7 @@
 				1B7880DA1940EBED00333ED5 /* MyUPInitTableViewCell.m in Sources */,
 				1BEC1BF9193914BE009DADEF /* UPDataRetrieval.m in Sources */,
 				1BB198C6193F9AB60017A1D6 /* UPNavigationViewController.m in Sources */,
+				1BAE3B53194651DE0006AEFD /* AddressTableViewCell.m in Sources */,
 				1B0A69211938DA8B005C821D /* UpcomingEventsTableViewCell.m in Sources */,
 				1B0A69111938D520005C821D /* UpcomingEventViewController.m in Sources */,
 				1BEC1BFF1939183C009DADEF /* NSObject+ObjectMap.m in Sources */,

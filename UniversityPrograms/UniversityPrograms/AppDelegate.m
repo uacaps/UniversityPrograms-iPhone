@@ -47,7 +47,7 @@
     UPNavigationViewController *contactUPNav = [[UPNavigationViewController alloc] initWithRootViewController:contactUP];
     
     //Set tab bar appearance
-    _baseTabBarController.tabBar.tintColor = [UIColor successColor];
+    _baseTabBarController.tabBar.tintColor = [UIColor grassColor];
     [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, contactUPNav, myUPNav]];
     
     return YES;

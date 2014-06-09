@@ -10,7 +10,6 @@
 #import "Colours.h"
 #import "UIImageView+WebCache.h"
 #import "UserInfoViewController.h"
-#import "UIImageView+WebCache.h"
 #import "DateTools.h"
 #import "UPDataRetrieval.h"
 #import "NSObject+ObjectMap.h"
@@ -114,6 +113,15 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }
 
++(CGFloat)heightForEvent:(Event *)event{
+    float textHeight = [event.description boundingRectWithSize:CGSizeMake(280,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
+    textHeight = ceilf(textHeight);
+    
+    return textHeight + 320;
+}
+
+
+
 #pragma mark - UI
 
 -(void)setUI{
@@ -169,19 +177,23 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([self.specifiedEvent.startDate isLaterThan:[NSDate date]]) {
         int daysFromNow = self.specifiedEvent.startDate.daysUntil;
         if (daysFromNow > 0) {
-            self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", daysFromNow];
-            
+            if(daysFromNow ==1){
+                self.eventStartTime.text = [NSString stringWithFormat:@"%d day from now", daysFromNow];
+            }
+            else{
+                self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", daysFromNow];
+            }
         }
         else {
             int hoursFromNow = self.specifiedEvent.startDate.hoursUntil;
             if (hoursFromNow > 0) {
-                self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", hoursFromNow];
+                self.eventStartTime.text= [NSString stringWithFormat:@"%d hours from now", hoursFromNow];
                 
             }
             else {
                 int minutesFromNow = self.specifiedEvent.startDate.minutesUntil;
                 if (minutesFromNow > 0) {
-                    self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", minutesFromNow];
+                    self.eventStartTime.text= [NSString stringWithFormat:@"%d minutes from now", minutesFromNow];
                     
                 }
             }

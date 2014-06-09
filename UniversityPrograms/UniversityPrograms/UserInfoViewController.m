@@ -45,7 +45,7 @@
     self.lastName.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"];
     self.cwid.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
     self.email.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
-    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(saveInfo)];
     // Do any additional setup after loading the view from its nib.
     
     
@@ -55,13 +55,10 @@
     [textField resignFirstResponder];
     return YES;
 }
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return (newLength > 8) ? NO : YES;
-}
 
-- (IBAction)saveInfo:(id)sender {
-    if([self.cwid.text length]<8){
+
+- (void)saveInfo{
+    if([self.cwid.text length]<8 || [self.cwid.text length]>8){
         [self addInvalidAlertView];
         
     }

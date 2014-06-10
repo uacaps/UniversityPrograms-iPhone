@@ -62,7 +62,7 @@ NSOperationQueue *opQueue;
     //declare what you are getting back
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     RegistrantDTO *registrant=[[RegistrantDTO alloc]init];
-    [registrant build:event.eventId];
+    [registrant buildWithEventID:event.eventId];
     NSData *registrantData= [registrant JSONData];
     [request setHTTPBody:registrantData];
     [NSURLConnection sendAsynchronousRequest:request queue:[UPDataRetrieval _operationQueue] completionHandler:block];

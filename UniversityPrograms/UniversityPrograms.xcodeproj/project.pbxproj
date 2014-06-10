@@ -14,6 +14,8 @@
 		1B0A691C1938D58C005C821D /* AboutUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691A1938D58C005C821D /* AboutUPViewController.m */; };
 		1B0A69211938DA8B005C821D /* UpcomingEventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691F1938DA8B005C821D /* UpcomingEventsTableViewCell.m */; };
 		1B0A69221938DA8B005C821D /* UpcomingEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */; };
+		1B1672BF194760F7001449CD /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B1672BD194760F7001449CD /* Twitter.png */; };
+		1B1672C0194760F7001449CD /* Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B1672BE194760F7001449CD /* Twitter@2x.png */; };
 		1B48B56819421640008F5186 /* DirectoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48B56619421640008F5186 /* DirectoryTableViewCell.m */; };
 		1B48B56919421640008F5186 /* DirectoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B48B56719421640008F5186 /* DirectoryTableViewCell.xib */; };
 		1B48B56C19421C8F008F5186 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48B56B19421C8F008F5186 /* Employee.m */; };
@@ -107,6 +109,8 @@
 		1B0A691E1938DA8B005C821D /* UpcomingEventsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingEventsTableViewCell.h; sourceTree = "<group>"; };
 		1B0A691F1938DA8B005C821D /* UpcomingEventsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingEventsTableViewCell.m; sourceTree = "<group>"; };
 		1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpcomingEventsTableViewCell.xib; sourceTree = "<group>"; };
+		1B1672BD194760F7001449CD /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
+		1B1672BE194760F7001449CD /* Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Twitter@2x.png"; sourceTree = "<group>"; };
 		1B38F299193F6FD2005158D1 /* UPWebserviceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPWebserviceConstants.h; sourceTree = "<group>"; };
 		1B48B56519421640008F5186 /* DirectoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryTableViewCell.h; sourceTree = "<group>"; };
 		1B48B56619421640008F5186 /* DirectoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryTableViewCell.m; sourceTree = "<group>"; };
@@ -523,6 +527,8 @@
 		1BB198BA193F99EC0017A1D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1B1672BD194760F7001449CD /* Twitter.png */,
+				1B1672BE194760F7001449CD /* Twitter@2x.png */,
 				1BAE3B4C19463AAA0006AEFD /* Email.png */,
 				1BAE3B4D19463AAA0006AEFD /* Email@2x.png */,
 				1BAE3B4819463A690006AEFD /* Telephone.png */,
@@ -656,6 +662,7 @@
 				1BB198D3193FA9F00017A1D6 /* Calendar.png in Resources */,
 				1B7880F2194105CE00333ED5 /* Pencil_filled@2x.png in Resources */,
 				1B7880E81940EE9000333ED5 /* Contact.png in Resources */,
+				1B1672C0194760F7001449CD /* Twitter@2x.png in Resources */,
 				1BAE3B4E19463AAA0006AEFD /* Email.png in Resources */,
 				1BB198C2193F99F70017A1D6 /* Cog.png in Resources */,
 				1B7880E71940EE9000333ED5 /* Contact_filled@2x.png in Resources */,
@@ -671,6 +678,7 @@
 				1BAE3B4B19463A690006AEFD /* Telephone@2x.png in Resources */,
 				1BAE3B4F19463AAA0006AEFD /* Email@2x.png in Resources */,
 				1BAE3B54194651DE0006AEFD /* AddressTableViewCell.xib in Resources */,
+				1B1672BF194760F7001449CD /* Twitter.png in Resources */,
 				1BB198C3193F99F70017A1D6 /* Cog@2x.png in Resources */,
 				1BB198D1193FA9F00017A1D6 /* Calendar_filled.png in Resources */,
 				1BA9FE5E193E1D28008F8981 /* AboutUPViewController.xib in Resources */,

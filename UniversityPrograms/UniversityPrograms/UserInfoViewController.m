@@ -16,8 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
 @property (weak, nonatomic) IBOutlet UITextField *cwid;
 @property (weak, nonatomic) IBOutlet UITextField *email;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 
 @end
 
@@ -37,10 +36,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor UPDarkGreyColor];
-    self.saveButton.layer.cornerRadius=10.0;
-    self.cancelButton.layer.cornerRadius=10.0;
-    [self.saveButton setBackgroundColor:[UIColor successColor]];
-    [self.cancelButton setBackgroundColor:[UIColor brickRedColor]];
+    
     self.firstName.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"];
     self.lastName.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"];
     self.cwid.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];

@@ -16,5 +16,5 @@
 @property NSString *lastName;
 @property NSString *email;
 
--(void)build:(NSString *)eventId;
+-(void)buildWithEventID:(NSString *)eventId;
 @end

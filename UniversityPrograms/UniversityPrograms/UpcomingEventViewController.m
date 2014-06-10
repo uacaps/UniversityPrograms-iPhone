@@ -48,10 +48,12 @@
     [self.refreshControl addTarget:self action:@selector(loadEvents) forControlEvents:UIControlEventValueChanged];
     [self.upComingEventsTable addSubview:self.refreshControl];
     [self loadEvents];
+    self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
     //[self.upComingEventsTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 

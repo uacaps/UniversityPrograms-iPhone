@@ -38,16 +38,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.aboutTableView.backgroundColor = [UIColor getStyleColor];
 
     //[self.view addSubview:self.scrollView];
     // Do any additional setup after loading the view from its nib.
 
 }
+
 -(void)viewDidAppear:(BOOL)animated{
-    self.headerLabel.backgroundColor=[UIColor getThemeColor];
-    //[self.aboutTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+    [self.aboutTableView reloadData];
+    
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -82,6 +84,7 @@
     }
     else if(indexPath.row==2){
         UITableViewCell *cell = self.getInvolvedHeader;
+        self.headerLabel.backgroundColor=[UIColor getThemeColor];
         return cell;
     }
     else{

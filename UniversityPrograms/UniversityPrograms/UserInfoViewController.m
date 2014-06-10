@@ -94,7 +94,7 @@
         for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
             
             UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            controller.themeColor = [UIColor goldenrodColor];
+            //controller.themeColor = [UIColor goldenrodColor];
             controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor brickRedColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
             controller.tabBarController.tabBar.tintColor = [UIColor brickRedColor];
             
@@ -107,7 +107,7 @@
         for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
             
             UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            controller.themeColor = [UIColor goldenrodColor];
+            //controller.themeColor = [UIColor goldenrodColor];
             controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor grassColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
             controller.tabBarController.tabBar.tintColor = [UIColor grassColor];
             
@@ -119,7 +119,7 @@
         for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
             
             UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            controller.themeColor = [UIColor goldenrodColor];
+            //controller.themeColor = [UIColor goldenrodColor];
             controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor tealColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
             controller.tabBarController.tabBar.tintColor = [UIColor tealColor];
             
@@ -132,7 +132,7 @@
         for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
             
             UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            controller.themeColor = [UIColor goldenrodColor];
+            //controller.themeColor = [UIColor goldenrodColor];
             controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor goldenrodColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
             controller.tabBarController.tabBar.tintColor = [UIColor goldenrodColor];
             

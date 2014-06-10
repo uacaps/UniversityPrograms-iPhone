@@ -20,5 +20,5 @@
 +(UIColor *)getThemeColor;
 +(int)getThemeColorIndex;
 +(void)setThemeColorIndex:(int)index;
-
++(UIColor *)getStyleColor;
 @end

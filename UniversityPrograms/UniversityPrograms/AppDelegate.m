@@ -14,6 +14,7 @@
 #import "Colours.h"
 #import "UIColor+UPColors.h"
 #import "ContactUPViewController.h"
+#import "UPTabbarViewController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

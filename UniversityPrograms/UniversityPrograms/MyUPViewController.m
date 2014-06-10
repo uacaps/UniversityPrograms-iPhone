@@ -71,24 +71,25 @@
     [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
     [self.myUPTableView addSubview:self.refreshControl];
     
-    
-    //[self loadData];
+    self.selectorControl.tintColor = [UIColor getThemeColor];
+    [self loadData];
+    [self build];
     
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)changedCategories:(id)sender {
     self.controlFlag= !self.controlFlag;
     [self.myUPTableView reloadData];
-    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:YES];
-    
+    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [self build];
     
-    //[self.selectorControl setEnabled:YES forSegmentAtIndex:0];
-    self.selectorControl.tintColor = [UIColor getThemeColor];
-    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:YES];
+    [self loadData];
     
+    [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
+    self.selectorControl.tintColor = [UIColor getThemeColor];
+    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
 -(void)loadData{
     
@@ -130,7 +131,6 @@
     self.lastNameLabel.backgroundColor=[UIColor whiteColor];
     self.firstNameLabel.backgroundColor=[UIColor whiteColor];
     self.cwidLabel.backgroundColor=[UIColor whiteColor];
-    [self loadData];
     
 }
 
@@ -163,6 +163,9 @@
     }];
     
 }
+
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

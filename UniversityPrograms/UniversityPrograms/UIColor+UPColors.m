@@ -62,6 +62,16 @@
     }
     return themeColor;
 }
-
++(UIColor *)getStyleColor{
+    UIColor *styleColor;
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"darkMode"]){
+        styleColor=[UIColor UPDarkGreyColor];
+    }
+    else{
+        styleColor=[UIColor whiteColor];
+    }
+    return styleColor;
+}
 
 @end

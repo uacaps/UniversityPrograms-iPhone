@@ -47,7 +47,6 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [self.contactUPTableView reloadData];
-    //[self.contactUPTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 
 - (void)didReceiveMemoryWarning

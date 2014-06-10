@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Colours.h"
+
 
 @interface UIColor (UPColors)
 +(UIColor *)UPDarkGreyColor;
@@ -15,4 +17,8 @@
 +(UIColor *)UPPlumColor;
 +(UIColor *)UPTealColor;
 +(UIColor *)UPPeachColor;
++(UIColor *)getThemeColor;
++(int)getThemeColorIndex;
++(void)setThemeColorIndex:(int)index;
+
 @end

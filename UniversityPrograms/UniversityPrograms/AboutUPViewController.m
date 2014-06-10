@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *whatWeDo;
 @property (strong, nonatomic) IBOutlet UITableViewCell *whoWeAre;
 @property (strong, nonatomic) IBOutlet UITableViewCell *getInvolvedHeader;
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 @property NSArray *getInvolvedArray;
 @end
 
@@ -37,12 +38,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 
     //[self.view addSubview:self.scrollView];
     // Do any additional setup after loading the view from its nib.
 
 }
 -(void)viewDidAppear:(BOOL)animated{
+    self.headerLabel.backgroundColor=[UIColor getThemeColor];
     //[self.aboutTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 - (void)didReceiveMemoryWarning

@@ -9,6 +9,7 @@
 #import "MyUPInitTableViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "DateTools.h"
+#import "UIColor+UPColors.h"
 @implementation MyUPInitTableViewCell
 -(instancetype)init{
     self=[super init];
@@ -25,7 +26,7 @@
     self.dateLabel.text=[NSString stringWithFormat:@"End: %@",endDate];
     self.actualNumberAttending.text = [NSString stringWithFormat:@"%d attending", [e.numberAttending integerValue]];
     
-    
+    self.eventNameLabel.textColor = [UIColor getThemeColor];
     
     [self.image setImageWithURL:[NSURL URLWithString:e.imageUrl]];
     self.numberAttending.backgroundColor=[UIColor whiteColor];

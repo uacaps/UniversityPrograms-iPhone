@@ -8,6 +8,7 @@
 
 #import "UIColor+UPColors.h"
 
+
 @implementation UIColor (UPColors)
 
 +(UIColor *)UPDarkGreyColor{
@@ -32,5 +33,35 @@
 +(UIColor *)UPPeachColor{
     return [UIColor colorWithRed:244.0/255.0f green:118.0/255.0f blue:103.0/255.0f alpha:1];
 }
++(void)setThemeColorIndex:(int)index{
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"alreadyRan"]){
+        [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"colorSelection"];
+    }
+    else{
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"colorSelection"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"alreadyRan"];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(int)getThemeColorIndex{
+    
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"colorSelection"];
+}
++(UIColor *)getThemeColor{
+    int index = [[NSUserDefaults standardUserDefaults] integerForKey:@"colorSelection"];
+    UIColor *themeColor;
+    if(index==0){
+        themeColor=[UIColor brickRedColor];
+    }else if(index==1){
+        themeColor=[UIColor grassColor];
+    }
+    else if(index==2){
+        themeColor=[UIColor tealColor];
+    }else{
+        themeColor=[UIColor goldenrodColor];
+    }
+    return themeColor;
+}
+
 
 @end

@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="aboutTableView" destination="G7U-EX-3iU" id="216-7E-sbg"/>
                 <outlet property="getInvolvedHeader" destination="vZz-J7-zak" id="LY8-Qr-Z5H"/>
+                <outlet property="headerLabel" destination="ZOM-Ib-wxB" id="yaG-tf-Uy4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="E1Q-Nm-lUR"/>
                 <outlet property="whatWeDo" destination="WVc-nC-nhT" id="5hV-ia-tlR"/>
                 <outlet property="whoWeAre" destination="Fen-JF-gQe" id="dIN-IZ-Sjp"/>

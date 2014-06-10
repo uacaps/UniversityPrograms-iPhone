@@ -8,7 +8,7 @@
 
 #import "PriorFeedbackTableViewCell.h"
 #import "Colours.h"
-
+#import "UIColor+UPColors.h"
 @implementation PriorFeedbackTableViewCell
 
 -(instancetype)init{
@@ -25,7 +25,7 @@
     self.commentLabel.backgroundColor = [UIColor whiteColor];
     self.backgroundColor= [UIColor whiteColor];
     [self.commentLabel setTextColor:[UIColor darkGrayColor]];
-    
+    self.titleLabel.textColor = [UIColor getThemeColor];
     //Get frame sizes
     float textHeight = [comment.commentText boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);

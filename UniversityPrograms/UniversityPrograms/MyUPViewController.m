@@ -62,7 +62,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Edit User" style:UIBarButtonItemStylePlain target:self action:@selector(didSelectUser)];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(didSelectUser)];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectComment)];
     
@@ -70,18 +70,25 @@
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.myUPTableView.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
     [self.myUPTableView addSubview:self.refreshControl];
-    [self.selectorControl addTarget:self
-                         action:@selector(reload)
-               forControlEvents:UIControlEventValueChanged];
+    
+    
     //[self loadData];
     
     // Do any additional setup after loading the view from its nib.
 }
+- (IBAction)changedCategories:(id)sender {
+    self.controlFlag= !self.controlFlag;
+    [self.myUPTableView reloadData];
+    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:YES];
+    
+}
 -(void)viewDidAppear:(BOOL)animated{
     [self build];
-    [self loadData];
-    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
-    [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
+    
+    //[self.selectorControl setEnabled:YES forSegmentAtIndex:0];
+    self.selectorControl.tintColor = [UIColor getThemeColor];
+    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:YES];
+    
 }
 -(void)loadData{
     
@@ -112,7 +119,8 @@
     if([[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] isEqualToString:@""]||[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] ==nil){}
     else{
         self.firstNameLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"];
-        
+        self.firstNameLabel.textColor = [UIColor getThemeColor];
+        self.lastNameLabel.textColor = [UIColor getThemeColor];
         self.lastNameLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"];
         self.cwidLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
         self.emailLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
@@ -122,6 +130,7 @@
     self.lastNameLabel.backgroundColor=[UIColor whiteColor];
     self.firstNameLabel.backgroundColor=[UIColor whiteColor];
     self.cwidLabel.backgroundColor=[UIColor whiteColor];
+    [self loadData];
     
 }
 
@@ -154,16 +163,6 @@
     }];
     
 }
-
-
-- (void)reload{
-    self.controlFlag= !self.controlFlag;
-    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
-    [self.myUPTableView reloadData];
-    
-}
-
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

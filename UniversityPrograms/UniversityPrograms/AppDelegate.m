@@ -24,11 +24,11 @@
     [self.window makeKeyAndVisible];
     
     //create the tab bar and set it to be the main view controller
+    [UIColor setThemeColorIndex:[UIColor getThemeColorIndex]];
     
     
     //[self.baseTabBar]
     
-   
     
     //create the view controllers
     UpcomingEventViewController *upcoming = [[UpcomingEventViewController alloc] init];
@@ -45,7 +45,14 @@
     //Init tab bar and appearance
     self.baseTabBarController = [[UITabBarController alloc]init];
     self.baseTabBarController.tabBar.translucent = NO;
-    _baseTabBarController.tabBar.tintColor = [UIColor grassColor];
+    
+    _baseTabBarController.tabBar.tintColor = [UIColor getThemeColor];
+    if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
+        self.baseTabBarController.tabBar.barStyle = UIBarStyleBlackOpaque;
+    }
+    else{
+        self.baseTabBarController.tabBar.barStyle = UIBarStyleDefault;
+    }
     [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, contactUPNav, myUPNav]];
     [self.window setRootViewController:self.baseTabBarController];
     return YES;

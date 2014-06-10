@@ -8,6 +8,7 @@
 
 #import "SpecificEventViewController.h"
 #import "Colours.h"
+#import "UIColor+UPColors.h"
 #import "UIImageView+WebCache.h"
 #import "UserInfoViewController.h"
 #import "DateTools.h"
@@ -138,7 +139,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     }
     else{
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapUnRSVP)];
-        self.navigationItem.rightBarButtonItem.tintColor=[UIColor successColor];
+        self.navigationItem.rightBarButtonItem.tintColor=[UIColor getThemeColor];
     }
     //Set image url
     [_eventImageView setImageWithURL:[NSURL URLWithString:_specifiedEvent.imageUrl]];

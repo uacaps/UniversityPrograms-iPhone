@@ -20,6 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.themeColor = [UIColor getThemeColor];
         // Custom initialization
     }
     return self;
@@ -31,10 +32,15 @@
     // Do any additional setup after loading the view.
     self.navigationBar.translucent = NO;
     self.navigationBar.tintColor = [UIColor lightGrayColor];
-    
+    if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
+        self.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    }
+    else{
+        self.navigationBar.barStyle = UIBarStyleDefault;
+    }
     //self.navigationBar.barTintColor = [UIColor UPDarkGreyColo\];
     //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor grassColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : self.themeColor, NSFontAttributeName : [UIFont systemFontOfSize:20]};
     
     //Make light content status bar
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
@@ -57,8 +63,8 @@
 }
 */
 
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleDefault;
-}
+//-(UIStatusBarStyle)preferredStatusBarStyle{
+    //return UIStatusBarStyleDefault;
+//}
 
 @end

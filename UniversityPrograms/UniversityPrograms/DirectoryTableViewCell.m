@@ -9,6 +9,7 @@
 #import "DirectoryTableViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "Colours.h"
+#import "UIColor+UPColors.h"
 @import QuartzCore;
 
 @interface DirectoryTableViewCell ()
@@ -37,7 +38,8 @@
     self.employeeTitle.text=emp.title;
     self.employeeImage.layer.cornerRadius=self.employeeImage.frame.size.width/2;
     //NSLog([NSString stringWithFormat:@"%@", emp.phone]);
-    
+    self.employeeName.textColor = [UIColor getThemeColor];
+    self.employeeTitle.textColor = [UIColor getThemeColor];
     if([emp.phone isEqualToString:@"Graduate"]||[emp.phone isEqualToString:@"Senior"]||[emp.phone isEqualToString:@"Junior"]||[emp.phone isEqualToString:@"2nd Year Law"]){
         self.phoneButton.alpha=0.0f;
         self.employeePhone.text=[NSString stringWithFormat:@"Year: %@", emp.phone];

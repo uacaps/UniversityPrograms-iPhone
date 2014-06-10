@@ -41,8 +41,9 @@
                         <segment title="My Events"/>
                         <segment title="My Comments"/>
                     </segments>
-                    <color key="tintColor" red="0.34733273660000002" green="0.76256793479999996" blue="0.26227327519999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
+                        <action selector="changedCategories:" destination="-1" eventType="valueChanged" id="4My-xg-RQU"/>
                         <action selector="didChangeControlState:" destination="-1" eventType="editingChanged" id="wnt-Wq-hZb"/>
                     </connections>
                 </segmentedControl>
@@ -54,14 +55,14 @@
                     <rect key="frame" x="78" y="20" width="222" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="21"/>
-                    <color key="textColor" red="0.24455434970000001" green="0.53691830839999999" blue="0.18466462710000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bZK-1F-5dI">
                     <rect key="frame" x="78" y="41" width="222" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="21"/>
-                    <color key="textColor" red="0.24455434970000001" green="0.53691830839999999" blue="0.18466462710000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000000000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x1Z-ff-qmP">

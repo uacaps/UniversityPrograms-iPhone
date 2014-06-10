@@ -25,17 +25,17 @@ NSOperationQueue *opQueue;
 
 
 +(void)getEvents:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
-    
+    //basic url string
     NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Event/events"];
-    
+    //url query string
     NSString *urlQueryString = [NSString stringWithFormat:@"?cwid=%@", cwid];
-    
+    //preivous 2 combined
     NSString *finalQueryString = [NSString stringWithFormat:@"%@%@", urlString, urlQueryString];
-    
+    //create url
     NSURL *url = [NSURL URLWithString:finalQueryString];
-    
+    //create request with url
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
-    
+    //send asycnronousrequest with the completion block being handled by the calling function
     [NSURLConnection sendAsynchronousRequest:request queue:[UPDataRetrieval _operationQueue] completionHandler:block];
 }
 
@@ -57,7 +57,9 @@ NSOperationQueue *opQueue;
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
+    //default method is GET, so you must change it to POST
     [request setHTTPMethod:@"POST"];
+    //declare what you are getting back
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     RegistrantDTO *registrant=[[RegistrantDTO alloc]init];
     [registrant build:event.eventId];
@@ -75,8 +77,8 @@ NSOperationQueue *opQueue;
     
     
     UnRSVPDTO *unrsvp=[[UnRSVPDTO alloc]init];
-    unrsvp.cwid=[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
-    unrsvp.eventId=event.eventId;
+    [unrsvp buildWithEventId:event.eventId];
+    
     NSData *unrsvpData= [unrsvp JSONData];
     [request setHTTPBody:unrsvpData];
     [NSURLConnection sendAsynchronousRequest:request queue:[UPDataRetrieval _operationQueue] completionHandler:block];
@@ -101,7 +103,7 @@ NSOperationQueue *opQueue;
 
 +(void)retrieveComments:(NSString *)cwid completetionHandler:(void (^__weak)(NSURLResponse *, NSData *, NSError *))block{
     
-    NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Comment/priorFeeback"];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", UPWebserviceAddress, @"/api/Comment/Comments"];
     NSString *urlQueryString = [NSString stringWithFormat:@"?cwid=%@", cwid];
     NSString *finalQueryString = [NSString stringWithFormat:@"%@%@", urlString, urlQueryString];
     

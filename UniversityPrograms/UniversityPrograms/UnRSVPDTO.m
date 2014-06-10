@@ -10,4 +10,12 @@
 
 @implementation UnRSVPDTO
 
+
+-(void)buildWithEventId:(NSString *)eventID{
+    self.eventId=eventID;
+    self.cwid=[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
+    
+    
+}
+
 @end

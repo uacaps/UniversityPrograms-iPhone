@@ -11,6 +11,7 @@
 #import "DateTools.h"
 @implementation MyUPInitTableViewCell
 -(instancetype)init{
+    self=[super init];
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyUPInitTableViewCell class]) owner:nil options:nil][0];
     

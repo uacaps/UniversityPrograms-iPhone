@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+//post function require a body, our body consists of objects
+//so we must make a transferable object
 @interface RegistrantDTO : NSObject
 @property NSString *eventId;
 @property NSString *cwid;

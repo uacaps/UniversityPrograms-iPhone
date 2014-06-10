@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+
+static const NSInteger MyUPTableViewCellHeight = 125;
+
 @interface MyUPInitTableViewCell : UITableViewCell
 -(instancetype)init;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;

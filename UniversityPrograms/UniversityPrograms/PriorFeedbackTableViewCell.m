@@ -12,6 +12,7 @@
 @implementation PriorFeedbackTableViewCell
 
 -(instancetype)init{
+    self=[super init];
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PriorFeedbackTableViewCell class]) owner:nil options:nil][0];
    
     return self;

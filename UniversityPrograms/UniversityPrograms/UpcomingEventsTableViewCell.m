@@ -15,6 +15,7 @@
 @implementation UpcomingEventsTableViewCell
 
 -(instancetype)init{
+    self=[super init];
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([UpcomingEventsTableViewCell class]) owner:nil options:nil][0];
    
@@ -72,7 +73,7 @@
         self.dateLabel.text=[NSString stringWithFormat:@"Now"];
     }
     else{
-        self.dateLabel.text=[NSString stringWithFormat:@"Over."];
+        self.dateLabel.text=[NSString stringWithFormat:@"Over"];
     }
     
     //NSString *dateString = [[NSString alloc] initWithFormat:@"From: %@ Until: %@",[event.startDate formattedDateWithFormat:@"hh:mm MM-dd"],[event.endDate formattedDateWithFormat:@"hh:mm MM-dd"]];

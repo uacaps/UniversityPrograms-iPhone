@@ -8,6 +8,7 @@
 
 #import "DirectoryTableViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "Colours.h"
 @import QuartzCore;
 
 @interface DirectoryTableViewCell ()
@@ -19,6 +20,7 @@
 
 @implementation DirectoryTableViewCell
 -(instancetype)init{
+    self=[super init];
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([DirectoryTableViewCell class]) owner:nil options:nil][0];
     
@@ -60,8 +62,12 @@
     // Configure the view for the selected state
 }
 - (IBAction)didSelectPhoneNumber:(id)sender {
+    
+    //NSLog(@"phone tap");
+    //self.employeePhone.backgroundColor=[UIColor grassColor];
     NSString *telephoneURLString = [NSString stringWithFormat:@"tel://%@", _selectedEmployee.phone];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telephoneURLString]];
+    //self.employeePhone.backgroundColor=[UIColor whiteColor];
 }
 
 @end

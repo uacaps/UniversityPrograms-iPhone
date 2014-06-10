@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GetInvolvedCellData.h"
+static const NSInteger GetInvolvedTableViewCellHeight = 100;
 
 @interface GetInvolvedTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bodyTextLabel;
-
++(CGFloat)heightForData:(GetInvolvedCellData *)data;
 @end

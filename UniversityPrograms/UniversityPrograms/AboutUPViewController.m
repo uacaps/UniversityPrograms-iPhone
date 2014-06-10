@@ -37,14 +37,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    
-    
+
     //[self.view addSubview:self.scrollView];
     // Do any additional setup after loading the view from its nib.
-}
 
+}
+-(void)viewDidAppear:(BOOL)animated{
+    //[self.aboutTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -98,15 +98,15 @@
 {
     CGFloat retVal =0.0f;
     if(indexPath.row<2){
-        retVal=220.0f;
+        retVal=220.0f;//who we are and what we do cell height
         
     }
     else if(indexPath.row==2){
-        retVal=44.0f;
+        retVal=44.0f;//header cell height
         
     }
     else{
-        retVal=320.0f;
+        retVal= [GetInvolvedTableViewCell heightForData:[self.getInvolvedArray objectAtIndex:indexPath.row-3]];
         
     }
     

@@ -45,7 +45,7 @@
     self.lastName.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"];
     self.cwid.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
     self.email.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(saveInfo)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveInfo)];
     // Do any additional setup after loading the view from its nib.
     
     

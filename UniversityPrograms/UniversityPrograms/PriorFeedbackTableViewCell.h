@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Comment.h"
+
+static const NSInteger PriorFeedbackTableViewCellHeight = 60;
+
 @interface PriorFeedbackTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

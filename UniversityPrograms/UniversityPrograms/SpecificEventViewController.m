@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLine1Label;
 @property (weak, nonatomic) IBOutlet UILabel *addressLine3Label;
 @property (weak, nonatomic) IBOutlet UILabel *addressLine2Label;
-
+@property BOOL firstLoad;
 @property Event *specifiedEvent;
 @end
 
@@ -38,7 +38,7 @@
     if(self){
         self.title=@"Event";
         _specifiedEvent = event;
-        
+        self.firstLoad=YES;
     
     }
 
@@ -46,7 +46,13 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [self getEvent:self.specifiedEvent];
+    //data already loads when 
+    if(self.firstLoad){
+        self.firstLoad=!self.firstLoad;
+    }
+    else{
+        [self getEvent:self.specifiedEvent];
+    }
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -113,6 +119,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }
 
+//Ignore, was just trying something
 +(CGFloat)heightForEvent:(Event *)event{
     float textHeight = [event.description boundingRectWithSize:CGSizeMake(280,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
@@ -214,7 +221,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 -(void)getEvent:(Event *)event{
     [UPDataRetrieval getSpecificEvent:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] eventID:self.specifiedEvent.eventId completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         self.specifiedEvent=[[Event alloc] initWithJSONData:data];
         
         dispatch_async(dispatch_get_main_queue(), ^{

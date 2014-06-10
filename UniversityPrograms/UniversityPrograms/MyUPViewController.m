@@ -9,7 +9,6 @@
 #import "MyUPViewController.h"
 #import "CommentViewController.h"
 #import "UserInfoViewController.h"
-
 #import "Colours.h"
 #import "UIColor+UPColors.h"
 #import "Comment.h"
@@ -17,10 +16,10 @@
 #import "PriorFeedbackTableViewCell.h"
 #import "UPDataRetrieval.h"
 #import "NSObject+ObjectMap.h"
-#import "UIColor+UPColors.h"
-#import "UpcomingEventsTableViewCell.h"
 #import "SpecificEventViewController.h"
 @import QuartzCore;
+
+
 @interface MyUPViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myUPTableView;
 @property NSArray *priorCommentArray;
@@ -54,7 +53,7 @@
     self.unsortedEventArray=[[NSArray alloc] init];
     self.sortedEventArray=[[NSMutableArray alloc] init];
     self.controlFlag=YES;
-    [self loadData];
+    
 
     return self;
 }
@@ -74,13 +73,14 @@
     [self.selectorControl addTarget:self
                          action:@selector(reload)
                forControlEvents:UIControlEventValueChanged];
-    
+    //[self loadData];
     
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidAppear:(BOOL)animated{
     [self build];
     [self loadData];
+    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
     [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
 }
 -(void)loadData{
@@ -93,7 +93,7 @@
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         self.sortedEventArray=[[NSMutableArray alloc] init];
         self.unsortedEventArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
-        NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        //NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         for (int index =0; index<self.unsortedEventArray.count; ++index) {
             Event *e=[self.unsortedEventArray objectAtIndex:index];
             if(e.isRegistered==true){
@@ -222,7 +222,7 @@
 {
     CGFloat retVal =0.0f;
      if(self.controlFlag){
-         retVal=125.0f;
+         retVal=MyUPTableViewCellHeight;
      }
      else{
          retVal= [PriorFeedbackTableViewCell heightForComment:self.priorCommentArray[indexPath.row]]; //Comments
@@ -232,8 +232,8 @@
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row>0 && indexPath.row<self.sortedEventArray.count+1&&self.controlFlag){
-        SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] initWithEvent:self.sortedEventArray[indexPath.row-1]];
+    if (self.controlFlag){
+        SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] initWithEvent:self.sortedEventArray[indexPath.row]];
         [self.navigationController pushViewController:tappedEvent animated:YES];
         [self.myUPTableView reloadData];
     }

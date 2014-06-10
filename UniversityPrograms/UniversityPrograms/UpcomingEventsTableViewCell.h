@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+
+static const NSInteger UpcomingEventsTableViewCellHeight = 180;
+
 @interface UpcomingEventsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *eventTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *eventImage;

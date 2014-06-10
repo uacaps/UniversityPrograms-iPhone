@@ -24,32 +24,30 @@
     [self.window makeKeyAndVisible];
     
     //create the tab bar and set it to be the main view controller
-    self.baseTabBarController = [[UITabBarController alloc]init];
-    self.baseTabBarController.tabBar.translucent = NO;
+    
     
     //[self.baseTabBar]
-    [self.window setRootViewController:self.baseTabBarController];
+    
    
     
     //create the view controllers
-    UpcomingEventViewController *upcoming = [[UpcomingEventViewController alloc] initWithNibName:NSStringFromClass([UpcomingEventViewController class]) bundle:nil];
-    AboutUPViewController *aboutUP = [[AboutUPViewController alloc] initWithNibName:NSStringFromClass([AboutUPViewController class]) bundle:nil];
-    MyUPViewController *myUP = [[MyUPViewController alloc]initWithNibName:NSStringFromClass([MyUPViewController class]) bundle:nil];
-    
+    UpcomingEventViewController *upcoming = [[UpcomingEventViewController alloc] init];
+    AboutUPViewController *aboutUP = [[AboutUPViewController alloc] init];
+    MyUPViewController *myUP = [[MyUPViewController alloc]init];
     ContactUPViewController *contactUP = [[ContactUPViewController alloc] init];
     
+    //create navcontrollers
     UPNavigationViewController *upcomingNav = [[UPNavigationViewController alloc] initWithRootViewController:upcoming];
-    
     UPNavigationViewController *aboutUPNav = [[UPNavigationViewController alloc] initWithRootViewController:aboutUP];
-    
     UPNavigationViewController *myUPNav = [[UPNavigationViewController alloc] initWithRootViewController:myUP];
-    
     UPNavigationViewController *contactUPNav = [[UPNavigationViewController alloc] initWithRootViewController:contactUP];
     
-    //Set tab bar appearance
+    //Init tab bar and appearance
+    self.baseTabBarController = [[UITabBarController alloc]init];
+    self.baseTabBarController.tabBar.translucent = NO;
     _baseTabBarController.tabBar.tintColor = [UIColor grassColor];
     [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, contactUPNav, myUPNav]];
-    
+    [self.window setRootViewController:self.baseTabBarController];
     return YES;
 }
 

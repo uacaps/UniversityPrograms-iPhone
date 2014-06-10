@@ -51,6 +51,10 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    //[self.upComingEventsTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+}
+
 -(void)loadEvents{
     
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {

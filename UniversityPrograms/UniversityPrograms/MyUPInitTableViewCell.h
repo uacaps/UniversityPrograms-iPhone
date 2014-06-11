@@ -13,9 +13,9 @@ static const NSInteger MyUPTableViewCellHeight = 125;
 
 @interface MyUPInitTableViewCell : UITableViewCell
 -(instancetype)init;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numberAttending;
+@property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *actualNumberAttending;
 

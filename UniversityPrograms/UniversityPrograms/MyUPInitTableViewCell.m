@@ -22,26 +22,24 @@
     NSString *startDate = [e.startDate formattedDateWithFormat:@"MM/dd hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]];
     NSString *endDate = [e.endDate formattedDateWithFormat:@"MM/dd hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]];
     self.eventNameLabel.text=[NSString stringWithFormat:@"%@", e.eventName];
-    self.numberAttending.text=[NSString stringWithFormat:@"Start: %@",startDate];
-    self.dateLabel.text=[NSString stringWithFormat:@"End: %@",endDate];
+    self.endDateLabel.text=[NSString stringWithFormat:@"Start: %@",startDate];
+    self.startDateLabel.text=[NSString stringWithFormat:@"End: %@",endDate];
     self.actualNumberAttending.text = [NSString stringWithFormat:@"%d attending", [e.numberAttending integerValue]];
     
     self.eventNameLabel.textColor = [UIColor getThemeColor];
+    self.eventNameLabel.textColor = [UIColor getThemeColor];
     
     [self.image setImageWithURL:[NSURL URLWithString:e.imageUrl]];
-    self.numberAttending.backgroundColor=[UIColor getStyleColor];
-    self.dateLabel.backgroundColor=[UIColor getStyleColor];
+    self.endDateLabel.backgroundColor=[UIColor getStyleColor];
+    self.startDateLabel.backgroundColor=[UIColor getStyleColor];
     self.eventNameLabel.backgroundColor=[UIColor getStyleColor];
     self.actualNumberAttending.backgroundColor = [UIColor getStyleColor];
-    self.numberAttending.textColor = [UIColor getTextColor];
-    self.eventNameLabel.textColor = [UIColor getTextColor];
-    self.actualNumberAttending.textColor = [UIColor getTextColor];
-    self.dateLabel.textColor = [UIColor getTextColor];
     self.backgroundColor = [UIColor getStyleColor];
     
-    
-    
-    
+    self.actualNumberAttending.textColor = [UIColor getTextColor];
+    self.startDateLabel.textColor = [UIColor getTextColor];
+    self.endDateLabel.textColor = [UIColor getTextColor];
+  
 }
 - (void)awakeFromNib
 {

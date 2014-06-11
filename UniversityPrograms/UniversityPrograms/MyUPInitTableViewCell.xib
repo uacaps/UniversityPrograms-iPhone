@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the quick brown fox jumped over the lazy dog" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EJv-3x-hzK">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the quick brown fox jumped over the lazy dog" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EJv-3x-hzK">
                         <rect key="frame" x="165" y="0.0" width="155" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
@@ -24,22 +24,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="160" height="125"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zG8-9q-odf">
-                        <rect key="frame" x="165" y="50" width="155" height="25"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labely" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zG8-9q-odf">
+                        <rect key="frame" x="165" y="40" width="155" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mXg-iO-SVn">
-                        <rect key="frame" x="165" y="75" width="155" height="25"/>
+                        <rect key="frame" x="165" y="65" width="155" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Jr-hQ-GLY">
-                        <rect key="frame" x="165" y="100" width="155" height="25"/>
+                        <rect key="frame" x="165" y="90" width="155" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -50,10 +50,10 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="actualNumberAttending" destination="6Jr-hQ-GLY" id="Vb1-j5-KVJ"/>
-                <outlet property="dateLabel" destination="mXg-iO-SVn" id="vpT-Br-0eL"/>
+                <outlet property="endDateLabel" destination="zG8-9q-odf" id="4ow-3t-b9t"/>
                 <outlet property="eventNameLabel" destination="EJv-3x-hzK" id="TgX-LN-fAe"/>
                 <outlet property="image" destination="kf1-3j-fRW" id="yta-Qx-S5A"/>
-                <outlet property="numberAttending" destination="zG8-9q-odf" id="Lpl-UW-RXO"/>
+                <outlet property="startDateLabel" destination="mXg-iO-SVn" id="lFO-So-azI"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -14,7 +14,7 @@
 #import "Colours.h"
 #import "UIColor+UPColors.h"
 #import "ContactUPViewController.h"
-#import "UPTabbarViewController.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -44,7 +44,7 @@
     UPNavigationViewController *contactUPNav = [[UPNavigationViewController alloc] initWithRootViewController:contactUP];
     
     //Init tab bar and appearance
-    self.baseTabBarController = [[UITabBarController alloc]init];
+    self.baseTabBarController = [[UPTabbarViewController alloc]init];
     self.baseTabBarController.tabBar.translucent = NO;
     
     _baseTabBarController.tabBar.tintColor = [UIColor getThemeColor];

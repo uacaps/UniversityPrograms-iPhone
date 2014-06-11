@@ -10,6 +10,7 @@
 
 @interface UPViewController ()
 
+
 @end
 
 @implementation UPViewController
@@ -29,7 +30,9 @@
     // Do any additional setup after loading the view.
     
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    //[self.tableview reloadData];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

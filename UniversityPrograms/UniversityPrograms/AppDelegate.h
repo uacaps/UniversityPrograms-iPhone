@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UPTabbarViewController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property UITabBarController *baseTabBarController;
+@property UPTabbarViewController *baseTabBarController;
 @end

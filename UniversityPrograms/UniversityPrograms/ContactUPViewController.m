@@ -42,10 +42,11 @@
 {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didTouchFeedback)];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void) viewWillAppear:(BOOL)animated{
     [self.contactUPTableView reloadData];
 }
 

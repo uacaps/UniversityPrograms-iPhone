@@ -52,8 +52,9 @@
     // Do any additional setup after loading the view from its nib.
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
     self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
+    [self.upComingEventsTable reloadData];
     //[self.upComingEventsTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 

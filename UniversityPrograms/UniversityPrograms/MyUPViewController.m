@@ -83,18 +83,18 @@
     [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
 -(void)viewDidAppear:(BOOL)animated{
-    [self build];
+    
     
     [self loadData];
-    
+    [self build];
     [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
-    self.selectorControl.tintColor = [UIColor getThemeColor];
+    
     [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
 -(void)loadData{
     
     [self loadEvents];
-    [self loadFeedback];
+    //[self loadFeedback];
     [self.refreshControl endRefreshing];
 }
 -(void)loadEvents{
@@ -109,7 +109,7 @@
             }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.myUPTableView reloadData];
+            [self loadFeedback];
             
         });
         
@@ -131,7 +131,7 @@
     self.lastNameLabel.backgroundColor=[UIColor whiteColor];
     self.firstNameLabel.backgroundColor=[UIColor whiteColor];
     self.cwidLabel.backgroundColor=[UIColor whiteColor];
-    
+    self.selectorControl.tintColor = [UIColor getThemeColor];
 }
 
 - (void)didReceiveMemoryWarning

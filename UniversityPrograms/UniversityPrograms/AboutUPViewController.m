@@ -23,14 +23,13 @@
 @implementation AboutUPViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+{   // Custom initialization
     if (self) {
         self.title=@"About UP";
         self.tabBarItem.image= [UIImage imageNamed:@"Info.png"];
         self.tabBarItem.selectedImage= [UIImage imageNamed:@"Info_filled.png"];
         self.getInvolvedArray=[GetInvolvedCellData buildArrayOfDefaultData];
-        // Custom initialization
+        
     }
     return self;
 }
@@ -38,10 +37,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-
-    //[self.view addSubview:self.scrollView];
-    // Do any additional setup after loading the view from its nib.
 
 }
 
@@ -56,6 +51,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - tableview methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -66,17 +62,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    // Return the number of rows in the section.
     return self.getInvolvedArray.count+1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row<2){
-        
         GetInvolvedCellData *data=[self.getInvolvedArray objectAtIndex:indexPath.row];
-        
         GetInvolvedTableViewCell *cell = [[GetInvolvedTableViewCell alloc]init];
         [cell buildWithData:data];
         return cell;
@@ -88,7 +80,6 @@
     }
     else{
         GetInvolvedCellData *data=[self.getInvolvedArray objectAtIndex:indexPath.row-1];
-        
         GetInvolvedTableViewCell *cell = [[GetInvolvedTableViewCell alloc]init];
         [cell buildWithData:data];
         return cell;

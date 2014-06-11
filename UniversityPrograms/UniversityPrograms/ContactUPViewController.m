@@ -39,8 +39,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didTouchFeedback)];
     
@@ -52,13 +51,18 @@
     self.contactUPTableView.backgroundColor=[UIColor getStyleColor];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+#pragma mark - UI interaction
+- (void)didTouchFeedback{
+    CommentViewController *newComment = [[CommentViewController alloc] init];
+    [self.navigationController pushViewController:newComment animated:YES];
+}
+
+#pragma mark - tableview methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     // Return the number of sections.
     return 1;
@@ -71,17 +75,10 @@
     return self.directoryArray.count + 1;
 }
 
-- (void)didTouchFeedback{
-    CommentViewController *newComment = [[CommentViewController alloc] init];
-    [self.navigationController pushViewController:newComment animated:YES];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
     if (indexPath.row == 0) {
         AddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddressTableViewCell"];
-        
         if(!cell){
             cell = [[AddressTableViewCell alloc] init];
         }
@@ -89,7 +86,6 @@
     }
     else {
         DirectoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"directoryCell"];
-        
         if(!cell){
             cell = [[DirectoryTableViewCell alloc] init];
         }

@@ -22,21 +22,19 @@
 
 @interface MyUPViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myUPTableView;
-@property NSArray *priorCommentArray;
-@property NSArray *unsortedEventArray;
-@property NSMutableArray *sortedEventArray;
 @property (strong, nonatomic) IBOutlet UITableViewCell *yourEvents;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectorControl;
 @property (strong, nonatomic) IBOutlet UITableViewCell *commentTitleCell;
-@property UIRefreshControl *refreshControl;
-@property BOOL controlFlag;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cwidLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *myUPImage;
-
-
+@property NSArray *priorCommentArray;
+@property NSArray *unsortedEventArray;
+@property NSMutableArray *sortedEventArray;
+@property UIRefreshControl *refreshControl;
+@property BOOL controlFlag;
 @end
 
 @implementation MyUPViewController
@@ -63,34 +61,33 @@
     [super viewDidLoad];
     
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(didSelectUser)];
-    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectComment)];
-    
     
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.myUPTableView.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
     [self.myUPTableView addSubview:self.refreshControl];
-    
     self.selectorControl.tintColor = [UIColor getThemeColor];
     [self loadData];
     [self build];
     
     // Do any additional setup after loading the view from its nib.
 }
-- (IBAction)changedCategories:(id)sender {
-    self.controlFlag= !self.controlFlag;
-    [self.myUPTableView reloadData];
-    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
-}
--(void)viewDidAppear:(BOOL)animated{
-    
-    
+-(void)viewWillAppear:(BOOL)animated{
     [self loadData];
     [self build];
     [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
     
     [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - data loading
 -(void)loadData{
     
     [self loadEvents];
@@ -115,6 +112,17 @@
         
     }];
     
+    
+}
+-(void)loadFeedback{
+    [UPDataRetrieval retrieveComments:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        self.priorCommentArray=[NSObject arrayOfType:[Comment class] FromJSONData:data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.myUPTableView reloadData];
+            
+        });
+    }];
+    
 }
 -(void)build{
     if([[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] isEqualToString:@""]||[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] ==nil){}
@@ -125,21 +133,31 @@
         self.lastNameLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"];
         self.cwidLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
         self.emailLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
+        self.cwidLabel.textColor = [UIColor getTextColor];
+        self.emailLabel.textColor = [UIColor getTextColor];
     }
     self.myUPImage.image=[UIImage imageNamed:@"UP.jpg"];
-    self.emailLabel.backgroundColor=[UIColor whiteColor];
-    self.lastNameLabel.backgroundColor=[UIColor whiteColor];
-    self.firstNameLabel.backgroundColor=[UIColor whiteColor];
-    self.cwidLabel.backgroundColor=[UIColor whiteColor];
+    self.emailLabel.backgroundColor=[UIColor getStyleColor];
+    self.lastNameLabel.backgroundColor=[UIColor getStyleColor];
+    self.firstNameLabel.backgroundColor=[UIColor getStyleColor];
+    self.cwidLabel.backgroundColor=[UIColor getStyleColor];
     self.selectorControl.tintColor = [UIColor getThemeColor];
+    self.view.backgroundColor = [UIColor getStyleColor];
+    self.selectorControl.backgroundColor = [UIColor getStyleColor];
+    self.myUPTableView.backgroundColor = [UIColor getStyleColor];
+    self.myUPImage.backgroundColor = [UIColor getStyleColor];
+
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
+
+#pragma mark - UI interactions
+
+- (IBAction)changedCategories:(id)sender {
+    self.controlFlag= !self.controlFlag;
+    [self.myUPTableView reloadData];
+    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
+}
 -(void)didSelectComment{
     CommentViewController *comments = [[CommentViewController alloc] init];
     [self.navigationController pushViewController:comments
@@ -152,31 +170,15 @@
     
 }
 
-
--(void)loadFeedback{
-    [UPDataRetrieval retrieveComments:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        self.priorCommentArray=[NSObject arrayOfType:[Comment class] FromJSONData:data];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.myUPTableView reloadData];
-            
-        });
-    }];
-    
-}
-
-
-
+#pragma mark - UI tableview methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     // Return the number of rows in the section.
     if(self.controlFlag){
         return self.sortedEventArray.count;
@@ -184,39 +186,29 @@
     else{
         return self.priorCommentArray.count;
     }
-    
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(self.controlFlag){
-        
-            MyUPInitTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyUPInitCell"];
-            if(!cell){
-                cell=[[MyUPInitTableViewCell alloc] init];
-            }
-            Event *e = [self.sortedEventArray objectAtIndex:indexPath.row];
-            [cell buildWithEvent:e];
-            
-            
-            return cell;
-        
+        MyUPInitTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyUPInitCell"];
+        if(!cell){
+            cell=[[MyUPInitTableViewCell alloc] init];
+        }
+        Event *e = [self.sortedEventArray objectAtIndex:indexPath.row];
+        [cell buildWithEvent:e];
+        return cell;
     }
     else{
-        
-         
         PriorFeedbackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PriorCell"];
-            
-            Comment *c=[self.priorCommentArray objectAtIndex:indexPath.row];
+        Comment *c=[self.priorCommentArray objectAtIndex:indexPath.row];
         if(!cell){
             cell = [[PriorFeedbackTableViewCell alloc] init];
         }
         [cell buildWithComment:c];
-        cell.backgroundColor=[UIColor whiteColor];
-            
-        return cell;
         
-    
+        return cell;
+
     }
     
 }

@@ -28,7 +28,7 @@
     return self;
 }
 -(void)buildWtihEmployee:(Employee *)emp{
-    _selectedEmployee = emp;
+    self.selectedEmployee = emp;
     
     self.employeeEmail.text=emp.email;
     //self.employeeImage.layer.cornerRadius=2;
@@ -40,6 +40,14 @@
     //NSLog([NSString stringWithFormat:@"%@", emp.phone]);
     self.employeeName.textColor = [UIColor getThemeColor];
     self.employeeTitle.textColor = [UIColor getThemeColor];
+    self.employeeEmail.backgroundColor = [UIColor getStyleColor];
+    self.employeeTitle.backgroundColor = [UIColor getStyleColor];
+    self.employeePhone.textColor = [UIColor getTextColor];
+    self.employeeEmail.textColor = [UIColor getTextColor];
+    self.employeePhone.backgroundColor = [UIColor getStyleColor];
+    self.employeeName.backgroundColor = [UIColor getStyleColor];
+    self.backgroundColor = [UIColor getStyleColor];
+    
     if([emp.phone isEqualToString:@"Graduate"]||[emp.phone isEqualToString:@"Senior"]||[emp.phone isEqualToString:@"Junior"]||[emp.phone isEqualToString:@"2nd Year Law"]){
         self.phoneButton.alpha=0.0f;
         self.employeePhone.text=[NSString stringWithFormat:@"Year: %@", emp.phone];

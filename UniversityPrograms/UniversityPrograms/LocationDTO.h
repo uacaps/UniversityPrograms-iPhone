@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LocationDTO : NSObject
-//post function require a body, our body consists of objects
-//so we must make a transferable object
+//object is meant soley to assign data we receive, no location instances will be inited by the client
 @property NSString *name;
 @property NSString *street1;
 @property NSString *street2;

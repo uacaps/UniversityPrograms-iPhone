@@ -246,9 +246,9 @@
 				1BB198C5193F9AB60017A1D6 /* UPNavigationViewController.m */,
 				1BB198CA193FA54A0017A1D6 /* UPViewController.h */,
 				1BB198CB193FA54A0017A1D6 /* UPViewController.m */,
-				1B7880DC1940EC5E00333ED5 /* Contact UP */,
 				1B0A690B1938D4A5005C821D /* upcoming events */,
 				1B0A69181938D575005C821D /* about */,
+				1B7880DC1940EC5E00333ED5 /* Contact UP */,
 				1BAD1A3C193CCB9E006D24AD /* MyUP */,
 			);
 			name = Controllers;

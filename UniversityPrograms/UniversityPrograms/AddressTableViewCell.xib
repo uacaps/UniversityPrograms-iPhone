@@ -63,6 +63,14 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="address1Label" destination="iN5-kn-Omd" id="LTV-ga-TjZ"/>
+                <outlet property="address2Label" destination="DHX-bi-7NE" id="MTT-rm-z1M"/>
+                <outlet property="address3Label" destination="C9i-fu-26Q" id="RzS-uC-bX8"/>
+                <outlet property="address4Label" destination="dZj-v7-d7z" id="l9x-49-SVP"/>
+                <outlet property="findUsLabel" destination="eeY-ov-Kso" id="gN1-6X-5Lo"/>
+                <outlet property="teamLabel" destination="WCQ-qX-Zf6" id="7gg-Iu-H5R"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

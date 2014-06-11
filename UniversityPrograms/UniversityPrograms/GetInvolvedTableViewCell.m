@@ -13,16 +13,17 @@
     self=[super init];
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([GetInvolvedTableViewCell class]) owner:nil options:nil][0];
-    self.titleLabel.backgroundColor=[UIColor whiteColor];
+    self.titleLabel.backgroundColor=[UIColor getStyleColor];
     
-    self.bodyTextLabel.backgroundColor = [UIColor whiteColor];
-    self.backgroundColor=[UIColor whiteColor];
+    self.bodyTextLabel.backgroundColor = [UIColor getStyleColor];
+    self.backgroundColor=[UIColor getStyleColor];
     
     return self;
 }
 -(void)buildWithData:(GetInvolvedCellData *)data{
     self.bodyTextLabel.text=data.text;
     self.titleLabel.text=data.title;
+    self.bodyTextLabel.textColor = [UIColor getTextColor];
     self.titleLabel.textColor = [UIColor getThemeColor];
     float textHeight = [data.text boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);

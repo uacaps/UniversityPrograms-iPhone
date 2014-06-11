@@ -6,12 +6,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInfoViewController">
             <connections>
+                <outlet property="colorLabel" destination="6Qs-Oa-vWS" id="NpC-qG-JvE"/>
                 <outlet property="colorSelector" destination="ZRt-Yo-rdd" id="65Y-WM-woc"/>
                 <outlet property="cwid" destination="r6p-ZG-jEr" id="zau-ux-JXK"/>
                 <outlet property="darkModeToggle" destination="kO2-5j-bjH" id="Uzm-C5-BkX"/>
                 <outlet property="email" destination="679-5I-mib" id="qVe-1N-aij"/>
                 <outlet property="firstName" destination="wOP-gH-6E4" id="0gE-XZ-nyn"/>
                 <outlet property="lastName" destination="xj4-CM-k7c" id="crQ-zL-VMp"/>
+                <outlet property="modeLabel" destination="OEi-q5-bkV" id="Guk-V2-NKy"/>
+                <outlet property="userLabel" destination="Lkq-kh-nug" id="ycn-yo-XLI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -63,6 +66,7 @@
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lkq-kh-nug">
                             <rect key="frame" x="0.0" y="0.0" width="297" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -75,7 +79,7 @@
                         <segment title="Crimson"/>
                         <segment title="Green"/>
                         <segment title="Blue"/>
-                        <segment title="Yellow"/>
+                        <segment title="Gold"/>
                     </segments>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -92,6 +96,7 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OEi-q5-bkV">
                     <rect key="frame" x="77" y="251" width="223" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -99,6 +104,7 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Scheme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Qs-Oa-vWS">
                     <rect key="frame" x="11" y="211" width="297" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="highlightedColor"/>
                 </label>

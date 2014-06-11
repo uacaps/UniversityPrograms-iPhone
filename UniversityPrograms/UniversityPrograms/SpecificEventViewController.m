@@ -19,7 +19,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *attendingLabel;
-
 @property (strong, nonatomic) IBOutlet UIView *eventBigView;
 @property (weak, nonatomic) IBOutlet UIImageView *eventImageView;
 @property (weak, nonatomic) IBOutlet UILabel *eventStartTime;
@@ -28,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLine1Label;
 @property (weak, nonatomic) IBOutlet UILabel *addressLine3Label;
 @property (weak, nonatomic) IBOutlet UILabel *addressLine2Label;
+@property (weak, nonatomic) IBOutlet UIView *bodyView;
+@property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (weak, nonatomic) IBOutlet UIView *divider;
 @property BOOL firstLoad;
 @property Event *specifiedEvent;
 @end
@@ -38,22 +40,13 @@
     self = [super initWithNibName:NSStringFromClass([SpecificEventViewController class]) bundle:nil];
     if(self){
         self.title=@"Event";
-        _specifiedEvent = event;
+        
+        self.specifiedEvent = event;
         self.firstLoad=YES;
     
     }
 
     return self;
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    //data already loads when 
-    if(self.firstLoad){
-        self.firstLoad=!self.firstLoad;
-    }
-    else{
-        [self getEvent:self.specifiedEvent];
-    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -71,22 +64,28 @@
 {
     [super viewDidLoad];
     [self.loadingIndicator startAnimating];
-    
-    [_mainScrollView addSubview:_eventBigView];
-    self.mainScrollView.contentSize = _eventBigView.frame.size;
-    
-    // Do any additional setup after loading the view from its nib.
-    [self getEvent:_specifiedEvent];
+    [self.mainScrollView addSubview:self.eventBigView];
+    self.mainScrollView.contentSize =self.eventBigView.frame.size;
+    [self getEvent:self.specifiedEvent];
     
     
     
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    if(self.firstLoad){
+        self.firstLoad=!self.firstLoad;
+    }
+    else{
+        [self getEvent:self.specifiedEvent];
+    }
+    [self setUI];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - alert methods
 -(void)addAlertView{
     UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"User Info Not Configured" message:@"Please enter your student information, or at least your CWID, before RSVPing. Thank you." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [saveAlert setTag:1];
@@ -107,10 +106,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         UserInfoViewController *tempInfoController =[[UserInfoViewController alloc]init];
         [self.navigationController pushViewController:tempInfoController animated:YES];
     }
-
-    else{
-        
-    }
     
 }
 
@@ -121,7 +116,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }
 
-//Ignore, was just trying something
+#pragma mark - UI
 +(CGFloat)heightForEvent:(Event *)event{
     float textHeight = [event.description boundingRectWithSize:CGSizeMake(280,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
@@ -129,15 +124,22 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     return textHeight + 320;
 }
 
-
-
-#pragma mark - UI
-
 -(void)setUI{
     //set bar button type
     
     self.eventTitleLabel.textColor = [UIColor getThemeColor];
-    
+    self.addressLine1Label.textColor = [UIColor getTextColor];
+    self.addressLine2Label.textColor = [UIColor getTextColor];
+    self.addressLine3Label.textColor = [UIColor getTextColor];
+    self.eventDescriptionLabel.textColor=[UIColor getTextColor];
+    self.eventBigView.backgroundColor = [UIColor getStyleColor];
+    self.bodyView.backgroundColor = [UIColor getStyleColor];
+    self.footerView.backgroundColor=[UIColor getStyleColor];
+    self.eventDescriptionLabel.backgroundColor = [UIColor getStyleColor];
+    self.addressLine1Label.backgroundColor = [UIColor getStyleColor];
+    self.addressLine2Label.backgroundColor = [UIColor getStyleColor];
+    self.addressLine3Label.backgroundColor = [UIColor getStyleColor];
+    self.divider.backgroundColor = [UIColor getTextColor];
     if(!self.specifiedEvent.isRegistered){
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
     }
@@ -146,17 +148,16 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         self.navigationItem.rightBarButtonItem.tintColor=[UIColor getThemeColor];
     }
     //Set image url
-    [_eventImageView setImageWithURL:[NSURL URLWithString:_specifiedEvent.imageUrl]];
-    self.eventTitleLabel.text = _specifiedEvent.eventName;
-    self.eventDescriptionLabel.text=_specifiedEvent.eventDescription;
+    [self.eventImageView setImageWithURL:[NSURL URLWithString:self.specifiedEvent.imageUrl]];
+    self.eventTitleLabel.text = self.specifiedEvent.eventName;
+    self.eventTitleLabel.backgroundColor = [UIColor getStyleColor];
+    self.eventDescriptionLabel.text=self.specifiedEvent.eventDescription;
     if(self.specifiedEvent.isRegistered){
         self.attendingLabel.text=@"You are attending";
         
     }
     else{
-        
-        
-        
+
         if(self.specifiedEvent.numberAttending==[NSNumber numberWithInt:1]){
             self.attendingLabel.text=[NSString stringWithFormat:@"%@ person is attending", [self.specifiedEvent.numberAttending stringValue]];
         }
@@ -226,6 +227,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     self.eventBigView.frame = CGRectMake(0, 0, self.eventBigView.frame.size.width, 430 + textHeight);
     self.mainScrollView.contentSize=self.eventBigView.frame.size;
     [self.loadingIndicator stopAnimating];
+    self.mainScrollView.backgroundColor = [UIColor getStyleColor];
     
 }
 
@@ -233,7 +235,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 -(void)getEvent:(Event *)event{
     [UPDataRetrieval getSpecificEvent:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] eventID:self.specifiedEvent.eventId completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         self.specifiedEvent=[[Event alloc] initWithJSONData:data];
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -280,7 +282,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         offset = (offset < 0) ? offset*-0.01 : offset*0.01;
         
         CGAffineTransform scaleTransform = CGAffineTransformMakeScale(1 + offset, 1 + offset);
-        [_eventImageView setTransform:scaleTransform];
+        [self.eventImageView setTransform:scaleTransform];
     }
 }
 

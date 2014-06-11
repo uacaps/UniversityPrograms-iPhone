@@ -43,7 +43,7 @@
     
     [self.eventImage setImageWithURL:url];
     //_eventImage.layer.cornerRadius = self.eventImage.frame.size.width/2;
-    self.eventTitle.textColor = [UIColor getThemeColor];
+    self.eventTitle.textColor = [UIColor whiteColor];
     self.eventTitle.text=event.eventName;
     if(event.isRegistered){
         //self.accessoryType=UITableViewCellAccessoryCheckmark;

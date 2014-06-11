@@ -20,11 +20,11 @@
 
 -(void)buildWithComment:(Comment *)comment{
     self.titleLabel.text=comment.commentTitle;
-    self.titleLabel.backgroundColor = [UIColor whiteColor];
+    self.titleLabel.backgroundColor = [UIColor getStyleColor];
     self.commentLabel.text=comment.commentText;
-    self.commentLabel.backgroundColor = [UIColor whiteColor];
-    self.backgroundColor= [UIColor whiteColor];
-    [self.commentLabel setTextColor:[UIColor darkGrayColor]];
+    self.commentLabel.backgroundColor = [UIColor getStyleColor];
+    self.backgroundColor= [UIColor getStyleColor];
+    [self.commentLabel setTextColor:[UIColor getTextColor]];
     self.titleLabel.textColor = [UIColor getThemeColor];
     //Get frame sizes
     float textHeight = [comment.commentText boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;

@@ -30,10 +30,8 @@
     if (self) {
         self.title=@"Events";
         self.upcomingArray = [[NSArray alloc] init];
-        
         self.tabBarItem.image = [UIImage imageNamed:@"Calendar.png"];
         self.tabBarItem.selectedImage = [UIImage imageNamed:@"Calendar_filled.png"];
-        //[self loadEvents];
         
         
     }
@@ -52,12 +50,17 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 -(void)viewWillAppear:(BOOL)animated{
     self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
     [self.upComingEventsTable reloadData];
     //[self.upComingEventsTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
-
+#pragma mark - Load data
 -(void)loadEvents{
     
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
@@ -74,12 +77,7 @@
 
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+#pragma mark - tableview methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     

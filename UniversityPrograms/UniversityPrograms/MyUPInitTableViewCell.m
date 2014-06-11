@@ -29,9 +29,17 @@
     self.eventNameLabel.textColor = [UIColor getThemeColor];
     
     [self.image setImageWithURL:[NSURL URLWithString:e.imageUrl]];
-    self.numberAttending.backgroundColor=[UIColor whiteColor];
-    self.dateLabel.backgroundColor=[UIColor whiteColor];
-    self.eventNameLabel.backgroundColor=[UIColor whiteColor];
+    self.numberAttending.backgroundColor=[UIColor getStyleColor];
+    self.dateLabel.backgroundColor=[UIColor getStyleColor];
+    self.eventNameLabel.backgroundColor=[UIColor getStyleColor];
+    self.actualNumberAttending.backgroundColor = [UIColor getStyleColor];
+    self.numberAttending.textColor = [UIColor getTextColor];
+    self.eventNameLabel.textColor = [UIColor getTextColor];
+    self.actualNumberAttending.textColor = [UIColor getTextColor];
+    self.dateLabel.textColor = [UIColor getTextColor];
+    self.backgroundColor = [UIColor getStyleColor];
+    
+    
     
     
 }

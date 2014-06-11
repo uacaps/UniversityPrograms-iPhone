@@ -11,5 +11,11 @@
 static const NSInteger AddressTableViewCellHeight = 160;
 
 @interface AddressTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *findUsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *address1Label;
+@property (weak, nonatomic) IBOutlet UILabel *address2Label;
+@property (weak, nonatomic) IBOutlet UILabel *address3Label;
+@property (weak, nonatomic) IBOutlet UILabel *address4Label;
+@property (weak, nonatomic) IBOutlet UILabel *teamLabel;
 
 @end

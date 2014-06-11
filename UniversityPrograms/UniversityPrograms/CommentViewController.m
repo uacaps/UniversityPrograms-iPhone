@@ -52,8 +52,13 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
-
+#pragma mark - UI interaction
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
     [textField resignFirstResponder];
@@ -69,23 +74,6 @@
     //self.navigationItem.rightBarButtonItem=Nil;
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone                                 target:self action:@selector(doneButtonOps)];
 }
-
-
-
--(void)addAlertView{
-    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Comment Sent!" message:@"Your Comment has been sent to our database and a Univeristy Programs representative will review it.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [saveAlert show];
-}
-
-
-
-- (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
-
 -(void)didTapSubmit{
     Comment *comment= [[Comment alloc] init];
     comment.cwid=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
@@ -101,13 +89,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         
     }];
 }
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 -(void)doneButtonOps{
     [self.subjectBox resignFirstResponder];
     [self.commentBox resignFirstResponder];
@@ -118,6 +99,25 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonOps)];
     
 }
+#pragma mark - alert view methods
+
+-(void)addAlertView{
+    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Comment Sent!" message:@"Your Comment has been sent to our database and a Univeristy Programs representative will review it.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [saveAlert show];
+}
+
+
+
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+
+
+
 
 
 @end

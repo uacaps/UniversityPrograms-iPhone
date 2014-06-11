@@ -12,7 +12,7 @@
 @implementation UIColor (UPColors)
 
 +(UIColor *)UPDarkGreyColor{
-    return [UIColor colorWithRed:63.0/255.0f green:63.0/255.0f blue:63.0/255.0f alpha:1];
+    return [UIColor colorWithRed:50.0/255.0f green:50.0/255.0f blue:50.0/255.0f alpha:1];
 }
 
 +(UIColor *)UPSecondaryColor{
@@ -33,6 +33,9 @@
 +(UIColor *)UPPeachColor{
     return [UIColor colorWithRed:244.0/255.0f green:118.0/255.0f blue:103.0/255.0f alpha:1];
 }
++(UIColor *)UPCrimsonColor{
+    return [UIColor colorWithRed:220.0/255.0f green:20.0/255.0f blue:60.0/255.0f alpha:1];
+}
 +(void)setThemeColorIndex:(int)index{
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"alreadyRan"]){
         [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"colorSelection"];
@@ -51,7 +54,7 @@
     int index = [[NSUserDefaults standardUserDefaults] integerForKey:@"colorSelection"];
     UIColor *themeColor;
     if(index==0){
-        themeColor=[UIColor brickRedColor];
+        themeColor=[UIColor UPCrimsonColor];
     }else if(index==1){
         themeColor=[UIColor grassColor];
     }
@@ -73,5 +76,15 @@
     }
     return styleColor;
 }
-
++(UIColor *)getTextColor{
+    UIColor *textColor;
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"darkMode"]){
+        textColor=[UIColor whiteColor];
+    }
+    else{
+        textColor=[UIColor darkGrayColor];
+    }
+    return textColor;
+}
 @end

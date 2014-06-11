@@ -10,11 +10,14 @@
                 <outlet property="addressLine2Label" destination="F2T-Mf-rTB" id="JPZ-xa-Mr2"/>
                 <outlet property="addressLine3Label" destination="jOV-a5-TOD" id="WCw-9C-JbW"/>
                 <outlet property="attendingLabel" destination="cwa-6l-sM5" id="wCh-wc-i26"/>
+                <outlet property="bodyView" destination="Jqq-2f-E1x" id="HnO-0k-pXZ"/>
+                <outlet property="divider" destination="BDq-KK-5B0" id="mYT-bX-leV"/>
                 <outlet property="eventBigView" destination="ohu-zX-NgC" id="24j-Ez-rdY"/>
                 <outlet property="eventDescriptionLabel" destination="OAS-iR-hbO" id="Jrb-t8-cnK"/>
                 <outlet property="eventImageView" destination="qay-aH-U4d" id="ksm-pa-eJp"/>
                 <outlet property="eventStartTime" destination="oTV-hX-VMR" id="UKb-qN-uuf"/>
                 <outlet property="eventTitleLabel" destination="Uls-hh-Np7" id="wSO-eD-LpY"/>
+                <outlet property="footerView" destination="Ccd-U0-0hP" id="x8f-VR-Eh9"/>
                 <outlet property="loadingIndicator" destination="UMs-0I-jQh" id="Ta6-Qm-MJA"/>
                 <outlet property="mainScrollView" destination="0oP-wX-iAD" id="V6J-le-JX7"/>
                 <outlet property="view" destination="0oP-wX-iAD" id="dUS-fw-7Px"/>

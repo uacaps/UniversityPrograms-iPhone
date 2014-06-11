@@ -79,6 +79,31 @@
     return YES;
 }
 - (IBAction)toggledDarkMode:(id)sender {
+    if(self.darkModeToggle.on){
+        self.navigationController.navigationBar.barStyle=UIBarStyleBlackOpaque;
+        self.tabBarController.tabBar.barStyle=UIBarStyleBlackOpaque;
+        
+        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
+            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
+            controller.navigationBar.barStyle = UIBarStyleBlackOpaque;
+            [[NSUserDefaults standardUserDefaults] setBool:self.darkModeToggle.on forKey:@"darkMode"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            [self viewWillAppear:NO];
+        }
+    }
+    else{
+        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+        self.tabBarController.tabBar.barStyle=UIBarStyleDefault;
+        
+        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
+            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
+            controller.navigationBar.barStyle = UIBarStyleDefault;
+            [[NSUserDefaults standardUserDefaults] setBool:self.darkModeToggle.on forKey:@"darkMode"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            [self viewWillAppear:NO];
+        }
+    }
+    
     
 }
 
@@ -99,6 +124,14 @@
         self.colorSelector.tintColor = [UIColor goldenrodColor];
         self.darkModeToggle.onTintColor = [UIColor goldenrodColor];
     }
+    [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
+        UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
+        controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+        controller.tabBarController.tabBar.tintColor = [UIColor getThemeColor];
+    }
+    
     
 }
 
@@ -119,30 +152,8 @@
         [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         
-        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
-            controller.tabBarController.tabBar.tintColor = [UIColor getThemeColor];
-        }
-        if(self.darkModeToggle.on){
-            self.navigationController.navigationBar.barStyle=UIBarStyleBlackOpaque;
-            self.tabBarController.tabBar.barStyle=UIBarStyleBlackOpaque;
-            
-            for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-                UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-                controller.navigationBar.barStyle = UIBarStyleBlackOpaque;
-            }
-        }
-        else{
-            self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-            self.tabBarController.tabBar.barStyle=UIBarStyleDefault;
-            
-            for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-                UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-                controller.navigationBar.barStyle = UIBarStyleDefault;
-            }
-        }
-        [self viewWillAppear:NO];
+        
+        
         [self addAlertView];
     }
     

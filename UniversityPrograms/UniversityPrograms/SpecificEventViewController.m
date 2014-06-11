@@ -55,6 +55,7 @@
         [self getEvent:self.specifiedEvent];
     }
 }
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -134,6 +135,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 -(void)setUI{
     //set bar button type
+    
+    self.eventTitleLabel.textColor = [UIColor getThemeColor];
+    
     if(!self.specifiedEvent.isRegistered){
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
     }
@@ -214,6 +218,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     else{
         self.eventStartTime.text=[NSString stringWithFormat:@"Already Happened"];
     }
+    float textHeight = [self.specifiedEvent.eventDescription boundingRectWithSize:CGSizeMake(220,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
+    textHeight = ceilf(textHeight);
+    
+    //Set frame sizes
+    self.eventDescriptionLabel.frame = CGRectMake(self.eventDescriptionLabel.frame.origin.x, self.eventDescriptionLabel.frame.origin.y, self.eventDescriptionLabel.frame.size.width, textHeight);
+    self.eventBigView.frame = CGRectMake(0, 0, self.eventBigView.frame.size.width, 430 + textHeight);
+    self.mainScrollView.contentSize=self.eventBigView.frame.size;
     [self.loadingIndicator stopAnimating];
     
 }

@@ -11,6 +11,7 @@
 #import "CommentViewController.h"
 #import "Employee.h"
 #import "AddressTableViewCell.h"
+#import "UIColor+UPColors.h"
 @interface ContactUPViewController ()
 
 @property NSArray *directoryArray;
@@ -48,6 +49,7 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [self.contactUPTableView reloadData];
+    self.contactUPTableView.backgroundColor=[UIColor getStyleColor];
 }
 
 - (void)didReceiveMemoryWarning

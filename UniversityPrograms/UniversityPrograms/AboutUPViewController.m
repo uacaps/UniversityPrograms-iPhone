@@ -38,7 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.aboutTableView.backgroundColor = [UIColor getStyleColor];
+    
 
     //[self.view addSubview:self.scrollView];
     // Do any additional setup after loading the view from its nib.
@@ -47,6 +47,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.aboutTableView reloadData];
+    self.aboutTableView.backgroundColor = [UIColor getStyleColor];
     
 }
 
@@ -67,19 +68,17 @@
 {
     
     // Return the number of rows in the section.
-    return self.getInvolvedArray.count+3;
+    return self.getInvolvedArray.count+1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row==0){
+    if(indexPath.row<2){
         
-    
-        UITableViewCell *cell = self.whatWeDo;
-        return cell;
-    }
-    else if(indexPath.row==1){
-        UITableViewCell *cell = self.whoWeAre;
+        GetInvolvedCellData *data=[self.getInvolvedArray objectAtIndex:indexPath.row];
+        
+        GetInvolvedTableViewCell *cell = [[GetInvolvedTableViewCell alloc]init];
+        [cell buildWithData:data];
         return cell;
     }
     else if(indexPath.row==2){
@@ -88,11 +87,10 @@
         return cell;
     }
     else{
-        GetInvolvedCellData *data=[self.getInvolvedArray objectAtIndex:indexPath.row-3];
+        GetInvolvedCellData *data=[self.getInvolvedArray objectAtIndex:indexPath.row-1];
         
         GetInvolvedTableViewCell *cell = [[GetInvolvedTableViewCell alloc]init];
-        cell.titleLabel.text = data.title;
-        cell.bodyTextLabel.text = data.text;
+        [cell buildWithData:data];
         return cell;
     }
     
@@ -104,7 +102,7 @@
 {
     CGFloat retVal =0.0f;
     if(indexPath.row<2){
-        retVal=220.0f;//who we are and what we do cell height
+        retVal=[GetInvolvedTableViewCell heightForData:[self.getInvolvedArray objectAtIndex:indexPath.row]];//who we are and what we do cell height
         
     }
     else if(indexPath.row==2){
@@ -112,7 +110,7 @@
         
     }
     else{
-        retVal= [GetInvolvedTableViewCell heightForData:[self.getInvolvedArray objectAtIndex:indexPath.row-3]];
+        retVal= [GetInvolvedTableViewCell heightForData:[self.getInvolvedArray objectAtIndex:indexPath.row-1]];
         
     }
     

@@ -17,7 +17,8 @@
 }
 
 +(NSArray *)buildArrayOfDefaultData{
-    
+    GetInvolvedCellData *gt0 = [[GetInvolvedCellData alloc] initWithPredefinedTitle:@"Who We Are" andText:@"University Programs is the student-led, student-driven board, which aims to provide University of Alabama students with a variety of events that enhance the overall student experience. We are committed to supporting the overall academic, research and service mission of The University of Alabama and the Ferguson Center Student Union by providing quality collaborative programming that promotes lifelong learning and allows all students to find a place of involvement and importance."];
+    GetInvolvedCellData *gt00 = [[GetInvolvedCellData alloc] initWithPredefinedTitle:@"What We Do" andText:@"The vision of University Programs is to be the central location for all on-campus programming. We will share our resources with other campus departments, student organizations and community partners to assist them in the planning, promotion and implementation of their events. In addition, we will engage students through programs to play a more active role in their experience and education at the Capstone."];
     
     GetInvolvedCellData *gt1 = [[GetInvolvedCellData alloc] initWithPredefinedTitle:@"On The Town" andText:@"On the Town with the Ferg is a new program created by the Ferguson Center that gives students the opportunity to travel off campus to explore cultures beyond the university at minimal or no cost. On the Town events provide a great opportunity for students to step outside of their comfort zones and expand their worldviews and appreciation for cultural diversity while meeting new people and making new friends. Future events may include trips to sporting events and art exhibits around the Southeast. Reserve your spot today by emailing universityprograms@sa.ua.edu."];
     GetInvolvedCellData *gt2 = [[GetInvolvedCellData alloc] initWithPredefinedTitle:@"Movie Series" andText:@"The Ferguson Center Movie Series brings popular and often pre-released movies to campus for free. The free movie showings are open to all students, faculty, staff and the surrounding community. Free popcorn and refreshments are provided. Past movie include Inception, Due Date and Social Network."];
@@ -26,7 +27,7 @@
     GetInvolvedCellData *gt5 = [[GetInvolvedCellData alloc] initWithPredefinedTitle:@"Discovery Series" andText:@"Find your talent. Discover your ability. About the Discovery Series The Discovery Series are non-credit classes open to UA students, faculty and staff as well as the Tuscaloosa community. Get ready to discover a new talent, hobby, or passion! All enrollments will require payment within 5 business days of registration. All payments need to be taken to Room 356 Ferguson Center (The Ferguson Center Union Director's office). Acceptable payments include cash, check, or credit card. We currently do not take any action card payments. Failure to pay within time limit may result in being dropped from the class. Refunds will not be granted for any reason other than class cancellation. If you have any questions please contact us at discovery.series@gmail.com. Thank you."];
  
 
-    NSArray *array = [[NSArray alloc] initWithObjects:gt1, gt2, gt3, gt4, gt5, nil];
+    NSArray *array = [[NSArray alloc] initWithObjects:gt0, gt00, gt1, gt2, gt3, gt4, gt5, nil];
     
     
     

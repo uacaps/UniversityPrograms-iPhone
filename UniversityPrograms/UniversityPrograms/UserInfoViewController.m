@@ -91,52 +91,24 @@
     if(self.colorSelector.selectedSegmentIndex==0){
         self.colorSelector.tintColor = [UIColor brickRedColor];
         self.darkModeToggle.onTintColor = [UIColor brickRedColor];
-        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-            
-            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            //controller.themeColor = [UIColor goldenrodColor];
-            controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor brickRedColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
-            controller.tabBarController.tabBar.tintColor = [UIColor brickRedColor];
-            
-        }
+        
         
     }
     else if(self.colorSelector.selectedSegmentIndex==1){
         self.colorSelector.tintColor = [UIColor grassColor];
         self.darkModeToggle.onTintColor = [UIColor grassColor];
-        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-            
-            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            //controller.themeColor = [UIColor goldenrodColor];
-            controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor grassColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
-            controller.tabBarController.tabBar.tintColor = [UIColor grassColor];
-            
-        }
+        
     }
     else if(self.colorSelector.selectedSegmentIndex==2){
         self.colorSelector.tintColor = [UIColor tealColor];
         self.darkModeToggle.onTintColor = [UIColor tealColor];
-        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-            
-            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            //controller.themeColor = [UIColor goldenrodColor];
-            controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor tealColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
-            controller.tabBarController.tabBar.tintColor = [UIColor tealColor];
-            
-        }
+        
         
     }
     else{
         self.colorSelector.tintColor = [UIColor goldenrodColor];
         self.darkModeToggle.onTintColor = [UIColor goldenrodColor];
-        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-            
-            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            //controller.themeColor = [UIColor goldenrodColor];
-            controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor goldenrodColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
-            controller.tabBarController.tabBar.tintColor = [UIColor goldenrodColor];
-            
-        }
+        
     }
 }
 
@@ -155,7 +127,14 @@
         [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
         //[[NSUserDefaults standardUserDefaults] setObject:[NSNumber ] forKey:@"indexColorSelected"];
         [[NSUserDefaults standardUserDefaults]synchronize];
-        
+        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
+            
+            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
+            //controller.themeColor = [UIColor goldenrodColor];
+            controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+            controller.tabBarController.tabBar.tintColor = [UIColor getThemeColor];
+            
+        }
         //self.darkModeToggle.isOn=[[NSUserDefaults standardUserDefaults] setBool:false forKey:@"darkMode"];
      
         [self addAlertView];
@@ -176,7 +155,7 @@
 }
 
 -(void)addAlertView{
-    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Info Saved!" message:@"Your Information has been saved" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Settings Saved!" message:@"Your information and color theme settings have been saved" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [saveAlert setTag:1];
     [saveAlert show];
 }

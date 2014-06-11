@@ -40,10 +40,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.bigView setBackgroundColor:[UIColor UPSecondaryColor]];
+    [self.bigView setBackgroundColor:[UIColor getThemeColor]];
     [self.mainScrollView addSubview:self.bigView];
     self.mainScrollView.contentSize=self.bigView.frame.size;
-    [self.mainScrollView setBackgroundColor:[UIColor UPSecondaryColor]];
+    [self.mainScrollView setBackgroundColor:[UIColor getThemeColor]];
     self.commentBox.layer.cornerRadius=8;
     self.commentBox.layer.borderWidth=0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
@@ -57,6 +57,7 @@
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
     [textField resignFirstResponder];
+    [self.commentBox becomeFirstResponder];
     return YES;
 }
 - (IBAction)didEndEditingSubject:(id)sender {

@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="commentTitleCell" destination="aAT-6Y-4WM" id="lgw-e1-QIe"/>
                 <outlet property="cwidLabel" destination="x1Z-ff-qmP" id="TNP-U7-IuV"/>
+                <outlet property="dividerView" destination="cPl-3a-JkQ" id="GJC-if-AcL"/>
                 <outlet property="editButton" destination="a2K-sY-wUc" id="F3R-3t-a1w"/>
                 <outlet property="emailLabel" destination="gqG-16-vcm" id="eQS-rd-f44"/>
                 <outlet property="firstNameLabel" destination="VUP-s5-3Qi" id="eLt-wB-9o0"/>
@@ -46,7 +47,7 @@
                     </connections>
                 </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="ukl-7v-wal">
-                    <rect key="frame" x="10" y="115" width="300" height="29"/>
+                    <rect key="frame" x="10" y="117" width="300" height="29"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <segments>
@@ -67,14 +68,12 @@
                     <rect key="frame" x="78" y="20" width="222" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="21"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bZK-1F-5dI">
                     <rect key="frame" x="78" y="41" width="222" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="21"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000000000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x1Z-ff-qmP">
@@ -95,6 +94,11 @@
                     <rect key="frame" x="0.0" y="158" width="320" height="1"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" id="cPl-3a-JkQ">
+                    <rect key="frame" x="0.0" y="105" width="320" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

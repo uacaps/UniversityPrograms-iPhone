@@ -40,12 +40,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.bigView setBackgroundColor:[UIColor getThemeColor]];
+    [self.bigView setBackgroundColor:[UIColor getStyleColor]];
     [self.mainScrollView addSubview:self.bigView];
     self.mainScrollView.contentSize=self.bigView.frame.size;
-    [self.mainScrollView setBackgroundColor:[UIColor getThemeColor]];
+    [self.mainScrollView setBackgroundColor:[UIColor getStyleColor]];
     self.commentBox.layer.cornerRadius=8;
-    self.commentBox.layer.borderWidth=0;
+    self.commentBox.layer.borderWidth=0.1f;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
     
     

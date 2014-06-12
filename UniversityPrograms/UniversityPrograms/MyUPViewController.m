@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cwidLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *myUPImage;
+@property (weak, nonatomic) IBOutlet UIView *dividerView;
 @property NSArray *priorCommentArray;
 @property NSArray *unsortedEventArray;
 @property NSMutableArray *sortedEventArray;
@@ -139,31 +140,36 @@
     
 }
 -(void)build{
+    UIColor *styleColor = [UIColor getStyleColor];
+    UIColor *textColor = [UIColor getTextColor];
+    UIColor *themeColor = [UIColor getThemeColor];
     if([[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] isEqualToString:@""]||[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] ==nil){}
     else{
         self.firstNameLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"];
-        self.firstNameLabel.textColor = [UIColor getThemeColor];
-        self.lastNameLabel.textColor = [UIColor getThemeColor];
         self.lastNameLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"];
         self.cwidLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
         self.emailLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
-        self.cwidLabel.textColor = [UIColor getTextColor];
-        self.emailLabel.textColor = [UIColor getTextColor];
+        
     }
+    
+    self.cwidLabel.textColor = textColor;
+    self.emailLabel.textColor = textColor;
+    self.firstNameLabel.textColor = themeColor;
+    self.lastNameLabel.textColor = themeColor;
     self.myUPImage.image=[UIImage imageNamed:@"UP.jpg"];
-    self.emailLabel.backgroundColor=[UIColor getStyleColor];
-    self.lastNameLabel.backgroundColor=[UIColor getStyleColor];
-    self.firstNameLabel.backgroundColor=[UIColor getStyleColor];
+    self.emailLabel.backgroundColor=styleColor;
+    self.lastNameLabel.backgroundColor=styleColor;
+    self.firstNameLabel.backgroundColor=styleColor;
     self.cwidLabel.backgroundColor=[UIColor getStyleColor];
-    self.selectorControl.tintColor = [UIColor getThemeColor];
-    self.view.backgroundColor = [UIColor getStyleColor];
-    self.selectorControl.backgroundColor = [UIColor getStyleColor];
-    self.myUPTableView.backgroundColor = [UIColor getStyleColor];
-    self.myUPImage.backgroundColor = [UIColor getStyleColor];
-    self.editButton.backgroundColor = [UIColor getStyleColor];
+    self.selectorControl.tintColor = themeColor;
+    self.view.backgroundColor = styleColor;
+    self.selectorControl.backgroundColor = styleColor;
+    self.myUPTableView.backgroundColor = styleColor;
+    self.myUPImage.backgroundColor = styleColor;
+    self.editButton.backgroundColor = styleColor;
     self.myUPImage.layer.cornerRadius=self.myUPImage.frame.size.width/2;
+    self.dividerView.backgroundColor = [UIColor lightGrayColor];
 }
-
 
 
 #pragma mark - UI interactions

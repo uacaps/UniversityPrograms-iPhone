@@ -62,7 +62,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.getInvolvedArray.count+1;
+    return self.getInvolvedArray.count;
 }
 
 
@@ -73,13 +73,15 @@
         [cell buildWithData:data];
         return cell;
     }
+    /*
     else if(indexPath.row==2){
         UITableViewCell *cell = self.getInvolvedHeader;
         self.headerLabel.backgroundColor=[UIColor getThemeColor];
         return cell;
     }
+     */
     else{
-        GetInvolvedCellData *data=[self.getInvolvedArray objectAtIndex:indexPath.row-1];
+        GetInvolvedCellData *data=[self.getInvolvedArray objectAtIndex:indexPath.row];
         GetInvolvedTableViewCell *cell = [[GetInvolvedTableViewCell alloc]init];
         [cell buildWithData:data];
         return cell;
@@ -96,12 +98,14 @@
         retVal=[GetInvolvedTableViewCell heightForData:[self.getInvolvedArray objectAtIndex:indexPath.row]];//who we are and what we do cell height
         
     }
+    /*
     else if(indexPath.row==2){
         retVal=44.0f;//header cell height
         
     }
+     */
     else{
-        retVal= [GetInvolvedTableViewCell heightForData:[self.getInvolvedArray objectAtIndex:indexPath.row-1]];
+        retVal= [GetInvolvedTableViewCell heightForData:[self.getInvolvedArray objectAtIndex:indexPath.row]];
         
     }
     

@@ -45,7 +45,7 @@
     self.cwid.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
     self.email.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveInfo)];
+    
     // Do any additional setup after loading the view from its nib.
     
     
@@ -55,8 +55,9 @@
     self.userLabel.backgroundColor = [UIColor getStyleColor];
 
     self.userLabel.textColor = [UIColor getTextColor];
-
+    
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -64,7 +65,11 @@
 }
 
 #pragma mark - UI Interactions
-
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveInfo)];
+    return YES;
+}
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     
     [textField resignFirstResponder];
@@ -104,7 +109,7 @@
 }
 
 -(void)addAlertView{
-    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Settings Saved!" message:@"Your information and color theme settings have been saved" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Information Saved!" message:@"Your information settings have been saved" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [saveAlert setTag:1];
     [saveAlert show];
 }

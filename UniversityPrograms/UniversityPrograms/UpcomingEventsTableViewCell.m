@@ -40,7 +40,7 @@
     NSString *string = [[NSString alloc]initWithFormat:@"%@", event.imageUrl];
     //NSLog(@"%@",string);
     NSURL *url = [NSURL URLWithString:string];
-    
+    self.eventImage.backgroundColor = [UIColor getStyleColor];
     [self.eventImage setImageWithURL:url];
     //_eventImage.layer.cornerRadius = self.eventImage.frame.size.width/2;
     self.eventTitle.textColor = [UIColor whiteColor];

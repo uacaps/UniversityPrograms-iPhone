@@ -34,6 +34,8 @@
 		1B7880F2194105CE00333ED5 /* Pencil_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7880EE194105CE00333ED5 /* Pencil_filled@2x.png */; };
 		1B7880F3194105CE00333ED5 /* Pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7880EF194105CE00333ED5 /* Pencil.png */; };
 		1B7880F4194105CE00333ED5 /* Pencil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7880F0194105CE00333ED5 /* Pencil@2x.png */; };
+		1B9D2B5C1949E9B000B09316 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D2B5A1949E9B000B09316 /* SettingsViewController.m */; };
+		1B9D2B5D1949E9B000B09316 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B9D2B5B1949E9B000B09316 /* SettingsViewController.xib */; };
 		1BA9FE5E193E1D28008F8981 /* AboutUPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE5D193E1D28008F8981 /* AboutUPViewController.xib */; };
 		1BA9FE68193E244B008F8981 /* PriorFeedbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA9FE66193E244B008F8981 /* PriorFeedbackTableViewCell.m */; };
 		1BA9FE69193E244B008F8981 /* PriorFeedbackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE67193E244B008F8981 /* PriorFeedbackTableViewCell.xib */; };
@@ -137,6 +139,9 @@
 		1B7880EE194105CE00333ED5 /* Pencil_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pencil_filled@2x.png"; sourceTree = "<group>"; };
 		1B7880EF194105CE00333ED5 /* Pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pencil.png; sourceTree = "<group>"; };
 		1B7880F0194105CE00333ED5 /* Pencil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pencil@2x.png"; sourceTree = "<group>"; };
+		1B9D2B591949E9B000B09316 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1B9D2B5A1949E9B000B09316 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		1B9D2B5B1949E9B000B09316 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		1BA9FE5D193E1D28008F8981 /* AboutUPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUPViewController.xib; sourceTree = "<group>"; };
 		1BA9FE65193E244B008F8981 /* PriorFeedbackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorFeedbackTableViewCell.h; sourceTree = "<group>"; };
 		1BA9FE66193E244B008F8981 /* PriorFeedbackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorFeedbackTableViewCell.m; sourceTree = "<group>"; };
@@ -404,6 +409,16 @@
 			name = "Navbar Images";
 			sourceTree = "<group>";
 		};
+		1B9D2B581949E98A00B09316 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1B9D2B591949E9B000B09316 /* SettingsViewController.h */,
+				1B9D2B5A1949E9B000B09316 /* SettingsViewController.m */,
+				1B9D2B5B1949E9B000B09316 /* SettingsViewController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		1BACD33D1937E39700DF7081 = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +519,7 @@
 				1BAD1A40193CCCBA006D24AD /* MyUPViewController.h */,
 				1BAD1A41193CCCBA006D24AD /* MyUPViewController.m */,
 				1BAD1A42193CCCBA006D24AD /* MyUPViewController.xib */,
+				1B9D2B581949E98A00B09316 /* Settings */,
 				1BAD1A45193CCDD1006D24AD /* UserInfo */,
 			);
 			name = MyUP;
@@ -681,6 +697,7 @@
 				1BAD1A44193CCCBA006D24AD /* MyUPViewController.xib in Resources */,
 				1B7880EB1940F8B500333ED5 /* UP.jpg in Resources */,
 				1BAE3B4B19463A690006AEFD /* Telephone@2x.png in Resources */,
+				1B9D2B5D1949E9B000B09316 /* SettingsViewController.xib in Resources */,
 				1BAE3B4F19463AAA0006AEFD /* Email@2x.png in Resources */,
 				1BAE3B54194651DE0006AEFD /* AddressTableViewCell.xib in Resources */,
 				1B1672BF194760F7001449CD /* Twitter.png in Resources */,
@@ -758,6 +775,7 @@
 				1BB198E3193FC4900017A1D6 /* LocationDTO.m in Sources */,
 				1BAD1A43193CCCBA006D24AD /* MyUPViewController.m in Sources */,
 				1BAD1A38193CC2B9006D24AD /* Event.m in Sources */,
+				1B9D2B5C1949E9B000B09316 /* SettingsViewController.m in Sources */,
 				1BD4C8151942658F00BE6566 /* GetInvolvedTableViewCell.m in Sources */,
 				1B0A69161938D552005C821D /* CommentViewController.m in Sources */,
 				1B48B56C19421C8F008F5186 /* Employee.m in Sources */,

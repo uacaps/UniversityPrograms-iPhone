@@ -45,7 +45,8 @@
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.upComingEventsTable.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadEvents) forControlEvents:UIControlEventValueChanged];
     [self.upComingEventsTable addSubview:self.refreshControl];
-    [self loadEvents];
+    
+    
     self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
     // Do any additional setup after loading the view from its nib.
 }
@@ -57,20 +58,25 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
-    [self.upComingEventsTable reloadData];
+    [self loadEvents];
+    //[self.upComingEventsTable reloadData];
     //[self.upComingEventsTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 #pragma mark - Load data
 -(void)loadEvents{
     
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        self.upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
-        
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.upComingEventsTable reloadData];
-            [self.refreshControl endRefreshing];
-        });
+
+        if(data==nil){
+            [self loadEvents];
+        }
+        else{
+            self.upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.upComingEventsTable reloadData];
+                [self.refreshControl endRefreshing];
+            });
+        }
     }];
   
 }

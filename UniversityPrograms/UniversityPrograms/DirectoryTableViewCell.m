@@ -28,8 +28,8 @@
     return self;
 }
 -(void)buildWtihEmployee:(Employee *)emp{
-    self.selectedEmployee = emp;
     
+    self.selectedEmployee = emp;
     self.employeeEmail.text=emp.email;
     //self.employeeImage.layer.cornerRadius=2;
     [self.employeeImage setImageWithURL:[[NSURL alloc] initWithString:emp.imageURL]];
@@ -75,8 +75,9 @@
     
     //NSLog(@"phone tap");
     //self.employeePhone.backgroundColor=[UIColor grassColor];
-    NSString *telephoneURLString = [NSString stringWithFormat:@"tel://%@", _selectedEmployee.phone];
+    NSString *telephoneURLString = [NSString stringWithFormat:@"tel://%@", self.selectedEmployee.phone];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telephoneURLString]];
+    NSLog(@"%@", telephoneURLString);
     //self.employeePhone.backgroundColor=[UIColor whiteColor];
 }
 

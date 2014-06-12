@@ -6,14 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInfoViewController">
             <connections>
-                <outlet property="colorLabel" destination="6Qs-Oa-vWS" id="NpC-qG-JvE"/>
-                <outlet property="colorSelector" destination="ZRt-Yo-rdd" id="65Y-WM-woc"/>
                 <outlet property="cwid" destination="r6p-ZG-jEr" id="zau-ux-JXK"/>
-                <outlet property="darkModeToggle" destination="kO2-5j-bjH" id="Uzm-C5-BkX"/>
                 <outlet property="email" destination="679-5I-mib" id="qVe-1N-aij"/>
                 <outlet property="firstName" destination="wOP-gH-6E4" id="0gE-XZ-nyn"/>
                 <outlet property="lastName" destination="xj4-CM-k7c" id="crQ-zL-VMp"/>
-                <outlet property="modeLabel" destination="OEi-q5-bkV" id="Guk-V2-NKy"/>
                 <outlet property="userLabel" destination="Lkq-kh-nug" id="ycn-yo-XLI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" id="whu-WQ-uHM">
-                    <rect key="frame" x="11" y="20" width="297" height="184"/>
+                    <rect key="frame" x="11" y="51" width="297" height="184"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" clearButtonMode="always" id="wOP-gH-6E4">
@@ -72,42 +68,6 @@
                         </label>
                     </subviews>
                 </view>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="ZRt-Yo-rdd">
-                    <rect key="frame" x="20" y="298" width="280" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <segments>
-                        <segment title="Crimson"/>
-                        <segment title="Green"/>
-                        <segment title="Blue"/>
-                        <segment title="Gold"/>
-                    </segments>
-                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <action selector="changedColorScheme:" destination="-1" eventType="valueChanged" id="2Rx-bs-Io4"/>
-                    </connections>
-                </segmentedControl>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="kO2-5j-bjH">
-                    <rect key="frame" x="20" y="251" width="51" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <connections>
-                        <action selector="toggledDarkMode:" destination="-1" eventType="valueChanged" id="rRD-wD-JaA"/>
-                    </connections>
-                </switch>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OEi-q5-bkV">
-                    <rect key="frame" x="77" y="251" width="223" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Scheme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Qs-Oa-vWS">
-                    <rect key="frame" x="11" y="211" width="297" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

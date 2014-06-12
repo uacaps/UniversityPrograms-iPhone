@@ -17,6 +17,7 @@
 #import "UPDataRetrieval.h"
 #import "NSObject+ObjectMap.h"
 #import "SpecificEventViewController.h"
+#import "SettingsViewController.h"
 @import QuartzCore;
 
 
@@ -34,6 +35,7 @@
 @property NSArray *unsortedEventArray;
 @property NSMutableArray *sortedEventArray;
 @property UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property BOOL controlFlag;
 @end
 
@@ -60,15 +62,14 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(didSelectUser)];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(didSelectSettings)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectComment)];
     
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.myUPTableView.frame.size.width, 60)];
     [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
     [self.myUPTableView addSubview:self.refreshControl];
     self.selectorControl.tintColor = [UIColor getThemeColor];
-    [self loadData];
-    [self build];
+    
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -80,6 +81,10 @@
     [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
 
+- (IBAction)didTapEdit:(id)sender {
+    UserInfoViewController *userinfo = [[UserInfoViewController alloc] init];
+    [self.navigationController pushViewController:userinfo animated:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -96,31 +101,40 @@
 }
 -(void)loadEvents{
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        self.sortedEventArray=[[NSMutableArray alloc] init];
-        self.unsortedEventArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
-        //NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-        for (int index =0; index<self.unsortedEventArray.count; ++index) {
-            Event *e=[self.unsortedEventArray objectAtIndex:index];
-            if(e.isRegistered==true){
-                [self.sortedEventArray addObject:e];
-            }
+        if(data==nil){
+            [self loadEvents];
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self loadFeedback];
+        else{
+            self.sortedEventArray=[[NSMutableArray alloc] init];
+            self.unsortedEventArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
+            //NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+            for (int index =0; index<self.unsortedEventArray.count; ++index) {
+                Event *e=[self.unsortedEventArray objectAtIndex:index];
+                if(e.isRegistered==true){
+                    [self.sortedEventArray addObject:e];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self loadFeedback];
             
-        });
-        
+            });
+        }
     }];
     
     
 }
 -(void)loadFeedback{
     [UPDataRetrieval retrieveComments:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        self.priorCommentArray=[NSObject arrayOfType:[Comment class] FromJSONData:data];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.myUPTableView reloadData];
+        if(data==nil){
             
-        });
+        }
+        else{
+            self.priorCommentArray=[NSObject arrayOfType:[Comment class] FromJSONData:data];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.myUPTableView reloadData];
+            
+            });
+        }
     }];
     
 }
@@ -146,7 +160,8 @@
     self.selectorControl.backgroundColor = [UIColor getStyleColor];
     self.myUPTableView.backgroundColor = [UIColor getStyleColor];
     self.myUPImage.backgroundColor = [UIColor getStyleColor];
-
+    self.editButton.backgroundColor = [UIColor getStyleColor];
+    self.myUPImage.layer.cornerRadius=self.myUPImage.frame.size.width/2;
 }
 
 
@@ -164,9 +179,9 @@
                                          animated:YES];
 }
 
--(void)didSelectUser{
-    UserInfoViewController *userInfo = [[UserInfoViewController alloc] init];
-    [self.navigationController pushViewController:userInfo animated:YES];
+-(void)didSelectSettings{
+    SettingsViewController *settings = [[SettingsViewController alloc] init];
+    [self.navigationController pushViewController:settings animated:YES];
     
 }
 

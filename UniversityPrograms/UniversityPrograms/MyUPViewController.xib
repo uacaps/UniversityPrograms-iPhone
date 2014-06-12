@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="commentTitleCell" destination="aAT-6Y-4WM" id="lgw-e1-QIe"/>
                 <outlet property="cwidLabel" destination="x1Z-ff-qmP" id="TNP-U7-IuV"/>
+                <outlet property="editButton" destination="a2K-sY-wUc" id="F3R-3t-a1w"/>
                 <outlet property="emailLabel" destination="gqG-16-vcm" id="eQS-rd-f44"/>
                 <outlet property="firstNameLabel" destination="VUP-s5-3Qi" id="eLt-wB-9o0"/>
                 <outlet property="lastNameLabel" destination="bZK-1F-5dI" id="gYV-5b-Z8g"/>
@@ -33,6 +34,17 @@
                         <outlet property="delegate" destination="-1" id="Jzt-Nb-Afr"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a2K-sY-wUc">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapEdit:" destination="-1" eventType="touchUpInside" id="6BC-1w-r5g"/>
+                    </connections>
+                </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="ukl-7v-wal">
                     <rect key="frame" x="10" y="115" width="300" height="29"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>

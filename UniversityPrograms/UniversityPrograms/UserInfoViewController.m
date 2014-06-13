@@ -29,7 +29,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title=@"User Info";
+        self.title=@"User";
         
     }
     return self;
@@ -54,7 +54,7 @@
     self.view.backgroundColor = [UIColor getStyleColor];
     self.userLabel.backgroundColor = [UIColor getStyleColor];
 
-    self.userLabel.textColor = [UIColor getTextColor];
+    self.userLabel.textColor = [UIColor getThemeColor];
     
 }
 

@@ -19,26 +19,29 @@
     return self;
 }
 -(void)buildWithEvent:(Event *)e{
-    NSString *startDate = [e.startDate formattedDateWithFormat:@"MM/dd hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]];
-    NSString *endDate = [e.endDate formattedDateWithFormat:@"MM/dd hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]];
+    UIColor *styleColor = [UIColor getStyleColor];
+    UIColor *themeColor = [UIColor getThemeColor];
+    UIColor *textColor = [UIColor getTextColor];
+    NSString *startDate = [e.startDate formattedDateWithFormat:@"MMM dd, hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]];
+    NSString *endDate = [e.endDate formattedDateWithFormat:@"MMM dd, hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]];
     self.eventNameLabel.text=[NSString stringWithFormat:@"%@", e.eventName];
     self.endDateLabel.text=[NSString stringWithFormat:@"Start: %@",startDate];
     self.startDateLabel.text=[NSString stringWithFormat:@"End: %@",endDate];
     self.actualNumberAttending.text = [NSString stringWithFormat:@"%d attending", [e.numberAttending integerValue]];
     
-    self.eventNameLabel.textColor = [UIColor getThemeColor];
-    self.eventNameLabel.textColor = [UIColor getThemeColor];
+    self.eventNameLabel.textColor = themeColor;
+    self.eventNameLabel.textColor = themeColor;
     
     [self.image setImageWithURL:[NSURL URLWithString:e.imageUrl]];
-    self.endDateLabel.backgroundColor=[UIColor getStyleColor];
-    self.startDateLabel.backgroundColor=[UIColor getStyleColor];
-    self.eventNameLabel.backgroundColor=[UIColor getStyleColor];
-    self.actualNumberAttending.backgroundColor = [UIColor getStyleColor];
-    self.backgroundColor = [UIColor getStyleColor];
+    self.endDateLabel.backgroundColor=styleColor;
+    self.startDateLabel.backgroundColor=styleColor;
+    self.eventNameLabel.backgroundColor=styleColor;
+    self.actualNumberAttending.backgroundColor = styleColor;
+    self.backgroundColor = styleColor;
     
-    self.actualNumberAttending.textColor = [UIColor getTextColor];
-    self.startDateLabel.textColor = [UIColor getTextColor];
-    self.endDateLabel.textColor = [UIColor getTextColor];
+    self.actualNumberAttending.textColor = textColor;
+    self.startDateLabel.textColor = textColor;
+    self.endDateLabel.textColor = textColor;
   
 }
 - (void)awakeFromNib

@@ -28,7 +28,9 @@
     return self;
 }
 -(void)buildWtihEmployee:(Employee *)emp{
-    
+    UIColor *styleColor = [UIColor getStyleColor];
+    UIColor *themeColor = [UIColor getThemeColor];
+    UIColor *textColor = [UIColor getTextColor];
     self.selectedEmployee = emp;
     self.employeeEmail.text=emp.email;
     //self.employeeImage.layer.cornerRadius=2;
@@ -38,15 +40,15 @@
     self.employeeTitle.text=emp.title;
     self.employeeImage.layer.cornerRadius=self.employeeImage.frame.size.width/2;
     //NSLog([NSString stringWithFormat:@"%@", emp.phone]);
-    self.employeeName.textColor = [UIColor getThemeColor];
-    self.employeeTitle.textColor = [UIColor getThemeColor];
-    self.employeeEmail.backgroundColor = [UIColor getStyleColor];
-    self.employeeTitle.backgroundColor = [UIColor getStyleColor];
-    self.employeePhone.textColor = [UIColor getTextColor];
-    self.employeeEmail.textColor = [UIColor getTextColor];
-    self.employeePhone.backgroundColor = [UIColor getStyleColor];
-    self.employeeName.backgroundColor = [UIColor getStyleColor];
-    self.backgroundColor = [UIColor getStyleColor];
+    self.employeeName.textColor = themeColor;
+    self.employeeTitle.textColor = themeColor;
+    self.employeeEmail.backgroundColor = styleColor;
+    self.employeeTitle.backgroundColor = styleColor;
+    self.employeePhone.textColor = textColor;
+    self.employeeEmail.textColor = textColor;
+    self.employeePhone.backgroundColor = styleColor;
+    self.employeeName.backgroundColor = styleColor;
+    self.backgroundColor = styleColor;
     
     if([emp.phone isEqualToString:@"Graduate"]||[emp.phone isEqualToString:@"Senior"]||[emp.phone isEqualToString:@"Junior"]||[emp.phone isEqualToString:@"2nd Year Law"]){
         self.phoneButton.alpha=0.0f;

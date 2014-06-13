@@ -19,13 +19,16 @@
 }
 
 -(void)buildWithComment:(Comment *)comment{
+    UIColor *styleColor = [UIColor getStyleColor];
+    UIColor *themeColor = [UIColor getThemeColor];
+    UIColor *textColor = [UIColor getTextColor];
     self.titleLabel.text=comment.commentTitle;
-    self.titleLabel.backgroundColor = [UIColor getStyleColor];
+    self.titleLabel.backgroundColor = styleColor;
     self.commentLabel.text=comment.commentText;
-    self.commentLabel.backgroundColor = [UIColor getStyleColor];
-    self.backgroundColor= [UIColor getStyleColor];
-    [self.commentLabel setTextColor:[UIColor getTextColor]];
-    self.titleLabel.textColor = [UIColor getThemeColor];
+    self.commentLabel.backgroundColor = styleColor;
+    self.backgroundColor= styleColor;
+    [self.commentLabel setTextColor:textColor];
+    self.titleLabel.textColor = themeColor;
     //Get frame sizes
     float textHeight = [comment.commentText boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);

@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bodyView;
 @property (weak, nonatomic) IBOutlet UIView *footerView;
 @property (weak, nonatomic) IBOutlet UIView *divider;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property BOOL firstLoad;
 @property Event *specifiedEvent;
 @end
@@ -126,31 +127,36 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 -(void)setUI{
     //set bar button type
-    
-    self.eventTitleLabel.textColor = [UIColor getThemeColor];
-    self.addressLine1Label.textColor = [UIColor getTextColor];
-    self.addressLine2Label.textColor = [UIColor getTextColor];
-    self.addressLine3Label.textColor = [UIColor getTextColor];
-    self.eventDescriptionLabel.textColor=[UIColor getTextColor];
-    self.eventBigView.backgroundColor = [UIColor getStyleColor];
-    self.bodyView.backgroundColor = [UIColor getStyleColor];
-    self.footerView.backgroundColor=[UIColor getStyleColor];
-    self.eventDescriptionLabel.backgroundColor = [UIColor getStyleColor];
-    self.addressLine1Label.backgroundColor = [UIColor getStyleColor];
-    self.addressLine2Label.backgroundColor = [UIColor getStyleColor];
-    self.addressLine3Label.backgroundColor = [UIColor getStyleColor];
-    self.divider.backgroundColor = [UIColor getTextColor];
+    UIColor *styleColor = [UIColor getStyleColor];
+    UIColor *themeColor = [UIColor getThemeColor];
+    UIColor *textColor = [UIColor getTextColor];
+    self.mainScrollView.backgroundColor = styleColor;
+    self.dateLabel.textColor=textColor;
+    self.dateLabel.backgroundColor = styleColor;
+    self.eventTitleLabel.textColor = themeColor;
+    self.addressLine1Label.textColor = textColor;
+    self.addressLine2Label.textColor = textColor;
+    self.addressLine3Label.textColor = textColor;
+    self.eventDescriptionLabel.textColor=textColor;
+    self.eventBigView.backgroundColor = styleColor;
+    self.bodyView.backgroundColor = styleColor;
+    self.footerView.backgroundColor=styleColor;
+    self.eventDescriptionLabel.backgroundColor = styleColor;
+    self.addressLine1Label.backgroundColor = styleColor;
+    self.addressLine2Label.backgroundColor = styleColor;
+    self.addressLine3Label.backgroundColor = styleColor;
+    self.divider.backgroundColor = textColor;
     if(!self.specifiedEvent.isRegistered){
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
     }
     else{
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapUnRSVP)];
-        self.navigationItem.rightBarButtonItem.tintColor=[UIColor getThemeColor];
+        self.navigationItem.rightBarButtonItem.tintColor=themeColor;
     }
     //Set image url
     [self.eventImageView setImageWithURL:[NSURL URLWithString:self.specifiedEvent.imageUrl]];
     self.eventTitleLabel.text = self.specifiedEvent.eventName;
-    self.eventTitleLabel.backgroundColor = [UIColor getStyleColor];
+    self.eventTitleLabel.backgroundColor = styleColor;
     self.eventDescriptionLabel.text=self.specifiedEvent.eventDescription;
     if(self.specifiedEvent.isRegistered){
         self.attendingLabel.text=@"You are attending";
@@ -227,7 +233,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     self.eventBigView.frame = CGRectMake(0, 0, self.eventBigView.frame.size.width, 430 + textHeight);
     self.mainScrollView.contentSize=self.eventBigView.frame.size;
     [self.loadingIndicator stopAnimating];
-    self.mainScrollView.backgroundColor = [UIColor getStyleColor];
+    
+    self.dateLabel.text=[NSString stringWithFormat:@"%@ -> %@",[self.specifiedEvent.startDate formattedDateWithFormat:@"MMM dd, hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]],[self.specifiedEvent.endDate formattedDateWithFormat:@"hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]];
     
 }
 

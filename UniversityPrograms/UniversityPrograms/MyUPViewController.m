@@ -160,7 +160,7 @@
     self.emailLabel.backgroundColor=styleColor;
     self.lastNameLabel.backgroundColor=styleColor;
     self.firstNameLabel.backgroundColor=styleColor;
-    self.cwidLabel.backgroundColor=[UIColor getStyleColor];
+    self.cwidLabel.backgroundColor=styleColor;
     self.selectorControl.tintColor = themeColor;
     self.view.backgroundColor = styleColor;
     self.selectorControl.backgroundColor = styleColor;

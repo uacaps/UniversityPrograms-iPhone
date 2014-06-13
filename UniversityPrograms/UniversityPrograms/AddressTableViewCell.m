@@ -14,19 +14,22 @@
     self=[super init];
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([AddressTableViewCell class]) owner:nil options:nil][0];
-    self.findUsLabel.textColor = [UIColor getTextColor];
-    self.address1Label.textColor = [UIColor getTextColor];
-    self.address2Label.textColor = [UIColor getTextColor];
-    self.address3Label.textColor = [UIColor getTextColor];
-    self.address4Label.textColor = [UIColor getTextColor];
-    self.teamLabel.textColor = [UIColor getTextColor];
-    self.findUsLabel.backgroundColor = [UIColor getStyleColor];
-    self.address1Label.backgroundColor = [UIColor getStyleColor];
-    self.address2Label.backgroundColor = [UIColor getStyleColor];
-    self.address3Label.backgroundColor = [UIColor getStyleColor];
-    self.address4Label.backgroundColor = [UIColor getStyleColor];
-    self.teamLabel.backgroundColor = [UIColor getStyleColor];
-    self.backgroundColor = [UIColor getStyleColor];
+    UIColor *styleColor = [UIColor getStyleColor];
+    UIColor *themeColor = [UIColor getThemeColor];
+    UIColor *textColor = [UIColor getTextColor];
+    self.findUsLabel.textColor = themeColor;
+    self.address1Label.textColor = textColor;
+    self.address2Label.textColor = textColor;
+    self.address3Label.textColor = textColor;
+    self.address4Label.textColor = textColor;
+    self.teamLabel.textColor = themeColor;
+    self.findUsLabel.backgroundColor = styleColor;
+    self.address1Label.backgroundColor = styleColor;
+    self.address2Label.backgroundColor = styleColor;
+    self.address3Label.backgroundColor = styleColor;
+    self.address4Label.backgroundColor = styleColor;
+    self.teamLabel.backgroundColor = styleColor;
+    self.backgroundColor = styleColor;
     return self;
 }
 

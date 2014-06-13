@@ -17,10 +17,6 @@
 @property NSArray *directoryArray;
 @property (weak, nonatomic) IBOutlet UITableView *contactUPTableView;
 
-
-
-
-
 @end
 
 @implementation ContactUPViewController

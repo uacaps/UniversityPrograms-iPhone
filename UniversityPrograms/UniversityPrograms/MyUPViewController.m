@@ -32,11 +32,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *myUPImage;
 @property (weak, nonatomic) IBOutlet UIView *dividerView;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property NSArray *priorCommentArray;
 @property NSArray *unsortedEventArray;
 @property NSMutableArray *sortedEventArray;
 @property UIRefreshControl *refreshControl;
-@property (weak, nonatomic) IBOutlet UIButton *editButton;
+
 @property BOOL controlFlag;
 @end
 

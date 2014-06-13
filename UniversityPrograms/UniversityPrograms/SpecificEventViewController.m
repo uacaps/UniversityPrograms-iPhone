@@ -126,18 +126,19 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 }
 
 -(void)setUI{
-    //set bar button type
+    //set colors
     UIColor *styleColor = [UIColor getStyleColor];
     UIColor *themeColor = [UIColor getThemeColor];
     UIColor *textColor = [UIColor getTextColor];
-    self.mainScrollView.backgroundColor = styleColor;
-    self.dateLabel.textColor=textColor;
-    self.dateLabel.backgroundColor = styleColor;
+    
     self.eventTitleLabel.textColor = themeColor;
+    self.dateLabel.textColor=textColor;
+    self.divider.backgroundColor = textColor;
     self.addressLine1Label.textColor = textColor;
     self.addressLine2Label.textColor = textColor;
     self.addressLine3Label.textColor = textColor;
     self.eventDescriptionLabel.textColor=textColor;
+    
     self.eventBigView.backgroundColor = styleColor;
     self.bodyView.backgroundColor = styleColor;
     self.footerView.backgroundColor=styleColor;
@@ -145,7 +146,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     self.addressLine1Label.backgroundColor = styleColor;
     self.addressLine2Label.backgroundColor = styleColor;
     self.addressLine3Label.backgroundColor = styleColor;
-    self.divider.backgroundColor = textColor;
+    self.dateLabel.backgroundColor = styleColor;
+    self.mainScrollView.backgroundColor = styleColor;
+    
     if(!self.specifiedEvent.isRegistered){
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
     }
@@ -175,6 +178,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             self.attendingLabel.text=[NSString stringWithFormat:@"%@ people are attending", [self.specifiedEvent.numberAttending stringValue]];
         }
     }
+    //format the address labels
     if(self.specifiedEvent.location==nil){
         self.addressLine1Label.text=@"";
         self.addressLine2Label.text=@"";
@@ -192,7 +196,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         self.addressLine2Label.text=self.specifiedEvent.location.street2;
         self.addressLine3Label.text=addressString;
     }
-    
+    //correctly format the days until label
     if ([self.specifiedEvent.startDate isLaterThan:[NSDate date]]) {
         int daysFromNow = self.specifiedEvent.startDate.daysUntil;
         if (daysFromNow > 0) {
@@ -225,6 +229,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     else{
         self.eventStartTime.text=[NSString stringWithFormat:@"Already Happened"];
     }
+    //dynamic cell size
     float textHeight = [self.specifiedEvent.eventDescription boundingRectWithSize:CGSizeMake(220,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     
@@ -233,7 +238,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     self.eventBigView.frame = CGRectMake(0, 0, self.eventBigView.frame.size.width, 430 + textHeight);
     self.mainScrollView.contentSize=self.eventBigView.frame.size;
     [self.loadingIndicator stopAnimating];
-    
+    //set date label
     self.dateLabel.text=[NSString stringWithFormat:@"%@ -> %@",[self.specifiedEvent.startDate formattedDateWithFormat:@"MMM dd, hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]],[self.specifiedEvent.endDate formattedDateWithFormat:@"hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]];
     
 }

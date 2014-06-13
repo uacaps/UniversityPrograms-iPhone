@@ -66,6 +66,7 @@
 -(void)loadEvents{
     
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        
 
         if(data==nil){
             [self loadEvents];

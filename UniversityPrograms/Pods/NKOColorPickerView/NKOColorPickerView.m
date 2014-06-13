@@ -28,7 +28,7 @@ CGFloat const NKOPickerViewGradientTopMargin            = 20.f;
 CGFloat const NKOPickerViewDefaultMargin                = 10.f;
 CGFloat const NKOPickerViewBrightnessIndicatorWidth     = 16.f;
 CGFloat const NKOPickerViewBrightnessIndicatorHeight    = 48.f;
-CGFloat const NKOPickerViewCrossHairshWidthAndHeight    = 38.f;
+CGFloat const NKOPickerViewCrossHairshWidthAndHeight    = 20.f;
 
 @interface NKOColorPickerView() {
 	CGFloat currentBrightness;
@@ -298,7 +298,7 @@ CGFloat const NKOPickerViewCrossHairshWidthAndHeight    = 38.f;
         
         UIColor *edgeColor = [UIColor colorWithWhite:0.9 alpha:0.8];
         
-        self->_crossHairs.layer.cornerRadius = 19;
+        self->_crossHairs.layer.cornerRadius = NKOPickerViewCrossHairshWidthAndHeight/2;
         self->_crossHairs.layer.borderColor = edgeColor.CGColor;
         self->_crossHairs.layer.borderWidth = 2;
         self->_crossHairs.layer.shadowColor = [UIColor blackColor].CGColor;

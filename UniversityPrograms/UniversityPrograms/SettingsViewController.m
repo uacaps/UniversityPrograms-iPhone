@@ -87,23 +87,29 @@
         self.darkModeToggle.onTintColor = [UIColor UPCrimsonColor];
         [UIColor setThemeColor:[UIColor UPCrimsonColor]];
         [self updateColors:[UIColor getThemeColor]];
+        [self.colorPickerView removeFromSuperview];
+        [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
     }
     else if(self.colorSelector.selectedSegmentIndex==1){
         self.colorSelector.tintColor = [UIColor grassColor];
         self.darkModeToggle.onTintColor = [UIColor grassColor];
         [UIColor setThemeColor:[UIColor grassColor]];
         [self updateColors:[UIColor getThemeColor]];
+        [self.colorPickerView removeFromSuperview];
+        [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
     }
     else if(self.colorSelector.selectedSegmentIndex==2){
         self.colorSelector.tintColor = [UIColor tealColor];
         self.darkModeToggle.onTintColor = [UIColor tealColor];
         [UIColor setThemeColor:[UIColor tealColor]];
         [self updateColors:[UIColor getThemeColor]];
+        [self.colorPickerView removeFromSuperview];
+        [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
         
     }
     else{
         
-        
+        [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
         self.colorSelector.tintColor = [UIColor getThemeColor];
         self.darkModeToggle.onTintColor = [UIColor getThemeColor];
         if(!self.colorPickerView){
@@ -115,11 +121,12 @@
             
             }];
         
-            [self.view addSubview:self.colorPickerView];
+            
         }
+        [self.view addSubview:self.colorPickerView];
         self.colorPickerView.color=[UIColor getThemeColor];
     }
-    
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     //[UITabBar appearance].tintColor=[UIColor getThemeColor];
     

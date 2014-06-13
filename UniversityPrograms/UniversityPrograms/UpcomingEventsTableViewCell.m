@@ -52,9 +52,9 @@
     //Set date before began
 
     if ([event.startDate isLaterThan:[NSDate date]]) {
-        int daysFromNow = event.startDate.daysUntil;
+        NSInteger daysFromNow = event.startDate.daysUntil;
         if (daysFromNow > 0) {
-            self.dateLabel.text= [NSString stringWithFormat:@"in %dd", daysFromNow];
+            self.dateLabel.text= [NSString stringWithFormat:@"in %ldd", (long)daysFromNow];
             return;
         }
         else {

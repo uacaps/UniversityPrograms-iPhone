@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NKOColorPickerView.h"
 @interface SettingsViewController : UIViewController
 
 @end

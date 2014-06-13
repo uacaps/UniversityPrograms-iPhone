@@ -24,6 +24,12 @@
 #define COCOAPODS_VERSION_MINOR_MYBlurIntroductionView 0
 #define COCOAPODS_VERSION_PATCH_MYBlurIntroductionView 3
 
+// NKOColorPickerView
+#define COCOAPODS_POD_AVAILABLE_NKOColorPickerView
+#define COCOAPODS_VERSION_MAJOR_NKOColorPickerView 0
+#define COCOAPODS_VERSION_MINOR_NKOColorPickerView 2
+#define COCOAPODS_VERSION_PATCH_NKOColorPickerView 0
+
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3

@@ -3,6 +3,7 @@ PODS:
   - DateTools (1.2.0)
   - iOSWebserviceTemplate (1.0.0)
   - MYBlurIntroductionView (1.0.3)
+  - NKOColorPickerView (0.2)
   - SDWebImage (3.6):
     - SDWebImage/Core
   - SDWebImage/Core (3.6)
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - DateTools
   - iOSWebserviceTemplate
   - MYBlurIntroductionView
+  - NKOColorPickerView
   - SDWebImage
 
 SPEC CHECKSUMS:
@@ -19,6 +21,7 @@ SPEC CHECKSUMS:
   DateTools: 1765514cd526b2c2ab491b7747df67e0a82e97c1
   iOSWebserviceTemplate: 24de66e8bebe915c81b116eacff4c9d333bc67b9
   MYBlurIntroductionView: 6caf60805eaa555538aba9e2615820fd6f07cd23
+  NKOColorPickerView: b4d32e1eedfcaeaec890f8301081ee030d49cffd
   SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
 
 COCOAPODS: 0.33.1

@@ -25,7 +25,7 @@
     [self.window makeKeyAndVisible];
     
     //create the tab bar and set it to be the main view controller
-    [UIColor setThemeColorIndex:[UIColor getThemeColorIndex]];
+    [UIColor setThemeColor:[UIColor getThemeColor]];
     
     
     //[self.baseTabBar]

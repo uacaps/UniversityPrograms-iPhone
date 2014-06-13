@@ -19,8 +19,8 @@
 +(UIColor *)UPPeachColor;
 +(UIColor *)getThemeColor;
 +(UIColor *)UPCrimsonColor;
-+(int)getThemeColorIndex;
-+(void)setThemeColorIndex:(int)index;
++(NSInteger)getThemeColorIndex;
 +(UIColor *)getTextColor;
 +(UIColor *)getStyleColor;
++(void)setThemeColor:(UIColor *)color;
 @end

@@ -6,4 +6,4 @@ pod 'Colours'
 pod 'SDWebImage'
 pod 'iOSWebserviceTemplate'
 pod 'MYBlurIntroductionView'
-
+pod 'NKOColorPickerView'

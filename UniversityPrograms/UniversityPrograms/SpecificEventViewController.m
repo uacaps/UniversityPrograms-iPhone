@@ -198,13 +198,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     }
     //correctly format the days until label
     if ([self.specifiedEvent.startDate isLaterThan:[NSDate date]]) {
-        int daysFromNow = self.specifiedEvent.startDate.daysUntil;
+        NSInteger daysFromNow = self.specifiedEvent.startDate.daysUntil;
         if (daysFromNow > 0) {
             if(daysFromNow ==1){
-                self.eventStartTime.text = [NSString stringWithFormat:@"%d day from now", daysFromNow];
+                self.eventStartTime.text = [NSString stringWithFormat:@"%ld day from now", (long)daysFromNow];
             }
             else{
-                self.eventStartTime.text= [NSString stringWithFormat:@"%d days from now", daysFromNow];
+                self.eventStartTime.text= [NSString stringWithFormat:@"%ld days from now", (long)daysFromNow];
             }
         }
         else {

@@ -36,33 +36,24 @@
 +(UIColor *)UPCrimsonColor{
     return [UIColor colorWithRed:220.0/255.0f green:20.0/255.0f blue:60.0/255.0f alpha:1];
 }
-+(void)setThemeColorIndex:(int)index{
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"alreadyRan"]){
-        [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"colorSelection"];
-    }
-    else{
-        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"colorSelection"];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"alreadyRan"];
-    }
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-+(int)getThemeColorIndex{
+
++(NSInteger)getThemeColorIndex{
     
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"colorSelection"];
 }
++(void)setThemeColor:(UIColor *)color{
+    [[NSUserDefaults standardUserDefaults] setFloat:color.red forKey:@"red"];
+    [[NSUserDefaults standardUserDefaults] setFloat:color.green forKey:@"green"];
+    [[NSUserDefaults standardUserDefaults] setFloat:color.blue forKey:@"blue"];
+    [[NSUserDefaults standardUserDefaults] setFloat:color.alpha forKey:@"alpha"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
+}
 +(UIColor *)getThemeColor{
-    int index = [[NSUserDefaults standardUserDefaults] integerForKey:@"colorSelection"];
-    UIColor *themeColor;
-    if(index==0){
-        themeColor=[UIColor UPCrimsonColor];
-    }else if(index==1){
-        themeColor=[UIColor grassColor];
-    }
-    else if(index==2){
-        themeColor=[UIColor tealColor];
-    }else{
-        themeColor=[UIColor goldenrodColor];
-    }
+    
+    UIColor *themeColor= [[UIColor alloc] initWithRed:[[NSUserDefaults standardUserDefaults] floatForKey:@"red"] green:[[NSUserDefaults standardUserDefaults] floatForKey:@"green"] blue:[[NSUserDefaults standardUserDefaults] floatForKey:@"blue"] alpha:[[NSUserDefaults standardUserDefaults] floatForKey:@"alpha"]];
+    
     return themeColor;
 }
 +(UIColor *)getStyleColor{

@@ -30,7 +30,7 @@
     [self.commentLabel setTextColor:textColor];
     self.titleLabel.textColor = themeColor;
     //Get frame sizes
-    float textHeight = [comment.commentText boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
+    float textHeight = [comment.commentText boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     
     //Set frame sizes
@@ -51,7 +51,7 @@
 }
 
 +(CGFloat)heightForComment:(Comment *)comment{
-    float textHeight = [comment.commentText boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
+    float textHeight = [comment.commentText boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     
     return textHeight + 35;

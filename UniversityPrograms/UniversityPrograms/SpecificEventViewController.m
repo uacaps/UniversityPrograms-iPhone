@@ -119,7 +119,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 #pragma mark - UI
 +(CGFloat)heightForEvent:(Event *)event{
-    float textHeight = [event.description boundingRectWithSize:CGSizeMake(280,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
+    float textHeight = [event.description boundingRectWithSize:CGSizeMake(280,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     
     return textHeight + 320;
@@ -230,7 +230,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         self.eventStartTime.text=[NSString stringWithFormat:@"Already Happened"];
     }
     //dynamic cell size
-    float textHeight = [self.specifiedEvent.eventDescription boundingRectWithSize:CGSizeMake(220,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
+    float textHeight = [self.specifiedEvent.eventDescription boundingRectWithSize:CGSizeMake(220,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     
     //Set frame sizes

@@ -28,7 +28,7 @@
     self.titleLabel.text=data.title;
     self.bodyTextLabel.textColor = textColor;
     self.titleLabel.textColor = themeColor;
-    float textHeight = [data.text boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
+    float textHeight = [data.text boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     
     //Set frame sizes
@@ -48,7 +48,7 @@
     // Configure the view for the selected state
 }
 +(CGFloat)heightForData:(GetInvolvedCellData *)data{
-    float textHeight = [data.text boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14.0]} context:nil].size.height;
+    float textHeight = [data.text boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     
     return textHeight + 45;

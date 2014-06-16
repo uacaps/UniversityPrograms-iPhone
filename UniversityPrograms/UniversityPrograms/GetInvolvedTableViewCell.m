@@ -30,7 +30,7 @@
     self.titleLabel.textColor = themeColor;
     float textHeight = [data.text boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
-    
+    self.dividerView.backgroundColor = [UIColor getThemeColor];
     //Set frame sizes
     self.bodyTextLabel.frame = CGRectMake(self.bodyTextLabel.frame.origin.x, self.bodyTextLabel.frame.origin.y, self.bodyTextLabel.frame.size.width, textHeight);
     self.frame = CGRectMake(0, 0, self.frame.size.width, 45 + textHeight);

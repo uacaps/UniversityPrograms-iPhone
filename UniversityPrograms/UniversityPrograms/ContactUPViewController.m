@@ -45,6 +45,7 @@
 -(void) viewWillAppear:(BOOL)animated{
     [self.contactUPTableView reloadData];
     self.contactUPTableView.backgroundColor=[UIColor getStyleColor];
+    self.contactUPTableView.separatorColor = [UIColor getThemeColor];
 }
 
 - (void)didReceiveMemoryWarning{

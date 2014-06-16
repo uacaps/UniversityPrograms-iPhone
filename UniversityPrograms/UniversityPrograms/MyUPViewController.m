@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *myUPImage;
 @property (weak, nonatomic) IBOutlet UIView *dividerView;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UIView *secondDividerView;
 @property NSArray *priorCommentArray;
 @property NSArray *unsortedEventArray;
 @property NSMutableArray *sortedEventArray;
@@ -169,7 +170,12 @@
     self.myUPImage.backgroundColor = styleColor;
     self.editButton.backgroundColor = styleColor;
     self.myUPImage.layer.cornerRadius=self.myUPImage.frame.size.width/2;
-    self.dividerView.backgroundColor = [UIColor lightGrayColor];
+    self.dividerView.backgroundColor = themeColor;
+    self.secondDividerView.backgroundColor = themeColor;
+    self.editButton.tintColor = styleColor;
+    self.editButton.backgroundColor = themeColor;
+    self.editButton.layer.cornerRadius=12;
+    
 }
 
 

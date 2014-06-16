@@ -10,6 +10,7 @@
                 <outlet property="colorSelector" destination="FIv-3c-QjY" id="Id9-Vp-Nqw"/>
                 <outlet property="darkModeLabel" destination="4CW-Gm-4Zi" id="uaV-75-qF2"/>
                 <outlet property="darkModeToggle" destination="gFd-Qc-AMF" id="SeP-30-XOF"/>
+                <outlet property="dividerView" destination="F7T-G5-XcE" id="6PB-lY-HbM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -54,6 +55,11 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7T-G5-XcE">
+                    <rect key="frame" x="10" y="75" width="310" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

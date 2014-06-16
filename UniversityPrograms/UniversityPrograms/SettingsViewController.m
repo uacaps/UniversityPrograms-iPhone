@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *colorSelector;
 @property (weak, nonatomic) IBOutlet UILabel *darkModeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *colorSchemeLabel;
+@property (weak, nonatomic) IBOutlet UIView *dividerView;
 @property NKOColorPickerView *colorPickerView;
 @end
 
@@ -47,6 +48,7 @@
     self.darkModeLabel.backgroundColor = [UIColor getStyleColor];
     self.colorSchemeLabel.textColor = [UIColor getTextColor];
     self.darkModeLabel.textColor = [UIColor getTextColor];
+    self.dividerView.backgroundColor = [UIColor getThemeColor];
 }
 - (IBAction)toggledDarkMode:(id)sender {
     if(self.darkModeToggle.on){

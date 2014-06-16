@@ -43,6 +43,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self.aboutTableView reloadData];
     self.aboutTableView.backgroundColor = [UIColor getStyleColor];
+    //self.aboutTableView.separatorColor = [UIColor getThemeColor];
     
 }
 

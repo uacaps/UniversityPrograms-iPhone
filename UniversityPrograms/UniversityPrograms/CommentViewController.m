@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *commentBox;
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (strong, nonatomic) IBOutlet UIView *bigView;
-
+@property (weak, nonatomic) IBOutlet UIView *dividerView;
+@property (weak, nonatomic) IBOutlet UIView *verticalDividerView;
+@property BOOL commentFlag;
 
 @end
 
@@ -36,18 +38,27 @@
     
     return self;
 }
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+-(void)viewWillAppear:(BOOL)animated{
     [self.bigView setBackgroundColor:[UIColor getStyleColor]];
     [self.mainScrollView addSubview:self.bigView];
     self.mainScrollView.contentSize=self.bigView.frame.size;
     [self.mainScrollView setBackgroundColor:[UIColor getStyleColor]];
-    self.commentBox.layer.cornerRadius=8;
-    self.commentBox.layer.borderWidth=0.2f;
+    //self.commentBox.layer.cornerRadius=8;
+    //self.commentBox.layer.borderWidth=0.5f;
+    //self.commentBox.layer.borderColor = [[UIColor getTextColor] CGColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
-    
+    self.subjectBox.textColor = [UIColor getTextColor];
+    self.subjectBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Subject" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.commentBox.backgroundColor = [UIColor getStyleColor];
+    self.commentBox.textColor = [UIColor lightGrayColor];
+    self.dividerView.backgroundColor = [UIColor getThemeColor];
+    self.verticalDividerView.backgroundColor = [UIColor getThemeColor];
+    self.commentBox.text=@"Comment";
+    self.commentFlag = YES;
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -59,11 +70,12 @@
 }
 
 #pragma mark - UI interaction
+
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
     [textField resignFirstResponder];
     [self.commentBox becomeFirstResponder];
-    return YES;
+    return NO;
 }
 - (IBAction)didEndEditingSubject:(id)sender {
     //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapDone)];
@@ -97,6 +109,12 @@
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonOps)];
+    if(self.commentFlag){
+        textView.text=@"";
+        self.commentFlag = NO;
+        textView.textColor = [UIColor getTextColor];
+    }
+    
     
 }
 #pragma mark - alert view methods

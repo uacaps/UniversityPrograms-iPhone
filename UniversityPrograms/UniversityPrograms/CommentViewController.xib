@@ -8,8 +8,10 @@
             <connections>
                 <outlet property="bigView" destination="QZD-3G-wpQ" id="bCi-OV-prM"/>
                 <outlet property="commentBox" destination="hht-Br-oah" id="yJL-CA-2JP"/>
+                <outlet property="dividerView" destination="eRz-bz-2Ko" id="PE3-w4-2g5"/>
                 <outlet property="mainScrollView" destination="nWZ-nT-Ppr" id="wGc-Ir-pV5"/>
                 <outlet property="subjectBox" destination="0h4-eb-gx2" id="iz3-BZ-Gc9"/>
+                <outlet property="verticalDividerView" destination="Nwe-xp-ieS" id="snB-f5-UCQ"/>
                 <outlet property="view" destination="nWZ-nT-Ppr" id="2QK-rN-1Wq"/>
             </connections>
         </placeholder>
@@ -33,11 +35,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" minimumFontSize="17" id="0h4-eb-gx2">
-                    <rect key="frame" x="10" y="20" width="300" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Subject" minimumFontSize="17" id="0h4-eb-gx2">
+                    <rect key="frame" x="20" y="10" width="300" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <action selector="didEndEditingSubject:" destination="-1" eventType="editingDidEndOnExit" id="vV7-Os-imW"/>
@@ -45,16 +47,26 @@
                         <outlet property="delegate" destination="-1" id="ecd-gc-Bed"/>
                     </connections>
                 </textField>
+                <view contentMode="scaleToFill" id="eRz-bz-2Ko">
+                    <rect key="frame" x="10" y="55" width="310" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" id="hht-Br-oah">
-                    <rect key="frame" x="10" y="58" width="300" height="402"/>
+                    <rect key="frame" x="15" y="56" width="300" height="220"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="7KN-lL-OQo"/>
                     </connections>
                 </textView>
+                <view alpha="0.0" contentMode="scaleToFill" id="Nwe-xp-ieS">
+                    <rect key="frame" x="8" y="21" width="1" height="280"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

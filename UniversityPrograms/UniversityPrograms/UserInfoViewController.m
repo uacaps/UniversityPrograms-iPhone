@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *cwid;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
+@property (weak, nonatomic) IBOutlet UIView *firstDivider;
+@property (weak, nonatomic) IBOutlet UIView *secondDivider;
+@property (weak, nonatomic) IBOutlet UIView *thirdDivider;
 @property UIBarStyle *currentSyle;
 
 
@@ -53,9 +56,19 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.view.backgroundColor = [UIColor getStyleColor];
     self.userLabel.backgroundColor = [UIColor getStyleColor];
-
+    self.firstName.textColor = [UIColor getTextColor];
+    self.lastName.textColor = [UIColor getTextColor];
+    self.email.textColor =[UIColor getTextColor];
+    self.cwid.textColor = [UIColor getTextColor];
+    //self.firstName.tintColor = [UIColor getThemeColor];
     self.userLabel.textColor = [UIColor getThemeColor];
-    
+    self.firstName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"First Name" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.lastName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Last Name" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.cwid.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"CWID" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.email.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Email" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.firstDivider.backgroundColor = [UIColor getThemeColor];
+    self.secondDivider.backgroundColor = [UIColor getThemeColor];
+    self.thirdDivider.backgroundColor = [UIColor getThemeColor];
 }
 
 - (void)didReceiveMemoryWarning

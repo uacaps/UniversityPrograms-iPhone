@@ -14,6 +14,7 @@ static const NSInteger GetInvolvedTableViewCellHeight = 100;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bodyTextLabel;
+@property (weak, nonatomic) IBOutlet UIView *dividerView;
 -(void)buildWithData:(GetInvolvedCellData *)data;
 +(CGFloat)heightForData:(GetInvolvedCellData *)data;
 @end

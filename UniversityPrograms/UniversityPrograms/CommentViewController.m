@@ -108,6 +108,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView{
+
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonOps)];
     if(self.commentFlag){
         textView.text=@"";

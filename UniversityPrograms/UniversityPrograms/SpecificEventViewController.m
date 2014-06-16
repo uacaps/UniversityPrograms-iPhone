@@ -14,6 +14,7 @@
 #import "DateTools.h"
 #import "UPDataRetrieval.h"
 #import "NSObject+ObjectMap.h"
+@import Social;
 
 @interface SpecificEventViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -31,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIView *footerView;
 @property (weak, nonatomic) IBOutlet UIView *divider;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *tweetButton;
 @property BOOL firstLoad;
 @property Event *specifiedEvent;
 @end
@@ -244,7 +246,15 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 }
 
 #pragma mark - Webservice
-
+- (IBAction)didTweet:(id)sender {
+    SLComposeViewController *composeTweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [composeTweet setInitialText:[NSString stringWithFormat:@"I am attending the %@ hosted by University Programs on %@, you should too!", self.specifiedEvent.eventName,[self.specifiedEvent.endDate formattedDateWithFormat:@"MMM dd" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]]];
+    
+    [self presentViewController:composeTweet animated:YES completion:^{
+        int x=1;
+    }];
+    
+}
 -(void)getEvent:(Event *)event{
     [UPDataRetrieval getSpecificEvent:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] eventID:self.specifiedEvent.eventId completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
@@ -297,5 +307,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         [self.eventImageView setTransform:scaleTransform];
     }
 }
+
 
 @end

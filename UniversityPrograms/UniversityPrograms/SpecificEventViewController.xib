@@ -21,6 +21,7 @@
                 <outlet property="footerView" destination="Ccd-U0-0hP" id="x8f-VR-Eh9"/>
                 <outlet property="loadingIndicator" destination="UMs-0I-jQh" id="Ta6-Qm-MJA"/>
                 <outlet property="mainScrollView" destination="0oP-wX-iAD" id="V6J-le-JX7"/>
+                <outlet property="tweetButton" destination="0dp-Nl-7af" id="cdT-4N-mPy"/>
                 <outlet property="view" destination="0oP-wX-iAD" id="dUS-fw-7Px"/>
             </connections>
         </placeholder>
@@ -100,6 +101,16 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0dp-Nl-7af">
+                                    <rect key="frame" x="20" y="15" width="46" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Tweet">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didTweet:" destination="-1" eventType="touchUpInside" id="Ses-FS-A8F"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>

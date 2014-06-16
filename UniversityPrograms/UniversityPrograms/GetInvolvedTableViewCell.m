@@ -21,13 +21,14 @@
     UIColor *styleColor = [UIColor getStyleColor];
     UIColor *themeColor = [UIColor getThemeColor];
     UIColor *textColor = [UIColor getTextColor];
-    self.titleLabel.backgroundColor=styleColor;
+    self.titleLabel.backgroundColor=themeColor;
+    self.titleLabel.textColor = textColor;
     self.bodyTextLabel.backgroundColor = styleColor;
     self.backgroundColor=styleColor;
     self.bodyTextLabel.text=data.text;
     self.titleLabel.text=data.title;
     self.bodyTextLabel.textColor = textColor;
-    self.titleLabel.textColor = themeColor;
+    
     float textHeight = [data.text boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     self.dividerView.backgroundColor = [UIColor getThemeColor];

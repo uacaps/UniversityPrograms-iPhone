@@ -21,8 +21,9 @@
     UIColor *styleColor = [UIColor getStyleColor];
     UIColor *themeColor = [UIColor getThemeColor];
     UIColor *textColor = [UIColor getTextColor];
+    
     self.titleLabel.backgroundColor=themeColor;
-    self.titleLabel.textColor = textColor;
+    self.titleLabel.textColor = styleColor;
     self.bodyTextLabel.backgroundColor = styleColor;
     self.backgroundColor=styleColor;
     self.bodyTextLabel.text=data.text;

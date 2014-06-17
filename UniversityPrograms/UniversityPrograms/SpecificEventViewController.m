@@ -121,10 +121,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 #pragma mark - UI
 +(CGFloat)heightForEvent:(Event *)event{
-    float textHeight = [event.description boundingRectWithSize:CGSizeMake(280,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
+    float textHeight = [event.description boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     
-    return textHeight + 320;
+    return textHeight + 278;
 }
 
 -(void)setUI{
@@ -140,7 +140,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     self.addressLine2Label.textColor = textColor;
     self.addressLine3Label.textColor = textColor;
     self.eventDescriptionLabel.textColor=textColor;
-    
+    self.loadingIndicator.backgroundColor = styleColor;
+    self.loadingIndicator.tintColor = themeColor;
     self.eventBigView.backgroundColor = styleColor;
     self.bodyView.backgroundColor = styleColor;
     self.footerView.backgroundColor=styleColor;
@@ -158,6 +159,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapUnRSVP)];
         self.navigationItem.rightBarButtonItem.tintColor=themeColor;
     }
+    
+    
+    
     //Set image url
     [self.eventImageView setImageWithURL:[NSURL URLWithString:self.specifiedEvent.imageUrl]];
     self.eventTitleLabel.text = self.specifiedEvent.eventName;
@@ -180,6 +184,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             self.attendingLabel.text=[NSString stringWithFormat:@"%@ people are attending", [self.specifiedEvent.numberAttending stringValue]];
         }
     }
+    
+    
     //format the address labels
     if(self.specifiedEvent.location==nil){
         self.addressLine1Label.text=@"";
@@ -198,6 +204,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         self.addressLine2Label.text=self.specifiedEvent.location.street2;
         self.addressLine3Label.text=addressString;
     }
+    
+    
     //correctly format the days until label
     if ([self.specifiedEvent.startDate isLaterThan:[NSDate date]]) {
         NSInteger daysFromNow = self.specifiedEvent.startDate.daysUntil;
@@ -224,6 +232,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             }
         }
     }
+    
+    
     //Check for in "happening now" and already done
     else if([self.specifiedEvent.startDate isEarlierThan:[NSDate date]]&&[self.specifiedEvent.endDate isLaterThan:[NSDate date]]){
         self.eventStartTime.text=[NSString stringWithFormat:@"Happening Now"];
@@ -231,13 +241,20 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     else{
         self.eventStartTime.text=[NSString stringWithFormat:@"Already Happened"];
     }
+    
+    
+    
+    
     //dynamic cell size
-    float textHeight = [self.specifiedEvent.eventDescription boundingRectWithSize:CGSizeMake(220,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
+    float textHeight = [self.specifiedEvent.eventDescription boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
+    
+    
+    
     
     //Set frame sizes
     self.eventDescriptionLabel.frame = CGRectMake(self.eventDescriptionLabel.frame.origin.x, self.eventDescriptionLabel.frame.origin.y, self.eventDescriptionLabel.frame.size.width, textHeight);
-    self.eventBigView.frame = CGRectMake(0, 0, self.eventBigView.frame.size.width, 430 + textHeight);
+    self.eventBigView.frame = CGRectMake(0, 0, self.eventBigView.frame.size.width, 378 + textHeight);
     self.mainScrollView.contentSize=self.eventBigView.frame.size;
     [self.loadingIndicator stopAnimating];
     //set date label
@@ -266,8 +283,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 -(void)getEvent:(Event *)event{
     [UPDataRetrieval getSpecificEvent:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] eventID:self.specifiedEvent.eventId completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-        self.specifiedEvent=[[Event alloc] initWithJSONData:data];
-        
+        if(data!=nil){
+            self.specifiedEvent=[[Event alloc] initWithJSONData:data];
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self setUI];
         });

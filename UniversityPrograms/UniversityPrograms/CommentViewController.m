@@ -55,6 +55,7 @@
     self.verticalDividerView.backgroundColor = [UIColor getThemeColor];
     self.commentBox.text=@"Comment";
     self.commentFlag = YES;
+    [self.subjectBox becomeFirstResponder];
 }
 - (void)viewDidLoad
 {

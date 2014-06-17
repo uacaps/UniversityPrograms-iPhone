@@ -104,10 +104,8 @@
 }
 -(void)loadEvents{
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        if(data==nil){
-            [self loadEvents];
-        }
-        else{
+        if(data!=nil){
+        
             self.sortedEventArray=[[NSMutableArray alloc] init];
             self.unsortedEventArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
             //NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
@@ -117,27 +115,26 @@
                     [self.sortedEventArray addObject:e];
                 }
             }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self loadFeedback];
-            
-            });
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self loadFeedback];
+            
+        });
+        
     }];
     
     
 }
 -(void)loadFeedback{
     [UPDataRetrieval retrieveComments:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        if(data==nil){
-            
-        }
-        else{
+        if(data!=nil){
             self.priorCommentArray=[NSObject arrayOfType:[Comment class] FromJSONData:data];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.myUPTableView reloadData];
-            
-            });
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.myUPTableView reloadData];
+            
+        });
+        
     }];
     
 }
@@ -168,7 +165,7 @@
     self.selectorControl.backgroundColor = styleColor;
     self.myUPTableView.backgroundColor = styleColor;
     self.myUPImage.backgroundColor = styleColor;
-    self.editButton.backgroundColor = styleColor;
+    
     self.myUPImage.layer.cornerRadius=self.myUPImage.frame.size.width/2;
     self.dividerView.backgroundColor = themeColor;
     self.secondDividerView.backgroundColor = themeColor;

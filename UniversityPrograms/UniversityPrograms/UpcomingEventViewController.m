@@ -68,16 +68,15 @@
     [UPDataRetrieval getEvents:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         
 
-        if(data==nil){
-            [self loadEvents];
-        }
-        else{
+        if(data!=nil){
+        
             self.upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
+        }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.upComingEventsTable reloadData];
                 [self.refreshControl endRefreshing];
             });
-        }
+        
     }];
   
 }

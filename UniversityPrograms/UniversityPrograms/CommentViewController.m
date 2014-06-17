@@ -55,6 +55,14 @@
     self.verticalDividerView.backgroundColor = [UIColor getThemeColor];
     self.commentBox.text=@"Comment";
     self.commentFlag = YES;
+    if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
+        self.subjectBox.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.commentBox.keyboardAppearance = UIKeyboardAppearanceDark;
+    }
+    else{
+        self.subjectBox.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.commentBox.keyboardAppearance = UIKeyboardAppearanceLight;
+    }
     [self.subjectBox becomeFirstResponder];
 }
 - (void)viewDidLoad
@@ -86,6 +94,7 @@
 - (IBAction)didStartEditingFirst:(id)sender {
     //self.navigationItem.rightBarButtonItem=Nil;
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone                                 target:self action:@selector(doneButtonOps)];
+    
 }
 -(void)didTapSubmit{
     Comment *comment= [[Comment alloc] init];
@@ -107,6 +116,7 @@
     [self.commentBox resignFirstResponder];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
+    self.commentBox.frame = CGRectMake(self.commentBox.frame.origin.x, self.commentBox.frame.origin.y, self.commentBox.frame.size.width, self.bigView.frame.size.height-76);
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView{
 
@@ -116,9 +126,11 @@
         self.commentFlag = NO;
         textView.textColor = [UIColor getTextColor];
     }
+    self.commentBox.frame = CGRectMake(self.commentBox.frame.origin.x, self.commentBox.frame.origin.y, self.commentBox.frame.size.width, self.bigView.frame.size.height-76-270);
     
     
 }
+
 #pragma mark - alert view methods
 
 -(void)addAlertView{

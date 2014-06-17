@@ -69,6 +69,18 @@
     self.firstDivider.backgroundColor = [UIColor getThemeColor];
     self.secondDivider.backgroundColor = [UIColor getThemeColor];
     self.thirdDivider.backgroundColor = [UIColor getThemeColor];
+    if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
+        self.email.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.cwid.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.lastName.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.firstName.keyboardAppearance = UIKeyboardAppearanceDark;
+    }
+    else{
+        self.email.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.cwid.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.lastName.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.firstName.keyboardAppearance = UIKeyboardAppearanceLight;
+    }
 }
 
 - (void)didReceiveMemoryWarning

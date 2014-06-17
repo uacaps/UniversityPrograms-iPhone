@@ -26,6 +26,7 @@
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLoad"]){
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLoad"];
         [UIColor setThemeColor:[UIColor grassColor]];
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"colorSelection"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     //create the tab bar and set it to be the main view controller

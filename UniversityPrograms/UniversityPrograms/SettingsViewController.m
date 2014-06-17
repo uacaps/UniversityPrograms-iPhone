@@ -54,7 +54,8 @@
     if(self.darkModeToggle.on){
         //self.navigationController.navigationBar.barStyle=UIBarStyleBlackOpaque;
         self.tabBarController.tabBar.barStyle=UIBarStyleBlackOpaque;
-        
+        //[[UITextView appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
+        [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
         for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
             UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
             controller.navigationBar.barStyle = UIBarStyleBlackOpaque;
@@ -62,9 +63,14 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
             [[UITableView appearance] setBackgroundColor:[UIColor getStyleColor]];
             [self viewWillAppear:NO];
+            
+            
+            
         }
     }
     else{
+        //[[UITextView appearance] setKeyboardAppearance:UIKeyboardAppearanceLight];
+        [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceLight];
         //self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
         self.tabBarController.tabBar.barStyle=UIBarStyleDefault;
         [[NSUserDefaults standardUserDefaults] setBool:self.darkModeToggle.on forKey:@"darkMode"];

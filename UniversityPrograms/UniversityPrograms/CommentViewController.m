@@ -63,6 +63,9 @@
         self.subjectBox.keyboardAppearance = UIKeyboardAppearanceLight;
         self.commentBox.keyboardAppearance = UIKeyboardAppearanceLight;
     }
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
     [self.subjectBox becomeFirstResponder];
 }
 - (void)viewDidLoad

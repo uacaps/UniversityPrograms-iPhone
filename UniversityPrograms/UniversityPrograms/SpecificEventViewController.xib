@@ -18,6 +18,7 @@
                 <outlet property="eventImageView" destination="qay-aH-U4d" id="ksm-pa-eJp"/>
                 <outlet property="eventStartTime" destination="oTV-hX-VMR" id="UKb-qN-uuf"/>
                 <outlet property="eventTitleLabel" destination="Uls-hh-Np7" id="wSO-eD-LpY"/>
+                <outlet property="facebookButton" destination="AgE-Hl-4zd" id="sCp-8H-pDp"/>
                 <outlet property="footerView" destination="Ccd-U0-0hP" id="x8f-VR-Eh9"/>
                 <outlet property="loadingIndicator" destination="UMs-0I-jQh" id="Ta6-Qm-MJA"/>
                 <outlet property="mainScrollView" destination="0oP-wX-iAD" id="V6J-le-JX7"/>
@@ -85,7 +86,7 @@
                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descriptiony" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OAS-iR-hbO">
-                            <rect key="frame" x="10" y="124" width="300" height="20"/>
+                            <rect key="frame" x="10" y="124" width="300" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -101,20 +102,20 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0dp-Nl-7af">
-                                    <rect key="frame" x="20" y="15" width="100" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0dp-Nl-7af">
+                                    <rect key="frame" x="110" y="17" width="25" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <state key="normal" title="Tweet">
+                                    <state key="normal" image="Twitter.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
                                         <action selector="didTweet:" destination="-1" eventType="touchUpInside" id="Ses-FS-A8F"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AgE-Hl-4zd">
-                                    <rect key="frame" x="200" y="15" width="100" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AgE-Hl-4zd">
+                                    <rect key="frame" x="185" y="17" width="25" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                    <state key="normal" title="Facebook">
+                                    <state key="normal" image="Facebook.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -177,4 +178,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="Facebook.png" width="25" height="25"/>
+        <image name="Twitter.png" width="25" height="25"/>
+    </resources>
 </document>

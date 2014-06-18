@@ -101,7 +101,7 @@
     
 }
 -(void)didTapSubmit{
-    if(self.subjectBox.text==nil||[self.subjectBox.text isEqualToString:@""]||self.commentBox.text==nil||[self.commentBox.text isEqualToString:@""]){
+    if(self.subjectBox.text==nil||[self.subjectBox.text isEqualToString:@""]||self.commentBox.text==nil||[self.commentBox.text isEqualToString:@""]||[self.commentBox.text isEqualToString:@"Comment"]){
         [self addContentErrorView];
     }else{
     Comment *comment= [[Comment alloc] init];
@@ -144,11 +144,20 @@
         self.commentFlag = NO;
         textView.textColor = [UIColor getTextColor];
     }
+    else if ([self.commentBox.text isEqualToString:@"Comment"]){
+        textView.text=@"";
+        textView.textColor = [UIColor getTextColor];
+    }
     self.commentBox.frame = CGRectMake(self.commentBox.frame.origin.x, self.commentBox.frame.origin.y, self.commentBox.frame.size.width, self.bigView.frame.size.height-76-270);
     
     
 }
-
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    if([self.commentBox.text isEqualToString:@""]){
+        self.commentBox.text= @"Comment";
+        self.commentBox.textColor = [UIColor lightGrayColor];
+    }
+}
 #pragma mark - alert view methods
 
 -(void)addAlertView{

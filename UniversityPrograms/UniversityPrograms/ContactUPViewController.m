@@ -79,6 +79,7 @@
         if(!cell){
             cell = [[AddressTableViewCell alloc] init];
         }
+        cell.owner = self;
         return cell;
     }
     else {

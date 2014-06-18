@@ -11,6 +11,7 @@
                 <outlet property="firstDivider" destination="0fK-nT-8Ip" id="BnC-q3-rNR"/>
                 <outlet property="firstName" destination="wOP-gH-6E4" id="0gE-XZ-nyn"/>
                 <outlet property="lastName" destination="xj4-CM-k7c" id="crQ-zL-VMp"/>
+                <outlet property="notificationLabel" destination="cX6-Je-Y7X" id="9A4-nm-bRF"/>
                 <outlet property="secondDivider" destination="ejK-3p-1Nv" id="yQe-ST-xKt"/>
                 <outlet property="thirdDivider" destination="mIX-DQ-ZRB" id="ikm-t3-2z5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -72,6 +73,13 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                 </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*A CWID is required to RSVP to events and to see prior comments. Your comments will still be received, you just won't see them." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cX6-Je-Y7X">
+                    <rect key="frame" x="10" y="200" width="310" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

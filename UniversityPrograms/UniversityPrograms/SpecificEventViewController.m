@@ -121,10 +121,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 #pragma mark - UI
 +(CGFloat)heightForEvent:(Event *)event{
-    float textHeight = [event.description boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
+    float textHeight = [event.eventDescription boundingRectWithSize:CGSizeMake(300,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:15.0]} context:nil].size.height;
     textHeight = ceilf(textHeight);
     
-    return textHeight + 278;
+    return textHeight + 448;
 }
 
 -(void)setUI{
@@ -197,12 +197,23 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         self.addressLine1Label.text=self.specifiedEvent.location.street1;
         NSString *addressString = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
         self.addressLine2Label.text=addressString;
+        if(self.specifiedEvent.location.roomNumber){
+            self.addressLine3Label.text = self.specifiedEvent.location.roomNumber;
+        }
+        else{
+            self.addressLine3Label.text=@"";
+        }
     }
     else{
         self.addressLine1Label.text=self.specifiedEvent.location.street1;
         NSString *addressString = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.specifiedEvent.location.city, self.specifiedEvent.location.state, self.specifiedEvent.location.zip ];
-        self.addressLine2Label.text=self.specifiedEvent.location.street2;
-        self.addressLine3Label.text=addressString;
+        self.addressLine2Label.text=addressString;
+        if(self.specifiedEvent.location.roomNumber){
+            self.addressLine3Label.text = self.specifiedEvent.location.roomNumber;
+        }
+        else{
+            self.addressLine3Label.text=@"";
+        }
     }
     
     
@@ -254,11 +265,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     //Set frame sizes
     self.eventDescriptionLabel.frame = CGRectMake(self.eventDescriptionLabel.frame.origin.x, self.eventDescriptionLabel.frame.origin.y, self.eventDescriptionLabel.frame.size.width, textHeight);
-    self.eventBigView.frame = CGRectMake(0, 0, self.eventBigView.frame.size.width, 378 + textHeight);
+    self.eventBigView.frame = CGRectMake(0, 0, self.eventBigView.frame.size.width, [SpecificEventViewController heightForEvent:self.specifiedEvent]);
     self.mainScrollView.contentSize=self.eventBigView.frame.size;
     [self.loadingIndicator stopAnimating];
     //set date label
-    self.dateLabel.text=[NSString stringWithFormat:@"%@ -> %@",[self.specifiedEvent.startDate formattedDateWithFormat:@"MMM dd, hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]],[self.specifiedEvent.endDate formattedDateWithFormat:@"hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]];
+    self.dateLabel.text=[NSString stringWithFormat:@"%@ → %@",[self.specifiedEvent.startDate formattedDateWithFormat:@"MMM dd, hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]],[self.specifiedEvent.endDate formattedDateWithFormat:@"hh:mm a" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]];
     
 }
 

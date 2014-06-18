@@ -8,6 +8,8 @@
 
 #import "AddressTableViewCell.h"
 #import "UIColor+UPColors.h"
+#import "contactUPMapViewController.h"
+@import QuartzCore;
 @implementation AddressTableViewCell
 
 -(instancetype)init{
@@ -29,6 +31,9 @@
     self.address3Label.backgroundColor = styleColor;
     self.address4Label.backgroundColor = styleColor;
     self.teamLabel.backgroundColor = styleColor;
+    self.addressButton.backgroundColor = themeColor;
+    self.addressButton.tintColor = styleColor;
+    self.addressButton.layer.cornerRadius=12;
     self.backgroundColor = styleColor;
     return self;
 }
@@ -38,6 +43,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+- (IBAction)didTapAddress:(id)sender {
+    contactUPMapViewController *mapController = [[contactUPMapViewController alloc] init];
+    [self.owner.navigationController pushViewController:mapController animated:YES];
+    //NSURL *mapURL = [NSURL URLWithString:@"http://maps.apple.com/?q=700+University+Boulevard+Tuscaloosa,+AL+35487"];
+    //[[UIApplication sharedApplication] openURL:mapURL];
 }
 
 @end

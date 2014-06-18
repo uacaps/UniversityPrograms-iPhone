@@ -14,6 +14,7 @@
 @property NSString *commentTitle;
 @property NSString *email;
 @property NSString *cwid;
+@property NSString *dateAdded;
 
 
 @end

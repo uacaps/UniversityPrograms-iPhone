@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ContactUPViewController.h"
 static const NSInteger AddressTableViewCellHeight = 160;
 
 @interface AddressTableViewCell : UITableViewCell
@@ -17,5 +17,7 @@ static const NSInteger AddressTableViewCellHeight = 160;
 @property (weak, nonatomic) IBOutlet UILabel *address3Label;
 @property (weak, nonatomic) IBOutlet UILabel *address4Label;
 @property (weak, nonatomic) IBOutlet UILabel *teamLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addressButton;
+@property ContactUPViewController *owner;
 
 @end

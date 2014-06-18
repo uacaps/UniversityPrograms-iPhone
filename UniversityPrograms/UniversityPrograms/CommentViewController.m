@@ -12,7 +12,7 @@
 #import "Comment.h"
 #import "NSObject+ObjectMap.h"
 #import "UIColor+UPColors.h"
-
+#import "DateTools.h"
 @import QuartzCore;
 
 @interface CommentViewController ()
@@ -102,6 +102,8 @@
     comment.commentTitle=self.subjectBox.text;
     comment.email=[[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
     comment.CommentText=self.commentBox.text;
+    //comment.dateAdded=[[NSDate date] formattedDateWithFormat:@"MM-dd-yyyy HH:mm:ss"];
+    //NSLog(@"%@", comment.dateAdded);
     [UPDataRetrieval submitComment:comment.cwid comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self addAlertView];

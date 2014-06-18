@@ -61,6 +61,16 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jk4-9p-meG">
+                        <rect key="frame" x="171" y="84" width="90" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Show Map">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="didTapAddress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NPV-Uh-l0a"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -68,6 +78,7 @@
                 <outlet property="address2Label" destination="DHX-bi-7NE" id="MTT-rm-z1M"/>
                 <outlet property="address3Label" destination="C9i-fu-26Q" id="RzS-uC-bX8"/>
                 <outlet property="address4Label" destination="dZj-v7-d7z" id="l9x-49-SVP"/>
+                <outlet property="addressButton" destination="Jk4-9p-meG" id="Vjp-X1-yXe"/>
                 <outlet property="findUsLabel" destination="eeY-ov-Kso" id="gN1-6X-5Lo"/>
                 <outlet property="teamLabel" destination="WCQ-qX-Zf6" id="7gg-Iu-H5R"/>
             </connections>

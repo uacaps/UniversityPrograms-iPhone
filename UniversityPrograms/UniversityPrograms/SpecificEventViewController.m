@@ -91,7 +91,7 @@
 }
 #pragma mark - alert methods
 -(void)addAlertView{
-    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"User Info Not Configured" message:@"Please enter your student information, or at least your CWID, before RSVPing. Thank you." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"User Info Not Configured" message:@"Please enter your student information before RSVPing. Thank you." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [saveAlert setTag:1];
     [saveAlert show];
     
@@ -312,12 +312,27 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     }
     else{
         [UPDataRetrieval rsvpEvent:[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"] event:self.specifiedEvent completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self confirmAlertView];
-                [self.loadingIndicator startAnimating];
-                [self getEvent:self.specifiedEvent];
-                
-            });
+            
+            NSString *responseCode = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            NSLog(@"%@", responseCode);
+            if([responseCode isEqualToString:@"true"]){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self confirmAlertView];
+                    [self.loadingIndicator startAnimating];
+                    [self getEvent:self.specifiedEvent];
+                    
+                });
+            }
+            else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self addAlertView];
+                    [self.loadingIndicator startAnimating];
+                    [self getEvent:self.specifiedEvent];
+                    
+                });
+            }
+            
             
         }];
     }

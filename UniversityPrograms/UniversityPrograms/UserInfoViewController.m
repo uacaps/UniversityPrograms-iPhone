@@ -114,7 +114,7 @@
 
 - (void)saveInfo{
     
-    if([self.cwid.text length]<8 || [self.cwid.text length]>8){
+    if([self.cwid.text length]<8 || [self.cwid.text length]>8||self.firstName.text == nil || self.lastName.text==nil||self.email.text==nil||[self.firstName.text isEqualToString:@""] || [self.lastName.text isEqualToString:@""]||[self.email.text isEqualToString:@""]){
         [self addInvalidAlertView];
         
     }
@@ -137,7 +137,7 @@
 #pragma mark - alert view methods
 
 -(void)addInvalidAlertView{
-    UIAlertView *invalidAlert = [[UIAlertView alloc]initWithTitle:@"Invalid CWID!" message:@"Your CWID must be 8 number long." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *invalidAlert = [[UIAlertView alloc]initWithTitle:@"Invalid Info!" message:@"You must provide your first and last name, 8 digit CWID and email before registering." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [invalidAlert setTag:3];
     [invalidAlert show];
 }

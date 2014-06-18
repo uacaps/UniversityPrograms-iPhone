@@ -12,6 +12,7 @@
 #import "Comment.h"
 #import "NSObject+ObjectMap.h"
 #import "UIColor+UPColors.h"
+#import "UserInfoViewController.h"
 #import "DateTools.h"
 @import QuartzCore;
 
@@ -100,6 +101,9 @@
     
 }
 -(void)didTapSubmit{
+    if(self.subjectBox.text==nil||[self.subjectBox.text isEqualToString:@""]||self.commentBox.text==nil||[self.commentBox.text isEqualToString:@""]){
+        [self addContentErrorView];
+    }else{
     Comment *comment= [[Comment alloc] init];
     comment.cwid=[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"];
     comment.commentTitle=self.subjectBox.text;
@@ -108,13 +112,22 @@
     //comment.dateAdded=[[NSDate date] formattedDateWithFormat:@"MM-dd-yyyy HH:mm:ss"];
     //NSLog(@"%@", comment.dateAdded);
     [UPDataRetrieval submitComment:comment.cwid comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self addAlertView];
-            
-        });
+        if([[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]isEqualToString:@"true"]){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self addAlertView];
+                
+            });
+        }
+        else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self addErrorView];
+                
+            });
+        }
         
         
     }];
+    }
 }
 -(void)doneButtonOps{
     [self.subjectBox resignFirstResponder];
@@ -142,14 +155,31 @@
     UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Comment Sent!" message:@"Your Comment has been sent to our database and a Univeristy Programs representative will review it.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [saveAlert show];
 }
+-(void)addErrorView{
+    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"There was an error sending your comment, please that all user info is entered.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    errorAlert.tag=1;
+    [errorAlert show];
+}
 
-
+-(void)addContentErrorView{
+    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"Please provide both a subject and a comment.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    errorAlert.tag=2;
+    [errorAlert show];
+}
 
 - (void)alertView:(UIAlertView *)alertView
 clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
+    if(alertView.tag==1){
+        UserInfoViewController *tempInfoViewController = [[UserInfoViewController alloc] init];
+        
+        [self.navigationController pushViewController:tempInfoViewController animated:YES];
+    }
+    else if(alertView.tag==2){
+        
+    }
+    else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 

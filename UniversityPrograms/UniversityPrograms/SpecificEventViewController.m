@@ -289,9 +289,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     SLComposeViewController *composeTweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     [composeTweet setInitialText:[NSString stringWithFormat:@"I am attending the %@ hosted by University Programs on %@, you should too!", self.specifiedEvent.eventName,[self.specifiedEvent.endDate formattedDateWithFormat:@"MMM dd" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]]];
     
-    //[self presentViewController:composeTweet animated:YES completion:^{
+    [self presentViewController:composeTweet animated:YES completion:^{
         
-    //}];
+    }];
 }
 -(void)getEvent:(Event *)event{
     [UPDataRetrieval getSpecificEvent:[[NSUserDefaults standardUserDefaults] valueForKey:@"cwid"] eventID:self.specifiedEvent.eventId completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {

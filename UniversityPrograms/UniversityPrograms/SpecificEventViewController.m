@@ -315,7 +315,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             
             NSString *responseCode = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
-            NSLog(@"%@", responseCode);
+            //NSLog(@"%@", responseCode);
             if([responseCode isEqualToString:@"true"]){
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self confirmAlertView];

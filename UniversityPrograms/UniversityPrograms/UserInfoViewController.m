@@ -132,7 +132,7 @@
 
 - (void)saveInfo{
   
-    if([self.cwid.text length]<8 || [self.cwid.text length]>8||![self validateString:self.cwid.text withPattern:@"^[0-9]{8}$"] || ![self validateString:self.lastName.text withPattern:@"^[a-zA-Z]{1,}$"]|| ![self validateString:self.email.text withPattern:@"^[a-zA-Z]{1,64}@crimson\\.ua\\.edu$"]||![self validateString:self.firstName.text withPattern:@"^[a-zA-Z]{1,}$"]){
+    if([self.cwid.text length]<8 || [self.cwid.text length]>8||![self validateString:self.cwid.text withPattern:@"^[0-9]{8}$"] || ![self validateString:self.lastName.text withPattern:@"^[a-zA-Z]{1,}$"]|| ![self validateString:self.email.text withPattern:@"^[a-zA-Z]{1,64}@(?:crimson)|(?:bama)\\.ua\\.edu$"]||![self validateString:self.firstName.text withPattern:@"^[a-zA-Z]{1,}$"]){
         [self addInvalidAlertView];
         
     }

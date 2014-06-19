@@ -15,8 +15,8 @@
 		1B0A69211938DA8B005C821D /* UpcomingEventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691F1938DA8B005C821D /* UpcomingEventsTableViewCell.m */; };
 		1B0A69221938DA8B005C821D /* UpcomingEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */; };
 		1B1672C31947BF5F001449CD /* UPTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1672C21947BF5F001449CD /* UPTabbarViewController.m */; };
-		1B400F301951DA5F0019FB58 /* contactUPMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B400F2E1951DA5F0019FB58 /* contactUPMapViewController.m */; };
-		1B400F311951DA5F0019FB58 /* contactUPMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B400F2F1951DA5F0019FB58 /* contactUPMapViewController.xib */; };
+		1B400F301951DA5F0019FB58 /* ContactUPMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B400F2E1951DA5F0019FB58 /* ContactUPMapViewController.m */; };
+		1B400F311951DA5F0019FB58 /* ContactUPMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B400F2F1951DA5F0019FB58 /* ContactUPMapViewController.xib */; };
 		1B400F331951DDCD0019FB58 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B400F321951DDCD0019FB58 /* MapKit.framework */; };
 		1B400F3A1951E5A20019FB58 /* MapPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B400F381951E5A20019FB58 /* MapPin.png */; };
 		1B400F3B1951E5A20019FB58 /* MapPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B400F391951E5A20019FB58 /* MapPin@2x.png */; };
@@ -126,9 +126,9 @@
 		1B1672C11947BF5F001449CD /* UPTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPTabbarViewController.h; sourceTree = "<group>"; };
 		1B1672C21947BF5F001449CD /* UPTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPTabbarViewController.m; sourceTree = "<group>"; };
 		1B38F299193F6FD2005158D1 /* UPWebserviceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPWebserviceConstants.h; sourceTree = "<group>"; };
-		1B400F2D1951DA5F0019FB58 /* contactUPMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactUPMapViewController.h; sourceTree = "<group>"; };
-		1B400F2E1951DA5F0019FB58 /* contactUPMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactUPMapViewController.m; sourceTree = "<group>"; };
-		1B400F2F1951DA5F0019FB58 /* contactUPMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = contactUPMapViewController.xib; sourceTree = "<group>"; };
+		1B400F2D1951DA5F0019FB58 /* ContactUPMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUPMapViewController.h; sourceTree = "<group>"; };
+		1B400F2E1951DA5F0019FB58 /* ContactUPMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUPMapViewController.m; sourceTree = "<group>"; };
+		1B400F2F1951DA5F0019FB58 /* ContactUPMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUPMapViewController.xib; sourceTree = "<group>"; };
 		1B400F321951DDCD0019FB58 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1B400F381951E5A20019FB58 /* MapPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapPin.png; sourceTree = "<group>"; };
 		1B400F391951E5A20019FB58 /* MapPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MapPin@2x.png"; sourceTree = "<group>"; };
@@ -418,9 +418,9 @@
 				1B7880DE1940EC8B00333ED5 /* ContactUPViewController.m */,
 				1B7880DF1940EC8B00333ED5 /* ContactUPViewController.xib */,
 				1B0A690C1938D4AE005C821D /* comments/suggestion box */,
-				1B400F2D1951DA5F0019FB58 /* contactUPMapViewController.h */,
-				1B400F2E1951DA5F0019FB58 /* contactUPMapViewController.m */,
-				1B400F2F1951DA5F0019FB58 /* contactUPMapViewController.xib */,
+				1B400F2D1951DA5F0019FB58 /* ContactUPMapViewController.h */,
+				1B400F2E1951DA5F0019FB58 /* ContactUPMapViewController.m */,
+				1B400F2F1951DA5F0019FB58 /* ContactUPMapViewController.xib */,
 			);
 			name = "Contact UP";
 			sourceTree = "<group>";
@@ -733,7 +733,7 @@
 				1B400F49195225350019FB58 /* Facebook_filled@2x.png in Resources */,
 				1BB198C1193F99F70017A1D6 /* Cog_filled@2x.png in Resources */,
 				1BA9FE69193E244B008F8981 /* PriorFeedbackTableViewCell.xib in Resources */,
-				1B400F311951DA5F0019FB58 /* contactUPMapViewController.xib in Resources */,
+				1B400F311951DA5F0019FB58 /* ContactUPMapViewController.xib in Resources */,
 				1B400F4A195225350019FB58 /* Facebook.png in Resources */,
 				1BAD1A4A193CCDEA006D24AD /* UserInfoViewController.xib in Resources */,
 				1B400F4B195225350019FB58 /* Facebook@2x.png in Resources */,
@@ -832,7 +832,7 @@
 				1BAD1A49193CCDEA006D24AD /* UserInfoViewController.m in Sources */,
 				1BAD1A3B193CC2C9006D24AD /* Comment.m in Sources */,
 				1BD4C8111942626300BE6566 /* GetInvolvedCellData.m in Sources */,
-				1B400F301951DA5F0019FB58 /* contactUPMapViewController.m in Sources */,
+				1B400F301951DA5F0019FB58 /* ContactUPMapViewController.m in Sources */,
 				1BACD3561937E39700DF7081 /* main.m in Sources */,
 				1B7880DA1940EBED00333ED5 /* MyUPInitTableViewCell.m in Sources */,
 				1BEC1BF9193914BE009DADEF /* UPDataRetrieval.m in Sources */,

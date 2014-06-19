@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 CAPS. All rights reserved.
 //
 
-#import "contactUPMapViewController.h"
+#import "ContactUPMapViewController.h"
 
-@interface contactUPMapViewController ()
+@interface ContactUPMapViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *contactMapView;
 @property float lat;
 @property float lng;
 @end
 
-@implementation contactUPMapViewController
+@implementation ContactUPMapViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

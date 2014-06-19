@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @import MapKit;
-@interface contactUPMapViewController : UIViewController <MKMapViewDelegate>
+@interface ContactUPMapViewController : UIViewController <MKMapViewDelegate>
 
 @end

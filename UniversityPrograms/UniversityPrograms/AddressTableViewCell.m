@@ -8,7 +8,7 @@
 
 #import "AddressTableViewCell.h"
 #import "UIColor+UPColors.h"
-#import "contactUPMapViewController.h"
+#import "ContactUPMapViewController.h"
 @import QuartzCore;
 @implementation AddressTableViewCell
 
@@ -45,7 +45,7 @@
     // Configure the view for the selected state
 }
 - (IBAction)didTapAddress:(id)sender {
-    contactUPMapViewController *mapController = [[contactUPMapViewController alloc] init];
+    ContactUPMapViewController *mapController = [[ContactUPMapViewController alloc] init];
     [self.owner.navigationController pushViewController:mapController animated:YES];
     //[self.owner.navigationController presentViewController:mapController animated:YES completion:^{
         

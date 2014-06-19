@@ -111,10 +111,28 @@
     return NO; // We do not want UITextField to insert line-breaks.
 }
 #pragma mark - save info
+- (BOOL)validateString:(NSString *)string withPattern:(NSString *)pattern
+{
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSAssert(regex, @"Unable to create regular expression");
+    
+    NSRange textRange = NSMakeRange(0, string.length);
+    NSRange matchRange = [regex rangeOfFirstMatchInString:string options:NSMatchingReportProgress range:textRange];
+    
+    BOOL didValidate = NO;
+    
+    // Did we find a matching range
+    if (matchRange.location != NSNotFound)
+        didValidate = YES;
+    
+    return didValidate;
+}
 
 - (void)saveInfo{
-    
-    if([self.cwid.text length]<8 || [self.cwid.text length]>8||self.firstName.text == nil || self.lastName.text==nil||self.email.text==nil||[self.firstName.text isEqualToString:@""] || [self.lastName.text isEqualToString:@""]||[self.email.text isEqualToString:@""]){
+  
+    if([self.cwid.text length]<8 || [self.cwid.text length]>8||![self validateString:self.cwid.text withPattern:@"^[0-9]{8}$"] || ![self validateString:self.lastName.text withPattern:@"^[a-zA-Z]{1,}$"]|| ![self validateString:self.email.text withPattern:@"^[a-zA-Z]{1,64}@crimson\\.ua\\.edu$"]||![self validateString:self.firstName.text withPattern:@"^[a-zA-Z]{1,}$"]){
         [self addInvalidAlertView];
         
     }
@@ -137,7 +155,7 @@
 #pragma mark - alert view methods
 
 -(void)addInvalidAlertView{
-    UIAlertView *invalidAlert = [[UIAlertView alloc]initWithTitle:@"Invalid Info!" message:@"You must provide your first and last name, 8 digit CWID and email before registering." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *invalidAlert = [[UIAlertView alloc]initWithTitle:@"Invalid Info!" message:@"You must provide valid first and last names, 8 digit CWID and email before registering." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [invalidAlert setTag:3];
     [invalidAlert show];
 }

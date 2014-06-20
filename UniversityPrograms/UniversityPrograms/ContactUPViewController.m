@@ -80,6 +80,7 @@
             cell = [[AddressTableViewCell alloc] init];
         }
         cell.owner = self;
+        cell.selectedBackgroundView.backgroundColor = [UIColor getStyleColor];
         return cell;
     }
     else {
@@ -89,6 +90,7 @@
         }
         Employee *e = [self.directoryArray objectAtIndex:indexPath.row-1];
         [cell buildWtihEmployee:e];
+        cell.selectedBackgroundView.backgroundColor = [UIColor getStyleColor];
         return cell;
     }
     

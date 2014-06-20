@@ -67,7 +67,12 @@
     
 }
 -(void)viewDidAppear:(BOOL)animated{
-    [self.subjectBox becomeFirstResponder];
+    if([[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"]==nil||[[NSUserDefaults standardUserDefaults] stringForKey:@"email"]==nil||[[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"]==nil||[[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"]==nil){
+        [self addLoadErrorView];
+    }
+    else{
+        [self.subjectBox becomeFirstResponder];
+    }
 }
 - (void)viewDidLoad
 {
@@ -114,7 +119,7 @@
     [UPDataRetrieval submitComment:comment.cwid comment:comment completetionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         if([[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]isEqualToString:@"true"]){
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self addAlertView];
+                [self addSuccessView];
                 
             });
         }
@@ -160,16 +165,20 @@
 }
 #pragma mark - alert view methods
 
--(void)addAlertView{
+-(void)addSuccessView{
     UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Comment Sent!" message:@"Your Comment has been sent to our database and a Univeristy Programs representative will review it.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [saveAlert show];
 }
 -(void)addErrorView{
-    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"There was an error sending your comment, please that all user info is entered.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"There was an error sending your comment, please ensure that all user info is entered.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     errorAlert.tag=1;
     [errorAlert show];
 }
-
+-(void)addLoadErrorView{
+    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"User info is not configured, please enter your user info before submitting a comment.\n Thank You." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: @"OK", nil];
+    errorAlert.tag=0;
+    [errorAlert show];
+}
 -(void)addContentErrorView{
     UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"Please provide both a subject and a comment.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     errorAlert.tag=2;
@@ -178,7 +187,16 @@
 
 - (void)alertView:(UIAlertView *)alertView
 clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(alertView.tag==1){
+    if(alertView.tag==0){
+        if(buttonIndex == 0){
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else{
+            UserInfoViewController *tempInfoViewController = [[UserInfoViewController alloc] init];
+            [self.navigationController pushViewController:tempInfoViewController animated:YES];
+        }
+    }
+    else if(alertView.tag==1){
         UserInfoViewController *tempInfoViewController = [[UserInfoViewController alloc] init];
         
         [self.navigationController pushViewController:tempInfoViewController animated:YES];

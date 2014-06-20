@@ -417,10 +417,10 @@
 				1B7880DD1940EC8B00333ED5 /* ContactUPViewController.h */,
 				1B7880DE1940EC8B00333ED5 /* ContactUPViewController.m */,
 				1B7880DF1940EC8B00333ED5 /* ContactUPViewController.xib */,
-				1B0A690C1938D4AE005C821D /* comments/suggestion box */,
 				1B400F2D1951DA5F0019FB58 /* ContactUPMapViewController.h */,
 				1B400F2E1951DA5F0019FB58 /* ContactUPMapViewController.m */,
 				1B400F2F1951DA5F0019FB58 /* ContactUPMapViewController.xib */,
+				1B0A690C1938D4AE005C821D /* comments/suggestion box */,
 			);
 			name = "Contact UP";
 			sourceTree = "<group>";

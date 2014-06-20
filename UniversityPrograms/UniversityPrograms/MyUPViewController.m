@@ -151,7 +151,7 @@
         self.emailLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
         
     }
-    
+    self.myUPTableView.separatorColor = [UIColor getThemeColor];
     self.cwidLabel.textColor = textColor;
     self.emailLabel.textColor = textColor;
     self.firstNameLabel.textColor = themeColor;

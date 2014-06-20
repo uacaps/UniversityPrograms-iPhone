@@ -48,7 +48,8 @@
     self.cwid.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"];
     self.email.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
     
-    
+    self.firstName.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    self.lastName.autocapitalizationType = UITextAutocapitalizationTypeWords;
     // Do any additional setup after loading the view from its nib.
     
     
@@ -132,7 +133,7 @@
 
 - (void)saveInfo{
   
-    if([self.cwid.text length]<8 || [self.cwid.text length]>8||![self validateString:self.cwid.text withPattern:@"^[0-9]{8}$"] || ![self validateString:self.lastName.text withPattern:@"^[a-zA-Z]{1,}$"]|| ![self validateString:self.email.text withPattern:@"^[a-zA-Z]{1,64}@(?:crimson)|(?:bama)\\.ua\\.edu$"]||![self validateString:self.firstName.text withPattern:@"^[a-zA-Z]{1,}$"]){
+    if([self.cwid.text length]<8 || [self.cwid.text length]>8||![self validateString:self.cwid.text withPattern:@"^[0-9]{8}$"] || ![self validateString:self.lastName.text withPattern:@"^[a-zA-Z]{1,}$"]|| ![self validateString:self.email.text withPattern:@"^[a-zA-Z][a-zA-Z0-9]{1,63}@[a-zA-Z0-9]{1,64}(?:\\.[a-zA-Z0-9]{2,64})*\\.[a-zA-Z]{3,5}$"]||![self validateString:self.firstName.text withPattern:@"^[a-zA-Z]{1,}$"]){
         [self addInvalidAlertView];
         
     }

@@ -98,6 +98,11 @@
 		1BD4C8161942658F00BE6566 /* GetInvolvedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BD4C8141942658F00BE6566 /* GetInvolvedTableViewCell.xib */; };
 		1BEC1BF9193914BE009DADEF /* UPDataRetrieval.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */; };
 		1BEC1BFF1939183C009DADEF /* NSObject+ObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC1BFE1939183C009DADEF /* NSObject+ObjectMap.m */; };
+		1F52AA941954DB4D0074A83E /* up_splash4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F52AA901954DB4D0074A83E /* up_splash4.png */; };
+		1F75DCAD1954DBB2007A24E5 /* up_splash35.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F75DCAC1954DBB2007A24E5 /* up_splash35.png */; };
+		1F75DCB11954DC07007A24E5 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F75DCAE1954DC07007A24E5 /* icon_58.png */; };
+		1F75DCB21954DC07007A24E5 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F75DCAF1954DC07007A24E5 /* icon_80.png */; };
+		1F75DCB31954DC07007A24E5 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F75DCB01954DC07007A24E5 /* icon_120.png */; };
 		2CF2483000C64B358D0576BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E53E6222648D7B30F9FE7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -236,6 +241,11 @@
 		1BEC1BF8193914BE009DADEF /* UPDataRetrieval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPDataRetrieval.m; sourceTree = "<group>"; };
 		1BEC1BFD1939183C009DADEF /* NSObject+ObjectMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ObjectMap.h"; sourceTree = "<group>"; };
 		1BEC1BFE1939183C009DADEF /* NSObject+ObjectMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ObjectMap.m"; sourceTree = "<group>"; };
+		1F52AA901954DB4D0074A83E /* up_splash4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up_splash4.png; sourceTree = "<group>"; };
+		1F75DCAC1954DBB2007A24E5 /* up_splash35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up_splash35.png; sourceTree = "<group>"; };
+		1F75DCAE1954DC07007A24E5 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
+		1F75DCAF1954DC07007A24E5 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
+		1F75DCB01954DC07007A24E5 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		3FDA9E41BEF34AC4BD93F41E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C94E53E6222648D7B30F9FE7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -576,6 +586,8 @@
 		1BB198BA193F99EC0017A1D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1F52AA8E1954DB3F0074A83E /* Icons */,
+				1F52AA8D1954DB3B0074A83E /* Splash */,
 				1B400F44195225350019FB58 /* Facebook_filled.png */,
 				1B400F45195225350019FB58 /* Facebook_filled@2x.png */,
 				1B400F46195225350019FB58 /* Facebook.png */,
@@ -628,6 +640,25 @@
 				1B38F299193F6FD2005158D1 /* UPWebserviceConstants.h */,
 			);
 			name = "Web Calls";
+			sourceTree = "<group>";
+		};
+		1F52AA8D1954DB3B0074A83E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				1F75DCAC1954DBB2007A24E5 /* up_splash35.png */,
+				1F52AA901954DB4D0074A83E /* up_splash4.png */,
+			);
+			name = Splash;
+			sourceTree = "<group>";
+		};
+		1F52AA8E1954DB3F0074A83E /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				1F75DCAE1954DC07007A24E5 /* icon_58.png */,
+				1F75DCAF1954DC07007A24E5 /* icon_80.png */,
+				1F75DCB01954DC07007A24E5 /* icon_120.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -716,6 +747,7 @@
 				1B0A69121938D520005C821D /* UpcomingEventViewController.xib in Resources */,
 				1BACD3541937E39700DF7081 /* InfoPlist.strings in Resources */,
 				1B400F3B1951E5A20019FB58 /* MapPin@2x.png in Resources */,
+				1F75DCB21954DC07007A24E5 /* icon_80.png in Resources */,
 				1B7880F4194105CE00333ED5 /* Pencil@2x.png in Resources */,
 				1BACD35C1937E39700DF7081 /* Images.xcassets in Resources */,
 				1BB198D2193FA9F00017A1D6 /* Calendar_filled@2x.png in Resources */,
@@ -725,6 +757,7 @@
 				1B7880E81940EE9000333ED5 /* Contact.png in Resources */,
 				1BAE3B4E19463AAA0006AEFD /* Email.png in Resources */,
 				1BB198C2193F99F70017A1D6 /* Cog.png in Resources */,
+				1F75DCB31954DC07007A24E5 /* icon_120.png in Resources */,
 				1B7880E71940EE9000333ED5 /* Contact_filled@2x.png in Resources */,
 				1B400F42195224950019FB58 /* Twitter.png in Resources */,
 				1B0A69221938DA8B005C821D /* UpcomingEventsTableViewCell.xib in Resources */,
@@ -752,6 +785,7 @@
 				1B400F48195225350019FB58 /* Facebook_filled.png in Resources */,
 				1BA9FE5E193E1D28008F8981 /* AboutUPViewController.xib in Resources */,
 				1B400F3A1951E5A20019FB58 /* MapPin.png in Resources */,
+				1F52AA941954DB4D0074A83E /* up_splash4.png in Resources */,
 				1B7880F3194105CE00333ED5 /* Pencil.png in Resources */,
 				1BB198C0193F99F70017A1D6 /* Cog_filled.png in Resources */,
 				1B7880E91940EE9000333ED5 /* Contact@2x.png in Resources */,
@@ -760,6 +794,8 @@
 				1B7880E11940EC8B00333ED5 /* ContactUPViewController.xib in Resources */,
 				1BB198DB193FAA580017A1D6 /* Info.png in Resources */,
 				1B7880F1194105CE00333ED5 /* Pencil_filled.png in Resources */,
+				1F75DCAD1954DBB2007A24E5 /* up_splash35.png in Resources */,
+				1F75DCB11954DC07007A24E5 /* icon_58.png in Resources */,
 				1BD4C8161942658F00BE6566 /* GetInvolvedTableViewCell.xib in Resources */,
 				1BB198D9193FAA580017A1D6 /* Info_filled.png in Resources */,
 			);
@@ -959,14 +995,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3FDA9E41BEF34AC4BD93F41E /* Pods.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UniversityPrograms/UniversityPrograms-Prefix.pch";
 				INFOPLIST_FILE = "UniversityPrograms/UniversityPrograms-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -977,15 +1011,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3FDA9E41BEF34AC4BD93F41E /* Pods.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UniversityPrograms/UniversityPrograms-Prefix.pch";
 				INFOPLIST_FILE = "UniversityPrograms/UniversityPrograms-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

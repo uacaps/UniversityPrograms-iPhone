@@ -452,6 +452,20 @@
 			name = "IntroductionView Views";
 			sourceTree = "<group>";
 		};
+		1B5301A11958C6710018DCF1 /* Screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				1B53019A1958B0960018DCF1 /* commentScreenshot.png */,
+				1B5301921958AA430018DCF1 /* eventsScreenshot.png */,
+				1B5301941958AC360018DCF1 /* specificScreenshot.png */,
+				1B5301961958AE030018DCF1 /* rsvpScreenshot.png */,
+				1B5301981958AFF60018DCF1 /* userInfoScreenshot.png */,
+				1B53019C1958B7650018DCF1 /* myUserScreenshot.png */,
+				1B53019E1958B8300018DCF1 /* settingsScreenshot.png */,
+			);
+			name = Screenshot;
+			sourceTree = "<group>";
+		};
 		1B7880DC1940EC5E00333ED5 /* Contact UP */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,29 +633,11 @@
 		1BB198BA193F99EC0017A1D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1B5301A11958C6710018DCF1 /* Screenshot */,
 				1F52AA8E1954DB3F0074A83E /* Icons */,
 				1F52AA8D1954DB3B0074A83E /* Splash */,
-				1B400F44195225350019FB58 /* Facebook_filled.png */,
-				1B400F45195225350019FB58 /* Facebook_filled@2x.png */,
-				1B400F46195225350019FB58 /* Facebook.png */,
-				1B400F47195225350019FB58 /* Facebook@2x.png */,
-				1B400F3C195224950019FB58 /* Twitter_filled.png */,
-				1B400F3D195224950019FB58 /* Twitter_filled@2x.png */,
-				1B400F3E195224950019FB58 /* Twitter.png */,
-				1B400F3F195224950019FB58 /* Twitter@2x.png */,
 				1B400F381951E5A20019FB58 /* MapPin.png */,
 				1B400F391951E5A20019FB58 /* MapPin@2x.png */,
-				1BAE3B4C19463AAA0006AEFD /* Email.png */,
-				1BAE3B4D19463AAA0006AEFD /* Email@2x.png */,
-				1BAE3B4819463A690006AEFD /* Telephone.png */,
-				1BAE3B4919463A690006AEFD /* Telephone@2x.png */,
-				1B53019A1958B0960018DCF1 /* commentScreenshot.png */,
-				1B5301921958AA430018DCF1 /* eventsScreenshot.png */,
-				1B5301941958AC360018DCF1 /* specificScreenshot.png */,
-				1B5301961958AE030018DCF1 /* rsvpScreenshot.png */,
-				1B5301981958AFF60018DCF1 /* userInfoScreenshot.png */,
-				1B53019C1958B7650018DCF1 /* myUserScreenshot.png */,
-				1B53019E1958B8300018DCF1 /* settingsScreenshot.png */,
 				1B7880EA1940F8B500333ED5 /* UP.jpg */,
 				1B7880EC194105B200333ED5 /* Navbar Images */,
 				1BB198BB193F99F00017A1D6 /* Tab Bar Icons */,
@@ -694,6 +690,18 @@
 		1F52AA8E1954DB3F0074A83E /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				1BAE3B4C19463AAA0006AEFD /* Email.png */,
+				1BAE3B4D19463AAA0006AEFD /* Email@2x.png */,
+				1BAE3B4819463A690006AEFD /* Telephone.png */,
+				1BAE3B4919463A690006AEFD /* Telephone@2x.png */,
+				1B400F44195225350019FB58 /* Facebook_filled.png */,
+				1B400F45195225350019FB58 /* Facebook_filled@2x.png */,
+				1B400F46195225350019FB58 /* Facebook.png */,
+				1B400F47195225350019FB58 /* Facebook@2x.png */,
+				1B400F3C195224950019FB58 /* Twitter_filled.png */,
+				1B400F3D195224950019FB58 /* Twitter_filled@2x.png */,
+				1B400F3E195224950019FB58 /* Twitter.png */,
+				1B400F3F195224950019FB58 /* Twitter@2x.png */,
 				1F75DCAE1954DC07007A24E5 /* icon_58.png */,
 				1F75DCAF1954DC07007A24E5 /* icon_80.png */,
 				1F75DCB01954DC07007A24E5 /* icon_120.png */,

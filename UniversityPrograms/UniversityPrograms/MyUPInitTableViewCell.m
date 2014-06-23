@@ -27,7 +27,7 @@
     self.eventNameLabel.text=[NSString stringWithFormat:@"%@", e.eventName];
     self.endDateLabel.text=[NSString stringWithFormat:@"Start: %@",startDate];
     self.startDateLabel.text=[NSString stringWithFormat:@"End: %@",endDate];
-    self.actualNumberAttending.text = [NSString stringWithFormat:@"%ld attending", (long)[e.numberAttending integerValue]];
+    self.actualNumberAttending.text = [NSString stringWithFormat:@"%ld Attending", (long)[e.numberAttending integerValue]];
     
     self.eventNameLabel.textColor = themeColor;
     self.eventNameLabel.textColor = themeColor;

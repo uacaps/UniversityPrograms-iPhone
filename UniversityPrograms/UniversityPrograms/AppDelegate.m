@@ -23,17 +23,18 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    //load default values on first load
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLoad"]){
+        
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLoad"];
         [UIColor setThemeColor:[UIColor grassColor]];
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"colorSelection"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
     }
     //create the tab bar and set it to be the main view controller
     [UIColor setThemeColor:[UIColor getThemeColor]];
-    
-    
-    //[self.baseTabBar]
     
     
     //create the view controllers
@@ -51,15 +52,17 @@
     //Init tab bar and appearance
     self.baseTabBarController = [[UPTabbarViewController alloc]init];
     self.baseTabBarController.tabBar.translucent = NO;
+    self.baseTabBarController.tabBar.tintColor = [UIColor getThemeColor];
     
-   
-    _baseTabBarController.tabBar.tintColor = [UIColor getThemeColor];
+    
+    //check for darkmode
     if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
         self.baseTabBarController.tabBar.barStyle = UIBarStyleBlackOpaque;
     }
     else{
         self.baseTabBarController.tabBar.barStyle = UIBarStyleDefault;
     }
+    
     [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, contactUPNav, myUPNav]];
     [self.window setRootViewController:self.baseTabBarController];
     return YES;

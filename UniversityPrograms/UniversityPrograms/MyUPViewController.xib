@@ -50,7 +50,7 @@
                         <action selector="didChangeControlState:" destination="-1" eventType="editingChanged" id="wnt-Wq-hZb"/>
                     </connections>
                 </segmentedControl>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="JNx-uW-FOd">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_120.png" id="JNx-uW-FOd">
                     <rect key="frame" x="10" y="10" width="60" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -147,4 +147,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_120.png" width="120" height="120"/>
+    </resources>
 </document>

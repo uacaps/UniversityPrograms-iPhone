@@ -156,7 +156,7 @@
     self.emailLabel.textColor = textColor;
     self.firstNameLabel.textColor = themeColor;
     self.lastNameLabel.textColor = themeColor;
-    self.myUPImage.image=[UIImage imageNamed:@"UP.jpg"];
+    self.myUPImage.image=[UIImage imageNamed:@"icon_120.png"];
     self.emailLabel.backgroundColor=styleColor;
     self.lastNameLabel.backgroundColor=styleColor;
     self.firstNameLabel.backgroundColor=styleColor;

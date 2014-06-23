@@ -109,7 +109,7 @@
     if(!cell){
         cell = [[UpcomingEventsTableViewCell alloc] init];
     }
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell buildWithEvent:e];
     return cell;
 }

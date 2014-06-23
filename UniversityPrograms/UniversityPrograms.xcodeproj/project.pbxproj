@@ -34,6 +34,14 @@
 		1B48B56919421640008F5186 /* DirectoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B48B56719421640008F5186 /* DirectoryTableViewCell.xib */; };
 		1B48B56C19421C8F008F5186 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48B56B19421C8F008F5186 /* Employee.m */; };
 		1B48B56F194243F9008F5186 /* UnRSVPDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48B56E194243F9008F5186 /* UnRSVPDTO.m */; };
+		1B53018B19587DFE0018DCF1 /* IntroPanel1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B53018A19587DFE0018DCF1 /* IntroPanel1.xib */; };
+		1B5301931958AA430018DCF1 /* eventsScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5301921958AA430018DCF1 /* eventsScreenshot.png */; };
+		1B5301951958AC360018DCF1 /* specificScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5301941958AC360018DCF1 /* specificScreenshot.png */; };
+		1B5301971958AE030018DCF1 /* rsvpScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5301961958AE030018DCF1 /* rsvpScreenshot.png */; };
+		1B5301991958AFF60018DCF1 /* userInfoScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5301981958AFF60018DCF1 /* userInfoScreenshot.png */; };
+		1B53019B1958B0960018DCF1 /* commentScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B53019A1958B0960018DCF1 /* commentScreenshot.png */; };
+		1B53019D1958B7650018DCF1 /* myUserScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B53019C1958B7650018DCF1 /* myUserScreenshot.png */; };
+		1B53019F1958B8300018DCF1 /* settingsScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B53019E1958B8300018DCF1 /* settingsScreenshot.png */; };
 		1B7880DA1940EBED00333ED5 /* MyUPInitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7880D81940EBED00333ED5 /* MyUPInitTableViewCell.m */; };
 		1B7880DB1940EBED00333ED5 /* MyUPInitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7880D91940EBED00333ED5 /* MyUPInitTableViewCell.xib */; };
 		1B7880E01940EC8B00333ED5 /* ContactUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7880DE1940EC8B00333ED5 /* ContactUPViewController.m */; };
@@ -156,6 +164,14 @@
 		1B48B56B19421C8F008F5186 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 		1B48B56D194243F9008F5186 /* UnRSVPDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnRSVPDTO.h; sourceTree = "<group>"; };
 		1B48B56E194243F9008F5186 /* UnRSVPDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnRSVPDTO.m; sourceTree = "<group>"; };
+		1B53018A19587DFE0018DCF1 /* IntroPanel1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPanel1.xib; sourceTree = "<group>"; };
+		1B5301921958AA430018DCF1 /* eventsScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventsScreenshot.png; sourceTree = "<group>"; };
+		1B5301941958AC360018DCF1 /* specificScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = specificScreenshot.png; sourceTree = "<group>"; };
+		1B5301961958AE030018DCF1 /* rsvpScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsvpScreenshot.png; sourceTree = "<group>"; };
+		1B5301981958AFF60018DCF1 /* userInfoScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userInfoScreenshot.png; sourceTree = "<group>"; };
+		1B53019A1958B0960018DCF1 /* commentScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = commentScreenshot.png; sourceTree = "<group>"; };
+		1B53019C1958B7650018DCF1 /* myUserScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myUserScreenshot.png; sourceTree = "<group>"; };
+		1B53019E1958B8300018DCF1 /* settingsScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsScreenshot.png; sourceTree = "<group>"; };
 		1B7880D71940EBED00333ED5 /* MyUPInitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUPInitTableViewCell.h; sourceTree = "<group>"; };
 		1B7880D81940EBED00333ED5 /* MyUPInitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUPInitTableViewCell.m; sourceTree = "<group>"; };
 		1B7880D91940EBED00333ED5 /* MyUPInitTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyUPInitTableViewCell.xib; sourceTree = "<group>"; };
@@ -287,6 +303,7 @@
 			children = (
 				1B1672C11947BF5F001449CD /* UPTabbarViewController.h */,
 				1B1672C21947BF5F001449CD /* UPTabbarViewController.m */,
+				1B53018519587C380018DCF1 /* IntroductionView Views */,
 				1BB198C4193F9AB60017A1D6 /* UPNavigationViewController.h */,
 				1BB198C5193F9AB60017A1D6 /* UPNavigationViewController.m */,
 				1BB198CA193FA54A0017A1D6 /* UPViewController.h */,
@@ -425,6 +442,14 @@
 				1B48B56E194243F9008F5186 /* UnRSVPDTO.m */,
 			);
 			name = DTOObjects;
+			sourceTree = "<group>";
+		};
+		1B53018519587C380018DCF1 /* IntroductionView Views */ = {
+			isa = PBXGroup;
+			children = (
+				1B53018A19587DFE0018DCF1 /* IntroPanel1.xib */,
+			);
+			name = "IntroductionView Views";
 			sourceTree = "<group>";
 		};
 		1B7880DC1940EC5E00333ED5 /* Contact UP */ = {
@@ -610,6 +635,13 @@
 				1BAE3B4D19463AAA0006AEFD /* Email@2x.png */,
 				1BAE3B4819463A690006AEFD /* Telephone.png */,
 				1BAE3B4919463A690006AEFD /* Telephone@2x.png */,
+				1B53019A1958B0960018DCF1 /* commentScreenshot.png */,
+				1B5301921958AA430018DCF1 /* eventsScreenshot.png */,
+				1B5301941958AC360018DCF1 /* specificScreenshot.png */,
+				1B5301961958AE030018DCF1 /* rsvpScreenshot.png */,
+				1B5301981958AFF60018DCF1 /* userInfoScreenshot.png */,
+				1B53019C1958B7650018DCF1 /* myUserScreenshot.png */,
+				1B53019E1958B8300018DCF1 /* settingsScreenshot.png */,
 				1B7880EA1940F8B500333ED5 /* UP.jpg */,
 				1B7880EC194105B200333ED5 /* Navbar Images */,
 				1BB198BB193F99F00017A1D6 /* Tab Bar Icons */,
@@ -754,6 +786,7 @@
 				1BB198DA193FAA580017A1D6 /* Info_filled@2x.png in Resources */,
 				1B0A69121938D520005C821D /* UpcomingEventViewController.xib in Resources */,
 				1BACD3541937E39700DF7081 /* InfoPlist.strings in Resources */,
+				1B53019F1958B8300018DCF1 /* settingsScreenshot.png in Resources */,
 				1B400F3B1951E5A20019FB58 /* MapPin@2x.png in Resources */,
 				1F75DCB21954DC07007A24E5 /* icon_80.png in Resources */,
 				1B7880F4194105CE00333ED5 /* Pencil@2x.png in Resources */,
@@ -774,8 +807,11 @@
 				1B400F49195225350019FB58 /* Facebook_filled@2x.png in Resources */,
 				1BB198C1193F99F70017A1D6 /* Cog_filled@2x.png in Resources */,
 				1BA9FE69193E244B008F8981 /* PriorFeedbackTableViewCell.xib in Resources */,
+				1B5301951958AC360018DCF1 /* specificScreenshot.png in Resources */,
 				1B400F311951DA5F0019FB58 /* ContactUPMapViewController.xib in Resources */,
 				1B400F4A195225350019FB58 /* Facebook.png in Resources */,
+				1B5301991958AFF60018DCF1 /* userInfoScreenshot.png in Resources */,
+				1B53019B1958B0960018DCF1 /* commentScreenshot.png in Resources */,
 				1BAD1A4A193CCDEA006D24AD /* UserInfoViewController.xib in Resources */,
 				1B400F4B195225350019FB58 /* Facebook@2x.png in Resources */,
 				1B7880E61940EE9000333ED5 /* Contact_filled.png in Resources */,
@@ -788,12 +824,15 @@
 				1B9D2B5D1949E9B000B09316 /* SettingsViewController.xib in Resources */,
 				1BAE3B4F19463AAA0006AEFD /* Email@2x.png in Resources */,
 				1BAE3B54194651DE0006AEFD /* AddressTableViewCell.xib in Resources */,
+				1B53019D1958B7650018DCF1 /* myUserScreenshot.png in Resources */,
 				1BB198C3193F99F70017A1D6 /* Cog@2x.png in Resources */,
+				1B5301971958AE030018DCF1 /* rsvpScreenshot.png in Resources */,
 				1BB198D1193FA9F00017A1D6 /* Calendar_filled.png in Resources */,
 				1B400F48195225350019FB58 /* Facebook_filled.png in Resources */,
 				1BA9FE5E193E1D28008F8981 /* AboutUPViewController.xib in Resources */,
 				1B400F3A1951E5A20019FB58 /* MapPin.png in Resources */,
 				1F52AA941954DB4D0074A83E /* up_splash4.png in Resources */,
+				1B53018B19587DFE0018DCF1 /* IntroPanel1.xib in Resources */,
 				1B7880F3194105CE00333ED5 /* Pencil.png in Resources */,
 				1BB198C0193F99F70017A1D6 /* Cog_filled.png in Resources */,
 				1B7880E91940EE9000333ED5 /* Contact@2x.png in Resources */,
@@ -801,6 +840,7 @@
 				1B48B56919421640008F5186 /* DirectoryTableViewCell.xib in Resources */,
 				1B7880E11940EC8B00333ED5 /* ContactUPViewController.xib in Resources */,
 				1BB198DB193FAA580017A1D6 /* Info.png in Resources */,
+				1B5301931958AA430018DCF1 /* eventsScreenshot.png in Resources */,
 				1B7880F1194105CE00333ED5 /* Pencil_filled.png in Resources */,
 				1F75DCAD1954DBB2007A24E5 /* up_splash35.png in Resources */,
 				1F75DCB11954DC07007A24E5 /* icon_58.png in Resources */,

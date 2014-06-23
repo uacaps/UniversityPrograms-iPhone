@@ -29,7 +29,6 @@
     //load default values on first load
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLoad"]){
         
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLoad"];
         [UIColor setThemeColor:[UIColor grassColor]];
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"colorSelection"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -67,6 +66,13 @@
     
     [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, contactUPNav, myUPNav]];
     [self.window setRootViewController:self.baseTabBarController];
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLoad"]){
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLoad"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+    [self.baseTabBarController buildIntroView];
     return YES;
 }
 

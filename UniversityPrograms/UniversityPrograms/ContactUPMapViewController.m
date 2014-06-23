@@ -48,14 +48,14 @@
 {
     [super viewDidLoad];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:@"700 University Boulevard Tuscaloosa, AL 35487" completionHandler:^(NSArray *placemarks, NSError *error) {
+    [geocoder geocodeAddressString:@"670 Johnny Stallings Drive, Tuscaloosa, AL 35487" completionHandler:^(NSArray *placemarks, NSError *error) {
         if(placemarks){
             
             MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc]init];
             CLPlacemark *placemark = placemarks[0];
             pointAnnotation.coordinate = placemark.location.coordinate;
             pointAnnotation.title = @"University Programs";
-            pointAnnotation.subtitle=@"Russell Hall -  Room 236";
+            pointAnnotation.subtitle=@"UA Medical Building -  Room 236";
             
             
             [self.contactMapView addAnnotation:pointAnnotation];

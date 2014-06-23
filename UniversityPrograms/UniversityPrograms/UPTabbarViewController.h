@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MYBlurIntroductionView.h"
 
-@interface UPTabbarViewController : UITabBarController <UITabBarControllerDelegate>
+@interface UPTabbarViewController : UITabBarController <UITabBarControllerDelegate, MYIntroductionDelegate>
 
+
+-(void)buildIntroView;
 
 @end

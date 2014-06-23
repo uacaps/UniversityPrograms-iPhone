@@ -14,7 +14,7 @@
 #import "DateTools.h"
 #import "UPDataRetrieval.h"
 #import "NSObject+ObjectMap.h"
-@import Social;
+#import <Social/Social.h>
 
 @interface SpecificEventViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;

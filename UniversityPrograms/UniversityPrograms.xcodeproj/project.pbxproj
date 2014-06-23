@@ -15,6 +15,8 @@
 		1B0A69211938DA8B005C821D /* UpcomingEventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A691F1938DA8B005C821D /* UpcomingEventsTableViewCell.m */; };
 		1B0A69221938DA8B005C821D /* UpcomingEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */; };
 		1B1672C31947BF5F001449CD /* UPTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1672C21947BF5F001449CD /* UPTabbarViewController.m */; };
+		1B16EB1719586E57007E9B6B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B16EB1619586E57007E9B6B /* Social.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		1B16EB1919586F98007E9B6B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B16EB1819586F98007E9B6B /* Accounts.framework */; };
 		1B400F301951DA5F0019FB58 /* ContactUPMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B400F2E1951DA5F0019FB58 /* ContactUPMapViewController.m */; };
 		1B400F311951DA5F0019FB58 /* ContactUPMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B400F2F1951DA5F0019FB58 /* ContactUPMapViewController.xib */; };
 		1B400F331951DDCD0019FB58 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B400F321951DDCD0019FB58 /* MapKit.framework */; };
@@ -130,6 +132,8 @@
 		1B0A69201938DA8B005C821D /* UpcomingEventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpcomingEventsTableViewCell.xib; sourceTree = "<group>"; };
 		1B1672C11947BF5F001449CD /* UPTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPTabbarViewController.h; sourceTree = "<group>"; };
 		1B1672C21947BF5F001449CD /* UPTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPTabbarViewController.m; sourceTree = "<group>"; };
+		1B16EB1619586E57007E9B6B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		1B16EB1819586F98007E9B6B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		1B38F299193F6FD2005158D1 /* UPWebserviceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPWebserviceConstants.h; sourceTree = "<group>"; };
 		1B400F2D1951DA5F0019FB58 /* ContactUPMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUPMapViewController.h; sourceTree = "<group>"; };
 		1B400F2E1951DA5F0019FB58 /* ContactUPMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUPMapViewController.m; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B16EB1919586F98007E9B6B /* Accounts.framework in Frameworks */,
+				1B16EB1719586E57007E9B6B /* Social.framework in Frameworks */,
 				1B400F331951DDCD0019FB58 /* MapKit.framework in Frameworks */,
 				1BACD34C1937E39700DF7081 /* CoreGraphics.framework in Frameworks */,
 				1BACD34E1937E39700DF7081 /* UIKit.framework in Frameworks */,
@@ -479,6 +485,8 @@
 		1BACD3481937E39700DF7081 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B16EB1819586F98007E9B6B /* Accounts.framework */,
+				1B16EB1619586E57007E9B6B /* Social.framework */,
 				1B400F321951DDCD0019FB58 /* MapKit.framework */,
 				1BACD3491937E39700DF7081 /* Foundation.framework */,
 				1BACD34B1937E39700DF7081 /* CoreGraphics.framework */,
@@ -953,7 +961,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -985,7 +993,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

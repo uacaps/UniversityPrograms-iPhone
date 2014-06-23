@@ -225,10 +225,10 @@ static NSCalendar *implicitCalendar = nil;
 }
 
 - (NSString *)getLocaleFormatUnderscoresWithValue:(double)value{
-    NSString *localeCode = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *localeCode = [[[NSBundle mainBundle] preferredLocalizations] objectAtIndex:0];
     
-    // Russian (ru)
-    if([localeCode isEqual:@"ru"]) {
+    // Russian (ru) and Ukrainian (uk)
+    if([localeCode isEqual:@"ru"] || [localeCode isEqual:@"uk"]) {
         int XY = (int)floor(value) % 100;
         int Y = (int)floor(value) % 10;
         
@@ -433,6 +433,26 @@ static NSCalendar *implicitCalendar = nil;
 	NSDate *otherDate = [cal dateFromComponents:components];
 
 	return [today isEqualToDate:otherDate];
+}
+
+- (BOOL)isTomorrow {
+	NSCalendar *cal = [NSCalendar currentCalendar];
+	NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[[NSDate date] dateByAddingDays:1]];
+	NSDate *tomorrow = [cal dateFromComponents:components];
+	components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:self];
+	NSDate *otherDate = [cal dateFromComponents:components];
+    
+	return [tomorrow isEqualToDate:otherDate];
+}
+
+-(BOOL)isYesterday{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+	NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[[NSDate date] dateBySubtractingDays:1]];
+	NSDate *tomorrow = [cal dateFromComponents:components];
+	components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:self];
+	NSDate *otherDate = [cal dateFromComponents:components];
+    
+	return [tomorrow isEqualToDate:otherDate];
 }
 
 #pragma mark - Date Components With Calendar

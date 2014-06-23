@@ -103,6 +103,7 @@ Assuming you have added the localization to your project, `DateTools` currently 
 - is (Icelandic)
 - id (Indonesian)
 - ca (Catalan)
+- cy (Welsh)
 
 If you know a language not listed here, please consider submitting a translation. [Localization codes by language](http://stackoverflow.com/questions/3040677/locale-codes-for-iphone-lproj-folders).
 
@@ -362,6 +363,8 @@ Thanks to [Kevin Lawler](https://github.com/kevinlawler) for his initial work on
 Many thanks to the .NET team for their DateTime class and a major thank you to [Jani Giannoudis](http://www.codeproject.com/Members/Jani-Giannoudis) for his work on ITimePeriod.
 
 Images were first published through itenso.com through [Code Project](http://www.codeproject.com/Articles/168662/Time-Period-Library-for-NET)
+
+I would also like to thank **God** through whom all things live and move and have their being. [Acts 17:28](http://www.biblegateway.com/passage/?search=Acts+17%3A16-34&version=NIV)
 
 ##License
 

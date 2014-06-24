@@ -7,9 +7,11 @@
 //
 
 #import "ContactUPMapViewController.h"
-
+#import "UIColor+UPColors.h"
 @interface ContactUPMapViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *contactMapView;
+@property (weak, nonatomic) IBOutlet UIView *selectorView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selector;
 @property float lat;
 @property float lng;
 @end
@@ -40,7 +42,9 @@
         region.span.latitudeDelta = 3.9f;
     }
     
-    self.contactMapView.mapType = MKMapTypeHybrid;
+    self.selector.tintColor = [UIColor getThemeColor];
+    self.selectorView.backgroundColor = [UIColor getStyleColor];
+    self.view.backgroundColor = [UIColor getStyleColor];
     [self.contactMapView setRegion:region animated:YES];
     
 }
@@ -91,8 +95,19 @@
     
     return annotationView;
 }
+- (IBAction)newMapStyleSelected:(id)sender {
+    if(self.selector.selectedSegmentIndex==0){
+        self.contactMapView.mapType = MKMapTypeStandard;
+    }
+    else if(self.selector.selectedSegmentIndex ==1){
+        self.contactMapView.mapType = MKMapTypeHybrid;
+    }
+    else{
+        self.contactMapView.mapType = MKMapTypeSatellite;
+    }
+}
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    NSURL *mapURL = [NSURL URLWithString:@"http://maps.apple.com/?daddr=700+University+Boulevard+Tuscaloosa,+AL+35487"];
+    NSURL *mapURL = [NSURL URLWithString:@"http://maps.apple.com/?daddr=670+Johnny+Stallings+Drive+Tuscaloosa,+AL+35487"];
     [[UIApplication sharedApplication] openURL:mapURL];
 }
 - (void)didReceiveMemoryWarning

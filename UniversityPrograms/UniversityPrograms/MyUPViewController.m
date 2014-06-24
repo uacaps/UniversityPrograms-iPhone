@@ -68,7 +68,7 @@
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(didSelectSettings)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectComment)];
     
-    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.myUPTableView.frame.size.width, 60)];
+    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -30, self.myUPTableView.frame.size.width, 30)];
     [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
     [self.myUPTableView addSubview:self.refreshControl];
     self.selectorControl.tintColor = [UIColor getThemeColor];

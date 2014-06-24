@@ -13,10 +13,7 @@
 @interface AboutUPViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *aboutTableView;
-@property (strong, nonatomic) IBOutlet UITableViewCell *whatWeDo;
-@property (strong, nonatomic) IBOutlet UITableViewCell *whoWeAre;
-@property (strong, nonatomic) IBOutlet UITableViewCell *getInvolvedHeader;
-@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+
 @property NSArray *getInvolvedArray;
 @end
 

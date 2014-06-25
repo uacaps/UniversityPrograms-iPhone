@@ -46,6 +46,7 @@
 }
 - (IBAction)didTapAddress:(id)sender {
     ContactUPMapViewController *mapController = [[ContactUPMapViewController alloc] init];
+    self.owner.child = mapController;
     [self.owner.navigationController pushViewController:mapController animated:YES];
     //[self.owner.navigationController presentViewController:mapController animated:YES completion:^{
         

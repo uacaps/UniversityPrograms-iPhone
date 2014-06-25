@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
-
-@interface SpecificEventViewController : UIViewController <UIScrollViewDelegate>
+#import "UPViewController.h"
+@interface SpecificEventViewController : UPViewController <UIScrollViewDelegate>
 
 -(instancetype)initWithEvent:(Event *)event;
 @end

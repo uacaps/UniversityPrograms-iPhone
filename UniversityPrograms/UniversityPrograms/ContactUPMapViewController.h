@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UPViewController.h"
+
 @import MapKit;
-@interface ContactUPMapViewController : UIViewController <MKMapViewDelegate>
+@interface ContactUPMapViewController : UPViewController <MKMapViewDelegate>
 
 @end

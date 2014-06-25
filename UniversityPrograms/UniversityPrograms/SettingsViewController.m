@@ -62,6 +62,8 @@
             [[NSUserDefaults standardUserDefaults] setBool:self.darkModeToggle.on forKey:@"darkMode"];
             [[NSUserDefaults standardUserDefaults]synchronize];
             [[UITableView appearance] setBackgroundColor:[UIColor getStyleColor]];
+            [controller.viewControllers[0] viewWillAppear:NO];
+            
             [self viewWillAppear:NO];
             
             
@@ -80,6 +82,12 @@
             UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
             controller.navigationBar.barStyle = UIBarStyleDefault;
             [[UITableView appearance] setBackgroundColor:[UIColor getStyleColor]];
+            UPViewController *base = controller.viewControllers[0];
+            
+            [base viewWillAppear:NO];
+            if(base.child){
+                [base.child viewWillAppear:NO];
+            }
             [self viewWillAppear:NO];
         }
     }
@@ -145,7 +153,12 @@
         UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
         controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
         controller.tabBarController.tabBar.tintColor = [UIColor getThemeColor];
-        [controller.viewControllers[0] viewWillAppear:YES];
+        UPViewController *base = controller.viewControllers[0];
+        
+        [base viewWillAppear:NO];
+        if(base.child){
+            [base.child viewWillAppear:NO];
+        }
     }
     [self viewWillAppear:NO];
 }

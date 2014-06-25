@@ -10,6 +10,6 @@
 
 @interface UPViewController : UIViewController
 
-
+@property UPViewController *child;
 
 @end

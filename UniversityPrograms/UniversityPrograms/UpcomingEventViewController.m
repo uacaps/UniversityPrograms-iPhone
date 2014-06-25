@@ -116,6 +116,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SpecificEventViewController *tappedEvent = [[SpecificEventViewController alloc] initWithEvent:self.upcomingArray[indexPath.row]];
+    self.child = tappedEvent;
     [self.navigationController pushViewController:tappedEvent animated:YES];
     [self.upComingEventsTable reloadData];
 }

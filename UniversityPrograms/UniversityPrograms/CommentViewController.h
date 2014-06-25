@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UPViewController.h"
 
-@interface CommentViewController : UIViewController<UITextViewDelegate>
+@interface CommentViewController : UPViewController<UITextViewDelegate>
 
 
 

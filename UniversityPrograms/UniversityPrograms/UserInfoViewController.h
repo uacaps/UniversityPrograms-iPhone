@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface UserInfoViewController : UIViewController<UIAlertViewDelegate, UITextFieldDelegate>
+#import "UPViewController.h"
+@interface UserInfoViewController : UPViewController<UIAlertViewDelegate, UITextFieldDelegate>
 
 @end

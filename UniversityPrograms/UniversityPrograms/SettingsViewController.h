@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NKOColorPickerView.h"
-@interface SettingsViewController : UIViewController
+#import "UPViewController.h"
+@interface SettingsViewController : UPViewController
 
 @end

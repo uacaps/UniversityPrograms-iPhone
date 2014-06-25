@@ -55,6 +55,7 @@
 #pragma mark - UI interaction
 - (void)didTouchFeedback{
     CommentViewController *newComment = [[CommentViewController alloc] init];
+    self.child = newComment;
     [self.navigationController pushViewController:newComment animated:YES];
 }
 

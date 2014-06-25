@@ -103,6 +103,7 @@
 		1BB198DC193FAA580017A1D6 /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB198D8193FAA580017A1D6 /* Info@2x.png */; };
 		1BB198E0193FB88E0017A1D6 /* RegistrantDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB198DF193FB88E0017A1D6 /* RegistrantDTO.m */; };
 		1BB198E3193FC4900017A1D6 /* LocationDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB198E2193FC4900017A1D6 /* LocationDTO.m */; };
+		1BBE0DDA195B187F004BA930 /* IntroPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBE0DD9195B187F004BA930 /* IntroPanel.m */; };
 		1BD4C8111942626300BE6566 /* GetInvolvedCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD4C8101942626300BE6566 /* GetInvolvedCellData.m */; };
 		1BD4C8151942658F00BE6566 /* GetInvolvedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD4C8131942658F00BE6566 /* GetInvolvedTableViewCell.m */; };
 		1BD4C8161942658F00BE6566 /* GetInvolvedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BD4C8141942658F00BE6566 /* GetInvolvedTableViewCell.xib */; };
@@ -252,6 +253,8 @@
 		1BB198DF193FB88E0017A1D6 /* RegistrantDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrantDTO.m; sourceTree = "<group>"; };
 		1BB198E1193FC4900017A1D6 /* LocationDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDTO.h; sourceTree = "<group>"; };
 		1BB198E2193FC4900017A1D6 /* LocationDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDTO.m; sourceTree = "<group>"; };
+		1BBE0DD8195B187F004BA930 /* IntroPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroPanel.h; sourceTree = "<group>"; };
+		1BBE0DD9195B187F004BA930 /* IntroPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPanel.m; sourceTree = "<group>"; };
 		1BD4C80F1942626300BE6566 /* GetInvolvedCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetInvolvedCellData.h; sourceTree = "<group>"; };
 		1BD4C8101942626300BE6566 /* GetInvolvedCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetInvolvedCellData.m; sourceTree = "<group>"; };
 		1BD4C8121942658F00BE6566 /* GetInvolvedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetInvolvedTableViewCell.h; sourceTree = "<group>"; };
@@ -448,6 +451,8 @@
 			isa = PBXGroup;
 			children = (
 				1B53018A19587DFE0018DCF1 /* IntroPanel1.xib */,
+				1BBE0DD8195B187F004BA930 /* IntroPanel.h */,
+				1BBE0DD9195B187F004BA930 /* IntroPanel.m */,
 			);
 			name = "IntroductionView Views";
 			sourceTree = "<group>";
@@ -909,6 +914,7 @@
 				1BB198C9193FA4530017A1D6 /* UIColor+UPColors.m in Sources */,
 				1B7880E01940EC8B00333ED5 /* ContactUPViewController.m in Sources */,
 				1B1672C31947BF5F001449CD /* UPTabbarViewController.m in Sources */,
+				1BBE0DDA195B187F004BA930 /* IntroPanel.m in Sources */,
 				1B48B56819421640008F5186 /* DirectoryTableViewCell.m in Sources */,
 				1B0A691C1938D58C005C821D /* AboutUPViewController.m in Sources */,
 				1BA9FE68193E244B008F8981 /* PriorFeedbackTableViewCell.m in Sources */,

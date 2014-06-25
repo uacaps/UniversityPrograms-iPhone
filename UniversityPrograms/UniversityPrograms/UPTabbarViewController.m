@@ -9,7 +9,7 @@
 #import "UPTabbarViewController.h"
 #import "UPViewController.h"
 #import "UIColor+UPColors.h"
-
+#import "IntroPanel.h"
 @interface UPTabbarViewController ()
 
 @end
@@ -44,8 +44,11 @@
 -(void)buildIntroView{
     
     MYBlurIntroductionView *introView = [[MYBlurIntroductionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    introView.backgroundColor = [UIColor UPDarkGreyColor];
-    MYIntroductionPanel *panel1 = [[MYIntroductionPanel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) title:@"Welcome" description:@"Thank you for downloading the official University of Alabama University Programs app. Here is a quick introduction to show you all the features you can take advantage of in this app. Swipe the page to continue the introduction."];
+    //introView.backgroundColor = [UIColor UPDarkGreyColor];
+    IntroPanel *panel1 = [[IntroPanel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) nibNamed:@"IntroPanel1"];
+    introView.backgroundColor = panel1.backgroundColor;
+    panel1.backgroundColor = [UIColor clearColor];
+    //MYIntroductionPanel *panel1 = [[MYIntroductionPanel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) title:@"Welcome" description:@"Thank you for downloading the official University of Alabama University Programs app. Here is a quick introduction to show you all the features you can take advantage of in this app. Swipe the page to continue the introduction."];
     MYIntroductionPanel *panel2 = [[MYIntroductionPanel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) title:@"Events" description:@"The main page of the app is a list of all upcoming University Programs sponsored events" image:[UIImage imageNamed:@"eventsScreenshot.png"]];
     MYIntroductionPanel *panel3 = [[MYIntroductionPanel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) title:@"Specific Event" description:@"If you click on an event, you will see this screen. The Name, Location, Date/Time and a brief description of the event is displayed. There are share buttons for Facebook and Twitter at the bottom of the page that allow you to post that you are attending the event." image:[UIImage imageNamed:@"specificScreenshot"]];
     MYIntroductionPanel *panel4 = [[MYIntroductionPanel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) title:@"RSVPing" description:@"In the upper right hand corner is an RSVP button. This allows you to notify UP that you are attending the event. Clicking the button after you have RSVPed will rescind your RSVP." image:[UIImage imageNamed:@"rsvpScreenshot"]];

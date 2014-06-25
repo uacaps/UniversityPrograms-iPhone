@@ -59,6 +59,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     //self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
     [self loadEvents];
+    
     //[self.upComingEventsTable reloadData];
     //[self.upComingEventsTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }

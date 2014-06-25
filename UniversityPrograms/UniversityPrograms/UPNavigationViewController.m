@@ -25,6 +25,9 @@
     }
     return self;
 }
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+}
 -(void)viewDidAppear:(BOOL)animated{
     
 }
@@ -42,7 +45,7 @@
     }
     //self.navigationBar.barTintColor = [UIColor UPDarkGreyColo\];
     //[[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+    
     
     //Make light content status bar
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];

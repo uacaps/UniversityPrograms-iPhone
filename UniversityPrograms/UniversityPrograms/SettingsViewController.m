@@ -145,6 +145,7 @@
         UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
         controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
         controller.tabBarController.tabBar.tintColor = [UIColor getThemeColor];
+        [controller.viewControllers[0] viewWillAppear:YES];
     }
     [self viewWillAppear:NO];
 }

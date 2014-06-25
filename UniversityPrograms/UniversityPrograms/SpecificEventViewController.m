@@ -83,6 +83,8 @@
         [self getEvent:self.specifiedEvent];
     }
     [self setUI];
+    self.view.backgroundColor = [UIColor getStyleColor];
+    
 }
 - (void)didReceiveMemoryWarning
 {

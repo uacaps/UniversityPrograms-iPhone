@@ -62,8 +62,12 @@
             [[NSUserDefaults standardUserDefaults] setBool:self.darkModeToggle.on forKey:@"darkMode"];
             [[NSUserDefaults standardUserDefaults]synchronize];
             [[UITableView appearance] setBackgroundColor:[UIColor getStyleColor]];
-            [controller.viewControllers[0] viewWillAppear:NO];
+            UPViewController *base = controller.viewControllers[0];
             
+            [base viewWillAppear:NO];
+            if(base.child){
+                [base.child viewWillAppear:NO];
+            }
             [self viewWillAppear:NO];
             
             

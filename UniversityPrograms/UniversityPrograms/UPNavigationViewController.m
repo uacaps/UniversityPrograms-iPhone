@@ -15,7 +15,14 @@
 @end
 
 @implementation UPNavigationViewController
-
+-(id)initWithRootViewController:(UPViewController *)rootViewController{
+    self=[super initWithRootViewController:rootViewController];
+    
+    self.rootViewController = rootViewController;
+    
+    
+    return self;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

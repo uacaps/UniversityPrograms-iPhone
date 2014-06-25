@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UPViewController.h"
 @interface UPNavigationViewController : UINavigationController
-
+@property UPViewController *rootViewController;
 @end

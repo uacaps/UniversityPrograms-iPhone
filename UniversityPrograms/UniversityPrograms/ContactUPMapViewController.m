@@ -27,6 +27,7 @@
     }
     return self;
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } };
     if(self.lat&&self.lng){

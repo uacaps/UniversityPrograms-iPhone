@@ -12,5 +12,5 @@
 @interface MyUPViewController : UPViewController <UITableViewDelegate,UITableViewDataSource>
 
 
-
+-(void)viewWillAppear:(BOOL)animated;
 @end

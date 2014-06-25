@@ -34,7 +34,9 @@
     }
     return self;
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    
+}
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Comment" style:UIBarButtonItemStyleDone target:self action:@selector(didTouchFeedback)];
@@ -43,9 +45,13 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    [self.contactUPTableView reloadData];
+    
     self.contactUPTableView.backgroundColor=[UIColor getStyleColor];
     self.contactUPTableView.separatorColor = [UIColor getThemeColor];
+    if(self.child){
+        [self.child viewWillAppear:NO];
+    }
+    [self.contactUPTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning{

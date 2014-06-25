@@ -30,9 +30,10 @@
     // Do any additional setup after loading the view.
     
 }
--(void)viewDidAppear:(BOOL)animated{
-    //[self.tableview reloadData];
+-(void)viewWillAppear:(BOOL)animated{
+    
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

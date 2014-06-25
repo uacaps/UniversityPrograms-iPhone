@@ -5,11 +5,13 @@
 //  Created by Miles Crabbe on 6/10/14.
 //  Copyright (c) 2014 CAPS. All rights reserved.
 //
-
+#import "UPNavigationViewController.h"
 #import "UPTabbarViewController.h"
 #import "UPViewController.h"
 #import "UIColor+UPColors.h"
 #import "IntroPanel.h"
+#import "ContactUPViewController.h"
+#import "MyUPViewController.h"
 @interface UPTabbarViewController ()
 
 @end
@@ -37,8 +39,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UPViewController *)viewController{
-    [viewController viewDidAppear:NO];
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UPNavigationViewController *)viewControllerSp{
+     UPViewController *test = viewControllerSp.rootViewController;
+    [test viewWillAppear:NO];
+    viewControllerSp.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
 }
 
 -(void)buildIntroView{
@@ -74,6 +78,8 @@
     [self.view addSubview:introView];
     
 }
+
+
 
 /*
 #pragma mark - Navigation

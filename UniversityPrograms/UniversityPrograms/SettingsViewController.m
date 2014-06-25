@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *colorSchemeLabel;
 @property (weak, nonatomic) IBOutlet UIView *dividerView;
 @property NKOColorPickerView *colorPickerView;
+@property NSOperationQueue *queue;
 @end
 
 @implementation SettingsViewController
@@ -27,6 +28,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title=@"Settings";
+        
         // Custom initialization
     }
     return self;
@@ -68,11 +70,8 @@
             if(base.child){
                 [base.child viewWillAppear:NO];
             }
-            [self viewWillAppear:NO];
-            
-            
-            
         }
+        [self viewWillAppear:NO];
     }
     else{
         //[[UITextView appearance] setKeyboardAppearance:UIKeyboardAppearanceLight];
@@ -92,8 +91,9 @@
             if(base.child){
                 [base.child viewWillAppear:NO];
             }
-            [self viewWillAppear:NO];
+            
         }
+        [self viewWillAppear:NO];
     }
     
     
@@ -153,17 +153,9 @@
    
 }
 -(void)updateColors:(UIColor *)color{
-    for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-        UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-        controller.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
-        controller.tabBarController.tabBar.tintColor = [UIColor getThemeColor];
-        UPViewController *base = controller.viewControllers[0];
-        
-        [base viewWillAppear:NO];
-        if(base.child){
-            [base.child viewWillAppear:NO];
-        }
-    }
+    self.tabBarController.tabBar.tintColor = [UIColor getThemeColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+    
     [self viewWillAppear:NO];
 }
 

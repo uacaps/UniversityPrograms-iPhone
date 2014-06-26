@@ -1067,6 +1067,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UniversityPrograms/UniversityPrograms-Prefix.pch";
 				INFOPLIST_FILE = "UniversityPrograms/UniversityPrograms-Info.plist";

@@ -132,16 +132,17 @@
         [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
         self.colorSelector.tintColor = [UIColor getThemeColor];
         self.darkModeToggle.onTintColor = [UIColor getThemeColor];
-        if(!self.colorPickerView){
-            self.colorPickerView = [[NKOColorPickerView alloc] initWithFrame:CGRectMake(10, 150, 300, 200) color:[UIColor getThemeColor] andDidChangeColorBlock:^(UIColor *color){
-                [UIColor setThemeColor:color];
-                self.colorSelector.tintColor = [UIColor getThemeColor];
-                self.darkModeToggle.onTintColor = [UIColor getThemeColor];
-                [self updateColors:[UIColor getThemeColor]];
-            
-            }];
         
-            
+        
+        NKOColorPickerDidChangeColorBlock changeBlock = ^(UIColor *color){
+            [UIColor setThemeColor:color];
+            self.colorSelector.tintColor = color;
+            self.darkModeToggle.onTintColor = color;
+            [self updateColors:color];
+        };
+        
+        if(!self.colorPickerView){
+            self.colorPickerView = [[NKOColorPickerView alloc] initWithFrame:CGRectMake(10, 150, 300, 200) color:[UIColor getThemeColor] andDidChangeColorBlock:changeBlock];
         }
         [self.view addSubview:self.colorPickerView];
         self.colorPickerView.color=[UIColor getThemeColor];
@@ -153,8 +154,8 @@
    
 }
 -(void)updateColors:(UIColor *)color{
-    self.tabBarController.tabBar.tintColor = [UIColor getThemeColor];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+    self.tabBarController.tabBar.tintColor = color;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : color, NSFontAttributeName : [UIFont systemFontOfSize:20]};
     
     [self viewWillAppear:NO];
 }

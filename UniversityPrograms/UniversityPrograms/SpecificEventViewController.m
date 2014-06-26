@@ -99,6 +99,13 @@
     
     
 }
+-(void)failureAlertView{
+    UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Failed to Send Message" message:@"Failed to send RSVP message to server due to network problems. Please try again at another time." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [saveAlert setTag:404];
+    [saveAlert show];
+    
+    
+}
 
 -(void)addUnRSVPAlertView{
     UIAlertView *unAlert = [[UIAlertView alloc] initWithTitle:@"un-RSVPed" message:@"You have un-RSVPed from this event, we hope to see you at other future events." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -112,6 +119,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         UserInfoViewController *tempInfoController =[[UserInfoViewController alloc]init];
         [self.navigationController pushViewController:tempInfoController animated:YES];
     }
+   
     
 }
 
@@ -328,7 +336,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             }
             else{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self addAlertView];
+                    [self failureAlertView];
                     [self.loadingIndicator startAnimating];
                     [self getEvent:self.specifiedEvent];
                     

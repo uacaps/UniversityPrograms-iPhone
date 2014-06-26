@@ -11,5 +11,6 @@
 
 @interface UpcomingEventViewController : UPViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *upComingEventsTable;
+@property (weak, nonatomic) IBOutlet UILabel *networkErrorLabel;
 
 @end

@@ -167,10 +167,11 @@
 
 -(void)addSuccessView{
     UIAlertView *saveAlert = [[UIAlertView alloc]initWithTitle:@"Comment Sent!" message:@"Your Comment has been sent to our database and a Univeristy Programs representative will review it.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    saveAlert.tag = 3;
     [saveAlert show];
 }
 -(void)addErrorView{
-    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"There was an error sending your comment, please ensure that all user info is entered.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"There was an error sending your comment, please ensure that all user info is entered and you have a connection to the network.\n Thank You." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     errorAlert.tag=1;
     [errorAlert show];
 }
@@ -196,15 +197,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             [self.navigationController pushViewController:tempInfoViewController animated:YES];
         }
     }
-    else if(alertView.tag==1){
-        UserInfoViewController *tempInfoViewController = [[UserInfoViewController alloc] init];
-        
-        [self.navigationController pushViewController:tempInfoViewController animated:YES];
-    }
+   
     else if(alertView.tag==2){
         
     }
-    else{
+    else if(alertView.tag==3){
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

@@ -77,7 +77,7 @@
     
     panel7.PanelImageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    [introView buildIntroductionWithPanels:@[panel1, panel2, panel4, panel5, panel6, panel7]];
+    [introView buildIntroductionWithPanels:@[panel1, panel2, panel4, panel6, panel7]];
     [self.view addSubview:introView];
     
 }

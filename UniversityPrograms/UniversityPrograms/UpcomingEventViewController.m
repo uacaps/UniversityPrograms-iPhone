@@ -74,11 +74,20 @@
         if(data!=nil){
         
             self.upcomingArray=[NSObject arrayOfType:[Event class] FromJSONData:data];
-        }
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.networkErrorLabel.alpha=0.0f;
                 [self.upComingEventsTable reloadData];
                 [self.refreshControl endRefreshing];
             });
+        }
+        else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.networkErrorLabel.alpha = 1.0f;
+                [self.upComingEventsTable reloadData];
+                [self.refreshControl endRefreshing];
+            });
+        }
+        
         
     }];
   

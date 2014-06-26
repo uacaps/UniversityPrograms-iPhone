@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *telephoneImage;
 @property (weak, nonatomic) IBOutlet UIImageView *mailImage;
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property Employee *selectedEmployee;
 @end
 
@@ -42,7 +43,11 @@
     self.employeePhone.text=[NSString stringWithFormat:@"Phone: %@", emp.phone];
     self.employeeEmail.text=[NSString stringWithFormat:@"Email: %@", emp.email];
     self.employeeTitle.text=emp.title;
+    
+    
     self.employeeImage.layer.cornerRadius=self.employeeImage.frame.size.width/2;
+    
+    
     //NSLog([NSString stringWithFormat:@"%@", emp.phone]);
     self.employeeName.textColor = themeColor;
     self.employeeTitle.textColor = themeColor;

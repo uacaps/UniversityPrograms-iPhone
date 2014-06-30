@@ -12,6 +12,7 @@
 #import "Employee.h"
 #import "AddressTableViewCell.h"
 #import "UIColor+UPColors.h"
+#import "FollowUPTableViewCell.h"
 @interface ContactUPViewController ()
 
 @property NSArray *directoryArray;
@@ -81,13 +82,21 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
+    if(indexPath.row==0){
+        FollowUPTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"followUP"];
+        if(!cell){
+            cell = [[FollowUPTableViewCell alloc] init];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+        
+    }
+     else if (indexPath.row == 1) {
         AddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddressTableViewCell"];
         if(!cell){
             cell = [[AddressTableViewCell alloc] init];
         }
-        cell.owner = self;
-        cell.selectedBackgroundView.backgroundColor = [UIColor getStyleColor];
+         cell.owner = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -96,9 +105,8 @@
         if(!cell){
             cell = [[DirectoryTableViewCell alloc] init];
         }
-        Employee *e = [self.directoryArray objectAtIndex:indexPath.row-1];
+        Employee *e = [self.directoryArray objectAtIndex:indexPath.row-2];
         [cell buildWtihEmployee:e];
-        cell.selectedBackgroundView.backgroundColor = [UIColor getStyleColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -108,7 +116,10 @@
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat retVal;
-    if (indexPath.row == 0) {
+    if(indexPath.row==0){
+        retVal = FollowTableViewCellHeight;
+    }
+    else if (indexPath.row == 1) {
         retVal= AddressTableViewCellHeight;
     }
     else {

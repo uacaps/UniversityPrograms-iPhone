@@ -42,6 +42,8 @@
 		1B53019B1958B0960018DCF1 /* commentScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B53019A1958B0960018DCF1 /* commentScreenshot.png */; };
 		1B53019D1958B7650018DCF1 /* myUserScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B53019C1958B7650018DCF1 /* myUserScreenshot.png */; };
 		1B53019F1958B8300018DCF1 /* settingsScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B53019E1958B8300018DCF1 /* settingsScreenshot.png */; };
+		1B6797AF1961A8870034982D /* FollowUPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6797AD1961A8870034982D /* FollowUPTableViewCell.m */; };
+		1B6797B01961A8870034982D /* FollowUPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6797AE1961A8870034982D /* FollowUPTableViewCell.xib */; };
 		1B7880DA1940EBED00333ED5 /* MyUPInitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7880D81940EBED00333ED5 /* MyUPInitTableViewCell.m */; };
 		1B7880DB1940EBED00333ED5 /* MyUPInitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7880D91940EBED00333ED5 /* MyUPInitTableViewCell.xib */; };
 		1B7880E01940EC8B00333ED5 /* ContactUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7880DE1940EC8B00333ED5 /* ContactUPViewController.m */; };
@@ -175,6 +177,9 @@
 		1B53019A1958B0960018DCF1 /* commentScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = commentScreenshot.png; sourceTree = "<group>"; };
 		1B53019C1958B7650018DCF1 /* myUserScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myUserScreenshot.png; sourceTree = "<group>"; };
 		1B53019E1958B8300018DCF1 /* settingsScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsScreenshot.png; sourceTree = "<group>"; };
+		1B6797AC1961A8870034982D /* FollowUPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowUPTableViewCell.h; sourceTree = "<group>"; };
+		1B6797AD1961A8870034982D /* FollowUPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowUPTableViewCell.m; sourceTree = "<group>"; };
+		1B6797AE1961A8870034982D /* FollowUPTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowUPTableViewCell.xib; sourceTree = "<group>"; };
 		1B7880D71940EBED00333ED5 /* MyUPInitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUPInitTableViewCell.h; sourceTree = "<group>"; };
 		1B7880D81940EBED00333ED5 /* MyUPInitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUPInitTableViewCell.m; sourceTree = "<group>"; };
 		1B7880D91940EBED00333ED5 /* MyUPInitTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyUPInitTableViewCell.xib; sourceTree = "<group>"; };
@@ -424,6 +429,9 @@
 				1B48B56519421640008F5186 /* DirectoryTableViewCell.h */,
 				1B48B56619421640008F5186 /* DirectoryTableViewCell.m */,
 				1B48B56719421640008F5186 /* DirectoryTableViewCell.xib */,
+				1B6797AC1961A8870034982D /* FollowUPTableViewCell.h */,
+				1B6797AD1961A8870034982D /* FollowUPTableViewCell.m */,
+				1B6797AE1961A8870034982D /* FollowUPTableViewCell.xib */,
 			);
 			name = ContactUPCells;
 			sourceTree = "<group>";
@@ -849,6 +857,7 @@
 				1B5301971958AE030018DCF1 /* rsvpScreenshot.png in Resources */,
 				1BB198D1193FA9F00017A1D6 /* Calendar_filled.png in Resources */,
 				1B400F48195225350019FB58 /* Facebook_filled.png in Resources */,
+				1B6797B01961A8870034982D /* FollowUPTableViewCell.xib in Resources */,
 				1BA9FE5E193E1D28008F8981 /* AboutUPViewController.xib in Resources */,
 				1B400F3A1951E5A20019FB58 /* MapPin.png in Resources */,
 				1F52AA941954DB4D0074A83E /* up_splash4.png in Resources */,
@@ -931,6 +940,7 @@
 				1BAD1A38193CC2B9006D24AD /* Event.m in Sources */,
 				1B9D2B5C1949E9B000B09316 /* SettingsViewController.m in Sources */,
 				1BD4C8151942658F00BE6566 /* GetInvolvedTableViewCell.m in Sources */,
+				1B6797AF1961A8870034982D /* FollowUPTableViewCell.m in Sources */,
 				1B0A69161938D552005C821D /* CommentViewController.m in Sources */,
 				1B48B56C19421C8F008F5186 /* Employee.m in Sources */,
 				1B48B56F194243F9008F5186 /* UnRSVPDTO.m in Sources */,

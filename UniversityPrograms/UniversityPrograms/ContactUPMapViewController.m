@@ -33,8 +33,8 @@
     if(self.lat&&self.lng){
         region.center.latitude = self.lat;
         region.center.longitude = self.lng;
-        region.span.longitudeDelta = 0.002;
-        region.span.latitudeDelta = 0.002f;
+        region.span.longitudeDelta = 0.004f;
+        region.span.latitudeDelta = 0.004f;
     }
     else{
         region.center.latitude = 32.67606;
@@ -71,8 +71,8 @@
             region.center.longitude = placemark.location.coordinate.longitude;
             self.lng = placemark.location.coordinate.longitude;
             
-            region.span.longitudeDelta = 0.002f;
-            region.span.latitudeDelta = 0.002f;
+            region.span.longitudeDelta = 0.004f;
+            region.span.latitudeDelta = 0.004f;
             
             [self.contactMapView setRegion:region animated:YES];
             [self.contactMapView selectAnnotation:pointAnnotation animated:YES];

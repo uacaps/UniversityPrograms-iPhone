@@ -36,7 +36,7 @@
     //Set frame sizes
     self.bodyTextLabel.frame = CGRectMake(self.bodyTextLabel.frame.origin.x, self.bodyTextLabel.frame.origin.y, self.bodyTextLabel.frame.size.width, textHeight);
     self.frame = CGRectMake(0, 0, self.frame.size.width, 45 + textHeight);
-    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 - (void)awakeFromNib
 {

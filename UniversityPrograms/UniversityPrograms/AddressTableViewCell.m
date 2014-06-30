@@ -16,6 +16,10 @@
     self=[super init];
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([AddressTableViewCell class]) owner:nil options:nil][0];
+    
+    return self;
+}
+-(void)build{
     UIColor *styleColor = [UIColor getStyleColor];
     UIColor *themeColor = [UIColor getThemeColor];
     UIColor *textColor = [UIColor getTextColor];
@@ -35,7 +39,7 @@
     self.addressButton.tintColor = styleColor;
     self.addressButton.layer.cornerRadius = 12;
     self.backgroundColor = styleColor;
-    return self;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

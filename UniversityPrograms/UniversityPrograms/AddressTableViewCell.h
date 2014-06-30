@@ -20,4 +20,7 @@ static const NSInteger AddressTableViewCellHeight = 160;
 @property (weak, nonatomic) IBOutlet UIButton *addressButton;
 @property ContactUPViewController *owner;
 
+-(void)build;
+
+
 @end

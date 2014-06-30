@@ -16,4 +16,7 @@ static const NSInteger FollowTableViewCellHeight = 125;
 @property (weak, nonatomic) IBOutlet UIButton *mainTwitterButton;
 @property (weak, nonatomic) IBOutlet UILabel *mainFacebookLabel;
 
+
+-(void)build;
+
 @end

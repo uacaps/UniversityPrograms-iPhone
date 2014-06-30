@@ -13,6 +13,10 @@
     self=[super init];
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([FollowUPTableViewCell class]) owner:nil options:nil][0];
+    
+    return self;
+}
+-(void)build{
     self.backgroundColor = [UIColor getStyleColor];
     self.mainTwitterLabel.backgroundColor=[UIColor getStyleColor];
     self.followUPLabel.textColor = [UIColor getThemeColor];
@@ -21,7 +25,7 @@
     self.mainTwitterLabel.textColor = [UIColor getTextColor];
     self.mainFacebookLabel.backgroundColor = [UIColor getStyleColor];
     self.mainFacebookLabel.textColor = [UIColor getTextColor];
-    return self;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 - (void)awakeFromNib
 {

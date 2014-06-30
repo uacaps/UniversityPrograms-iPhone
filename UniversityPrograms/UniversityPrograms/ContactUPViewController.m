@@ -77,7 +77,7 @@
 {
     
     // Return the number of rows in the section.
-    return self.directoryArray.count + 1;
+    return self.directoryArray.count + 2;
 }
 
 
@@ -87,17 +87,19 @@
         if(!cell){
             cell = [[FollowUPTableViewCell alloc] init];
         }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell build];
+        
         return cell;
         
     }
      else if (indexPath.row == 1) {
-        AddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddressTableViewCell"];
+        AddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddressCell"];
         if(!cell){
             cell = [[AddressTableViewCell alloc] init];
         }
-         cell.owner = self;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.owner = self;
+        [cell build];
+        
         return cell;
     }
     else {
@@ -107,7 +109,7 @@
         }
         Employee *e = [self.directoryArray objectAtIndex:indexPath.row-2];
         [cell buildWtihEmployee:e];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         return cell;
     }
     

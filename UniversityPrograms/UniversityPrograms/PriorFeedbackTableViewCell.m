@@ -36,7 +36,7 @@
     //Set frame sizes
     self.commentLabel.frame = CGRectMake(self.commentLabel.frame.origin.x, self.commentLabel.frame.origin.y, self.commentLabel.frame.size.width, textHeight);
     self.frame = CGRectMake(0, 0, self.frame.size.width, 35 + textHeight);
-    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 - (void)awakeFromNib
 {

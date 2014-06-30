@@ -45,12 +45,22 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated{
-    self.view.backgroundColor = [UIColor getStyleColor];
-    self.colorSchemeLabel.backgroundColor = [UIColor getStyleColor];
-    self.darkModeLabel.backgroundColor = [UIColor getStyleColor];
-    self.colorSchemeLabel.textColor = [UIColor getTextColor];
-    self.darkModeLabel.textColor = [UIColor getTextColor];
-    self.dividerView.backgroundColor = [UIColor getThemeColor];
+    UIColor *textColor=[UIColor getTextColor];
+    UIColor *styleColor=[UIColor getStyleColor];
+    UIColor *themeColor=[UIColor getThemeColor];
+    
+    self.view.backgroundColor = styleColor;
+    self.colorSchemeLabel.backgroundColor = styleColor;
+    self.darkModeLabel.backgroundColor = styleColor;
+    self.colorSchemeLabel.textColor = textColor;
+    self.darkModeLabel.textColor = textColor;
+    self.dividerView.backgroundColor = themeColor;
+    self.colorSelector.tintColor = themeColor;
+    self.darkModeToggle.onTintColor = themeColor;
+    self.colorSelector.backgroundColor = styleColor;
+    self.darkModeToggle.backgroundColor = styleColor;
+    self.tabBarController.tabBar.tintColor = themeColor;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : themeColor, NSFontAttributeName : [UIFont systemFontOfSize:20]};
 }
 - (IBAction)toggledDarkMode:(id)sender {
     if(self.darkModeToggle.on){
@@ -58,19 +68,9 @@
         self.tabBarController.tabBar.barStyle=UIBarStyleBlackOpaque;
         //[[UITextView appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
         [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
-        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            controller.navigationBar.barStyle = UIBarStyleBlackOpaque;
-            [[NSUserDefaults standardUserDefaults] setBool:self.darkModeToggle.on forKey:@"darkMode"];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-            [[UITableView appearance] setBackgroundColor:[UIColor getStyleColor]];
-            UPViewController *base = controller.viewControllers[0];
-            
-            [base viewWillAppear:NO];
-            if(base.child){
-                [base.child viewWillAppear:NO];
-            }
-        }
+        [[NSUserDefaults standardUserDefaults] setBool:self.darkModeToggle.on forKey:@"darkMode"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
         [self viewWillAppear:NO];
     }
     else{
@@ -81,18 +81,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:self.darkModeToggle.on forKey:@"darkMode"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         
-        for (int index=0; index<self.tabBarController.viewControllers.count; index++) {
-            UPNavigationViewController *controller = [self.tabBarController.viewControllers objectAtIndex:index];
-            controller.navigationBar.barStyle = UIBarStyleDefault;
-            [[UITableView appearance] setBackgroundColor:[UIColor getStyleColor]];
-            UPViewController *base = controller.viewControllers[0];
-            
-            [base viewWillAppear:NO];
-            if(base.child){
-                [base.child viewWillAppear:NO];
-            }
-            
-        }
+        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
         [self viewWillAppear:NO];
     }
     
@@ -106,7 +95,7 @@
         self.colorSelector.tintColor = [UIColor UPCrimsonColor];
         self.darkModeToggle.onTintColor = [UIColor UPCrimsonColor];
         [UIColor setThemeColor:[UIColor UPCrimsonColor]];
-        [self updateColors:[UIColor getThemeColor]];
+        [self viewWillAppear:NO];
         [self.colorPickerView removeFromSuperview];
         [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
     }
@@ -114,7 +103,7 @@
         self.colorSelector.tintColor = [UIColor grassColor];
         self.darkModeToggle.onTintColor = [UIColor grassColor];
         [UIColor setThemeColor:[UIColor grassColor]];
-        [self updateColors:[UIColor getThemeColor]];
+        [self viewWillAppear:NO];
         [self.colorPickerView removeFromSuperview];
         [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
     }
@@ -122,7 +111,7 @@
         self.colorSelector.tintColor = [UIColor tealColor];
         self.darkModeToggle.onTintColor = [UIColor tealColor];
         [UIColor setThemeColor:[UIColor tealColor]];
-        [self updateColors:[UIColor getThemeColor]];
+        [self viewWillAppear:NO];
         [self.colorPickerView removeFromSuperview];
         [[NSUserDefaults standardUserDefaults] setInteger:self.colorSelector.selectedSegmentIndex forKey:@"colorSelection"];
         
@@ -136,9 +125,7 @@
         
         NKOColorPickerDidChangeColorBlock changeBlock = ^(UIColor *color){
             [UIColor setThemeColor:color];
-            self.colorSelector.tintColor = color;
-            self.darkModeToggle.onTintColor = color;
-            [self updateColors:color];
+            [self viewWillAppear:NO];
         };
         
         if(!self.colorPickerView){
@@ -152,12 +139,6 @@
     //[UITabBar appearance].tintColor=[UIColor getThemeColor];
     
    
-}
--(void)updateColors:(UIColor *)color{
-    self.tabBarController.tabBar.tintColor = color;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : color, NSFontAttributeName : [UIFont systemFontOfSize:20]};
-    
-    [self viewWillAppear:NO];
 }
 
 - (void)didReceiveMemoryWarning

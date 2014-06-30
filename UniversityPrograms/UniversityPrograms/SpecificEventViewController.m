@@ -288,7 +288,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 #pragma mark - Webservice
 - (IBAction)didTweet:(id)sender {
     SLComposeViewController *composeTweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    [composeTweet setInitialText:[NSString stringWithFormat:@"I am attending the %@ hosted by @UAwhatsUP on %@, you should too!", self.specifiedEvent.eventName,[self.specifiedEvent.endDate formattedDateWithFormat:@"MMM dd" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]]];
+    [composeTweet setInitialText:[NSString stringWithFormat:@"I am attending %@ hosted by @UAwhatsUP on %@, you should too!", self.specifiedEvent.eventName,[self.specifiedEvent.endDate formattedDateWithFormat:@"MMM dd" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]]];
     
     [self presentViewController:composeTweet animated:YES completion:^{
         
@@ -297,7 +297,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 }
 - (IBAction)didTapFacebook:(id)sender {
     SLComposeViewController *composeTweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-    [composeTweet setInitialText:[NSString stringWithFormat:@"I am attending the %@ hosted by University Programs on %@, you should too!", self.specifiedEvent.eventName,[self.specifiedEvent.endDate formattedDateWithFormat:@"MMM dd" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]]];
+    [composeTweet setInitialText:[NSString stringWithFormat:@"I am attending %@ hosted by University Programs on %@, you should too!", self.specifiedEvent.eventName,[self.specifiedEvent.endDate formattedDateWithFormat:@"MMM dd" timeZone:[NSTimeZone timeZoneWithName:@"CST"]]]];
     
     [self presentViewController:composeTweet animated:YES completion:^{
         

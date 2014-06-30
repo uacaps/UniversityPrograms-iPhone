@@ -43,7 +43,7 @@
     self.employeePhone.text=[NSString stringWithFormat:@"Phone: %@", emp.phone];
     self.employeeEmail.text=[NSString stringWithFormat:@"Email: %@", emp.email];
     self.employeeTitle.text=emp.title;
-    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.employeeImage.layer.cornerRadius=self.employeeImage.frame.size.width/2;
     

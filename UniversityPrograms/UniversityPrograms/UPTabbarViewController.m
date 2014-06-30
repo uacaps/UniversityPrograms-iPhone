@@ -39,10 +39,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UPNavigationViewController *)viewControllerSp{
-     UPViewController *test = viewControllerSp.rootViewController;
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UPNavigationViewController *)navController{
+     UPViewController *test = navController.rootViewController;
     [test viewWillAppear:NO];
-    viewControllerSp.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+    navController.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
+    if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
+        navController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    }
+    else{
+        navController.navigationBar.barStyle = UIBarStyleDefault;
+    }
+    
+    
 }
 
 -(void)buildIntroView{

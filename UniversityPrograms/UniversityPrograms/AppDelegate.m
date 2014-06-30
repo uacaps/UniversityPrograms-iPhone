@@ -67,12 +67,12 @@
     [self.baseTabBarController setViewControllers:@[upcomingNav, aboutUPNav, contactUPNav, myUPNav]];
     [self.window setRootViewController:self.baseTabBarController];
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLoad"]){
-        
+        [self.baseTabBarController buildIntroView];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLoad"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
     }
-    [self.baseTabBarController buildIntroView];
+    
     return YES;
 }
 

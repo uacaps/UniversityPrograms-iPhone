@@ -221,17 +221,17 @@
         if(!cell){
             cell=[[MyUPInitTableViewCell alloc] init];
         }
-        Event *e = [self.sortedEventArray objectAtIndex:indexPath.row];
-        [cell buildWithEvent:e];
+        Event *event = [self.sortedEventArray objectAtIndex:indexPath.row];
+        [cell buildWithEvent:event ];
         return cell;
     }
     else{
         PriorFeedbackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PriorCell"];
-        Comment *c=[self.priorCommentArray objectAtIndex:indexPath.row];
+        Comment *comment=[self.priorCommentArray objectAtIndex:indexPath.row];
         if(!cell){
             cell = [[PriorFeedbackTableViewCell alloc] init];
         }
-        [cell buildWithComment:c];
+        [cell buildWithComment:comment];
         
         return cell;
 

@@ -38,7 +38,7 @@
 @property NSArray *unsortedEventArray;
 @property NSMutableArray *sortedEventArray;
 @property UIRefreshControl *refreshControl;
-
+@property BOOL buttonControlFlag;
 @property BOOL controlFlag;
 @end
 
@@ -80,7 +80,7 @@
     [self loadData];
     [self build];
     [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
-    
+    self.buttonControlFlag = NO;
     [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
 
@@ -185,14 +185,21 @@
     [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
 -(void)didSelectComment{
+    
+    self.navigationController.navigationItem.rightBarButtonItem.enabled = NO;
     CommentViewController *comments = [[CommentViewController alloc] init];
-    [self.navigationController pushViewController:comments
-                                         animated:YES];
-}
+    [self.navigationController pushViewController:comments animated:YES];
+    self.navigationController.navigationItem.rightBarButtonItem.enabled = YES;
+    
+    
+} 
 
 -(void)didSelectSettings{
+    
+    self.navigationController.navigationItem.leftBarButtonItem.enabled = NO;
     SettingsViewController *settings = [[SettingsViewController alloc] init];
     [self.navigationController pushViewController:settings animated:YES];
+    self.navigationController.navigationItem.leftBarButtonItem.enabled = YES;
     
 }
 

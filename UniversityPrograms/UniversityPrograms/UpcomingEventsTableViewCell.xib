@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1D3-kb-Q7m">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <view contentMode="scaleToFill" id="hTx-Xm-ybH">
@@ -40,7 +40,7 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
-            <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="dateLabel" destination="gqM-5I-JXG" id="aWD-EG-Sq8"/>
                 <outlet property="eventImage" destination="1D3-kb-Q7m" id="TUg-5P-6RM"/>

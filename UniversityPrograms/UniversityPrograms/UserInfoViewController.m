@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *firstDivider;
 @property (weak, nonatomic) IBOutlet UIView *secondDivider;
 @property (weak, nonatomic) IBOutlet UIView *thirdDivider;
+@property (weak, nonatomic) IBOutlet UIView *fourthDivider;
 @property (weak, nonatomic) IBOutlet UILabel *notificationLabel;
 @property UIBarStyle *currentSyle;
 
@@ -55,22 +56,27 @@
     
 }
 -(void)viewWillAppear:(BOOL)animated{
-    self.view.backgroundColor = [UIColor getStyleColor];
-    self.notificationLabel.backgroundColor = [UIColor getStyleColor];
-    self.notificationLabel.textColor = [UIColor getTextColor];
-    self.firstName.textColor = [UIColor getTextColor];
-    self.lastName.textColor = [UIColor getTextColor];
-    self.email.textColor =[UIColor getTextColor];
-    self.cwid.textColor = [UIColor getTextColor];
+    UIColor *themeColor = [UIColor getThemeColor];
+    UIColor *textColor = [UIColor getTextColor];
+    UIColor *styleColor = [UIColor getStyleColor];
+    
+    self.view.backgroundColor = styleColor;
+    self.notificationLabel.backgroundColor = styleColor;
+    self.notificationLabel.textColor = textColor;
+    self.firstName.textColor = textColor;
+    self.lastName.textColor = textColor;
+    self.email.textColor =textColor;
+    self.cwid.textColor = textColor;
     //self.firstName.tintColor = [UIColor getThemeColor];
     
     self.firstName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"First Name" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     self.lastName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Last Name" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     self.cwid.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"CWID" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     self.email.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Email" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
-    self.firstDivider.backgroundColor = [UIColor getThemeColor];
-    self.secondDivider.backgroundColor = [UIColor getThemeColor];
-    self.thirdDivider.backgroundColor = [UIColor getThemeColor];
+    self.firstDivider.backgroundColor = themeColor;
+    self.secondDivider.backgroundColor = themeColor;
+    self.thirdDivider.backgroundColor = themeColor;
+    self.fourthDivider.backgroundColor = themeColor;
     if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
         self.email.keyboardAppearance = UIKeyboardAppearanceDark;
         self.cwid.keyboardAppearance = UIKeyboardAppearanceDark;

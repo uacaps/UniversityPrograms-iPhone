@@ -10,6 +10,7 @@
                 <outlet property="email" destination="679-5I-mib" id="qVe-1N-aij"/>
                 <outlet property="firstDivider" destination="0fK-nT-8Ip" id="BnC-q3-rNR"/>
                 <outlet property="firstName" destination="wOP-gH-6E4" id="0gE-XZ-nyn"/>
+                <outlet property="fourthDivider" destination="lur-LG-SAd" id="y8m-xe-WYu"/>
                 <outlet property="lastName" destination="xj4-CM-k7c" id="crQ-zL-VMp"/>
                 <outlet property="secondDivider" destination="ejK-3p-1Nv" id="yQe-ST-xKt"/>
                 <outlet property="thirdDivider" destination="mIX-DQ-ZRB" id="ikm-t3-2z5"/>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" id="wOP-gH-6E4">
-                    <rect key="frame" x="10" y="10" width="300" height="44"/>
+                    <rect key="frame" x="15" y="20" width="300" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" returnKeyType="next"/>
@@ -31,7 +32,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" id="xj4-CM-k7c">
-                    <rect key="frame" x="10" y="56" width="300" height="44"/>
+                    <rect key="frame" x="15" y="60" width="300" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next"/>
@@ -40,7 +41,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CWID" minimumFontSize="17" id="r6p-ZG-jEr">
-                    <rect key="frame" x="10" y="102" width="300" height="44"/>
+                    <rect key="frame" x="15" y="100" width="300" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
@@ -49,7 +50,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="student email (@crimson.ua.edu)" minimumFontSize="17" id="679-5I-mib">
-                    <rect key="frame" x="10" y="148" width="300" height="44"/>
+                    <rect key="frame" x="15" y="140" width="300" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
@@ -63,14 +64,19 @@
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                 </view>
                 <view contentMode="scaleToFill" id="ejK-3p-1Nv">
-                    <rect key="frame" x="10" y="101" width="310" height="1"/>
+                    <rect key="frame" x="10" y="95" width="310" height="1"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                 </view>
                 <view contentMode="scaleToFill" id="mIX-DQ-ZRB">
-                    <rect key="frame" x="10" y="147" width="310" height="1"/>
+                    <rect key="frame" x="10" y="135" width="310" height="1"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </view>
+                <view contentMode="scaleToFill" id="lur-LG-SAd">
+                    <rect key="frame" x="10" y="175" width="310" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

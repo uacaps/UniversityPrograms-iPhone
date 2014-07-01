@@ -62,6 +62,7 @@
     if(self.child){
         [self.child viewWillAppear:NO];
     }
+    self.upComingEventsTable.separatorColor = [UIColor getThemeColor];
     self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
     //[self.upComingEventsTable reloadData];
     //[self.upComingEventsTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];

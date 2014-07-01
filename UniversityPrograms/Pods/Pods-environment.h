@@ -6,6 +6,12 @@
 // project.
 
 
+// AFViewShaker
+#define COCOAPODS_POD_AVAILABLE_AFViewShaker
+#define COCOAPODS_VERSION_MAJOR_AFViewShaker 0
+#define COCOAPODS_VERSION_MINOR_AFViewShaker 0
+#define COCOAPODS_VERSION_PATCH_AFViewShaker 2
+
 // Colours
 #define COCOAPODS_POD_AVAILABLE_Colours
 #define COCOAPODS_VERSION_MAJOR_Colours 5

@@ -1,4 +1,5 @@
 PODS:
+  - AFViewShaker (0.0.2)
   - Colours (5.4.0)
   - DateTools (1.3.0)
   - iOSWebserviceTemplate (1.0.0)
@@ -9,6 +10,7 @@ PODS:
   - SDWebImage/Core (3.6)
 
 DEPENDENCIES:
+  - AFViewShaker
   - Colours
   - DateTools
   - iOSWebserviceTemplate
@@ -17,6 +19,7 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC CHECKSUMS:
+  AFViewShaker: 40bd7a2725ea81a9472134f27f0086d398d1bf91
   Colours: 4ad8fe1c28d4a7ad36598067e4902044d697f345
   DateTools: aa3131160337433a152c0228a2a1be2ff4ed3e05
   iOSWebserviceTemplate: 24de66e8bebe915c81b116eacff4c9d333bc67b9

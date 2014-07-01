@@ -10,6 +10,7 @@
 #import "UPNavigationViewController.h"
 #import "UIColor+UPColors.h"
 #import "Colours.h"
+#import "AFViewShaker.h"
 @import QuartzCore;
 
 @interface UserInfoViewController ()
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIView *thirdDivider;
 @property (weak, nonatomic) IBOutlet UIView *fourthDivider;
 @property (weak, nonatomic) IBOutlet UILabel *notificationLabel;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
 @property UIBarStyle *currentSyle;
 
 
@@ -59,6 +61,7 @@
     UIColor *themeColor = [UIColor getThemeColor];
     UIColor *textColor = [UIColor getTextColor];
     UIColor *styleColor = [UIColor getStyleColor];
+    self.infoView.backgroundColor = styleColor;
     
     self.view.backgroundColor = styleColor;
     self.notificationLabel.backgroundColor = styleColor;
@@ -139,8 +142,12 @@
 
 - (void)saveInfo{
     
-    if([self.cwid.text length]<8 || [self.cwid.text length]>8||![self validateString:self.cwid.text withPattern:@"^[0-9]{8}$"] || ![self validateString:self.lastName.text withPattern:@"^[a-zA-Z]{1,}$"]|| ![self validateString:self.email.text withPattern:@"^[a-zA-Z][a-zA-Z0-9]{1,63}@[a-zA-Z0-9]{1,64}(?:\\.[a-zA-Z0-9]{2,64})*\\.[a-zA-Z]{3,5}$"]||![self validateString:self.firstName.text withPattern:@"^[a-zA-Z]{1,}$"]){
-        [self addInvalidAlertView];
+    if([self.cwid.text length]<8 || [self.cwid.text length]>8||![self validateString:self.cwid.text withPattern:@"^[0-9]{8}$"] || ![self validateString:self.lastName.text withPattern:@"^[a-zA-Z]{1,}$"]|| ![self validateString:self.email.text withPattern:@"^[a-zA-Z][a-zA-Z0-9]{1,63}@[a-zA-Z0-9]{1,64}(?:\\.[a-zA-Z0-9]{2,64})*\\.[a-zA-Z]{2,5}$"]||![self validateString:self.firstName.text withPattern:@"^[a-zA-Z]{1,}$"]){
+        
+        AFViewShaker *infoViewShaker = [[AFViewShaker alloc] initWithView:self.infoView];
+        [infoViewShaker shakeWithDuration:0.4 completion:^{
+            [self addInvalidAlertView];
+        }];
         
     }
     else{
@@ -151,8 +158,8 @@
         [[NSUserDefaults standardUserDefaults]synchronize];
         
         
-        
-        [self addAlertView];
+        [self.navigationController popViewControllerAnimated:YES];
+        //[self addAlertView];
     }
     
      
@@ -177,7 +184,7 @@
     clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(alertView.tag==1){
     
-        [self.navigationController popViewControllerAnimated:YES];
+        
     }
 }
 

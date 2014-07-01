@@ -53,6 +53,7 @@
         [self.child viewWillAppear:NO];
     }
     [self.contactUPTableView reloadData];
+    [self.contactUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 140) animated:NO];
 }
 
 - (void)didReceiveMemoryWarning{

@@ -23,9 +23,7 @@
 
 @interface MyUPViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myUPTableView;
-@property (strong, nonatomic) IBOutlet UITableViewCell *yourEvents;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectorControl;
-@property (strong, nonatomic) IBOutlet UITableViewCell *commentTitleCell;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cwidLabel;
@@ -34,9 +32,11 @@
 @property (weak, nonatomic) IBOutlet UIView *dividerView;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIView *secondDividerView;
+
 @property NSArray *priorCommentArray;
 @property NSArray *unsortedEventArray;
 @property NSMutableArray *sortedEventArray;
+
 @property UIRefreshControl *refreshControl;
 @property BOOL buttonControlFlag;
 @property BOOL controlFlag;
@@ -151,7 +151,8 @@
         self.emailLabel.text= [[NSUserDefaults standardUserDefaults] stringForKey:@"email"];
         
     }
-    self.myUPTableView.separatorColor = [UIColor getThemeColor];
+    
+    self.myUPTableView.separatorColor = themeColor;
     self.cwidLabel.textColor = textColor;
     self.emailLabel.textColor = textColor;
     self.firstNameLabel.textColor = themeColor;

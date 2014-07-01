@@ -40,6 +40,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self.aboutTableView reloadData];
     self.aboutTableView.backgroundColor = [UIColor getStyleColor];
+    [self.aboutTableView scrollRectToVisible:CGRectMake(0, 0, 320, 140) animated:NO];
     //self.aboutTableView.separatorColor = [UIColor getThemeColor];
     
 }

@@ -77,21 +77,18 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated{
-    [self loadData];
     [self build];
     [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
-    self.callControlFlag = NO;
-    [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
+    [self.myUPTableView reloadData];
 }
 -(void)updateViews{
-    if(self.callControlFlag){
+    
         [self loadData];
         [self build];
-        [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
+        
     
         [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
-    }
-    self.callControlFlag = YES;
+    
 }
 - (IBAction)didTapEdit:(id)sender {
     UserInfoViewController *userinfo = [[UserInfoViewController alloc] init];

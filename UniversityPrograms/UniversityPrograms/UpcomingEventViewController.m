@@ -63,15 +63,13 @@
     }
     self.upComingEventsTable.separatorColor = [UIColor getThemeColor];
     self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
+    [self.upComingEventsTable reloadData];
 }
 -(void)viewWillAppear:(BOOL)animated{
     //self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
-    [self loadEvents];
-    if(self.child){
-        [self.child updateViews];
-    }
-    self.upComingEventsTable.separatorColor = [UIColor getThemeColor];
-    self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
+    
+    [self updateViews];
+    
     //[self.upComingEventsTable reloadData];
     //[self.upComingEventsTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
@@ -93,7 +91,7 @@
         else{
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.networkErrorLabel.alpha = 1.0f;
-                [self.upComingEventsTable reloadData];
+                
                 [self.refreshControl endRefreshing];
             });
         }

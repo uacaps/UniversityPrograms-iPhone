@@ -66,6 +66,32 @@
     }
     
 }
+-(void)updateViews{
+    [self.bigView setBackgroundColor:[UIColor getStyleColor]];
+    [self.mainScrollView addSubview:self.bigView];
+    self.mainScrollView.contentSize=self.bigView.frame.size;
+    [self.mainScrollView setBackgroundColor:[UIColor getStyleColor]];
+    //self.commentBox.layer.cornerRadius=8;
+    //self.commentBox.layer.borderWidth=0.5f;
+    //self.commentBox.layer.borderColor = [[UIColor getTextColor] CGColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleDone target:self action:@selector(didTapSubmit)];
+    self.subjectBox.textColor = [UIColor getTextColor];
+    self.subjectBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Subject" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.commentBox.backgroundColor = [UIColor getStyleColor];
+    self.commentBox.textColor = [UIColor lightGrayColor];
+    self.dividerView.backgroundColor = [UIColor getThemeColor];
+    self.verticalDividerView.backgroundColor = [UIColor getThemeColor];
+    self.commentBox.text=@"Comment";
+    self.commentFlag = YES;
+    if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
+        self.subjectBox.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.commentBox.keyboardAppearance = UIKeyboardAppearanceDark;
+    }
+    else{
+        self.subjectBox.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.commentBox.keyboardAppearance = UIKeyboardAppearanceLight;
+    }
+}
 -(void)viewDidAppear:(BOOL)animated{
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"]==nil||[[NSUserDefaults standardUserDefaults] stringForKey:@"email"]==nil||[[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"]==nil||[[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"]==nil){
         [self addLoadErrorView];

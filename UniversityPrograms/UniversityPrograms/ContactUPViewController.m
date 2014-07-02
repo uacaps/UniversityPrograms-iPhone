@@ -44,7 +44,15 @@
     
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)updateViews{
+    self.contactUPTableView.backgroundColor=[UIColor getStyleColor];
+    self.contactUPTableView.separatorColor = [UIColor getThemeColor];
+    if(self.child){
+        [self.child updateViews];
+    }
+    [self.contactUPTableView reloadData];
+    [self.contactUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 140) animated:NO];
+}
 -(void) viewWillAppear:(BOOL)animated{
     
     self.contactUPTableView.backgroundColor=[UIColor getStyleColor];

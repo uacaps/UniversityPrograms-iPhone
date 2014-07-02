@@ -11,5 +11,5 @@
 @interface UPViewController : UIViewController
 
 @property UPViewController *child;
-
+-(void)updateViews;
 @end

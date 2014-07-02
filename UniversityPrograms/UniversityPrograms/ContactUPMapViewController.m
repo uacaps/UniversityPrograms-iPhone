@@ -29,6 +29,10 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    
+}
+-(void)updateViews{
     MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } };
     if(self.lat&&self.lng){
         region.center.latitude = self.lat;
@@ -47,7 +51,6 @@
     self.selectorView.backgroundColor = [UIColor getStyleColor];
     self.view.backgroundColor = [UIColor getStyleColor];
     [self.contactMapView setRegion:region animated:YES];
-    
 }
 - (void)viewDidLoad
 {

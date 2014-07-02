@@ -23,7 +23,9 @@
     }
     return self;
 }
-
+-(void)updateViews{
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

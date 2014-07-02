@@ -62,6 +62,24 @@
     self.tabBarController.tabBar.tintColor = themeColor;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : themeColor, NSFontAttributeName : [UIFont systemFontOfSize:20]};
 }
+-(void)updateViews{
+    UIColor *textColor=[UIColor getTextColor];
+    UIColor *styleColor=[UIColor getStyleColor];
+    UIColor *themeColor=[UIColor getThemeColor];
+    
+    self.view.backgroundColor = styleColor;
+    self.colorSchemeLabel.backgroundColor = styleColor;
+    self.darkModeLabel.backgroundColor = styleColor;
+    self.colorSchemeLabel.textColor = textColor;
+    self.darkModeLabel.textColor = textColor;
+    self.dividerView.backgroundColor = themeColor;
+    self.colorSelector.tintColor = themeColor;
+    self.darkModeToggle.onTintColor = themeColor;
+    self.colorSelector.backgroundColor = styleColor;
+    self.darkModeToggle.backgroundColor = styleColor;
+    self.tabBarController.tabBar.tintColor = themeColor;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : themeColor, NSFontAttributeName : [UIFont systemFontOfSize:20]};
+}
 - (IBAction)toggledDarkMode:(id)sender {
     if(self.darkModeToggle.on){
         //self.navigationController.navigationBar.barStyle=UIBarStyleBlackOpaque;

@@ -56,11 +56,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)updateViews{
+    [self loadEvents];
+    if(self.child){
+        [self.child updateViews];
+    }
+    self.upComingEventsTable.separatorColor = [UIColor getThemeColor];
+    self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
+}
 -(void)viewWillAppear:(BOOL)animated{
     //self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
     [self loadEvents];
     if(self.child){
-        [self.child viewWillAppear:NO];
+        [self.child updateViews];
     }
     self.upComingEventsTable.separatorColor = [UIColor getThemeColor];
     self.upComingEventsTable.backgroundColor = [UIColor getStyleColor];
@@ -111,7 +119,15 @@
     // Return the number of rows in the section.
     return self.upcomingArray.count;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.0001;
+}
 
+- (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [UIView new];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     tableView=self.upComingEventsTable;

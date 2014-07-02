@@ -84,8 +84,18 @@
     }
     [self setUI];
     self.view.backgroundColor = [UIColor getStyleColor];
-    
 }
+-(void)updateViews{
+    if(self.firstLoad){
+        self.firstLoad=!self.firstLoad;
+    }
+    else{
+        [self getEvent:self.specifiedEvent];
+    }
+    [self setUI];
+    self.view.backgroundColor = [UIColor getStyleColor];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

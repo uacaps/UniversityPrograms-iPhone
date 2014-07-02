@@ -42,19 +42,24 @@
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"colorSelection"];
 }
 +(void)setThemeColor:(UIColor *)color{
-    [[NSUserDefaults standardUserDefaults] setFloat:color.red forKey:@"red"];
-    [[NSUserDefaults standardUserDefaults] setFloat:color.green forKey:@"green"];
-    [[NSUserDefaults standardUserDefaults] setFloat:color.blue forKey:@"blue"];
-    [[NSUserDefaults standardUserDefaults] setFloat:color.alpha forKey:@"alpha"];
+    NSString *colorString = [CIColor colorWithCGColor:color.CGColor].stringRepresentation;
+    [[NSUserDefaults standardUserDefaults] setValue:colorString forKey:@"themeColor"];
+    //[[NSUserDefaults standardUserDefaults] setFloat:color.red forKey:@"red"];
+    //[[NSUserDefaults standardUserDefaults] setFloat:color.green forKey:@"green"];
+    //[[NSUserDefaults standardUserDefaults] setFloat:color.blue forKey:@"blue"];
+    //[[NSUserDefaults standardUserDefaults] setFloat:color.alpha forKey:@"alpha"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     
 }
 +(UIColor *)getThemeColor{
     
-    UIColor *themeColor= [[UIColor alloc] initWithRed:[[NSUserDefaults standardUserDefaults] floatForKey:@"red"] green:[[NSUserDefaults standardUserDefaults] floatForKey:@"green"] blue:[[NSUserDefaults standardUserDefaults] floatForKey:@"blue"] alpha:[[NSUserDefaults standardUserDefaults] floatForKey:@"alpha"]];
-    
-    return themeColor;
+    //UIColor *themeColor= [[UIColor alloc] initWithRed:[[NSUserDefaults standardUserDefaults] floatForKey:@"red"] green:[[NSUserDefaults standardUserDefaults] floatForKey:@"green"] blue:[[NSUserDefaults standardUserDefaults] floatForKey:@"blue"] alpha:[[NSUserDefaults standardUserDefaults] floatForKey:@"alpha"]];
+    CIColor *color = [CIColor colorWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"themeColor"]];
+    UIColor *themeColor = [[UIColor alloc]initWithCIColor:color];
+    UIColor *actualColor = [[UIColor alloc] initWithCGColor:themeColor.CGColor];
+    NSString *string = themeColor.description;
+    return (UIColor *)actualColor;
 }
 +(UIColor *)getStyleColor{
     UIColor *styleColor;

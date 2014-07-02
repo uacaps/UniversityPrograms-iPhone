@@ -41,7 +41,7 @@
 }
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UPNavigationViewController *)navController{
      UPViewController *test = navController.rootViewController;
-    [test viewWillAppear:NO];
+    [test updateViews];
     navController.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor getThemeColor], NSFontAttributeName : [UIFont systemFontOfSize:20]};
     if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
         navController.navigationBar.barStyle = UIBarStyleBlackOpaque;

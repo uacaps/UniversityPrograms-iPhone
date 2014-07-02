@@ -93,7 +93,42 @@
         self.firstName.keyboardAppearance = UIKeyboardAppearanceLight;
     }
 }
-
+-(void)updateViews{
+    UIColor *themeColor = [UIColor getThemeColor];
+    UIColor *textColor = [UIColor getTextColor];
+    UIColor *styleColor = [UIColor getStyleColor];
+    self.infoView.backgroundColor = styleColor;
+    
+    self.view.backgroundColor = styleColor;
+    self.notificationLabel.backgroundColor = styleColor;
+    self.notificationLabel.textColor = textColor;
+    self.firstName.textColor = textColor;
+    self.lastName.textColor = textColor;
+    self.email.textColor =textColor;
+    self.cwid.textColor = textColor;
+    //self.firstName.tintColor = [UIColor getThemeColor];
+    
+    self.firstName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"First Name" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.lastName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Last Name" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.cwid.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"CWID" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.email.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Email" attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.firstDivider.backgroundColor = themeColor;
+    self.secondDivider.backgroundColor = themeColor;
+    self.thirdDivider.backgroundColor = themeColor;
+    self.fourthDivider.backgroundColor = themeColor;
+    if([[NSUserDefaults standardUserDefaults]boolForKey:@"darkMode"]){
+        self.email.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.cwid.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.lastName.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.firstName.keyboardAppearance = UIKeyboardAppearanceDark;
+    }
+    else{
+        self.email.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.cwid.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.lastName.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.firstName.keyboardAppearance = UIKeyboardAppearanceLight;
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

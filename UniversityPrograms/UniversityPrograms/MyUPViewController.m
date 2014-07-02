@@ -38,7 +38,7 @@
 @property NSMutableArray *sortedEventArray;
 
 @property UIRefreshControl *refreshControl;
-@property BOOL buttonControlFlag;
+@property BOOL callControlFlag;
 @property BOOL controlFlag;
 @end
 
@@ -80,10 +80,19 @@
     [self loadData];
     [self build];
     [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
-    self.buttonControlFlag = NO;
+    self.callControlFlag = NO;
     [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
-
+-(void)updateViews{
+    if(self.callControlFlag){
+        [self loadData];
+        [self build];
+        [self.selectorControl setEnabled:YES forSegmentAtIndex:0];
+    
+        [self.myUPTableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
+    }
+    self.callControlFlag = YES;
+}
 - (IBAction)didTapEdit:(id)sender {
     UserInfoViewController *userinfo = [[UserInfoViewController alloc] init];
     [self.navigationController pushViewController:userinfo animated:YES];
@@ -209,6 +218,15 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.0001;
+}
+
+- (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [UIView new];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

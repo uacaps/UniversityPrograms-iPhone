@@ -34,11 +34,11 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bf2-Jf-CJO">
-                        <rect key="frame" x="82" y="20" width="30" height="44"/>
+                        <rect key="frame" x="86" y="30" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="vTD-Z4-w7n">
-                        <rect key="frame" x="82" y="72" width="30" height="44"/>
+                        <rect key="frame" x="86" y="82" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@UAwhatsUP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1g9-jS-4OL">
@@ -62,10 +62,12 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="facebookImage" destination="vTD-Z4-w7n" id="P5r-p4-Zdh"/>
                 <outlet property="followUPLabel" destination="u4b-Ut-bah" id="foi-b4-sL1"/>
                 <outlet property="mainFacebookLabel" destination="jiL-be-57c" id="cFG-bH-rDS"/>
                 <outlet property="mainTwitterButton" destination="EI7-zn-PaR" id="PqF-dR-T7w"/>
                 <outlet property="mainTwitterLabel" destination="1g9-jS-4OL" id="5Gt-pJ-DdF"/>
+                <outlet property="twitterImage" destination="Bf2-Jf-CJO" id="aKr-0v-cxA"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -29,8 +29,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-    
+    self.selector.tintColor = [UIColor getThemeColor];
+    self.selectorView.backgroundColor = [UIColor getStyleColor];
+    self.view.backgroundColor = [UIColor getStyleColor];
 }
 -(void)updateViews{
     MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } };

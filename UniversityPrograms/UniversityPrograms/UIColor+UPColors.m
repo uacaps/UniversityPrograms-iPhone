@@ -36,7 +36,12 @@
 +(UIColor *)UPCrimsonColor{
     return [UIColor colorWithRed:220.0/255.0f green:20.0/255.0f blue:60.0/255.0f alpha:1];
 }
-
++(UIColor *)facebookBlue{
+    return [UIColor colorWithRed:59.0/255.0f green:89.0/255.0f blue:152.0/255.0f alpha:1];
+}
++(UIColor *)twitterBlue{
+    return [UIColor colorWithRed:0.0/255.0f green:172.0/255.0f blue:237.0/255.0f alpha:1];
+}
 +(NSInteger)getThemeColorIndex{
     
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"colorSelection"];

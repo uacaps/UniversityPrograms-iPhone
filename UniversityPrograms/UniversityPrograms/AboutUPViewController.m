@@ -38,7 +38,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
+    self.aboutTableView.backgroundColor = [UIColor getStyleColor];
     
 }
 -(void)updateViews{

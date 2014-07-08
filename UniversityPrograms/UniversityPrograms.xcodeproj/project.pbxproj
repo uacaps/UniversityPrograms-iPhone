@@ -57,6 +57,8 @@
 		1B7880F2194105CE00333ED5 /* Pencil_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7880EE194105CE00333ED5 /* Pencil_filled@2x.png */; };
 		1B7880F3194105CE00333ED5 /* Pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7880EF194105CE00333ED5 /* Pencil.png */; };
 		1B7880F4194105CE00333ED5 /* Pencil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7880F0194105CE00333ED5 /* Pencil@2x.png */; };
+		1B8D3A0D196C39B7000A8741 /* UIImage+UPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8D3A0C196C39B7000A8741 /* UIImage+UPImage.m */; };
+		1B8D3A10196C3A04000A8741 /* UIColor+UPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8D3A0F196C3A04000A8741 /* UIColor+UPColors.m */; };
 		1B9D2B5C1949E9B000B09316 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D2B5A1949E9B000B09316 /* SettingsViewController.m */; };
 		1B9D2B5D1949E9B000B09316 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B9D2B5B1949E9B000B09316 /* SettingsViewController.xib */; };
 		1BA9FE5E193E1D28008F8981 /* AboutUPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA9FE5D193E1D28008F8981 /* AboutUPViewController.xib */; };
@@ -93,7 +95,6 @@
 		1BB198C2193F99F70017A1D6 /* Cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB198BE193F99F70017A1D6 /* Cog.png */; };
 		1BB198C3193F99F70017A1D6 /* Cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB198BF193F99F70017A1D6 /* Cog@2x.png */; };
 		1BB198C6193F9AB60017A1D6 /* UPNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB198C5193F9AB60017A1D6 /* UPNavigationViewController.m */; };
-		1BB198C9193FA4530017A1D6 /* UIColor+UPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB198C8193FA4530017A1D6 /* UIColor+UPColors.m */; };
 		1BB198CC193FA54A0017A1D6 /* UPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB198CB193FA54A0017A1D6 /* UPViewController.m */; };
 		1BB198D1193FA9F00017A1D6 /* Calendar_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB198CD193FA9F00017A1D6 /* Calendar_filled.png */; };
 		1BB198D2193FA9F00017A1D6 /* Calendar_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB198CE193FA9F00017A1D6 /* Calendar_filled@2x.png */; };
@@ -195,6 +196,10 @@
 		1B7880EE194105CE00333ED5 /* Pencil_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pencil_filled@2x.png"; sourceTree = "<group>"; };
 		1B7880EF194105CE00333ED5 /* Pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pencil.png; sourceTree = "<group>"; };
 		1B7880F0194105CE00333ED5 /* Pencil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pencil@2x.png"; sourceTree = "<group>"; };
+		1B8D3A0B196C39B7000A8741 /* UIImage+UPImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UPImage.h"; sourceTree = "<group>"; };
+		1B8D3A0C196C39B7000A8741 /* UIImage+UPImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UPImage.m"; sourceTree = "<group>"; };
+		1B8D3A0E196C3A04000A8741 /* UIColor+UPColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UPColors.h"; sourceTree = "<group>"; };
+		1B8D3A0F196C3A04000A8741 /* UIColor+UPColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UPColors.m"; sourceTree = "<group>"; };
 		1B9D2B591949E9B000B09316 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1B9D2B5A1949E9B000B09316 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		1B9D2B5B1949E9B000B09316 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -244,8 +249,6 @@
 		1BB198BF193F99F70017A1D6 /* Cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cog@2x.png"; sourceTree = "<group>"; };
 		1BB198C4193F9AB60017A1D6 /* UPNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPNavigationViewController.h; sourceTree = "<group>"; };
 		1BB198C5193F9AB60017A1D6 /* UPNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPNavigationViewController.m; sourceTree = "<group>"; };
-		1BB198C7193FA4530017A1D6 /* UIColor+UPColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UPColors.h"; sourceTree = "<group>"; };
-		1BB198C8193FA4530017A1D6 /* UIColor+UPColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UPColors.m"; sourceTree = "<group>"; };
 		1BB198CA193FA54A0017A1D6 /* UPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPViewController.h; sourceTree = "<group>"; };
 		1BB198CB193FA54A0017A1D6 /* UPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPViewController.m; sourceTree = "<group>"; };
 		1BB198CD193FA9F00017A1D6 /* Calendar_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar_filled.png; sourceTree = "<group>"; };
@@ -333,8 +336,10 @@
 			children = (
 				1BEC1BFD1939183C009DADEF /* NSObject+ObjectMap.h */,
 				1BEC1BFE1939183C009DADEF /* NSObject+ObjectMap.m */,
-				1BB198C7193FA4530017A1D6 /* UIColor+UPColors.h */,
-				1BB198C8193FA4530017A1D6 /* UIColor+UPColors.m */,
+				1B8D3A0E196C3A04000A8741 /* UIColor+UPColors.h */,
+				1B8D3A0F196C3A04000A8741 /* UIColor+UPColors.m */,
+				1B8D3A0B196C39B7000A8741 /* UIImage+UPImage.h */,
+				1B8D3A0C196C39B7000A8741 /* UIImage+UPImage.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -928,13 +933,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BAD1A4F193CD385006D24AD /* SpecificEventViewController.m in Sources */,
-				1BB198C9193FA4530017A1D6 /* UIColor+UPColors.m in Sources */,
 				1B7880E01940EC8B00333ED5 /* ContactUPViewController.m in Sources */,
 				1B1672C31947BF5F001449CD /* UPTabbarViewController.m in Sources */,
 				1BBE0DDA195B187F004BA930 /* IntroPanel.m in Sources */,
 				1B48B56819421640008F5186 /* DirectoryTableViewCell.m in Sources */,
 				1B0A691C1938D58C005C821D /* AboutUPViewController.m in Sources */,
 				1BA9FE68193E244B008F8981 /* PriorFeedbackTableViewCell.m in Sources */,
+				1B8D3A0D196C39B7000A8741 /* UIImage+UPImage.m in Sources */,
 				1BB198E3193FC4900017A1D6 /* LocationDTO.m in Sources */,
 				1BAD1A43193CCCBA006D24AD /* MyUPViewController.m in Sources */,
 				1BAD1A38193CC2B9006D24AD /* Event.m in Sources */,
@@ -957,6 +962,7 @@
 				1B0A69211938DA8B005C821D /* UpcomingEventsTableViewCell.m in Sources */,
 				1B0A69111938D520005C821D /* UpcomingEventViewController.m in Sources */,
 				1BEC1BFF1939183C009DADEF /* NSObject+ObjectMap.m in Sources */,
+				1B8D3A10196C3A04000A8741 /* UIColor+UPColors.m in Sources */,
 				1BB198CC193FA54A0017A1D6 /* UPViewController.m in Sources */,
 				1BB198E0193FB88E0017A1D6 /* RegistrantDTO.m in Sources */,
 			);

@@ -22,5 +22,7 @@
 +(NSInteger)getThemeColorIndex;
 +(UIColor *)getTextColor;
 +(UIColor *)getStyleColor;
++(UIColor *)twitterBlue;
++(UIColor *)facebookBlue;
 +(void)setThemeColor:(UIColor *)color;
 @end

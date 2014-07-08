@@ -8,6 +8,9 @@
 
 #import "FollowUPTableViewCell.h"
 #import "UIColor+UPColors.h"
+#import "UIImage+UPImage.h"
+@import QuartzCore;
+
 @implementation FollowUPTableViewCell
 -(instancetype)init{
     self=[super init];
@@ -26,6 +29,12 @@
     self.mainFacebookLabel.backgroundColor = [UIColor getStyleColor];
     self.mainFacebookLabel.textColor = [UIColor getTextColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.facebookImage.image = [[UIImage imageNamed:@"Facebook_filled"] imageWithColor:[UIColor facebookBlue]];
+    self.twitterImage.image = [[UIImage imageNamed:@"Twitter_filled"]imageWithColor:[UIColor twitterBlue]];
+    self.facebookImage.layer.cornerRadius = self.facebookImage.frame.size.height/2;
+    self.facebookImage.backgroundColor = [UIColor whiteColor];
+    self.twitterImage.layer.cornerRadius = self.twitterImage.frame.size.height/2;
+    self.twitterImage.backgroundColor = [UIColor whiteColor];
 }
 - (void)awakeFromNib
 {

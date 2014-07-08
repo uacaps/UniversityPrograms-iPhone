@@ -91,6 +91,9 @@
         self.subjectBox.keyboardAppearance = UIKeyboardAppearanceLight;
         self.commentBox.keyboardAppearance = UIKeyboardAppearanceLight;
     }
+    if(self.child){
+        [self.child updateViews];
+    }
 }
 -(void)viewDidAppear:(BOOL)animated{
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"cwid"]==nil||[[NSUserDefaults standardUserDefaults] stringForKey:@"email"]==nil||[[NSUserDefaults standardUserDefaults] stringForKey:@"userLastName"]==nil||[[NSUserDefaults standardUserDefaults] stringForKey:@"userFirstName"]==nil){
@@ -220,6 +223,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         }
         else{
             UserInfoViewController *tempInfoViewController = [[UserInfoViewController alloc] init];
+            self.child = tempInfoViewController;
             [self.navigationController pushViewController:tempInfoViewController animated:YES];
         }
     }

@@ -15,6 +15,7 @@
 #import "UPDataRetrieval.h"
 #import "NSObject+ObjectMap.h"
 #import <Social/Social.h>
+#import "UIImage+UPImage.h"
 
 @interface SpecificEventViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -93,6 +94,9 @@
         [self getEvent:self.specifiedEvent];
     }
     [self setUI];
+    if(self.child){
+        [self.child updateViews];
+    }
     self.view.backgroundColor = [UIColor getStyleColor];
 }
 
@@ -127,6 +131,7 @@
 clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(alertView.tag==1){
         UserInfoViewController *tempInfoController =[[UserInfoViewController alloc]init];
+        self.child = tempInfoController;
         [self.navigationController pushViewController:tempInfoController animated:YES];
     }
    
@@ -172,8 +177,19 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     self.addressLine3Label.backgroundColor = styleColor;
     self.dateLabel.backgroundColor = styleColor;
     self.mainScrollView.backgroundColor = styleColor;
-    [self.tweetButton setImage:[UIImage imageNamed:@"Twitter_filled"] forState:UIControlStateHighlighted];
-    [self.facebookButton setImage:[UIImage imageNamed:@"Facebook_filled"] forState:UIControlStateHighlighted];
+    
+    
+    [self.tweetButton setImage:[[UIImage imageNamed:@"Twitter_filled"] imageWithColor:[UIColor twitterBlue]] forState:UIControlStateNormal];
+    [self.facebookButton setImage:[[UIImage imageNamed:@"Facebook_filled"] imageWithColor:[UIColor facebookBlue]] forState:UIControlStateNormal];
+    
+    [self.tweetButton setImage:[[UIImage imageNamed:@"Twitter"] imageWithColor:[UIColor twitterBlue]] forState:UIControlStateHighlighted];
+    self.tweetButton.imageView.backgroundColor = [UIColor whiteColor];
+    self.tweetButton.imageView.layer.cornerRadius = self.tweetButton.imageView.frame.size.height/2;
+    self.facebookButton.imageView.backgroundColor = [UIColor whiteColor];
+    self.facebookButton.imageView.layer.cornerRadius = self.facebookButton.imageView.frame.size.height/2;
+    
+    [self.facebookButton setImage:[[UIImage imageNamed:@"Facebook"] imageWithColor:[UIColor facebookBlue]] forState:UIControlStateHighlighted];
+    
     if(!self.specifiedEvent.isRegistered){
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"RSVP" style:UIBarButtonItemStyleDone target:self action:@selector(didTapRSVP)];
     }

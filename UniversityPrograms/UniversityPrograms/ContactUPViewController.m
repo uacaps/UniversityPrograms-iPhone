@@ -13,6 +13,7 @@
 #import "AddressTableViewCell.h"
 #import "UIColor+UPColors.h"
 #import "FollowUPTableViewCell.h"
+#import "UIImage+UPImage.h"
 @interface ContactUPViewController ()
 
 @property NSArray *directoryArray;

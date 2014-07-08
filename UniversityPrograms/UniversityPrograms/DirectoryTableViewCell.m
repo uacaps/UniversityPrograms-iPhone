@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "Colours.h"
 #import "UIColor+UPColors.h"
+#import "UIImage+UPImage.h"
 @import QuartzCore;
 
 @interface DirectoryTableViewCell ()
@@ -59,6 +60,8 @@
     self.employeeName.backgroundColor = styleColor;
     self.backgroundColor = styleColor;
     self.emailButton.backgroundColor = styleColor;
+    self.telephoneImage.image = [self.telephoneImage.image imageWithColor:themeColor];
+    self.mailImage.image = [self.mailImage.image imageWithColor:themeColor];
     
     if([emp.phone isEqualToString:@"Graduate"]||[emp.phone isEqualToString:@"Senior"]||[emp.phone isEqualToString:@"Junior"]||[emp.phone isEqualToString:@"2nd Year Law"]||[emp.phone isEqualToString:@"Sophomore"]||[emp.phone isEqualToString:@"Freshman"]||[emp.phone isEqualToString:@"1st Year Law"]){
         self.phoneButton.alpha=0.0f;

@@ -40,6 +40,7 @@
     self.addressButton.layer.cornerRadius = 12;
     self.backgroundColor = styleColor;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    [self.addressButton setTitleColor:textColor forState:UIControlStateHighlighted];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
